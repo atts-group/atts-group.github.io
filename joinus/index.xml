@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tips on ATTS</title>
-    <link>https://codenow.me/tips/</link>
-    <description>Recent content in Tips on ATTS</description>
+    <title>加入我们 on ATTS</title>
+    <link>https://codenow.me/joinus/</link>
+    <description>Recent content in 加入我们 on ATTS</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 15 Mar 2019 07:28:29 +0000</lastBuildDate>
     
-	<atom:link href="https://codenow.me/tips/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://codenow.me/joinus/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
