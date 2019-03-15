@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/articles/</loc>
+    <lastmod>2019-03-15T07:28:29+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/algorithm/</loc>
     <lastmod>2019-03-15T07:28:29+00:00</lastmod>
   </url>
@@ -19,11 +24,6 @@
   
   <url>
     <loc>/tips/</loc>
-    <lastmod>2019-03-15T07:28:29+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/articles/</loc>
     <lastmod>2019-03-15T07:28:29+00:00</lastmod>
   </url>
   
