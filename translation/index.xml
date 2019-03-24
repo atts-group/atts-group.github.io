@@ -10,5 +10,19 @@
 	<atom:link href="https://codenow.me/translation/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Group by and Aggregation Elimination</title>
+      <link>https://codenow.me/translation/group-by-and-aggregation-elimination/</link>
+      <pubDate>Thu, 21 Mar 2019 11:31:17 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/group-by-and-aggregation-elimination/</guid>
+      <description>原文链接：Group-by and Aggregation Elimination 是一篇关于数据库查询优化的文章，有几句话实在不知道咋翻译好，也影响不大，直接留下原句了。翻译如下：
+I get a fair number of questions on query transformations, and it’s especially true at the moment because we’re in the middle of the Oracle Database 12c Release 2 beta program. 有时用户可能会发现在一个执行计划里有些环节消失了或者有些反常，然后会意识到查询发生了转换 (transformation) 。举个例子，有时你会惊讶的发现，查询语句里的表和它的索引可能压根就没有出现在查询计划当中，这是连接消除 (Join Elimination) 机制在起作用。
+我相信，你已经发现查询转换是查询优化中很重要的一环，因为它经常能够通过消除一些像连接（join）、排序（sort）的步骤来降低查询的代价。有时修改查询的形式可以让查询使用不同的访问路径（access path），不同类型的连接和甚至完全不同的查询方式。在每个发布版本附带的优化器白皮书中（比如 Oracle 12c One 的），我们都介绍了大多数的查询转换模式。
+在 Oracle 12.1.0.1 中，我们增加了一种新的转换模式，叫做 Group-by and Aggregation Elimination ，之前一直没有提到。它在 Oracle 优化器中是最简单的一种查询转换模式了，很多人应该都已经很了解了。你们可能在 Mike Dietrich’s upgrade blog 中看到过关于它的介绍。让我们来看一下这种转换模式到底做了什么。
+很多应用都有用过这么一种查询，这是一种单表分组查询的形式，数据是由另一个底层的分组查询形成的视图来提供的。比如下面这个例子：
+SELECT v.column1, v.column2, MAX(v.sm), SUM(v.sm) FROM (SELECT t1.</description>
+    </item>
+    
   </channel>
 </rss>

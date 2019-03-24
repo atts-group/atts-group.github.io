@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>算法 - ATTS</title>
+    <title>代码「阅读」覆盖率 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/">
+    <link rel="canonical" href="https://codenow.me/articles/code-reading-coverage/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/">
+    <meta property="og:url" content="https://codenow.me/articles/code-reading-coverage/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -67,16 +67,18 @@
     <script src="https://codenow.me/javascripts/modernizr.js"></script>
 
     
-    <link href="https://codenow.me/algorithm/index.xml" rel="alternate" type="application/rss+xml" title="ATTS" />
-    <link href="https://codenow.me/algorithm/index.xml" rel="feed" type="application/rss+xml" title="ATTS" />
-    
 
   </head>
   <body class="palette-primary-indigo ">
-    
+
+
+
+	
+	
+
 
 <div class="backdrop">
-    <div class="backdrop-paper"></div>
+	<div class="backdrop-paper"></div>
 </div>
 
 <input class="toggle" type="checkbox" id="toggle-drawer">
@@ -84,7 +86,7 @@
 <label class="toggle-button overlay" for="toggle-drawer"></label>
 
 <header class="header">
-    <nav aria-label="Header">
+	<nav aria-label="Header">
   <div class="bar default">
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
@@ -93,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        算法
+        代码「阅读」覆盖率
       </div>
     </div>
 
@@ -127,8 +129,8 @@
 </header>
 
 <main class="main">
-    <div class="drawer">
-        <nav aria-label="Navigation">
+	<div class="drawer">
+		<nav aria-label="Navigation">
   <a href="https://github.com/atts-group/atts" class="project">
     <div class="banner">
       
@@ -197,14 +199,11 @@
 
 
 
-<a class="current" title="算法" href="https://codenow.me/algorithm/">
+<a  title="算法" href="https://codenow.me/algorithm/">
 	
 	算法
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -309,41 +308,112 @@
   </div>
 </nav>
 
-    </div>
+	</div>
 
-    <article class="article">
-        <div class="wrapper">
-            <h1>目录 - 算法</h1>
+	<article class="article">
+		<div class="wrapper">
+			<h1>代码「阅读」覆盖率 </h1>
 
-            
-            <a href="https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/" title="Leetcode: 62. Unique Paths by jarvys">
-                <h2>Leetcode: 62. Unique Paths by jarvys </h2>
-            </a>
-            <br>
+			<p>最近本人在阅读一些开源项目的代码，说到如何阅读开源代码，特别是超出自己能力范围的开源项目，可以说的内容还是挺多的。今天分享一个比较「偏」的：代码「阅读」覆盖率。</p>
 
-              <ol>
-<li>Unique Paths 是一道基础动规题，递推公式：f(x,y) = f(x+1,y) + f(x, y+1)。我用递归 + memo 的方式完成的，代码如下：
-class Solution(object): def fn(self, i, j, rows, cols, memo): if j &gt;= cols or i &gt;= rows: return 0 if j == cols - 1 or i == rows - 1: return 1 if memo[i][j] is None: memo[i][j] = self.fn(i+1,j,rows,cols,memo)</li>
-</ol>
+<p>看一个代码库，刚开始可能是一头雾水，再咬咬牙坚持一下，一般能梳理出大致的脉络，比如服务的启动流程是怎样的，服务主要由那几个组件构成，它们之间是如何通信协作的。再往后则是一点一点了解代码是如何支持各种不同场景的，加深对代码的理解。代码「阅读」覆盖率在第三个阶段会有一定的帮助。</p>
 
-              <a href="https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/"><br>[阅读全文]</a>
+<p>所谓的代码「阅读」覆盖率，和代码测试覆盖率概念类似，后者统计的是运行测试时哪些代码被运行过，所占比例是多少，前者统计的则是哪些行代码已经理解了，哪些还不理解。通过阅读覆盖率的统计，我们能更好衡量对代码库的了解程度，增加我们深入阅读代码的乐趣。</p>
 
-            <hr> 
+<p>为了实现阅读覆盖率的统计，我开发了一个简陋的浏览器插件，主要有以下功能：</p>
 
-            <aside class="copyright" role="note">
-                 &copy; 2019 CC BY 4.0 License &ndash;  - By ATTS.
-            </aside>
-        </div>
-    </article>
+<p><strong>功能一：</strong>基于 github，支持在 github 代码页面中标记哪些代码已经理解，效果如下图所示：</p>
 
-    <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-            <div class="wrapper">
-                <div class="meta"></div>
-                <div class="list"></div>
+<p><img src="https://codenow.me/Code Reading Coverage/preview.png" alt="" /></p>
+
+<p>直接借助 github 代码页面来显示代码理解情况，直接扩展 github 自带的菜单，增加标记功能 （图中的 mark as read 和 mark as unread 菜单项），这样能够减少一些工作量。</p>
+
+<p><strong>功能二：</strong>统计代码阅读覆盖率</p>
+
+<p>效果如下所示：</p>
+
+<p><img src="https://codenow.me/Code Reading Coverage/code-coverage.png" alt="" /></p>
+
+<p><img src="https://codenow.me/Code Reading Coverage/files-coverage.png" alt="" /></p>
+
+<p>在文件列表和代码界面显示百分比。</p>
+
+<p>目前插件还很简陋，不过实现方式很简单，就不分享代码了，感兴趣的同学可以自己试着开发一个。</p>
+
+<p><strong>小结</strong>，阅读学习开源代码是一种比较硬核的游戏，增加阅读覆盖率的统计，是为了给这个硬核游戏添加一些可视化元素，就像塞尔达荒野之息里的地图，你能通过它看到自己探索了哪些神庙。这类手段可以延长游戏成就带来的快感，每次当我理解了一些代码后去把它们标记出来，还是很开心的，每次对代码渐渐失去兴趣时，看到统计的百分比还比较低，就又有了研究的动力。</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/translation/group-by-and-aggregation-elimination/" title="Group by and Aggregation Elimination">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Group by and Aggregation Elimination
             </div>
+          </div>
         </div>
-    </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/tips/tips-for-adding-debug-logs/" title="golang 项目添加 debug 日志的小技巧">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              golang 项目添加 debug 日志的小技巧
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
 </main>
 
     <script>

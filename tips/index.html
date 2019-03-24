@@ -316,6 +316,18 @@
             <h1>目录 - Tip</h1>
 
             
+            <a href="https://codenow.me/tips/tips-for-adding-debug-logs/" title="golang 项目添加 debug 日志的小技巧">
+                <h2>golang 项目添加 debug 日志的小技巧 </h2>
+            </a>
+            <br>
+
+              之所以整理这方面的小技巧，主要是 golang 的开源项目都是像 TiDB、etcd 这种偏低层的分布式服务。用 debugger 来跟踪代码是比较困难的，容易出错，而且还容易遇到坑，比如：有的 golang 版本无法正确输出调试信息，mac 上有些开源项目调试模式无法正常运行等等。用日志的话，更简单直接，不容易遇到坑。只不过，在查看变量、查看调用栈方面是真不太方便，下面几个小技巧能够弥补一些吧。
+查看调用栈
+可以使用 debug.Stack() 方法获取调用栈信息，比如像下面这样：
+log.Printf(&#34;stack of function xxx: %v&#34;, string(
+              <a href="https://codenow.me/tips/tips-for-adding-debug-logs/"><br>[阅读全文]</a>
+
+            <hr> 
 
             <aside class="copyright" role="note">
                  &copy; 2019 CC BY 4.0 License &ndash;  - By ATTS.

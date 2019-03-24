@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>算法 - ATTS</title>
+    <title>golang 项目添加 debug 日志的小技巧 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/">
+    <link rel="canonical" href="https://codenow.me/tips/tips-for-adding-debug-logs/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/">
+    <meta property="og:url" content="https://codenow.me/tips/tips-for-adding-debug-logs/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -67,16 +67,18 @@
     <script src="https://codenow.me/javascripts/modernizr.js"></script>
 
     
-    <link href="https://codenow.me/algorithm/index.xml" rel="alternate" type="application/rss+xml" title="ATTS" />
-    <link href="https://codenow.me/algorithm/index.xml" rel="feed" type="application/rss+xml" title="ATTS" />
-    
 
   </head>
   <body class="palette-primary-indigo ">
-    
+
+
+
+	
+	
+
 
 <div class="backdrop">
-    <div class="backdrop-paper"></div>
+	<div class="backdrop-paper"></div>
 </div>
 
 <input class="toggle" type="checkbox" id="toggle-drawer">
@@ -84,7 +86,7 @@
 <label class="toggle-button overlay" for="toggle-drawer"></label>
 
 <header class="header">
-    <nav aria-label="Header">
+	<nav aria-label="Header">
   <div class="bar default">
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
@@ -93,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        算法
+        golang 项目添加 debug 日志的小技巧
       </div>
     </div>
 
@@ -127,8 +129,8 @@
 </header>
 
 <main class="main">
-    <div class="drawer">
-        <nav aria-label="Navigation">
+	<div class="drawer">
+		<nav aria-label="Navigation">
   <a href="https://github.com/atts-group/atts" class="project">
     <div class="banner">
       
@@ -197,14 +199,11 @@
 
 
 
-<a class="current" title="算法" href="https://codenow.me/algorithm/">
+<a  title="算法" href="https://codenow.me/algorithm/">
 	
 	算法
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -309,41 +308,88 @@
   </div>
 </nav>
 
-    </div>
+	</div>
 
-    <article class="article">
-        <div class="wrapper">
-            <h1>目录 - 算法</h1>
+	<article class="article">
+		<div class="wrapper">
+			<h1>golang 项目添加 debug 日志的小技巧 </h1>
 
-            
-            <a href="https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/" title="Leetcode: 62. Unique Paths by jarvys">
-                <h2>Leetcode: 62. Unique Paths by jarvys </h2>
-            </a>
-            <br>
+			<p>之所以整理这方面的小技巧，主要是 golang 的开源项目都是像 TiDB、etcd 这种偏低层的分布式服务。用 debugger 来跟踪代码是比较困难的，容易出错，而且还容易遇到坑，比如：有的 golang 版本无法正确输出调试信息，mac 上有些开源项目调试模式无法正常运行等等。用日志的话，更简单直接，不容易遇到坑。只不过，在查看变量、查看调用栈方面是真不太方便，下面几个小技巧能够弥补一些吧。</p>
 
-              <ol>
-<li>Unique Paths 是一道基础动规题，递推公式：f(x,y) = f(x+1,y) + f(x, y+1)。我用递归 + memo 的方式完成的，代码如下：
-class Solution(object): def fn(self, i, j, rows, cols, memo): if j &gt;= cols or i &gt;= rows: return 0 if j == cols - 1 or i == rows - 1: return 1 if memo[i][j] is None: memo[i][j] = self.fn(i+1,j,rows,cols,memo)</li>
-</ol>
+<p><strong>查看调用栈</strong></p>
 
-              <a href="https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/"><br>[阅读全文]</a>
+<p>可以使用 debug.Stack() 方法获取调用栈信息，比如像下面这样：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;stack of function xxx: %v&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">string</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">debug</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Stack</span><span style="color:#000;font-weight:bold">()))</span></code></pre></div>
+<p>不过，在日志中打印调用栈的方法还是要慎用，输出内容有时候太长了，影响日志的连贯性。可以考虑将栈信息再做一下处理，只保留最上面几层的调用信息。</p>
 
-            <hr> 
+<p><strong>查看变量类型</strong></p>
 
-            <aside class="copyright" role="note">
-                 &copy; 2019 CC BY 4.0 License &ndash;  - By ATTS.
-            </aside>
-        </div>
-    </article>
+<p>可以使用 <code>%T</code> 来查看变量类型，很多时候可以像下面这样简单查看一下变量的类型和取值：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;DEBUG: node type: %T, value: %v&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<p><strong>使用 buffer 来收集要查看的变量信息</strong></p>
 
-    <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-            <div class="wrapper">
-                <div class="meta"></div>
-                <div class="list"></div>
+<p>有的时候，我们需要查看的不是一个变量，可能是多个变量或者一个复杂数据结构中的一部分字段，如果代码中没有给出满足需求的 String 方法的话，可以考虑用 buffer，自己一点点收集，就像下面这样：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000">buf</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">bytes</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">NewBufferString</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Fprintf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;a: %v, &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Fprintf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;b.child: %v, &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">b</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">fmt</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Fprintf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">buf</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;c.parent: %v, &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">c</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">parent</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;%v&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">buf</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">String</span><span style="color:#000;font-weight:bold">())</span></code></pre></div>
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/articles/code-reading-coverage/" title="代码「阅读」覆盖率">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              代码「阅读」覆盖率
             </div>
+          </div>
         </div>
-    </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
 </main>
 
     <script>

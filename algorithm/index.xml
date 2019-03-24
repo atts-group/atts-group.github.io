@@ -10,5 +10,15 @@
 	<atom:link href="https://codenow.me/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Leetcode: 62. Unique Paths by jarvys</title>
+      <link>https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/</link>
+      <pubDate>Thu, 21 Mar 2019 11:20:10 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/</guid>
+      <description>62. Unique Paths 是一道基础动规题，递推公式：f(x,y) = f(x+1,y) + f(x, y+1)。我用递归 + memo 的方式完成的，代码如下：
+class Solution(object): def fn(self, i, j, rows, cols, memo): if j &amp;gt;= cols or i &amp;gt;= rows: return 0 if j == cols - 1 or i == rows - 1: return 1 if memo[i][j] is None: memo[i][j] = self.fn(i+1,j,rows,cols,memo) + self.fn(i,j+1,rows,cols,memo) return memo[i][j] def uniquePaths(self, m, n): &amp;#34;&amp;#34;&amp;#34; :type m: int :type n: int :rtype: int &amp;#34;&amp;#34;&amp;#34; if m == 1 and n == 1: return 1 memo = [] for i in range(n): r = [] for j in range(m): r.</description>
+    </item>
+    
   </channel>
 </rss>
