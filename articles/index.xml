@@ -11,6 +11,20 @@
     
     
     <item>
+      <title>[Go]Exercise of a Tour of Go</title>
+      <link>https://codenow.me/articles/goexercise-of-a-tour-of-go/</link>
+      <pubDate>Sun, 24 Mar 2019 22:58:30 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/goexercise-of-a-tour-of-go/</guid>
+      <description>这周学了学 golang，做个记录
+学习网站：https://tour.golang.org
+对应的中文版：https://tour.go-zh.org
+这周主要学习内容是刷了一遍上面这个教程，虽然够官方，但讲解并不细致，很多需要自行 google
+顺便，第一次打开教程和在线运行代码都需要科学上网，但打开一次后所有内容就都被缓存下来了，火车上都可以翻页学习。也不方便的话可以用中文版，或者本地安装，教程上也都有说。
+知识点记录 go 项目结构  必须要有 package import 用的是字符串 首字母大写的是导出名(exported name)，可以被别的包使用，有点类似于 python 的 all 只有 package main 可以被直接运行 运行入口 func main() {}  基础部件  函数以 func 定义，每个参数后必须带类型，必须规定返回值类型，可返回多个值，返回值可预先命名，函数是第一类对象(first class object) 变量以 var 定义，定义时必须规定类型，可在定义时赋值，函数内的变量可以不用 var 而用 := 来定义+赋值 常量以 const 定义，不能使用 := 语法，仅支持基础类型 基础类型是 bool, string 和各种数字，byte = uint8, tune = int32 类似于 null, None 的，是 nil  语法  if 不需要小括号，但必须有大括号；if 中可以有一条定义变量的语句，此变量仅在 if 和 else 中可用 for 是唯一的循环结构，用法基本等同于 Java 里的 for + while，同样没有小括号，但有大括号，for {} 是无限循环 switch 的每个 case 后等同于自带 break，但可以用 fallthrough 直接跳过判断而执行下一条 case 内的语句；没有匹配到任何一个 case 时会运行 default 里的内容；没有条件的 switch 可以便于改写 if-elseif-else defer 可将其后的函数推迟到外层函数返回之后再执行，多个 defer 会被压入栈中，后进先出执行 select-case 语句可同时等待多个 chan，并在所有准备好的 case 中随机选一个执行 for-range 可以对 array, map, slice, string, chan 进行遍历 make 可用来为 slice, map, chan 类型分配内存及初始化对象，返回一个引用，对这三种类型使用make时，后续参数含义均不同  其他数据类型  pointer 类似 C，没有指针运算 struct 内的字段使用 .</description>
+    </item>
+    
+    <item>
       <title>代码「阅读」覆盖率</title>
       <link>https://codenow.me/articles/code-reading-coverage/</link>
       <pubDate>Fri, 22 Mar 2019 10:42:05 +0800</pubDate>

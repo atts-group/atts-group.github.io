@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>Leetcode: 11 Container with most water</title>
+      <link>https://codenow.me/algorithm/leetcode-11.-container-with-most-water/</link>
+      <pubDate>Sun, 24 Mar 2019 22:13:32 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode-11.-container-with-most-water/</guid>
+      <description>题号：11
+难度：medium
+链接：https://leetcode.com/problems/container-with-most-water
+ 如下是 python3 代码
+from typing import List class Solution(object): def maxArea01(self, height: List[int]) -&amp;gt; int: &amp;#34;&amp;#34;&amp;#34;先撸一个暴力的&amp;#34;&amp;#34;&amp;#34; max_area = 0 for i, a1 in enumerate(height): for j, a2 in enumerate(height[i + 1:]): max_area = max(max_area, min(a1, a2) * (j + 1)) return max_area def maxArea02(self, height: List[int]) -&amp;gt; int: &amp;#34;&amp;#34;&amp;#34;从左右往中间压缩。由于总面积是较短的一根决定的 考虑到，如果 height[left] &amp;lt; height[right] 那么即使 right -= 1，max_area 也不会超过当前面积， 反而 left += 1，面积还有可能更大，因此此时应 left += 1 另一个方向的判断同理 &amp;#34;&amp;#34;&amp;#34; max_area = 0 left = 0 right = len(height) - 1 while left &amp;lt; right: if height[left] &amp;lt; height[right]: max_area = max(max_area, height[left] * (right - left)) left += 1 else: max_area = max(max_area, height[right] * (right - left)) right -= 1 return max_area if __name__ == &amp;#39;__main__&amp;#39;: data = [1, 8, 6, 2, 5, 4, 8, 3, 7] print(Solution().</description>
+    </item>
+    
+    <item>
       <title>Leetcode: 62. Unique Paths by jarvys</title>
       <link>https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/</link>
       <pubDate>Thu, 21 Mar 2019 11:20:10 +0800</pubDate>
