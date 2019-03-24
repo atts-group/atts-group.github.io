@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>Leetcode: 146 LRU Cache</title>
+      <link>https://codenow.me/algorithm/leetcode_146_lru_cached/</link>
+      <pubDate>Sun, 24 Mar 2019 23:44:56 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_146_lru_cached/</guid>
+      <description>题号：146
+难度：hard
+链接：https://leetcode-cn.com/problems/lru-cache/
+ 使用双向链表+map，O(1) 时间复杂度内完成 get 和 put 操作
+class Node: &amp;#34;&amp;#34;&amp;#34; 双链表节点 &amp;#34;&amp;#34;&amp;#34; def __init__(self, key, val): self.val = val self.key = key self.next = None self.prev = None class LRUCache: def __init__(self, capacity: int): self.capacity = capacity self.head = None self.tail = None self.index = {} def get(self, key: int) -&amp;gt; int: node = self.index.get(key) if node == None: return -1 if node.prev == None: # 这是一个表头节点 return node.</description>
+    </item>
+    
+    <item>
       <title>Leetcode: 11 Container with most water</title>
       <link>https://codenow.me/algorithm/leetcode-11.-container-with-most-water/</link>
       <pubDate>Sun, 24 Mar 2019 22:13:32 +0800</pubDate>

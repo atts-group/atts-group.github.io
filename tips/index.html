@@ -316,6 +316,19 @@
             <h1>目录 - Tip</h1>
 
             
+            <a href="https://codenow.me/tips/go-pptof/" title="Go tool pptof">
+                <h2>Go tool pptof </h2>
+            </a>
+            <br>
+
+              使用 go tool pptof 可以 debug 程序
+需要在程序中先 import
+import _ &#34;net/http/pprof&#34; 然后启动一个 goroutine 用于远程访问
+go func() { log.Println(http.ListenAndServe(&#34;localhost:6060&#34;, nil)) }() 最后我们就可使用 http 抓取一些关键指标
+ go tool pprof <a href="http://localhost:6060/debug/pprof/heap">http://localhost:6060/debug/pprof/heap</a> go tool pprof <a href="http://localhost:6060/debug">http://localhost:6060/debug</a>
+              <a href="https://codenow.me/tips/go-pptof/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/tips/mysqlis-varchar-a-number/" title="[Mysql]Is Varchar a Number?">
                 <h2>[Mysql]Is Varchar a Number? </h2>
             </a>

@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>翻译 - ATTS</title>
+    <title>把项目从 Dep 迁移到 Go Modules - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/">
+    <link rel="canonical" href="https://codenow.me/translation/migrating-projects-from-dep-to-go-modules/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/">
+    <meta property="og:url" content="https://codenow.me/translation/migrating-projects-from-dep-to-go-modules/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -67,16 +67,18 @@
     <script src="https://codenow.me/javascripts/modernizr.js"></script>
 
     
-    <link href="https://codenow.me/translation/index.xml" rel="alternate" type="application/rss+xml" title="ATTS" />
-    <link href="https://codenow.me/translation/index.xml" rel="feed" type="application/rss+xml" title="ATTS" />
-    
 
   </head>
   <body class="palette-primary-indigo ">
-    
+
+
+
+	
+	
+
 
 <div class="backdrop">
-    <div class="backdrop-paper"></div>
+	<div class="backdrop-paper"></div>
 </div>
 
 <input class="toggle" type="checkbox" id="toggle-drawer">
@@ -84,7 +86,7 @@
 <label class="toggle-button overlay" for="toggle-drawer"></label>
 
 <header class="header">
-    <nav aria-label="Header">
+	<nav aria-label="Header">
   <div class="bar default">
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
@@ -93,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        翻译
+        把项目从 Dep 迁移到 Go Modules
       </div>
     </div>
 
@@ -127,8 +129,8 @@
 </header>
 
 <main class="main">
-    <div class="drawer">
-        <nav aria-label="Navigation">
+	<div class="drawer">
+		<nav aria-label="Navigation">
   <a href="https://github.com/atts-group/atts" class="project">
     <div class="banner">
       
@@ -215,14 +217,11 @@
 
 
 
-<a class="current" title="翻译" href="https://codenow.me/translation/">
+<a  title="翻译" href="https://codenow.me/translation/">
 	
 	翻译
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -309,52 +308,147 @@
   </div>
 </nav>
 
-    </div>
+	</div>
 
-    <article class="article">
-        <div class="wrapper">
-            <h1>目录 - 翻译</h1>
+	<article class="article">
+		<div class="wrapper">
+			<h1>把项目从 Dep 迁移到 Go Modules </h1>
 
-            
-            <a href="https://codenow.me/translation/migrating-projects-from-dep-to-go-modules/" title="把项目从 Dep 迁移到 Go Modules">
-                <h2>把项目从 Dep 迁移到 Go Modules </h2>
-            </a>
-            <br>
+			
 
-              原文地址
-Go Modules 是 Go 管理的未来方向。已经在 Go 1.11 中可以试用，将会是 Go 1.13 中的默认行为。
-我不会在这篇文章中描述包管理工具的工作流程。我会主要讨论的是如何把现有的项目中 dep 迁移的 Go Module。
-在我的实例中，我会使用一个私有的仓库地址 github.com/kuinta/luigi ，它是使用 Go 语言编写，在好几个项目中被使用，是一个绝佳的候选人。
-首先，我们需要初始化 Module：
-cd github.com/kounta/luigi go mod init github.com/kounta/luigi 完成后只会有两行输出：
-              <a href="https://codenow.me/translation/migrating-projects-from-dep-to-go-modules/"><br>[阅读全文]</a>
+<p><a href="http://elliot.land/post/migrating-projects-from-dep-to-go-modules">原文地址</a></p>
 
-            <hr> 
-            <a href="https://codenow.me/translation/group-by-and-aggregation-elimination/" title="Group by and Aggregation Elimination">
-                <h2>Group by and Aggregation Elimination </h2>
-            </a>
-            <br>
+<p>Go Modules 是 Go 管理的未来方向。已经在 Go 1.11 中可以试用，将会是 Go 1.13 中的默认行为。</p>
 
-              原文链接：Group-by and Aggregation Elimination 是一篇关于数据库查询优化的文章，有几句话实在不知道咋翻译好，也影响不大，直接留下原句了。翻译如下：
-I get a fair number of questions on query transformations, and it’s especially true at the moment because we’re in the middle of the Oracle Database 12c Release 2 beta program. 有时用户可能会发现在一个执行计划里有些环节消失了或者有些反常，
-              <a href="https://codenow.me/translation/group-by-and-aggregation-elimination/"><br>[阅读全文]</a>
+<p>我不会在这篇文章中描述包管理工具的工作流程。我会主要讨论的是如何把现有的项目中 dep 迁移的 Go Module。</p>
 
-            <hr> 
+<p>在我的实例中，我会使用一个私有的仓库地址 <code>github.com/kuinta/luigi</code> ，它是使用 Go 语言编写，在好几个项目中被使用，是一个绝佳的候选人。</p>
 
-            <aside class="copyright" role="note">
-                 &copy; 2019 CC BY 4.0 License &ndash;  - By ATTS.
-            </aside>
-        </div>
-    </article>
+<p>首先，我们需要初始化 Module：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#204a87">cd</span> github.com/kounta/luigi
+go mod init github.com/kounta/luigi</code></pre></div>
+<p>完成后只会有两行输出：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go: create now go.mod: module github.com/kounta/luigi
+go: copying requirments from Gopkg.lock</code></pre></div>
+<p>是的，这样就对了。这样就已经完成从 <code>dep</code> 迁移了。</p>
 
-    <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-            <div class="wrapper">
-                <div class="meta"></div>
-                <div class="list"></div>
+<p>现在你只要看一眼新生成的文件 <code>go.mod</code> 就像下面这样：</p>
+
+<pre><code>module github.com/kounta/luigi
+
+go 1.12
+
+require (
+   github.com/elliotchance/tf v1.5.0
+   github.com/gin-gonic/gin v1.3.0
+   github.com/go-redis/redis v6.15.0+incompatible
+)
+</code></pre>
+
+<p>其实在 <code>require</code> 中还有更多的内容，为了保持整洁我把他们删除了。</p>
+
+<p>就像 <code>dep</code> 区分 <code>toml</code> 和 <code>lock</code> 文件一样。我们需要生成 <code>go.sum</code> 文件，只要执行：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go build</code></pre></div>
+<p>现在你可以删除 <code>Gopkg.lock</code> 和 <code>Gopkg.toml</code> 文件，然后提交 <code>go.mod</code> 和 <code>go.sum</code> 文件。</p>
+
+<h2 id="travis-ci">Travis CI</h2>
+
+<p>如果你使用 Travis CI，你需要在 Go 1.13 之前通过设置环境变量来启用该功能。</p>
+
+<pre><code>GO111MODULE=on
+</code></pre>
+
+<h2 id="私有仓库">私有仓库</h2>
+
+<p>如果你要导入私有仓库，你可以会发现这个错误：</p>
+
+<pre><code>invalid module version &quot;v6.5.0&quot;: unknown revision v6.5.0
+</code></pre>
+
+<p>这是一个误导。它真正想说的，无法识别这个 URL (在这里是指的是 github.com)。无法找到这个仓库是因为 Github 没有权限确认仓库的存在。</p>
+
+<p>修复这个问题也很简单：</p>
+
+<ol>
+<li>登录 Github 账号，然后到 Setting -&gt;  Personal access tokens</li>
+<li>创建一个有访问私有仓库权限的 token</li>
+<li>然后执行</li>
+</ol>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#204a87">export</span> <span style="color:#000">GITHUB_TOKEN</span><span style="color:#ce5c00;font-weight:bold">=</span>xxx
+
+git config --global url.<span style="color:#4e9a06">&#34;https://</span><span style="color:#4e9a06">${</span><span style="color:#000">GITHUB_TOKEN</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">:x-oauth-basic@github.com/kounta&#34;</span>.insteadOf <span style="color:#4e9a06">&#34;https://github.com/kounta&#34;</span></code></pre></div>
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/algorithm/leetcode_146_lru_cached/" title="Leetcode: 146 LRU Cache">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Leetcode: 146 LRU Cache
             </div>
+          </div>
         </div>
-    </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/tips/go-pptof/" title="Go tool pptof">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Go tool pptof
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
 </main>
 
     <script>

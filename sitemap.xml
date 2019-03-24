@@ -38,6 +38,26 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/tips/go-pptof/</loc>
+    <lastmod>2019-03-24T23:50:03+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/translation/migrating-projects-from-dep-to-go-modules/</loc>
+    <lastmod>2019-03-24T23:48:57+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/algorithm/leetcode_146_lru_cached/</loc>
+    <lastmod>2019-03-24T23:44:56+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/articles/rmdbs-tree-datastruct/</loc>
+    <lastmod>2019-03-24T23:41:36+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/articles/goexercise-of-a-tour-of-go/</loc>
     <lastmod>2019-03-24T22:58:30+08:00</lastmod>
   </url>

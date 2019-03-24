@@ -316,6 +316,19 @@
             <h1>目录 - 文章</h1>
 
             
+            <a href="https://codenow.me/articles/rmdbs-tree-datastruct/" title="使用 RMDBS 存在树结构数据">
+                <h2>使用 RMDBS 存在树结构数据 </h2>
+            </a>
+            <br>
+
+              在关系型数据库中存储树形结构是比较麻烦的事情，因为数据库都是基于行存储的结构，要满足树形数据结构的添加、删除、查询、修改是一件比较棘手的事情。
+已经有一些解决方案可以解决：
+这篇文章介绍一下，使用「闭包表」来处理树形结构存储。
+选择「闭包表」主要是基于查询、插入、删除、移动都比较简单，更要的是都可以使用一条 SQL 就能处理完成。
+CREATE TABLE Comments ( comment_id SERIAL PRIMARY KEY, comment TEXT NOT NULL ); 树形结构典型就是评论和部门成员关系，以评论为例，我们同时又要支持完整增删改查的功能，大致结构如下： 为了满
+              <a href="https://codenow.me/articles/rmdbs-tree-datastruct/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/articles/goexercise-of-a-tour-of-go/" title="[Go]Exercise of a Tour of Go">
                 <h2>[Go]Exercise of a Tour of Go </h2>
             </a>
