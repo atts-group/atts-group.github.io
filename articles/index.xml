@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>How to Use Hugo</title>
+      <link>https://codenow.me/articles/how-to-use-hugo/</link>
+      <pubDate>Thu, 28 Mar 2019 23:51:40 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/how-to-use-hugo/</guid>
+      <description>一、介绍 1. 优点   Hugo是一个用Go语言编写的静态网站生成器，它使用起来非常简单，相对于Jekyll复杂的安装设置来说，Hugo仅需要一个二进制文件hugo(hugo.exe)即可轻松用于本地调试和生成静态页面。 Hugo生成静态页面的效率很高，几乎是瞬间完成的，而之前用Jekyll需要等待。 Hugo自带watch的调试模式，可以在我修改MarkDown文章之后切换到浏览器，页面会检测到更新并且自动刷新，呈现出最终效果，能极大的提高博客书写效率。 再加上Hugo是使用Go语言编写，已经没有任何理由不使用Hugo来代替Jekyll作为我的个人博客站点生成器了。   2. 静态网站文件的两种方式：   放到自己的服务器上提供服务：需要自己购买服务器 把网站托管到 GitHub Pages：需要将静态页面文件 push 到 GitHub 的博客项目的 gh-pages 分支并确保根目录下有 index.html 文件。   3. 官网   Hugo语言官方中文文档地址：http://www.gohugo.org/ Hugo官方主页：https://gohugo.io/   二、安装Hugo 1. 二进制安装（推荐：简单、快速） 到 Hugo Releases (https://github.com/gohugoio/hugo/releases)下载对应的操作系统版本的Hugo二进制文件（hugo或者hugo.exe）
+ 下载解压后添加到 Windows 的系统环境变量的 PATH 中即可，不需安装。 可以直接放在C:\Users\chunt\go\bin下，这样就不需要添加系统环境变量  Mac下直接使用 Homebrew 安装：
+ brew install hugo 二进制在 $GOPATH/bin/, 即C:\Users\chunt\go\bin  2. 源码安装(不好用，go get有些下载不下来) 源码编译安装，首先安装好依赖的工具：
+ Git Go 1.</description>
+    </item>
+    
+    <item>
       <title>使用 RMDBS 存在树结构数据</title>
       <link>https://codenow.me/articles/rmdbs-tree-datastruct/</link>
       <pubDate>Sun, 24 Mar 2019 23:41:36 +0800</pubDate>
@@ -29,10 +41,10 @@ insert into comments(comment_id, comment) values (1, &amp;#39;这个 Bug 的成�
     
     <item>
       <title>[Go]Exercise of a Tour of Go</title>
-      <link>https://codenow.me/articles/goexercise-of-a-tour-of-go/</link>
+      <link>https://codenow.me/articles/exercise_of_a_tour_of_go/</link>
       <pubDate>Sun, 24 Mar 2019 22:58:30 +0800</pubDate>
       
-      <guid>https://codenow.me/articles/goexercise-of-a-tour-of-go/</guid>
+      <guid>https://codenow.me/articles/exercise_of_a_tour_of_go/</guid>
       <description>这周学了学 golang，做个记录
 学习网站：https://tour.golang.org
 对应的中文版：https://tour.go-zh.org

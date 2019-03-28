@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/articles/how-to-use-hugo/</loc>
+    <lastmod>2019-03-28T23:51:40+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/tips/go-pptof/</loc>
     <lastmod>2019-03-24T23:50:03+08:00</lastmod>
   </url>
@@ -58,12 +63,12 @@
   </url>
   
   <url>
-    <loc>https://codenow.me/articles/goexercise-of-a-tour-of-go/</loc>
+    <loc>https://codenow.me/articles/exercise_of_a_tour_of_go/</loc>
     <lastmod>2019-03-24T22:58:30+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://codenow.me/tips/mysqlis-varchar-a-number/</loc>
+    <loc>https://codenow.me/tips/is_varchar_a_number/</loc>
     <lastmod>2019-03-24T22:38:28+08:00</lastmod>
   </url>
   
