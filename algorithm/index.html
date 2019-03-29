@@ -105,10 +105,7 @@
     </div>
     
     
-  <div class="button button-search" role="button" aria-label="Search">
-      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
-  </div>
-   
+        
   </div>
   <div class="bar search">
     <div class="button button-close" role="button" aria-label="Close">
@@ -316,6 +313,19 @@
             <h1>目录 - 算法</h1>
 
             
+            <a href="https://codenow.me/algorithm/leetcode_905_sort_array_by_parity/" title="Leetcode：905 Sort Array ByParity">
+                <h2>Leetcode：905 Sort Array ByParity </h2>
+            </a>
+            <br>
+
+              题号：905
+难度：Easy
+链接：<a href="https://leetcode.com/problems/sort-array-by-parity/">https://leetcode.com/problems/sort-array-by-parity/</a>
+ 如下是 python3 代码:
+#!/usr/bin/python class Solution: def sortArrayByParity(self, A: &#39;List[int]&#39;) -&gt; &#39;List[int]&#39;: lens = len(A) store_list = [None] * lens head = 0 tail = lens - 1 for i in range(lens): if A[i] % 2
+              <a href="https://codenow.me/algorithm/leetcode_905_sort_array_by_parity/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/algorithm/leetcode_146_lru_cached/" title="Leetcode: 146 LRU Cache">
                 <h2>Leetcode: 146 LRU Cache </h2>
             </a>
@@ -327,32 +337,6 @@
  使用双向链表+map，O(1) 时间复杂度内完成 get 和 put 操作
 class Node: &#34;&#34;&#34; 双链表节点 &#34;&#34;&#34; def <strong>init</strong>(self, key, val): self.val = val self.key = key self.next = None self.prev = None class LRUCache: def <strong>init</strong>(self, capacity: int): self
               <a href="https://codenow.me/algorithm/leetcode_146_lru_cached/"><br>[阅读全文]</a>
-
-            <hr> 
-            <a href="https://codenow.me/algorithm/leetcode-11.-container-with-most-water/" title="Leetcode: 11 Container with most water">
-                <h2>Leetcode: 11 Container with most water </h2>
-            </a>
-            <br>
-
-              题号：11
-难度：medium
-链接：<a href="https://leetcode.com/problems/container-with-most-water">https://leetcode.com/problems/container-with-most-water</a>
- 如下是 python3 代码
-from typing import List class Solution(object): def maxArea01(self, height: List[int]) -&gt; int: &#34;&#34;&#34;先撸一个暴力的&#34;&#34;&#34; max_area = 0 for i, a1 in enumerate(height): for j, a2 in enumerate(heigh
-              <a href="https://codenow.me/algorithm/leetcode-11.-container-with-most-water/"><br>[阅读全文]</a>
-
-            <hr> 
-            <a href="https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/" title="Leetcode: 62. Unique Paths by jarvys">
-                <h2>Leetcode: 62. Unique Paths by jarvys </h2>
-            </a>
-            <br>
-
-              <ol>
-<li>Unique Paths 是一道基础动规题，递推公式：f(x,y) = f(x+1,y) + f(x, y+1)。我用递归 + memo 的方式完成的，代码如下：
-class Solution(object): def fn(self, i, j, rows, cols, memo): if j &gt;= cols or i &gt;= rows: return 0 if j == cols - 1 or i == rows - 1: return 1 if memo[i][j] is None: memo[i][j] = self.fn(i+1,j,rows,cols,memo)</li>
-</ol>
-
-              <a href="https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/"><br>[阅读全文]</a>
 
             <hr> 
 

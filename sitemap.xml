@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/algorithm/leetcode_905_sort_array_by_parity/</loc>
+    <lastmod>2019-03-30T00:29:38+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/articles/how-to-use-hugo/</loc>
     <lastmod>2019-03-28T23:51:40+08:00</lastmod>
   </url>
@@ -73,11 +78,6 @@
   </url>
   
   <url>
-    <loc>https://codenow.me/algorithm/leetcode-11.-container-with-most-water/</loc>
-    <lastmod>2019-03-24T22:13:32+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://codenow.me/tips/tips-for-adding-debug-logs/</loc>
     <lastmod>2019-03-24T18:57:21+08:00</lastmod>
   </url>
@@ -90,11 +90,6 @@
   <url>
     <loc>https://codenow.me/translation/group-by-and-aggregation-elimination/</loc>
     <lastmod>2019-03-21T11:31:17+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://codenow.me/algorithm/leetcode-62.-unique-paths-by-jarvys/</loc>
-    <lastmod>2019-03-21T11:20:10+08:00</lastmod>
   </url>
   
   <url>
