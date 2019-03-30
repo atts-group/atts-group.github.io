@@ -11,6 +11,29 @@
     
     
     <item>
+      <title>Intro to Python Lambda Functions</title>
+      <link>https://codenow.me/translation/intro_to_python_lambda_functions/</link>
+      <pubDate>Sat, 30 Mar 2019 17:14:57 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/intro_to_python_lambda_functions/</guid>
+      <description>原文地址: https://www.pythonforthelab.com/blog/intro-to-python-lambda-functions/
+不久前，Python在其语法中引入了使用lambda而不是def来定义函数的可能性。这些函数称为匿名函数同，在其它语言(如javascript)中非常常见。然后，在Python中，它们看起来有点晦涩，经常被忽略或误用。在本文中，我们将介绍labda函数，并讨论在何处以及如何使用它。
+要定义一个函数，可以使用以下语法：
+def average(x, y): return (x + y) / 2 然后，如果要计算两个数字的平均值，只需执行以下操作
+avg = average(2, 5) 在这种情况下，平均值将为3.5。我们也可以这样定义平均值：
+average = lambda x, y: (x + y) / 2 如果你测试此函数，您将看到输出完全一样。必须指出，def和lambda之间语法非常不同。首先，我们定义不带括号的参数x, y。然后，我们定义要应用的操作。注意，当使用lambda函数时，返回是隐式的。
+然而，还有更根本的区别。lambda函数只能在一行上表示，并且没有docstring。如果对上面的每个定义尝试help(average)，您将看到输出非常不同，此外，无法记录average的第二版的实际操作。
+从功能上讲，定义平均值的两种方法都给出了相同的结果。到目前为止，他们之间的差异非常微妙。lambda（或匿名）函数的主要优点是它们不需要名称。此外，像我们上面所做的那样指定一个名字被认为是不好的做法，我们稍后将讨论。现在让我们看看您希望在什么上下文中使用lambda函数而不是普通函数。
+大多数教程都侧重于lambda函数来对列表进行排序。在讨论其他主题之前，我们也可以这样做。假设您有以下列表：
+var=[1，5，-2，3，-7，4] 假设您希望对值进行排序，可以执行以下操作：
+sorted_var = sorted(var) #[-7，-2，1，3，4，5] 这很容易。但是，如果您希望根据到给定数字的距离对值进行排序，会发生什么情况呢？如果要计算到1的距离，需要对每个数字应用一个函数，例如abs（x-1），并根据输出对值进行排序。幸运的是，排序后，您可以使用关键字参数key=执行此操作。我们可以做到：
+def distance(x): return abs(x - 1) sorted_var = sorted(var, key=distance) # [1, 3, -2, 4, 5, -7] 另一种选择是使用lambda函数：
+sorted_var = sorted(var, key=lambda x: abs(x-1)) 这两个例子将产生完全相同的输出。在使用def或lambda定义函数之间没有功能差异。我可以说第二个例子比第一个稍微短一些。此外，它使代码更具可读性，因为您可以立即看到对每个元素（abs（x-1））所做的操作，而不是通过代码挖掘来查看定义的距离。
+另一种可能是与map结合使用。map是将函数应用于列表中的每个元素的一种方法。例如，基于上面的示例，我们可以执行以下操作：
+list(map(distance, var)) # [0, 4, 3, 2, 8, 3] 或者，使用lambda表达式</description>
+    </item>
+    
+    <item>
       <title>Scikit-Learn</title>
       <link>https://codenow.me/translation/scikit-learn/</link>
       <pubDate>Sat, 30 Mar 2019 10:44:57 +0800</pubDate>
