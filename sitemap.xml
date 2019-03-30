@@ -98,6 +98,11 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/algorithm/leetcode_11_container_with_most_water/</loc>
+    <lastmod>2019-03-24T22:13:32+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/tips/tips-for-adding-debug-logs/</loc>
     <lastmod>2019-03-24T18:57:21+08:00</lastmod>
   </url>
@@ -110,6 +115,11 @@
   <url>
     <loc>https://codenow.me/translation/group-by-and-aggregation-elimination/</loc>
     <lastmod>2019-03-21T11:31:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/algorithm/leetcode_62._unique_paths_by_jarvys/</loc>
+    <lastmod>2019-03-21T11:20:10+08:00</lastmod>
   </url>
   
   <url>

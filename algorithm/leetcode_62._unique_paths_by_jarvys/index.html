@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>加入我们 - ATTS</title>
+    <title>Leetcode: 62. Unique Paths by jarvys - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/joinus/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_62._unique_paths_by_jarvys/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/joinus/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_62._unique_paths_by_jarvys/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        加入我们
+        Leetcode: 62. Unique Paths by jarvys
       </div>
     </div>
 
@@ -271,14 +271,11 @@
 
 
 
-<a class="current" title="加入我们" href="https://codenow.me/joinus/">
+<a  title="加入我们" href="https://codenow.me/joinus/">
 	
 	加入我们
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -315,59 +312,38 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>加入我们 </h1>
+			<h1>Leetcode: 62. Unique Paths by jarvys </h1>
 
-			
-
-<h2 id="如何加入">如何加入</h2>
-
-<p>email 联系: h1x2y3awalm@gmail.com</p>
-
-<p>发送你的 github 邮箱，到邮件正文，邀请到 github 组织中。</p>
-
-<h2 id="成员列表">成员列表</h2>
-
-<table>
-<thead>
-<tr>
-<th>Github Username</th>
-<th>Email</th>
-<th>完成次数</th>
-<th>加入时间</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>zhegnxiaowai</td>
-<td>h1x2y3awalm@gmail.com</td>
-<td>0</td>
-<td>2019年3月18日</td>
-</tr>
-
-<tr>
-<td>jarvys</td>
-<td>leguroky@gmail.com</td>
-<td>0</td>
-<td>2019年3月18日</td>
-</tr>
-
-<tr>
-<td>tubby</td>
-<td>tubby.xue@gmail.com</td>
-<td>0</td>
-<td>2019年3月18日</td>
-</tr>
-
-<tr>
-<td>WokoLiu</td>
-<td>banbooliu@gmail.com</td>
-<td>0</td>
-<td>2019年3月18日</td>
-</tr>
-</tbody>
-</table>
-
+			<p><a href="https://leetcode.com/problems/unique-paths/">62. Unique Paths</a> 是一道基础动规题，递推公式：f(x,y) = f(x+1,y) + f(x, y+1)。我用递归 + memo 的方式完成的，代码如下：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">fn</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">j</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">rows</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">cols</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">memo</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">j</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">cols</span> <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#000">rows</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span>
+        
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">j</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">cols</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">rows</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">1</span>
+        
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">memo</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">is</span>  <span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">memo</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fn</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">rows</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">cols</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">memo</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fn</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">j</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">rows</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">cols</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">memo</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">memo</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]</span>
+        
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">uniquePaths</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#4e9a06">&#34;&#34;&#34;
+</span><span style="color:#4e9a06">        :type m: int
+</span><span style="color:#4e9a06">        :type n: int
+</span><span style="color:#4e9a06">        :rtype: int
+</span><span style="color:#4e9a06">        &#34;&#34;&#34;</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">m</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">n</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">1</span>
+        <span style="color:#000">memo</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">n</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#000">r</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+            <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">j</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">m</span><span style="color:#000;font-weight:bold">):</span>
+                <span style="color:#000">r</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000">memo</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">r</span><span style="color:#000;font-weight:bold">)</span>
+            
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fn</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">memo</span><span style="color:#000;font-weight:bold">)</span>
+    </code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -385,7 +361,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/rules/" title="玩法">
+      <a href="https://codenow.me/joinus/" title="加入我们">
         <span class="direction">
           Previous
         </span>
@@ -395,7 +371,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              玩法
+              加入我们
             </div>
           </div>
         </div>
@@ -405,14 +381,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/algorithm/leetcode_62._unique_paths_by_jarvys/" title="Leetcode: 62. Unique Paths by jarvys">
+      <a href="https://codenow.me/translation/group-by-and-aggregation-elimination/" title="Group by and Aggregation Elimination">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Leetcode: 62. Unique Paths by jarvys
+              Group by and Aggregation Elimination
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

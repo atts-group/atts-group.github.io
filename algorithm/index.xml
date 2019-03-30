@@ -56,5 +56,27 @@ from math import log def calcShannonEnt(dataSet): numEntries = len(dataSet) # �
 class Node: &amp;#34;&amp;#34;&amp;#34; 双链表节点 &amp;#34;&amp;#34;&amp;#34; def __init__(self, key, val): self.val = val self.key = key self.next = None self.prev = None class LRUCache: def __init__(self, capacity: int): self.capacity = capacity self.head = None self.tail = None self.index = {} def get(self, key: int) -&amp;gt; int: node = self.index.get(key) if node == None: return -1 if node.prev == None: # 这是一个表头节点 return node.</description>
     </item>
     
+    <item>
+      <title>Leetcode: 11 Container with most water</title>
+      <link>https://codenow.me/algorithm/leetcode_11_container_with_most_water/</link>
+      <pubDate>Sun, 24 Mar 2019 22:13:32 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_11_container_with_most_water/</guid>
+      <description>题号：11
+难度：medium
+链接：https://leetcode.com/problems/container-with-most-water 如下是 python3 代码
+ from typing import List class Solution(object): def maxArea01(self, height: List[int]) -&amp;gt; int: &amp;#34;&amp;#34;&amp;#34;先撸一个暴力的&amp;#34;&amp;#34;&amp;#34; max_area = 0 for i, a1 in enumerate(height): for j, a2 in enumerate(height[i + 1:]): max_area = max(max_area, min(a1, a2) * (j + 1)) return max_area def maxArea02(self, height: List[int]) -&amp;gt; int: &amp;#34;&amp;#34;&amp;#34;从左右往中间压缩。由于总面积是较短的一根决定的 考虑到，如果 height[left] &amp;lt; height[right] 那么即使 right -= 1，max_area 也不会超过当前面积， 反而 left += 1，面积还有可能更大，因此此时应 left += 1 另一个方向的判断同理 &amp;#34;&amp;#34;&amp;#34; max_area = 0 left = 0 right = len(height) - 1 while left &amp;lt; right: if height[left] &amp;lt; height[right]: max_area = max(max_area, height[left] * (right - left)) left += 1 else: max_area = max(max_area, height[right] * (right - left)) right -= 1 return max_area if __name__ == &amp;#39;__main__&amp;#39;: data = [1, 8, 6, 2, 5, 4, 8, 3, 7] print(Solution().</description>
+    </item>
+    
+    <item>
+      <title>Leetcode: 62. Unique Paths by jarvys</title>
+      <link>https://codenow.me/algorithm/leetcode_62._unique_paths_by_jarvys/</link>
+      <pubDate>Thu, 21 Mar 2019 11:20:10 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_62._unique_paths_by_jarvys/</guid>
+      <description>62. Unique Paths 是一道基础动规题，递推公式：f(x,y) = f(x+1,y) + f(x, y+1)。我用递归 + memo 的方式完成的，代码如下：
+class Solution(object): def fn(self, i, j, rows, cols, memo): if j &amp;gt;= cols or i &amp;gt;= rows: return 0 if j == cols - 1 or i == rows - 1: return 1 if memo[i][j] is None: memo[i][j] = self.fn(i+1,j,rows,cols,memo) + self.fn(i,j+1,rows,cols,memo) return memo[i][j] def uniquePaths(self, m, n): &amp;#34;&amp;#34;&amp;#34; :type m: int :type n: int :rtype: int &amp;#34;&amp;#34;&amp;#34; if m == 1 and n == 1: return 1 memo = [] for i in range(n): r = [] for j in range(m): r.</description>
+    </item>
+    
   </channel>
 </rss>
