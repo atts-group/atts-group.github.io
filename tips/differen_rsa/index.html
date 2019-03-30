@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>代码「阅读」覆盖率 - ATTS</title>
+    <title>Different rsa for different github account in the same computer - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/articles/code-reading-coverage/">
+    <link rel="canonical" href="https://codenow.me/tips/differen_rsa/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/articles/code-reading-coverage/">
+    <meta property="og:url" content="https://codenow.me/tips/differen_rsa/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        代码「阅读」覆盖率
+        Different rsa for different github account in the same computer
       </div>
     </div>
 
@@ -312,35 +312,37 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>代码「阅读」覆盖率 </h1>
+			<h1>Different rsa for different github account in the same computer </h1>
 
-			<p>最近本人在阅读一些开源项目的代码，说到如何阅读开源代码，特别是超出自己能力范围的开源项目，可以说的内容还是挺多的。今天分享一个比较「偏」的：代码「阅读」覆盖率。</p>
+			<p>在同一个电脑上为不同的GitHub账号创建rsa并实现关联。
+操作命令行。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Batch" data-lang="Batch">#为第一个账号创建rsa文件
+ssh-keygen -t rsa -C <span style="color:#4e9a06">&#34;your email&#34;</span> -f ~/.ssh/id_rsa_for_account1
 
-<p>看一个代码库，刚开始可能是一头雾水，再咬咬牙坚持一下，一般能梳理出大致的脉络，比如服务的启动流程是怎样的，服务主要由那几个组件构成，它们之间是如何通信协作的。再往后则是一点一点了解代码是如何支持各种不同场景的，加深对代码的理解。代码「阅读」覆盖率在第三个阶段会有一定的帮助。</p>
+#为第二个账号创建rsa文件 
+ssh-keygen -t rsa -C <span style="color:#4e9a06">&#34;your email&#34;</span> -f ~/.ssh/id_rsa_for_account2</code></pre></div>
+<p>在.ssh文件夹下创建config文件
+输入如下内容：</p>
 
-<p>所谓的代码「阅读」覆盖率，和代码测试覆盖率概念类似，后者统计的是运行测试时哪些代码被运行过，所占比例是多少，前者统计的则是哪些行代码已经理解了，哪些还不理解。通过阅读覆盖率的统计，我们能更好衡量对代码库的了解程度，增加我们深入阅读代码的乐趣。</p>
+<pre><code>#Default GitHub
+Host account1
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_for_account1
 
-<p>为了实现阅读覆盖率的统计，我开发了一个简陋的浏览器插件，主要有以下功能：</p>
+Host account2
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_for_account2
+</code></pre>
 
-<p><strong>功能一：</strong>基于 github，支持在 github 代码页面中标记哪些代码已经理解，效果如下图所示：</p>
+<p>然后分别在account1和account2GitHub中添加公钥。
+验证</p>
 
-<p><img src="https://codenow.me/Code Reading Coverage/preview.png" alt="" /></p>
+<pre><code>ssh -T account1
 
-<p>直接借助 github 代码页面来显示代码理解情况，直接扩展 github 自带的菜单，增加标记功能 （图中的 mark as read 和 mark as unread 菜单项），这样能够减少一些工作量。</p>
-
-<p><strong>功能二：</strong>统计代码阅读覆盖率</p>
-
-<p>效果如下所示：</p>
-
-<p><img src="https://codenow.me/Code Reading Coverage/code-coverage.png" alt="" /></p>
-
-<p><img src="https://codenow.me/Code Reading Coverage/files-coverage.png" alt="" /></p>
-
-<p>在文件列表和代码界面显示百分比。</p>
-
-<p>目前插件还很简陋，不过实现方式很简单，就不分享代码了，感兴趣的同学可以自己试着开发一个。</p>
-
-<p><strong>小结</strong>，阅读学习开源代码是一种比较硬核的游戏，增加阅读覆盖率的统计，是为了给这个硬核游戏添加一些可视化元素，就像塞尔达荒野之息里的地图，你能通过它看到自己探索了哪些神庙。这类手段可以延长游戏成就带来的快感，每次当我理解了一些代码后去把它们标记出来，还是很开心的，每次对代码渐渐失去兴趣时，看到统计的百分比还比较低，就又有了研究的动力。</p>
+ssh -T account2
+</code></pre>
 
 
 			<aside class="copyright" role="note">
@@ -359,7 +361,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/translation/group-by-and-aggregation-elimination/" title="Group by and Aggregation Elimination">
+      <a href="https://codenow.me/algorithm/leetcode_905_sort_array_by_parity/" title="Leetcode：905 Sort Array ByParity">
         <span class="direction">
           Previous
         </span>
@@ -369,7 +371,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Group by and Aggregation Elimination
+              Leetcode：905 Sort Array ByParity
             </div>
           </div>
         </div>
@@ -379,14 +381,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/tips/tips-for-adding-debug-logs/" title="golang 项目添加 debug 日志的小技巧">
+      <a href="https://codenow.me/algorithm/decision_tree/" title="DecisionTree">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              golang 项目添加 debug 日志的小技巧
+              DecisionTree
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

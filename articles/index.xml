@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>Spark累加器和广播变量</title>
+      <link>https://codenow.me/articles/spark-broadcast_accumulator/</link>
+      <pubDate>Sat, 30 Mar 2019 11:21:36 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/spark-broadcast_accumulator/</guid>
+      <description>累加器 累加器提供将工作节点的值聚合到驱动器程序中的功能，且实现语法简单。
+示例图：
+#python中累加空行 file = sc.textFile(inputfile) blankLines = sc.accumulator(0) # 创建Accumulator(Int) def extractCallSigns(line): global blankLines if line == &amp;#34;&amp;#34;: blankLines += 1 return line.split(&amp;#39; &amp;#39;) callSigns = file.flatMap(extractCallSigns) callSigns.saveAsTextFile(outputPath) print(&amp;#39;blank Lines : %d&amp;#39; %blankLines.value) 实际使用中可以创建多个累加器进行计数
+validSignCount = sc.Accumulator(0) invalidSignCount = sc.Accumulator(0) 广播变量 简介 正常情况中，spark的task会在执行任务时，将变量进行拷贝。当每个task都从主节点拷贝时，程序的通信和内存负担很重。 使用广播变量后，主节点会将变量拷贝至工作节点，任务从工作节点获得变量，而不用再次拷贝，此时变量被拷贝的次数取决于工作节点的个数。
+#在Python中使用广播变量 signPrefixes = sc.broadcast(loadCallSignTable()) def processSignCount(sign_count, signPrefixes): country = lookupCountry(sign_count[0], signPrefixes.value) count = sign_count[1] return (country, count) countryContactCounts = (contactCounts.map(processSignCount).reduceByKey((lambda x, y:x+y))) countryContactCounts.saveAsTextFile(ooutputPath) 基于分区进行操作 基于分区对数据进行操作可以让我们避免为每个数据元素进行重复的配置工作。 Spark提供基于分区的map和foreach。</description>
+    </item>
+    
+    <item>
       <title>How to Use Hugo</title>
       <link>https://codenow.me/articles/how-to-use-hugo/</link>
       <pubDate>Thu, 28 Mar 2019 23:51:40 +0800</pubDate>
