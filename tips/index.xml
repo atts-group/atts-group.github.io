@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>Idea 前进后退快捷键</title>
+      <link>https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Sun, 31 Mar 2019 13:25:00 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>前进：Command + ]
+后退：Command + [
+在追踪比较复杂的代码时，比较有用，可以快速前进后退，不至于迷失在代码中。</description>
+    </item>
+    
+    <item>
       <title>Python_code_static_analysis_tool_summary</title>
       <link>https://codenow.me/tips/python_code_static_analysis_tool_summary/</link>
       <pubDate>Sat, 30 Mar 2019 13:03:10 +0800</pubDate>

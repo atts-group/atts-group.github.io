@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Tips - ATTS</title>
+    <title>TiDB Proposal: Support Skyline Pruning - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tips/">
+    <link rel="canonical" href="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tips/">
+    <meta property="og:url" content="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -67,16 +67,18 @@
     <script src="https://codenow.me/javascripts/modernizr.js"></script>
 
     
-    <link href="https://codenow.me/tips/index.xml" rel="alternate" type="application/rss+xml" title="ATTS" />
-    <link href="https://codenow.me/tips/index.xml" rel="feed" type="application/rss+xml" title="ATTS" />
-    
 
   </head>
   <body class="palette-primary-indigo ">
-    
+
+
+
+	
+	
+
 
 <div class="backdrop">
-    <div class="backdrop-paper"></div>
+	<div class="backdrop-paper"></div>
 </div>
 
 <input class="toggle" type="checkbox" id="toggle-drawer">
@@ -84,7 +86,7 @@
 <label class="toggle-button overlay" for="toggle-drawer"></label>
 
 <header class="header">
-    <nav aria-label="Header">
+	<nav aria-label="Header">
   <div class="bar default">
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
@@ -93,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Tips
+        TiDB Proposal: Support Skyline Pruning
       </div>
     </div>
 
@@ -127,8 +129,8 @@
 </header>
 
 <main class="main">
-    <div class="drawer">
-        <nav aria-label="Navigation">
+	<div class="drawer">
+		<nav aria-label="Navigation">
   <a href="https://github.com/atts-group/atts" class="project">
     <div class="banner">
       
@@ -233,14 +235,11 @@
 
 
 
-<a class="current" title="Tips" href="https://codenow.me/tips/">
+<a  title="Tips" href="https://codenow.me/tips/">
 	
 	Tips
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -309,101 +308,107 @@
   </div>
 </nav>
 
-    </div>
+	</div>
 
-    <article class="article">
-        <div class="wrapper">
-            <h1>目录 - Tip</h1>
+	<article class="article">
+		<div class="wrapper">
+			<h1>TiDB Proposal: Support Skyline Pruning </h1>
 
-            
-            <a href="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="Idea 前进后退快捷键">
-                <h2>Idea 前进后退快捷键 </h2>
-            </a>
-            <br>
+			
 
-              前进：Command + ]
-后退：Command + [
-在追踪比较复杂的代码时，比较有用，可以快速前进后退，不至于迷失在代码中。
-              <a href="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/"><br>[阅读全文]</a>
+<p>原文链接：<a href="https://github.com/pingcap/tidb/blob/master/docs/design/2019-01-25-skyline-pruning.md">Proposal: Support Skyline Pruning</a>，翻译如下：</p>
 
-            <hr> 
-            <a href="https://codenow.me/tips/python_code_static_analysis_tool_summary/" title="Python_code_static_analysis_tool_summary">
-                <h2>Python_code_static_analysis_tool_summary </h2>
-            </a>
-            <br>
+<h2 id="摘要">摘要</h2>
 
-              1.Pylint  Pylint是Python代码的一个静态检查工具，它能够检测一系列的代码错误，代码坏味道和格式错误。
-Pylint使用的编码格式类似于PEP-8。
-它的最新版本还提供代码复杂度的相关统计数据，并能打印相应报告。
-不过在检查之前，Pylint需要先执行代码。
-具体可以参考<a href="http://pylint.org">http://pylint.org</a>
- 2. Pyflakes  Pyflakes相对于Pylint而言出现的时间较晚，不同于Pylint的是，它不需要在检查之前执行代码来获取代码中的错误。
-Pyflakes不检查代码的格式错误，只检查逻辑错误。
-具体可以参考<a href="http://launchpad.net/pyfl">http://launchpad.net/pyfl</a>
-              <a href="https://codenow.me/tips/python_code_static_analysis_tool_summary/"><br>[阅读全文]</a>
+<p>这篇建议引入了一些启发式规则和一个针对消除访问路径 (access path) 的通用框架。通过它的帮助，优化器可以避免选择一些错误的访问路径。</p>
 
-            <hr> 
-            <a href="https://codenow.me/tips/differen_rsa/" title="Different rsa for different github account in the same computer">
-                <h2>Different rsa for different github account in the same computer </h2>
-            </a>
-            <br>
+<h2 id="背景">背景</h2>
 
-              在同一个电脑上为不同的GitHub账号创建rsa并实现关联。 操作命令行。
-#为第一个账号创建rsa文件 ssh-keygen -t rsa -C &#34;your email&#34; -f ~/.ssh/id_rsa_for_account1 #为第二个账号创建rsa文件 ssh-keygen -t rsa -C &#34;your email&#34; -f ~/.ssh/id_rsa_for_account2 在.ssh文件夹下创建config文件 输入如下内容：
-#Default GitHub Host account1 HostName github.com User git I
-              <a href="https://codenow.me/tips/differen_rsa/"><br>[阅读全文]</a>
+<p>目前，访问路径的选择很大程度上取决于统计信息。我们可能会因为过期的统计信息而选择错误的索引。然而，很多错误的选择是可以通过简单的规则来消除的，比如：当主键或者唯一性索引能够完全匹配的时候，我们可以直接选择它而不管统计信息。</p>
 
-            <hr> 
-            <a href="https://codenow.me/tips/go-pptof/" title="Go tool pptof">
-                <h2>Go tool pptof </h2>
-            </a>
-            <br>
+<h2 id="建议-proposal">建议 (Proposal)</h2>
 
-              使用 go tool pptof 可以 debug 程序
-需要在程序中先 import
-import _ &#34;net/http/pprof&#34; 然后启动一个 goroutine 用于远程访问
-go func() { log.Println(http.ListenAndServe(&#34;localhost:6060&#34;, nil)) }() 最后我们就可使用 http 抓取一些关键指标
- go tool pprof <a href="http://localhost:6060/debug/pprof/heap">http://localhost:6060/debug/pprof/heap</a> go tool pprof <a href="http://localhost:6060/debug">http://localhost:6060/debug</a>
-              <a href="https://codenow.me/tips/go-pptof/"><br>[阅读全文]</a>
+<p>目前在选择访问路径时最大的因素是需要扫描的数据行数，是否满足物理属性 (physical property) ，以及是否需要两次扫描。在这三个因素当中，只有扫描行数依赖统计信息。那么在没有统计信息的情况下我们能够怎样比较扫描行数呢？让我们来看一下下面这个例子：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#204a87;font-weight:bold">create</span> <span style="color:#204a87;font-weight:bold">table</span> <span style="color:#000">t</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">b</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">c</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">index</span> <span style="color:#000">idx1</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87;font-weight:bold">index</span> <span style="color:#000">idx2</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">));</span>
+<span style="color:#204a87;font-weight:bold">select</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">t</span> <span style="color:#204a87;font-weight:bold">where</span> <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span></code></pre></div>
+<p>从查询和表结构上，我们能够看到使用索引 idx1 扫描能够覆盖 idx2，通过索引 idx1 扫描的数据行数不会比使用 idx2 多，所以在这个场景中，idx1 要比 idx2 好。</p>
 
-            <hr> 
-            <a href="https://codenow.me/tips/is_varchar_a_number/" title="[Mysql]Is Varchar a Number?">
-                <h2>[Mysql]Is Varchar a Number? </h2>
-            </a>
-            <br>
+<p>我们如何综合这三个因素来消除访问路径呢？假如有两条访问路径 x 和 y，如果 x 在这几个方面都不比 y 差并且某个因素上 x 还好于 y，那么在使用统计数据之前，我们可以消除 y，因为 x 在任何情况下都一定比 y 更好。这就是所谓的 skyline pruning。</p>
 
-              判断 MySQL 里一个 varchar 字段的内容是否为数字：
-select * from table_name where length(0+name) = length(name);
-              <a href="https://codenow.me/tips/is_varchar_a_number/"><br>[阅读全文]</a>
+<h2 id="基本原理-rationale">基本原理 (Rationale)</h2>
 
-            <hr> 
-            <a href="https://codenow.me/tips/tips-for-adding-debug-logs/" title="golang 项目添加 debug 日志的小技巧">
-                <h2>golang 项目添加 debug 日志的小技巧 </h2>
-            </a>
-            <br>
+<p>Skyling pruing 已经在其他数据库中实现，包括 MySQL 和 OceanBase。要是没有它，我们可能会在一些简单场景下选择错误的访问路径。</p>
 
-              之所以整理这方面的小技巧，主要是 golang 的开源项目都是像 TiDB、etcd 这种偏低层的分布式服务。用 debugger 来跟踪代码是比较困难的，容易出错，而且还容易遇到坑，比如：有的 golang 版本无法正确输出调试信息，mac 上有些开源项目调试模式无法正常运行等等。用日志的话，更简单直接，不容易遇到坑。只不过，在查看变量、查看调用栈方面是真不太方便，下面几个小技巧能够弥补一些吧。
-查看调用栈
-可以使用 debug.Stack() 方法获取调用栈信息，比如像下面这样：
-log.Printf(&#34;stack of function xxx: %v&#34;, string(
-              <a href="https://codenow.me/tips/tips-for-adding-debug-logs/"><br>[阅读全文]</a>
+<h2 id="兼容性">兼容性</h2>
 
-            <hr> 
+<p>Skyling pruning 并不影响兼容性。</p>
 
-            <aside class="copyright" role="note">
-                 &copy; 2019 CC BY 4.0 License &ndash;  - By ATTS.
-            </aside>
-        </div>
-    </article>
+<h2 id="实现">实现</h2>
 
-    <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-            <div class="wrapper">
-                <div class="meta"></div>
-                <div class="list"></div>
+<p>在为数据寻找最好的查询方式时，由于我们要决定使用哪一个满足物理条件的访问路径，我们需要使用 skyling pruning。大部分情况下不会有太多索引，一个简单的嵌套循环算法就足够了。任何两个访问路径的比较方式已经在 Proposal 章节里介绍过了。</p>
+
+<h2 id="引用">引用</h2>
+
+<ul>
+<li><a href="http://skylineresearch.in/skylineintro/The_Skyline_Operator.pdf">The Skyline Operator</a></li>
+</ul>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="Idea 前进后退快捷键">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Idea 前进后退快捷键
             </div>
+          </div>
         </div>
-    </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
 </main>
 
     <script>

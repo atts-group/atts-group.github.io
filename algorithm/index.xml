@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Leetcode: 210 Course Schedule II</title>
+      <link>https://codenow.me/algorithm/leetcode-210.-course-schedule-ii/</link>
+      <pubDate>Sun, 31 Mar 2019 13:16:57 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode-210.-course-schedule-ii/</guid>
+      <description>原题链接：210. Course Schedule II 。一道基础拓扑排序题，代码如下：
+class Solution: def findOrder(self, numCourses: &amp;#39;int&amp;#39;, prerequisites: &amp;#39;List[List[int]]&amp;#39;) -&amp;gt; &amp;#39;List[int]&amp;#39;: degrees = [0] * numCourses graph = [[] for _ in range(numCourses)] for edge in prerequisites: source, dep = edge degrees[source] += 1 graph[dep].append(source) stack = [] for i in range(numCourses): deps = degrees[i] if deps == 0: stack.append(i) ret = [] while len(stack) &amp;gt; 0: node = stack.pop() ret.append(node) deps = graph[node] for dep in deps: degrees[dep] -= 1 if degrees[dep] == 0: stack.</description>
+    </item>
+    
+    <item>
       <title>DecisionTree</title>
       <link>https://codenow.me/algorithm/decision_tree/</link>
       <pubDate>Sat, 30 Mar 2019 10:39:56 +0800</pubDate>

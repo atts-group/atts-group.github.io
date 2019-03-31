@@ -316,6 +316,18 @@
             <h1>目录 - 翻译</h1>
 
             
+            <a href="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/" title="TiDB Proposal: Support Skyline Pruning">
+                <h2>TiDB Proposal: Support Skyline Pruning </h2>
+            </a>
+            <br>
+
+              原文链接：Proposal: Support Skyline Pruning，翻译如下：
+摘要 这篇建议引入了一些启发式规则和一个针对消除访问路径 (access path) 的通用框架。通过它的帮助，优化器可以避免选择一些错误的访问路径。
+背景 目前，访问路径的选择很大程度上取决于统计信息。我们可能会因为过期的统计信息而选择错误的索引。然而，很多错误的选择是可以通过简单的规则来消除的，比如：当主键或者唯一性索引能够完全匹配的时候，我们可以直接选择它而不管统计信息。
+建议 (Proposal) 目前在选择访问路径时最大的因素是需要扫描的数据行数，是否满足物理属性 (physical prope
+              <a href="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/translation/intro_to_python_lambda_functions/" title="Intro to Python Lambda Functions">
                 <h2>Intro to Python Lambda Functions </h2>
             </a>
