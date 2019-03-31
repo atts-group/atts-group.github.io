@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Leetcode_12_IntegerToRoman</title>
+      <link>https://codenow.me/algorithm/leetcode_12_integertoroman/</link>
+      <pubDate>Sun, 31 Mar 2019 21:38:00 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_12_integertoroman/</guid>
+      <description>题号：12 难度：medium 链接：https://leetcode.com/problems/integer-to-roman 描述：阿拉伯数字转罗马数字(1-3999)
+ class Solution: &amp;quot;&amp;quot;&amp;quot;这道题的点在于，1/10/100/1000是可以重复的，其他数字是不可以重复的，如果用循环处理的话，要注意这一点&amp;quot;&amp;quot;&amp;quot; def intToRoman1(self, num: int) -&amp;gt; str: &amp;quot;&amp;quot;&amp;quot;照例先撸一个无脑的出来 这个还算快，不过占用空间比较大 &amp;quot;&amp;quot;&amp;quot; ten = [&#39;&#39;, &#39;I&#39;, &#39;II&#39;, &#39;III&#39;, &#39;IV&#39;, &#39;V&#39;, &#39;VI&#39;, &#39;VII&#39;, &#39;VIII&#39;, &#39;IX&#39;] roman = &#39;&#39; m, num = divmod(num, 1000) roman += &#39;M&#39; * m if num &amp;gt;= 900: roman += &#39;CM&#39; num -= 900 elif num &amp;gt;= 500: roman += &#39;D&#39; num -= 500 elif num &amp;gt;= 400: roman += &#39;CD&#39; num -= 400 c, num = divmod(num, 100) roman += &#39;C&#39; * c if num &amp;gt;= 90: roman += &#39;XC&#39; num -= 90 elif num &amp;gt;= 50: roman += &#39;L&#39; num -= 50 elif num &amp;gt;= 40: roman += &#39;XL&#39; num -= 40 x, num = divmod(num, 10) roman += &#39;X&#39; * x + ten[num] return roman def intToRoman(self, num: int) -&amp;gt; str: &amp;quot;&amp;quot;&amp;quot;看了一下 discuss，有个更简洁的，同样够快且占用空间大&amp;quot;&amp;quot;&amp;quot; M = (&#39;&#39;, &#39;M&#39;, &#39;MM&#39;, &#39;MMM&#39;) C = (&#39;&#39;, &#39;C&#39;, &#39;CC&#39;, &#39;CCC&#39;, &#39;CD&#39;, &#39;D&#39;, &#39;DC&#39;, &#39;DCC&#39;, &#39;DCCC&#39;, &#39;CM&#39;) X = (&#39;&#39;, &#39;X&#39;, &#39;XX&#39;, &#39;XXX&#39;, &#39;XL&#39;, &#39;L&#39;, &#39;LX&#39;, &#39;LXX&#39;, &#39;LXXX&#39;, &#39;XC&#39;) I = (&#39;&#39;, &#39;I&#39;, &#39;II&#39;, &#39;III&#39;, &#39;IV&#39;, &#39;V&#39;, &#39;VI&#39;, &#39;VII&#39;, &#39;VIII&#39;, &#39;IX&#39;) return M[num // 1000] + C[(num % 1000) // 100] + X[(num % 100) // 10] + I[num % 10] if __name__ == &#39;__main__&#39;: print(Solution().</description>
+    </item>
+    
+    <item>
       <title>Leetcode: 210 Course Schedule II</title>
       <link>https://codenow.me/algorithm/leetcode-210.-course-schedule-ii/</link>
       <pubDate>Sun, 31 Mar 2019 13:16:57 +0800</pubDate>
