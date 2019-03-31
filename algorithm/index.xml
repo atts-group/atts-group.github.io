@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>Leetcode 165: Compare Version Numbers</title>
+      <link>https://codenow.me/algorithm/leetcode_165_compare-version-numbers/</link>
+      <pubDate>Sun, 31 Mar 2019 22:17:14 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_165_compare-version-numbers/</guid>
+      <description> 题号：165
+难度：medium
+链接：https://leetcode-cn.com/problems/compare-version-numbers/
+ class Solution: def compareVersion(self, version1: str, version2: str) -&amp;gt; int: vers1 = version1.split(&amp;#34;.&amp;#34;) vers2 = version2.split(&amp;#34;.&amp;#34;) diff = len(vers1) - len(vers2) if diff &amp;gt; 0: vers2 += [&amp;#39;0&amp;#39;] * abs(diff) elif diff &amp;lt; 0: vers1 += [&amp;#39;0&amp;#39;] * abs(diff) else: pass for i, v1 in enumerate(vers1): v1, v2 = int(v1), int(vers2[i]) if v1 &amp;gt; v2: return 1 elif v1 &amp;lt; v2: return -1 else: continue return 0</description>
+    </item>
+    
+    <item>
       <title>Leetcode_12_IntegerToRoman</title>
       <link>https://codenow.me/algorithm/leetcode_12_integertoroman/</link>
       <pubDate>Sun, 31 Mar 2019 21:38:00 +0800</pubDate>

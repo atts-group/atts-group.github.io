@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>dep package 依赖关系图</title>
+      <link>https://codenow.me/tips/dep-visualizing-dependencies/</link>
+      <pubDate>Sun, 31 Mar 2019 22:11:43 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/dep-visualizing-dependencies/</guid>
+      <description>Linux:
+$ sudo apt-get install graphviz $ dep status -dot | dot -T png | display macOS:
+$ brew install graphviz $ dep status -dot | dot -T png | open -f -a /Applications/Preview.app Windows:
+&amp;gt; choco install graphviz.portable &amp;gt; dep status -dot | dot -T png -o status.png; start status.</description>
+    </item>
+    
+    <item>
       <title>Idea 前进后退快捷键</title>
       <link>https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
       <pubDate>Sun, 31 Mar 2019 13:25:00 +0800</pubDate>

@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>Go Context 在 HTTP 传播</title>
+      <link>https://codenow.me/translation/http-propagation-context/</link>
+      <pubDate>Sun, 31 Mar 2019 22:12:54 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/http-propagation-context/</guid>
+      <description>Go 1.7 引入了一个内置的 context 类型，在系统中可以使用 Context 来传递元数据，例如不同函数或者不同线程甚至进程的传递 Request ID。
+Go 将 Context 包引入标准库以统一 context 的使用。在此之前每个框架或者库都有自己的 context 。它们之间还无法兼容，导致了碎片化，最终在各处 context 的传播上就有不少的麻烦。
+虽然在同一个处理过程中有一个通用的 context 传播机制是非常有用的，但是 Go 的 Context 包并没有提供该功能。就像上面描述的，context 会在网络中被不同的处理过程传递。例如在多服务架构中，一个请求往往会在多个地方被处理 (多个微服务，消息队列，数据库等)，直到最后响应给用户。能够在多个处理过程中传递 context 显得尤为重要。
+如果你要在 HTTP 中传播 context ，需要你对 context 进行序列化处理。类似的，在接收端也要解析，同时把值放入当前的 context 中。假设我们希望在 context 中传递 request ID。
+package request import &amp;#34;context&amp;#34; // WithID 把 request ID 放入当前的 context 中 func WithID(ctx context.Context, id string) context.Context { return context.WithValue(ctx, contextIDKey, id) } // IDFromContext 返回从 context 中获取的 request ID // 如果 context 中没有定义就返回空值 func IDFromContext(ctx context.</description>
+    </item>
+    
+    <item>
       <title>TiDB Proposal: Support Skyline Pruning</title>
       <link>https://codenow.me/translation/tidb-proposal-support-skyline-pruning/</link>
       <pubDate>Sun, 31 Mar 2019 13:31:09 +0800</pubDate>

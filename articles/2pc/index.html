@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>翻译 - ATTS</title>
+    <title>两阶段提交协议 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/">
+    <link rel="canonical" href="https://codenow.me/articles/2pc/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/">
+    <meta property="og:url" content="https://codenow.me/articles/2pc/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -67,16 +67,18 @@
     <script src="https://codenow.me/javascripts/modernizr.js"></script>
 
     
-    <link href="https://codenow.me/translation/index.xml" rel="alternate" type="application/rss+xml" title="ATTS" />
-    <link href="https://codenow.me/translation/index.xml" rel="feed" type="application/rss+xml" title="ATTS" />
-    
 
   </head>
   <body class="palette-primary-indigo ">
-    
+
+
+
+	
+	
+
 
 <div class="backdrop">
-    <div class="backdrop-paper"></div>
+	<div class="backdrop-paper"></div>
 </div>
 
 <input class="toggle" type="checkbox" id="toggle-drawer">
@@ -84,7 +86,7 @@
 <label class="toggle-button overlay" for="toggle-drawer"></label>
 
 <header class="header">
-    <nav aria-label="Header">
+	<nav aria-label="Header">
   <div class="bar default">
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
@@ -93,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        翻译
+        两阶段提交协议
       </div>
     </div>
 
@@ -127,8 +129,8 @@
 </header>
 
 <main class="main">
-    <div class="drawer">
-        <nav aria-label="Navigation">
+	<div class="drawer">
+		<nav aria-label="Navigation">
   <a href="https://github.com/atts-group/atts" class="project">
     <div class="banner">
       
@@ -215,14 +217,11 @@
 
 
 
-<a class="current" title="翻译" href="https://codenow.me/translation/">
+<a  title="翻译" href="https://codenow.me/translation/">
 	
 	翻译
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -309,97 +308,217 @@
   </div>
 </nav>
 
-    </div>
+	</div>
 
-    <article class="article">
-        <div class="wrapper">
-            <h1>目录 - 翻译</h1>
+	<article class="article">
+		<div class="wrapper">
+			<h1>两阶段提交协议 </h1>
 
-            
-            <a href="https://codenow.me/translation/http-propagation-context/" title="Go Context 在 HTTP 传播">
-                <h2>Go Context 在 HTTP 传播 </h2>
-            </a>
-            <br>
+			
 
-              Go 1.7 引入了一个内置的 context 类型，在系统中可以使用 Context 来传递元数据，例如不同函数或者不同线程甚至进程的传递 Request ID。
-Go 将 Context 包引入标准库以统一 context 的使用。在此之前每个框架或者库都有自己的 context 。它们之间还无法兼容，导致了碎片化，最终在各处 context 的传播上就有不少的麻烦。
-虽然在同一个处理过程中有一个通用的 context 传播机制是非常有用的，但是 Go 的 Context 包并没有提供该功能。就像上面描述的，context 会在网络中被不同的处理过程传递。例如在多服务架构中，一个请求往往会
-              <a href="https://codenow.me/translation/http-propagation-context/"><br>[阅读全文]</a>
+<p><a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol">两阶段提交协议</a></p>
 
-            <hr> 
-            <a href="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/" title="TiDB Proposal: Support Skyline Pruning">
-                <h2>TiDB Proposal: Support Skyline Pruning </h2>
-            </a>
-            <br>
+<p>在分布式系统中每个节点都可以知道自己的操作是成功还是失败，但是无法知道其他节点的状态。为了保证一个事务的 ACID 特性，一个节点发生失败就要在所有节点上执行 rollback 操作。需要引入一个 <strong>协调者</strong> 来维护各个 <strong>参与者</strong> 的状态，以保证最终一致。</p>
 
-              原文链接：Proposal: Support Skyline Pruning，翻译如下：
-摘要 这篇建议引入了一些启发式规则和一个针对消除访问路径 (access path) 的通用框架。通过它的帮助，优化器可以避免选择一些错误的访问路径。
-背景 目前，访问路径的选择很大程度上取决于统计信息。我们可能会因为过期的统计信息而选择错误的索引。然而，很多错误的选择是可以通过简单的规则来消除的，比如：当主键或者唯一性索引能够完全匹配的时候，我们可以直接选择它而不管统计信息。
-建议 (Proposal) 目前在选择访问路径时最大的因素是需要扫描的数据行数，是否满足物理属性 (physical prope
-              <a href="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/"><br>[阅读全文]</a>
+<p>2pc 并不是万能的，需要满足一定的条件才可以使用：</p>
 
-            <hr> 
-            <a href="https://codenow.me/translation/intro_to_python_lambda_functions/" title="Intro to Python Lambda Functions">
-                <h2>Intro to Python Lambda Functions </h2>
-            </a>
-            <br>
+<ol>
+<li>一个节点是协调者，其他节点作为参与者，相互之前可以通信</li>
+<li>每个节点要有 redo log 机制，而且存在持久化存储中</li>
+<li>节点不会永久损坏，一定时间会重启恢复</li>
+</ol>
 
-              原文地址: <a href="https://www.pythonforthelab.com/blog/intro-to-python-lambda-functions/">https://www.pythonforthelab.com/blog/intro-to-python-lambda-functions/</a>
-不久前，Python在其语法中引入了使用lambda而不是def来定义函数的可能性。这些函数称为匿名函数同，在其它语言(如javascript)中非常常见。然后，在Python中，它们看起来有点晦涩，经常被忽略或误用。在本文中，我们将介绍labda函数，并讨论在何处以及如何使用它。
-要定义一个函数，可以使用以下语法：
-def average(x, y): return (x + y) / 2 然后，如果要计算两个数字的平均值，只需执行以下操作
-              <a href="https://codenow.me/translation/intro_to_python_lambda_functions/"><br>[阅读全文]</a>
+<h2 id="tow-phase-commit-protocol">Tow-phase Commit Protocol</h2>
 
-            <hr> 
-            <a href="https://codenow.me/translation/scikit-learn/" title="Scikit-Learn">
-                <h2>Scikit-Learn </h2>
-            </a>
-            <br>
+<p>首先引入几个概念：</p>
 
-              Scikit-learn: Machine Learning in Python 最近在学习机器学习算法和深度学习的部分内容。于是将Scikit-Learn的相关介绍论文看了看，翻译了一部分。原文地址
-摘要 Scikit-learn是一个Python模块，集成了各种最先进的机器学习算法，适用于中等规模和无监督的问题。该软件包侧重于使用通用高级语言将机器学习引入非专业人员。重点在于易于使用，性能，文档以及API的一致性。它具有最小的依赖性，并在简化的BSD许可下分发，鼓励在学术和商业环境中使用它。二进制文件和文档可以从<a href="http://scikit-learn.sourceforge.net">http://scikit-learn.sourceforge.net</a> 下载。
-              <a href="https://codenow.me/translation/scikit-learn/"><br>[阅读全文]</a>
+<ul>
+<li>协调者：维护所有节点</li>
+<li>参与者：执行具体操作的节点</li>
+<li>prepare phase：准备阶段，写入日志，资源加锁</li>
+<li>commit phase：执行阶段，根据协调者指令执行，资源解锁</li>
+</ul>
 
-            <hr> 
-            <a href="https://codenow.me/translation/migrating-projects-from-dep-to-go-modules/" title="把项目从 Dep 迁移到 Go Modules">
-                <h2>把项目从 Dep 迁移到 Go Modules </h2>
-            </a>
-            <br>
+<p><img src="https://static.zhengxiaowai.cc/2019-03-31-2pc.png" alt="" /></p>
 
-              原文地址
-Go Modules 是 Go 管理的未来方向。已经在 Go 1.11 中可以试用，将会是 Go 1.13 中的默认行为。
-我不会在这篇文章中描述包管理工具的工作流程。我会主要讨论的是如何把现有的项目中 dep 迁移的 Go Module。
-在我的实例中，我会使用一个私有的仓库地址 github.com/kuinta/luigi ，它是使用 Go 语言编写，在好几个项目中被使用，是一个绝佳的候选人。
-首先，我们需要初始化 Module：
-cd github.com/kounta/luigi go mod init github.com/kounta/luigi 完成后只会有两行输出：
-              <a href="https://codenow.me/translation/migrating-projects-from-dep-to-go-modules/"><br>[阅读全文]</a>
+<p>上图中 ① 和 ② 表示 prepare phase，③ 和 ④ 表示 commit phase。</p>
 
-            <hr> 
-            <a href="https://codenow.me/translation/group-by-and-aggregation-elimination/" title="Group by and Aggregation Elimination">
-                <h2>Group by and Aggregation Elimination </h2>
-            </a>
-            <br>
+<p>在 prepare phase 阶段，协调者发出信息让参与者准备。参与者接受到信息以后一般会做两件事情：</p>
 
-              原文链接：Group-by and Aggregation Elimination 是一篇关于数据库查询优化的文章，有几句话实在不知道咋翻译好，也影响不大，直接留下原句了。翻译如下：
-I get a fair number of questions on query transformations, and it’s especially true at the moment because we’re in the middle of the Oracle Database 12c Release 2 beta program. 有时用户可能会发现在一个执行计划里有些环节消失了或者有些反常，
-              <a href="https://codenow.me/translation/group-by-and-aggregation-elimination/"><br>[阅读全文]</a>
+<ol>
+<li>根据需要执行的操作生成 redo 日志，用于后续 commit 或者 rollback</li>
+<li>给所需的资源上锁，防止其他程序获取</li>
+</ol>
 
-            <hr> 
+<p>参与者完成这两个操作会把结果通知协调者。</p>
 
-            <aside class="copyright" role="note">
-                 &copy; 2019 CC BY 4.0 License &ndash;  - By ATTS.
-            </aside>
-        </div>
-    </article>
+<p>当协调者接受到参与者在 prepare phase 阶段的响应（无论 Yes 还是 No），就会进入 commit phase 阶段。在该阶段，如果接受到 prepare phase 的响应所有都是 Yes 时候，会发出 Commit 指令；只要收到一个 No，发出的就是 Rollback 指令。</p>
 
-    <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-            <div class="wrapper">
-                <div class="meta"></div>
-                <div class="list"></div>
+<p>参与者接受到协调者发出的 Commit 或者 Rollback 指令后会做两件事情：</p>
+
+<ol>
+<li>执行 Commit 或者 Rollback</li>
+<li>清理资源，解除锁的占用</li>
+</ol>
+
+<p>的当这两部都完成以后，会回复 ACK 个协调者。</p>
+
+<h2 id="故障时期的处理">故障时期的处理</h2>
+
+<p>前面描述都的都正常情况，如果协调者或者参与者一个或者全部发生宕机时候，2pc 的处理方式在某些时候是无法保证数据一致性。</p>
+
+<p>协调者和参与者会在 ① ② ③ ④ 的前后阶段，同时发生故障，也有可能其中一方发生故障。</p>
+
+<p>① 之前发生故障，即操作还没开始：</p>
+
+<ul>
+<li>协调者宕机：重新选举出一个协调者继续操作，这个宕机的节点重启后询问新的协调者继续操作</li>
+<li>参与者宕机：重启后像协调者询问操作，然后继续即可</li>
+<li>协调者和部分参与者宕机：同协调者宕机</li>
+</ul>
+
+<p>① 之后 ② 之前发生故障，即接收到是否可以 commit 询问，响应之前：</p>
+
+<ul>
+<li>未执行操作前（执行过程中中断）：
+
+<ul>
+<li>协调者宕机：询问已经发出，重新选择一个新的协调者，根据参与者返结果继续操作</li>
+<li>参与者宕机：等待恢复后询问协调者节点状态，然后继续操作</li>
+<li>协调者和部分参与者宕机：重新选择一个新的协调者，根据参与者返结果继续操作</li>
+</ul></li>
+<li>操作执行完成之后：
+
+<ul>
+<li>协调者宕机：重新选举一个新协调者，询问参与者当前步骤</li>
+<li>部分参与者宕机：重启后 rollback，询问协调者后续步骤</li>
+<li>协调者和部分参与者宕机：选举出新的协调者，重启后 rollback ，询问新协调者后续步骤</li>
+</ul></li>
+</ul>
+
+<p>② 之后 ③ 之前发生故障：</p>
+
+<ul>
+<li>未接到参与者响应（执行过程中中断）：
+
+<ul>
+<li>协调者宕机：选出先的协调者，询问各个节点状态，宕机节点重启后 rollback，询问新协调者后续操作</li>
+<li>部分参与者宕机：重启后 rollback 然后询问协调者状态，继续操作</li>
+<li>协调者和部分参与者宕机：同协调者宕机</li>
+</ul></li>
+<li>操作执行完成之后：
+
+<ul>
+<li>协调者宕机：选出新的协调者，询问各个节点状态，宕机节点重启后 rollback，询问新协调者后续操作</li>
+<li>部分参与者宕机：重启后 rollback 然后询问协调者状态，继续操作</li>
+<li>协调者和部分参与者宕机：同协调者宕机</li>
+</ul></li>
+</ul>
+
+<p>③ 之后 ④ 之前故障：</p>
+
+<ul>
+<li>未接到协调者发出的 commit 或者 rollback：
+
+<ul>
+<li>协调者宕机：指令已经发出，选举一个新的协调者询问正常参与者执行情况。宕机节点重启后 rollback，然后询问新的协调者指令情况，然后继续操作</li>
+<li>部分参与者宕机：重启 rollback 后询问协调者，继续操作即可</li>
+<li>协调者和部分参与者宕机：同协调者宕机</li>
+</ul></li>
+<li>接受到 commit 或者 rollback（或者执行过程中中断）：
+
+<ul>
+<li>协调者宕机：重启 rollback 后询问新协调者，继续操作即可</li>
+<li>部分参与者宕机：重启后先 rollback，然后询问协调者操作</li>
+<li>协调者和部分参与者宕机：这个时候存在一个极端情况，发出 commit 和接收到的参与者同时宕机，剩下的参与者 timeout 触发 rollback。重启后的宕机机器 commit 已经完成，这时候就和剩下的节点发生了数据不一致的场景，已经完成 commit 的节点也无法 rollback</li>
+</ul></li>
+</ul>
+
+<p>从故障时期的处理可以总结出，如果是单是协调者发生故障，那么重新选举出一个新的，然后询问参与者的状态即可。如果是单是参与者发生故障，重启后询问协调者操作也可以恢复状态。协调者和参与者同时宕机，同时又在 commit phase 执行完成之后，就会发生数据不一致的场景，这个是 2pc 无法解决的。</p>
+
+<h2 id="2pc-存在的缺点">2pc 存在的缺点</h2>
+
+<p>2pc 组要存在 4 个缺点：</p>
+
+<ul>
+<li>同步阻塞：在 commit phase 阶段完成之前，这部分资源无法被其他程序获取</li>
+<li>单点问题：commit phase 阶段协调者发生故障，只能全体 rollback</li>
+<li>数据不一致：极端情况会导致部分 commit 部分 rollback</li>
+<li>缺乏容错机制：发生无法恢复的错误只能依赖 timeout 执行 rollback</li>
+</ul>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/tips/dep-visualizing-dependencies/" title="dep package 依赖关系图">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              dep package 依赖关系图
             </div>
+          </div>
         </div>
-    </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/translation/http-propagation-context/" title="Go Context 在 HTTP 传播">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Go Context 在 HTTP 传播
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
 </main>
 
     <script>

@@ -316,6 +316,19 @@
             <h1>目录 - 文章</h1>
 
             
+            <a href="https://codenow.me/articles/2pc/" title="两阶段提交协议">
+                <h2>两阶段提交协议 </h2>
+            </a>
+            <br>
+
+              两阶段提交协议
+在分布式系统中每个节点都可以知道自己的操作是成功还是失败，但是无法知道其他节点的状态。为了保证一个事务的 ACID 特性，一个节点发生失败就要在所有节点上执行 rollback 操作。需要引入一个 协调者 来维护各个 参与者 的状态，以保证最终一致。
+2pc 并不是万能的，需要满足一定的条件才可以使用：
+ 一个节点是协调者，其他节点作为参与者，相互之前可以通信 每个节点要有 redo log 机制，而且存在持久化存储中 节点不会永久损坏，一定时间会重启恢复  Tow-phase Commit Protocol 首先引入几个概念：
+ 协调者：维护所有节点 参与者：执行具体操作的节
+              <a href="https://codenow.me/articles/2pc/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/articles/tidb-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E5%AD%90%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/" title="TiDB 源码学习：常见子查询优化">
                 <h2>TiDB 源码学习：常见子查询优化 </h2>
             </a>

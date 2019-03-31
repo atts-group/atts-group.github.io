@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>翻译 - ATTS</title>
+    <title>Leetcode 165: Compare Version Numbers - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_165_compare-version-numbers/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_165_compare-version-numbers/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -67,16 +67,18 @@
     <script src="https://codenow.me/javascripts/modernizr.js"></script>
 
     
-    <link href="https://codenow.me/translation/index.xml" rel="alternate" type="application/rss+xml" title="ATTS" />
-    <link href="https://codenow.me/translation/index.xml" rel="feed" type="application/rss+xml" title="ATTS" />
-    
 
   </head>
   <body class="palette-primary-indigo ">
-    
+
+
+
+	
+	
+
 
 <div class="backdrop">
-    <div class="backdrop-paper"></div>
+	<div class="backdrop-paper"></div>
 </div>
 
 <input class="toggle" type="checkbox" id="toggle-drawer">
@@ -84,7 +86,7 @@
 <label class="toggle-button overlay" for="toggle-drawer"></label>
 
 <header class="header">
-    <nav aria-label="Header">
+	<nav aria-label="Header">
   <div class="bar default">
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
@@ -93,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        翻译
+        Leetcode 165: Compare Version Numbers
       </div>
     </div>
 
@@ -127,8 +129,8 @@
 </header>
 
 <main class="main">
-    <div class="drawer">
-        <nav aria-label="Navigation">
+	<div class="drawer">
+		<nav aria-label="Navigation">
   <a href="https://github.com/atts-group/atts" class="project">
     <div class="banner">
       
@@ -215,14 +217,11 @@
 
 
 
-<a class="current" title="翻译" href="https://codenow.me/translation/">
+<a  title="翻译" href="https://codenow.me/translation/">
 	
 	翻译
 </a>
 
-
-<ul id="scrollspy">
-</ul>
 
 
   
@@ -309,97 +308,97 @@
   </div>
 </nav>
 
-    </div>
+	</div>
 
-    <article class="article">
-        <div class="wrapper">
-            <h1>目录 - 翻译</h1>
+	<article class="article">
+		<div class="wrapper">
+			<h1>Leetcode 165: Compare Version Numbers </h1>
 
-            
-            <a href="https://codenow.me/translation/http-propagation-context/" title="Go Context 在 HTTP 传播">
-                <h2>Go Context 在 HTTP 传播 </h2>
-            </a>
-            <br>
+			<blockquote>
+<p>题号：165<br>
+难度：medium<br>
+链接：<a href="https://leetcode-cn.com/problems/compare-version-numbers/">https://leetcode-cn.com/problems/compare-version-numbers/</a></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">compareVersion</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">version1</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">version2</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">vers1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">version1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">split</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">vers2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">version2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">split</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">)</span>
+        
+        <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers2</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">vers2</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;0&#39;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">diff</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">vers1</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;0&#39;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">diff</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">pass</span>
 
-              Go 1.7 引入了一个内置的 context 类型，在系统中可以使用 Context 来传递元数据，例如不同函数或者不同线程甚至进程的传递 Request ID。
-Go 将 Context 包引入标准库以统一 context 的使用。在此之前每个框架或者库都有自己的 context 。它们之间还无法兼容，导致了碎片化，最终在各处 context 的传播上就有不少的麻烦。
-虽然在同一个处理过程中有一个通用的 context 传播机制是非常有用的，但是 Go 的 Context 包并没有提供该功能。就像上面描述的，context 会在网络中被不同的处理过程传递。例如在多服务架构中，一个请求往往会
-              <a href="https://codenow.me/translation/http-propagation-context/"><br>[阅读全文]</a>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">v1</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers1</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#000">v1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">v2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">v1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers2</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">])</span>
 
-            <hr> 
-            <a href="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/" title="TiDB Proposal: Support Skyline Pruning">
-                <h2>TiDB Proposal: Support Skyline Pruning </h2>
-            </a>
-            <br>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">v1</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">v2</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">1</span>
+            <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">v1</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">v2</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span>
+            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#204a87;font-weight:bold">continue</span>
 
-              原文链接：Proposal: Support Skyline Pruning，翻译如下：
-摘要 这篇建议引入了一些启发式规则和一个针对消除访问路径 (access path) 的通用框架。通过它的帮助，优化器可以避免选择一些错误的访问路径。
-背景 目前，访问路径的选择很大程度上取决于统计信息。我们可能会因为过期的统计信息而选择错误的索引。然而，很多错误的选择是可以通过简单的规则来消除的，比如：当主键或者唯一性索引能够完全匹配的时候，我们可以直接选择它而不管统计信息。
-建议 (Proposal) 目前在选择访问路径时最大的因素是需要扫描的数据行数，是否满足物理属性 (physical prope
-              <a href="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/"><br>[阅读全文]</a>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span></code></pre></div>
 
-            <hr> 
-            <a href="https://codenow.me/translation/intro_to_python_lambda_functions/" title="Intro to Python Lambda Functions">
-                <h2>Intro to Python Lambda Functions </h2>
-            </a>
-            <br>
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
 
-              原文地址: <a href="https://www.pythonforthelab.com/blog/intro-to-python-lambda-functions/">https://www.pythonforthelab.com/blog/intro-to-python-lambda-functions/</a>
-不久前，Python在其语法中引入了使用lambda而不是def来定义函数的可能性。这些函数称为匿名函数同，在其它语言(如javascript)中非常常见。然后，在Python中，它们看起来有点晦涩，经常被忽略或误用。在本文中，我们将介绍labda函数，并讨论在何处以及如何使用它。
-要定义一个函数，可以使用以下语法：
-def average(x, y): return (x + y) / 2 然后，如果要计算两个数字的平均值，只需执行以下操作
-              <a href="https://codenow.me/translation/intro_to_python_lambda_functions/"><br>[阅读全文]</a>
+			<footer class="footer">
+				
 
-            <hr> 
-            <a href="https://codenow.me/translation/scikit-learn/" title="Scikit-Learn">
-                <h2>Scikit-Learn </h2>
-            </a>
-            <br>
-
-              Scikit-learn: Machine Learning in Python 最近在学习机器学习算法和深度学习的部分内容。于是将Scikit-Learn的相关介绍论文看了看，翻译了一部分。原文地址
-摘要 Scikit-learn是一个Python模块，集成了各种最先进的机器学习算法，适用于中等规模和无监督的问题。该软件包侧重于使用通用高级语言将机器学习引入非专业人员。重点在于易于使用，性能，文档以及API的一致性。它具有最小的依赖性，并在简化的BSD许可下分发，鼓励在学术和商业环境中使用它。二进制文件和文档可以从<a href="http://scikit-learn.sourceforge.net">http://scikit-learn.sourceforge.net</a> 下载。
-              <a href="https://codenow.me/translation/scikit-learn/"><br>[阅读全文]</a>
-
-            <hr> 
-            <a href="https://codenow.me/translation/migrating-projects-from-dep-to-go-modules/" title="把项目从 Dep 迁移到 Go Modules">
-                <h2>把项目从 Dep 迁移到 Go Modules </h2>
-            </a>
-            <br>
-
-              原文地址
-Go Modules 是 Go 管理的未来方向。已经在 Go 1.11 中可以试用，将会是 Go 1.13 中的默认行为。
-我不会在这篇文章中描述包管理工具的工作流程。我会主要讨论的是如何把现有的项目中 dep 迁移的 Go Module。
-在我的实例中，我会使用一个私有的仓库地址 github.com/kuinta/luigi ，它是使用 Go 语言编写，在好几个项目中被使用，是一个绝佳的候选人。
-首先，我们需要初始化 Module：
-cd github.com/kounta/luigi go mod init github.com/kounta/luigi 完成后只会有两行输出：
-              <a href="https://codenow.me/translation/migrating-projects-from-dep-to-go-modules/"><br>[阅读全文]</a>
-
-            <hr> 
-            <a href="https://codenow.me/translation/group-by-and-aggregation-elimination/" title="Group by and Aggregation Elimination">
-                <h2>Group by and Aggregation Elimination </h2>
-            </a>
-            <br>
-
-              原文链接：Group-by and Aggregation Elimination 是一篇关于数据库查询优化的文章，有几句话实在不知道咋翻译好，也影响不大，直接留下原句了。翻译如下：
-I get a fair number of questions on query transformations, and it’s especially true at the moment because we’re in the middle of the Oracle Database 12c Release 2 beta program. 有时用户可能会发现在一个执行计划里有些环节消失了或者有些反常，
-              <a href="https://codenow.me/translation/group-by-and-aggregation-elimination/"><br>[阅读全文]</a>
-
-            <hr> 
-
-            <aside class="copyright" role="note">
-                 &copy; 2019 CC BY 4.0 License &ndash;  - By ATTS.
-            </aside>
-        </div>
-    </article>
-
-    <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-            <div class="wrapper">
-                <div class="meta"></div>
-                <div class="list"></div>
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/translation/http-propagation-context/" title="Go Context 在 HTTP 传播">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Go Context 在 HTTP 传播
             </div>
+          </div>
         </div>
-    </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
 </main>
 
     <script>
