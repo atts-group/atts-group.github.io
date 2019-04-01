@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode_12_IntegerToRoman - ATTS</title>
+    <title>Python3 Crontab - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_12_integertoroman/">
+    <link rel="canonical" href="https://codenow.me/articles/python3-crontab/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_12_integertoroman/">
+    <meta property="og:url" content="https://codenow.me/articles/python3-crontab/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode_12_IntegerToRoman
+        Python3 Crontab
       </div>
     </div>
 
@@ -312,67 +312,51 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode_12_IntegerToRoman </h1>
+			<h1>Python3 Crontab </h1>
 
-			<blockquote>
-<p>题号：12
-难度：medium
-链接：<a href="https://leetcode.com/problems/integer-to-roman">https://leetcode.com/problems/integer-to-roman</a>
-描述：阿拉伯数字转罗马数字(1-3999)</p>
-</blockquote>
+			<p>这周需要在容器中跑一个定时脚本</p>
 
-<pre><code>class Solution:
-    &quot;&quot;&quot;这道题的点在于，1/10/100/1000是可以重复的，其他数字是不可以重复的，如果用循环处理的话，要注意这一点&quot;&quot;&quot;
+<p>现成的方式有很多：
+1. 直接使用 ubuntu:14.04 的镜像，内置 crontab 和 python3.4
+2. 想用 python3.6 的话，可以用 python:3.6 的镜像装一个 crontab 也成
+3. dockerhub 上别人应该也有这种需求，捞一个就成</p>
 
-    def intToRoman1(self, num: int) -&gt; str:
-        &quot;&quot;&quot;照例先撸一个无脑的出来
-        这个还算快，不过占用空间比较大
-        &quot;&quot;&quot;
-        ten = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX']
-        roman = ''
+<p>不过我还是想自己拼一个，要求：
+1. 需要包含 crontab 和 python3.6
+2. 需要能支持使用 pip 安装其他扩展包
+3. 镜像要尽量小</p>
 
-        m, num = divmod(num, 1000)
-        roman += 'M' * m
-        if num &gt;= 900:
-            roman += 'CM'
-            num -= 900
-        elif num &gt;= 500:
-            roman += 'D'
-            num -= 500
-        elif num &gt;= 400:
-            roman += 'CD'
-            num -= 400
+<p>思路以及需要注意的地方大概是：
+1. 装上各种必要的东西
+2. 设置时区
+3. 配置好 crontabfile
+4. 运行时启动 crond，并用 <code>tail -f</code> 来保证容器不退出</p>
 
-        c, num = divmod(num, 100)
-        roman += 'C' * c
+<p>目前只是做了个能用的，用 python3.6-alpine 做源，往上怼了点够自己使用的东西，先实现了需求</p>
 
-        if num &gt;= 90:
-            roman += 'XC'
-            num -= 90
-        elif num &gt;= 50:
-            roman += 'L'
-            num -= 50
-        elif num &gt;= 40:
-            roman += 'XL'
-            num -= 40
+<p>下一步是直接用 alpine 或者 buildpack-deps 来构建镜像，以此精简，留着 TODO 吧</p>
 
-        x, num = divmod(num, 10)
-        roman += 'X' * x + ten[num]
+<p>我写了个 demo 放到了 github 上: <a href="https://github.com/WokoLiu/python3-cron">https://github.com/WokoLiu/python3-cron</a> ，也同步到了 dockerhub 上 <code>docker pull woko/python3-cron</code></p>
 
-        return roman
+<p>文件结构是这样的：</p>
 
-    def intToRoman(self, num: int) -&gt; str:
-        &quot;&quot;&quot;看了一下 discuss，有个更简洁的，同样够快且占用空间大&quot;&quot;&quot;
-        M = ('', 'M', 'MM', 'MMM')
-        C = ('', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM')
-        X = ('', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC')
-        I = ('', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX')
-        return M[num // 1000] + C[(num % 1000) // 100] + X[(num % 100) // 10] + I[num % 10]
-
-
-if __name__ == '__main__':
-    print(Solution().intToRoman(1994))
+<pre><code>.
+├── Dockerfile
+├── crontabfile
+├── scripts.py
+└── requirements.txt
 </code></pre>
+
+<ul>
+<li>Dockerfile 负责构建镜像</li>
+<li>crontabfile 是写有 crontab 内容的文件</li>
+<li>scripts.py 是要运行的脚本文件</li>
+<li>requirements.txt 是需要 pip 安装的扩展</li>
+</ul>
+
+<p>关键内容是 <code>Dockerfile</code>，鉴于还没完善，不好意思在这里详细讲，感兴趣的话可以去看看，后面会再更新</p>
+
+<p>刚学 docker 没多久，一些地方还不清楚，有问题还请不吝赐教，多谢</p>
 
 
 			<aside class="copyright" role="note">
@@ -391,7 +375,7 @@ if __name__ == '__main__':
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/tips/git_lg/" title="Git_lg">
+      <a href="https://codenow.me/algorithm/leetcode_12_integertoroman/" title="Leetcode_12_IntegerToRoman">
         <span class="direction">
           Previous
         </span>
@@ -401,7 +385,7 @@ if __name__ == '__main__':
           </div>
           <div class="stretch">
             <div class="title">
-              Git_lg
+              Leetcode_12_IntegerToRoman
             </div>
           </div>
         </div>
@@ -411,14 +395,14 @@ if __name__ == '__main__':
 
   <div class="next">
   
-      <a href="https://codenow.me/articles/python3-crontab/" title="Python3 Crontab">
+      <a href="https://codenow.me/tips/dep-visualizing-dependencies/" title="dep package 依赖关系图">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Python3 Crontab
+              dep package 依赖关系图
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

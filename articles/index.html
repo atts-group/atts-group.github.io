@@ -329,6 +329,18 @@
               <a href="https://codenow.me/articles/2pc/"><br>[阅读全文]</a>
 
             <hr> 
+            <a href="https://codenow.me/articles/python3-crontab/" title="Python3 Crontab">
+                <h2>Python3 Crontab </h2>
+            </a>
+            <br>
+
+              这周需要在容器中跑一个定时脚本
+现成的方式有很多： 1. 直接使用 ubuntu:14.04 的镜像，内置 crontab 和 python3.4 2. 想用 python3.6 的话，可以用 python:3.6 的镜像装一个 crontab 也成 3. dockerhub 上别人应该也有这种需求，捞一个就成
+不过我还是想自己拼一个，要求： 1. 需要包含 crontab 和 python3.6 2. 需要能支持使用 pip 安装其他扩展包 3. 镜像要尽量小
+思路以及需要注意的地方大概是： 1. 装上各种必要的东西 2. 设置时区 3. 配置好 crontabfile 4. 运行时启动 c
+              <a href="https://codenow.me/articles/python3-crontab/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/articles/tidb-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0%E5%B8%B8%E8%A7%81%E5%AD%90%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/" title="TiDB 源码学习：常见子查询优化">
                 <h2>TiDB 源码学习：常见子查询优化 </h2>
             </a>

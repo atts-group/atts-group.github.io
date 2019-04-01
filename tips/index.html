@@ -328,6 +328,19 @@ $ brew install graphviz $ dep status -dot | dot -T png | open -f -a /Application
               <a href="https://codenow.me/tips/dep-visualizing-dependencies/"><br>[阅读全文]</a>
 
             <hr> 
+            <a href="https://codenow.me/tips/git_lg/" title="Git_lg">
+                <h2>Git_lg </h2>
+            </a>
+            <br>
+
+              git log 可以用来查看提交历史，但格式并不舒服，我们可以通过配置 git config 来解决这个问题：
+运行
+git config &ndash;global alias.lg &lsquo;log &ndash;pretty=format:&quot;%h - %an, %ad : %s&quot; &ndash;date=format:&quot;%Y-%m-%d %H:%M:%S&quot;&lsquo;
+之后，便可以使用 git lg 来查看精简版本的，更舒服的提交历史了，如本项目现在看的话会变成
+80504ec - jarvis, 2019-03-31 13:58:55 : add origin article link df1
+              <a href="https://codenow.me/tips/git_lg/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="Idea 前进后退快捷键">
                 <h2>Idea 前进后退快捷键 </h2>
             </a>
