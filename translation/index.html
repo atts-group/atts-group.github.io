@@ -316,6 +316,18 @@
             <h1>目录 - 翻译</h1>
 
             
+            <a href="https://codenow.me/translation/control_startup_and_shutdown_order_in_compose/" title="Control_startup_and_shutdown_order_in_Compose">
+                <h2>Control_startup_and_shutdown_order_in_Compose </h2>
+            </a>
+            <br>
+
+              原文链接：<a href="https://docs.docker.com/compose/startup-order/，翻译如下：">https://docs.docker.com/compose/startup-order/，翻译如下：</a>
+您可以使用“depends_on”选项控制服务启动和关闭的顺序。compose总是按依赖顺序启动和停止容器，依赖性由depends_on、links、volumes_form和网络模式“service:…”确定。
+但是，对于启动，compose不会等到容器“就绪”（对于特定的应用程序来说，这意味着什么）之后才运行。这是有充分理由的。
+等待数据库（例如）准备就绪的问题实际上只是分布式系统中一个更大问题的子集。在生产环境中，数据库可能随时不可用或移动主机。您的应用程序需要能够适应这些
+              <a href="https://codenow.me/translation/control_startup_and_shutdown_order_in_compose/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/translation/beachmark-details/" title="更详细的 Go 性能测试">
                 <h2>更详细的 Go 性能测试 </h2>
             </a>

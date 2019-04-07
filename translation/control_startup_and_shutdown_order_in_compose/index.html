@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode 13 Roman to Integer - ATTS</title>
+    <title>Control_startup_and_shutdown_order_in_Compose - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/leetcode-13-roman-to-integer/">
+    <link rel="canonical" href="https://codenow.me/translation/control_startup_and_shutdown_order_in_compose/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/leetcode-13-roman-to-integer/">
+    <meta property="og:url" content="https://codenow.me/translation/control_startup_and_shutdown_order_in_compose/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode 13 Roman to Integer
+        Control_startup_and_shutdown_order_in_Compose
       </div>
     </div>
 
@@ -312,100 +312,70 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode 13 Roman to Integer </h1>
+			<h1>Control_startup_and_shutdown_order_in_Compose </h1>
 
-			<blockquote>
-<p>题号：13<br>
-难度：easy<br>
-链接：<a href="https://leetcode.com/problems/roman-to-integer">https://leetcode.com/problems/roman-to-integer</a><br>
-描述：罗马数字转阿拉伯数字(1-3999)<br></p>
+			<p>原文链接：<a href="https://docs.docker.com/compose/startup-order/，翻译如下：">https://docs.docker.com/compose/startup-order/，翻译如下：</a></p>
+
+<p>您可以使用“depends_on”选项控制服务启动和关闭的顺序。compose总是按依赖顺序启动和停止容器，依赖性由depends_on、links、volumes_form和网络模式“service:…”确定。</p>
+
+<p>但是，对于启动，compose不会等到容器“就绪”（对于特定的应用程序来说，这意味着什么）之后才运行。这是有充分理由的。</p>
+
+<p>等待数据库（例如）准备就绪的问题实际上只是分布式系统中一个更大问题的子集。在生产环境中，数据库可能随时不可用或移动主机。您的应用程序需要能够适应这些类型的故障。</p>
+
+<p>要处理此问题，请设计应用程序以尝试在失败后重新建立与数据库的连接。如果应用程序重试连接，它最终可以连接到数据库。</p>
+
+<p>最好的解决方案是在应用程序代码中执行这种签入，无论是在启动时还是在任何时候由于任何原因而丢失连接。但是，如果您不需要这种级别的恢复能力，您可以使用包装脚本来解决这个问题：</p>
+
+<ul>
+<li>使用诸如wait for it、dockerize或sh-compatible wait for等工具。这些是小包装脚本，您可以将其包含在应用程序的映像中，以轮询给定的主机和端口，直到它接受TCP连接。</li>
+</ul>
+
+<p>例如，要使用wait-for-it.sh或wait-for-wrap服务的命令：</p>
+
+<pre><code>version: &quot;2&quot;
+services:
+  web:
+    build: .
+    ports:
+      - &quot;80:8000&quot;
+    depends_on:
+      - &quot;db&quot;
+    command: [&quot;./wait-for-it.sh&quot;, &quot;db:5432&quot;, &quot;--&quot;, &quot;python&quot;, &quot;app.py&quot;]
+  db:
+    image: postgres
+</code></pre>
+
+<blockquote>
+<p>提示：第一个解决方案有局限性。例如，它不验证特定服务何时真正准备好。如果向命令添加更多参数，请使用带有循环的bash shift命令，如下一个示例所示。</p>
 </blockquote>
 
-<pre><code>class Solution(object):
-    def romanToInt1(self, s: str) -&gt; int:
-        &quot;&quot;&quot;仿照上一题的无脑解法，先直接怼一个出来&quot;&quot;&quot;
-        ten = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX']
-        res = 0
+<ul>
+<li>或者，编写自己的包装器脚本来执行更特定于应用程序的健康检查。例如，您可能希望等待Postgres完全准备好接受命令：</li>
+</ul>
 
-        if s.startswith('MMM'):
-            res += 3000
-            s = s[3:]
-        elif s.startswith('MM'):
-            res += 2000
-            s = s[2:]
-        elif s.startswith('M'):
-            res += 1000
-            s = s[1:]
+<pre><code>#!/bin/sh
+# wait-for-postgres.sh
 
-        if s.startswith('CM'):
-            res += 900
-            s = s[2:]
-        elif s.startswith('D'):
-            res += 500
-            s = s[1:]
-        elif s.startswith('CD'):
-            res += 400
-            s = s[2:]
-        if s.startswith('CCC'):
-            res += 300
-            s = s[3:]
-        elif s.startswith('CC'):
-            res += 200
-            s = s[2:]
-        elif s.startswith('C'):
-            res += 100
-            s = s[1:]
+set -e
 
-        if s.startswith('XC'):
-            res += 90
-            s = s[2:]
-        elif s.startswith('L'):
-            res += 50
-            s = s[1:]
-        elif s.startswith('XL'):
-            res += 40
-            s = s[2:]
-        if s.startswith('XXX'):
-            res += 30
-            s = s[3:]
-        elif s.startswith('XX'):
-            res += 20
-            s = s[2:]
-        elif s.startswith('X'):
-            res += 10
-            s = s[1:]
+host=&quot;$1&quot;
+shift
+cmd=&quot;$@&quot;
 
-        res += ten.index(s)
-        return res
+until PGPASSWORD=$POSTGRES_PASSWORD psql -h &quot;$host&quot; -U &quot;postgres&quot; -c '\q'; do
+  &gt;&amp;2 echo &quot;Postgres is unavailable - sleeping&quot;
+  sleep 1
+done
 
-    def romanToInt2(self, s: str) -&gt; int:
-        &quot;&quot;&quot;有一个微妙的规律，当 左&lt;右 时，减掉左，其余为加左&quot;&quot;&quot;
-        res = 0
-        roman = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
-
-        for i in range(0, len(s) - 1):
-            if roman[s[i]] &lt; roman[s[i + 1]]:
-                res -= roman[s[i]]
-            else:
-                res += roman[s[i]]
-        res += roman[s[-1]]
-
-        return res
-
-    def romanToInt(self, s: str) -&gt; int:
-        &quot;&quot;&quot;看了看 discuss，有人给了个更简单的写法
-        这里反向迭代的原因是，可以确定 I 是最小的&quot;&quot;&quot;
-        res, p = 0, 'I'
-        roman = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}
-
-        for c in s[::-1]:
-            res, p = res - roman[c] if roman[c] &lt; roman[p] else res + roman[c], c
-        return res
-
-
-if __name__ == '__main__':
-    print(Solution().romanToInt('MCMXCIV'))
+&gt;&amp;2 echo &quot;Postgres is up - executing command&quot;
+exec $cmd
 </code></pre>
+
+<p>您可以将其用作包装脚本，如前一个示例中所示，方法是设置：</p>
+
+<blockquote>
+<p>command: [&ldquo;./wait-for-postgres.sh&rdquo;, &ldquo;db&rdquo;, &ldquo;python&rdquo;, &ldquo;app.py&rdquo;]</p>
+</blockquote>
 
 
 			<aside class="copyright" role="note">
@@ -424,7 +394,7 @@ if __name__ == '__main__':
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/translation/control_startup_and_shutdown_order_in_compose/" title="Control_startup_and_shutdown_order_in_Compose">
+      <a href="https://codenow.me/algorithm/leetcode_283_move_zeroes/" title="Leetcode_283_Move_Zeroes">
         <span class="direction">
           Previous
         </span>
@@ -434,7 +404,7 @@ if __name__ == '__main__':
           </div>
           <div class="stretch">
             <div class="title">
-              Control_startup_and_shutdown_order_in_Compose
+              Leetcode_283_Move_Zeroes
             </div>
           </div>
         </div>
@@ -444,14 +414,14 @@ if __name__ == '__main__':
 
   <div class="next">
   
-      <a href="https://codenow.me/articles/sentry-python-sdk/" title="Sentry Python Sdk">
+      <a href="https://codenow.me/algorithm/leetcode-13-roman-to-integer/" title="Leetcode 13 Roman to Integer">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Sentry Python Sdk
+              Leetcode 13 Roman to Integer
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
