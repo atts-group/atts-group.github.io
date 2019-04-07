@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>K近邻算法</title>
+      <link>https://codenow.me/algorithm/knn/</link>
+      <pubDate>Sun, 07 Apr 2019 20:42:56 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/knn/</guid>
+      <description>K-近邻算法（KNN）  算法思想： 存在一个训练样本集，并且样本数据集中每个数据都存在标签。将新数据的每个特征与样本数据集中数据对应的特征进行比较，然后算法提取前K个相似的数据。
+ 优缺点及适用范围： 优点：精度高、对异常值不敏感、无数据输入假定；
+缺点：计算复杂度高、空间复杂度高；
+使用数据范围：数值型和标称型
+ 计算距离公式  示例分析：约会人员属性 使用的库 Numpy operator  读取数据：将文本记录转化为Numpy矩阵 def file2matrix(filename): fr = open(filename) arrayOLines = fr.readlines() numberOfLines = len(arrayOLines) returnMat = zeros((numberOfLines, 3)) # 创建numpy矩阵 1000行,3列 classLabelVector = [] # 类标签向量 index = 0 for line in arrayOLines: # 逐行填充矩阵和标签向量 line = line.strip() listFromLine = line.split(&#39;\t&#39;) returnMat[index, :] = listFromLine[0:3] classLabelVector.append(int(listFromLine[-1])) index += 1 return returnMat, classLabelVector  处理数据：归一化数值(min-max标准化) def autoNorm(dataSet): minValue = dataSet.</description>
+    </item>
+    
+    <item>
       <title>Leetcode: 148 Sort List</title>
       <link>https://codenow.me/algorithm/leetcode_148_sort_list/</link>
       <pubDate>Sun, 07 Apr 2019 20:21:28 +0800</pubDate>

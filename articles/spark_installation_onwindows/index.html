@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode 165: Compare Version Numbers - ATTS</title>
+    <title>Windows安装spark - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_165_compare-version-numbers/">
+    <link rel="canonical" href="https://codenow.me/articles/spark_installation_onwindows/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_165_compare-version-numbers/">
+    <meta property="og:url" content="https://codenow.me/articles/spark_installation_onwindows/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode 165: Compare Version Numbers
+        Windows安装spark
       </div>
     </div>
 
@@ -312,37 +312,71 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode 165: Compare Version Numbers </h1>
+			<h1>Windows安装spark </h1>
 
-			<blockquote>
-<p>题号：165<br>
-难度：medium<br>
-链接：<a href="https://leetcode-cn.com/problems/compare-version-numbers/">https://leetcode-cn.com/problems/compare-version-numbers/</a></p>
-</blockquote>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">compareVersion</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">version1</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">version2</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">:</span>
-        <span style="color:#000">vers1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">version1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">split</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">vers2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">version2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">split</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">)</span>
-        
-        <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers2</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#000">vers2</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;0&#39;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">diff</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#000">vers1</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;0&#39;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">diff</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">pass</span>
+			
 
-        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">v1</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers1</span><span style="color:#000;font-weight:bold">):</span>
-            <span style="color:#000">v1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">v2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">v1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers2</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">])</span>
+<h2 id="下载安装java-安装版本为8">下载安装Java，安装版本为8</h2>
 
-            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">v1</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">v2</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">1</span>
-            <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">v1</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">v2</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span>
-            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#204a87;font-weight:bold">continue</span>
+<p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java8下载地址</a>
+安装教程详见：<a href="https://www.runoob.com/java/java-environment-setup.html">菜鸟教程—Java安装</a></p>
 
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span></code></pre></div>
+<h2 id="下载spark安装包">下载spark安装包</h2>
+
+<p><a href="https://www.apache.org/dyn/closer.lua/spark/spark-2.3.3/spark-2.3.3-bin-hadoop2.7.tgz">spark2.3.3下载地址</a></p>
+
+<p>建议安装2.3.3版本，高版本的2.4.0在运行时会报错Py4j error。
+下载后解压文件夹，并将路径配置到系统变量中。</p>
+
+<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190312091710994.png" alt="系统变量配置" /></p>
+
+<p>系统环境变量中配置路径如下：</p>
+
+<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190407205136.png" alt="环境变量配置" /></p>
+
+<h2 id="下载hadoop支持包">下载Hadoop支持包</h2>
+
+<p><a href="https://pan.baidu.com/s/19wb-gTMtZ_9x8TegbB-_Wg">百度网盘下载地址</a>
+提取码：ezs5</p>
+
+<p>下载后解压，并添加系统变量：</p>
+
+<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190407205301.png" alt="添加Hadoop支持系统变量" /></p>
+
+<h2 id="下载并安装pycharm和anaconda">下载并安装pycharm和anaconda</h2>
+
+<p>具体安装教程可自行百度。</p>
+
+<p>安装后，将spark下的python中的pyspark拷贝到安装的python路径下的：Lib\site-packages
+然后运行pip install py4j</p>
+
+<h2 id="配置pycharm运行spark环境">配置pycharm运行spark环境</h2>
+
+<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190407205405.png" alt="pycharm配置" /></p>
+
+<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190407205447.png" alt="pycharm配置" /></p>
+
+<p>根据上图进行配置后即可运行spark程序。</p>
+
+<h2 id="配置日志显示级别">配置日志显示级别</h2>
+
+<p>在spark\conf目录下创建log4j.properties配置文件，该目录下有template模板，可以直接复制。</p>
+
+<p>然后将其中的：log4j.rootCategory=INFO, console 修改为 log4j.rootCategory=WARN, console</p>
+
+<h2 id="配置cmd下pyspark在jupyter下运行">配置cmd下pyspark在jupyter下运行</h2>
+
+<p>编辑spark目录下：bin\pyspark2.cmd
+修改其中对应部分为以下格式：</p>
+
+<pre><code>rem Figure out which Python to use.
+if &quot;x%PYSPARK_DRIVER_PYTHON%&quot;==&quot;x&quot; (
+  set PYSPARK_DRIVER_PYTHON=jupyter
+  set PYSPARK_DRIVER_PYTHON_OPTS=notebook
+  if not [%PYSPARK_PYTHON%] == [] set PYSPARK_DRIVER_PYTHON=%PYSPARK_PYTHON%
+)
+</code></pre>
+
 
 			<aside class="copyright" role="note">
 				
@@ -360,7 +394,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/translation/http-propagation-context/" title="Go Context 在 HTTP 传播">
+      <a href="https://codenow.me/algorithm/knn/" title="K近邻算法">
         <span class="direction">
           Previous
         </span>
@@ -370,7 +404,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Go Context 在 HTTP 传播
+              K近邻算法
             </div>
           </div>
         </div>
@@ -379,22 +413,6 @@
   </div>
 
   <div class="next">
-  
-      <a href="https://codenow.me/tips/github_binds_dominname/" title="GitHub 绑定自己的域名">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              GitHub 绑定自己的域名
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
   
   </div>
 </nav>

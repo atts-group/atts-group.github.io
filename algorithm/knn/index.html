@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode 165: Compare Version Numbers - ATTS</title>
+    <title>K近邻算法 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_165_compare-version-numbers/">
+    <link rel="canonical" href="https://codenow.me/algorithm/knn/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_165_compare-version-numbers/">
+    <meta property="og:url" content="https://codenow.me/algorithm/knn/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode 165: Compare Version Numbers
+        K近邻算法
       </div>
     </div>
 
@@ -312,37 +312,115 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode 165: Compare Version Numbers </h1>
+			<h1>K近邻算法 </h1>
 
-			<blockquote>
-<p>题号：165<br>
-难度：medium<br>
-链接：<a href="https://leetcode-cn.com/problems/compare-version-numbers/">https://leetcode-cn.com/problems/compare-version-numbers/</a></p>
-</blockquote>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">compareVersion</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">version1</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">version2</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">:</span>
-        <span style="color:#000">vers1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">version1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">split</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">vers2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">version2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">split</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;.&#34;</span><span style="color:#000;font-weight:bold">)</span>
-        
-        <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers1</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers2</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#000">vers2</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;0&#39;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">diff</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#000">vers1</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;0&#39;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87">abs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">diff</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">pass</span>
+			
 
-        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">v1</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers1</span><span style="color:#000;font-weight:bold">):</span>
-            <span style="color:#000">v1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">v2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">v1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">vers2</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">])</span>
+<h2 id="k-近邻算法-knn">K-近邻算法（KNN）</h2>
 
-            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">v1</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">v2</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">1</span>
-            <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">v1</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">v2</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span>
-            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#204a87;font-weight:bold">continue</span>
+<ol>
+<li><h3 id="算法思想">算法思想：</h3>
 
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span></code></pre></div>
+<p>存在一个训练样本集，并且样本数据集中每个数据都存在标签。将新数据的每个特征与样本数据集中数据对应的特征进行比较，然后算法提取前K个相似的数据。</p></li>
+
+<li><h3 id="优缺点及适用范围">优缺点及适用范围：</h3>
+
+<p>优点：精度高、对异常值不敏感、无数据输入假定；<br>
+缺点：计算复杂度高、空间复杂度高；<br>
+使用数据范围：数值型和标称型<br></p></li>
+
+<li><h3 id="计算距离公式">计算距离公式</h3>
+
+<p><img src="https://img-blog.csdnimg.cn/20190303210938504.png" alt="在这里插入图片描述" /></p></li>
+
+<li><h3 id="示例分析-约会人员属性">示例分析：约会人员属性</h3></li>
+
+<li><h4 id="使用的库">使用的库</h4>
+
+<pre><code>Numpy
+operator
+</code></pre></li>
+
+<li><h4 id="读取数据-将文本记录转化为numpy矩阵">读取数据：将文本记录转化为Numpy矩阵</h4>
+
+<pre><code>def file2matrix(filename):
+fr = open(filename)
+arrayOLines = fr.readlines()
+numberOfLines = len(arrayOLines)
+returnMat = zeros((numberOfLines, 3))  # 创建numpy矩阵 1000行,3列
+classLabelVector = []  # 类标签向量
+index = 0
+for line in arrayOLines:  # 逐行填充矩阵和标签向量
+    line = line.strip()
+    listFromLine = line.split('\t')
+    returnMat[index, :] = listFromLine[0:3]
+    classLabelVector.append(int(listFromLine[-1]))
+    index += 1
+return returnMat, classLabelVector
+</code></pre></li>
+
+<li><h4 id="处理数据-归一化数值-min-max标准化">处理数据：归一化数值(min-max标准化)</h4>
+
+<pre><code>def autoNorm(dataSet):
+minValue = dataSet.min(0)
+maxValue = dataSet.max(0)
+ranges = maxValue - minValue
+normDataSet = zeros(shape(dataSet))
+m = dataSet.shape[0]
+normDataSet = dataSet - tile(minValue, (m, 1))  # titl函数将minValue复制成dataSet矩阵大小
+normDataSet = normDataSet/tile(ranges, (m, 1))
+return normDataSet, ranges, minValue
+</code></pre></li>
+
+<li><h4 id="k近邻算法代码">K近邻算法代码</h4>
+
+<pre><code>def classify0(inX, DataSet, labels, k: int):  # inX:用于分类的输入向量  DataSet:训练样本  labels：标签向量  k:用于选择的最近邻居的数目
+# 距离计算：向量之间的距离公式
+DataSetSize = DataSet.shape[0]
+DiffMat = tile(inX, (DataSetSize, 1)) - DataSet  # 将inX与DataSet做向量减法
+sqDiffMat = DiffMat ** 2  # 将相减后的结果进行平方
+sqDistances = sqDiffMat.sum(axis=1)  # 将矩阵进行行相加
+distances = sqDistances ** 0.5  # 将矩阵结果开平方
+# 选择距离最小的k个点
+sortedDistIndicies = distances.argsort()  # 得到distances矩阵从小到大排序后的对应index
+classCount = {}
+for i in range(k):  # 统计前k个距离中各个类别的个数
+    voteIlabel = labels[sortedDistIndicies[i]]
+    classCount[voteIlabel] = classCount.get(voteIlabel, 0) + 1
+# 排序
+sortedClassCount = sorted(classCount.items(), key=operator.itemgetter(1), reverse=True)  # 将字典按照value值排序
+return sortedClassCount[0][0]  # 将排序后的第一个key值
+</code></pre></li>
+
+<li><h4 id="测试算法-测试算法正确率">测试算法:测试算法正确率</h4>
+
+<pre><code>def datingClassTest():
+hoRatio = 0.10
+datingDataMat, datingLabels = file2matrix(&quot;your dataset path&quot;)
+normat, ranges, minvalue = autoNorm(datingDataMat)
+m = normat.shape[0]
+numTestVecs = int(m*hoRatio)
+errorCount = 0.0
+for i in range(numTestVecs):
+    classifierResult = classify0(normat[i, :], normat[numTestVecs:m, :], datingLabels[numTestVecs: m], 3)
+    print(&quot;the classifier came back with %s, the real answer is: %s&quot; % (classifierResult, datingLabels[i]))
+    if classifierResult != datingLabels[i]:
+        errorCount += 1.0
+print(errorCount, numTestVecs)
+print(&quot;the total error rate is %f&quot; % (errorCount/float(numTestVecs)))
+</code></pre></li>
+
+<li><h3 id="测试结果">测试结果</h3>
+
+<p>percentage of time spent playing video games?10<br></p></li>
+</ol>
+
+<p>frequent flier miles earned per year?10<br></p>
+
+<p>liters of ice cream consumed per year?20<br></p>
+
+<p>You will probably like this person: In small does</p>
+
 
 			<aside class="copyright" role="note">
 				
@@ -360,7 +438,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/translation/http-propagation-context/" title="Go Context 在 HTTP 传播">
+      <a href="https://codenow.me/tips/rsshub/" title="万物皆可 RSS">
         <span class="direction">
           Previous
         </span>
@@ -370,7 +448,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Go Context 在 HTTP 传播
+              万物皆可 RSS
             </div>
           </div>
         </div>
@@ -380,14 +458,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/tips/github_binds_dominname/" title="GitHub 绑定自己的域名">
+      <a href="https://codenow.me/articles/spark_installation_onwindows/" title="Windows安装spark">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              GitHub 绑定自己的域名
+              Windows安装spark
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
