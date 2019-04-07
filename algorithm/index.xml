@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Leetcode: 709 To Lower Case</title>
+      <link>https://codenow.me/algorithm/to_lowercase/</link>
+      <pubDate>Sun, 07 Apr 2019 14:12:27 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/to_lowercase/</guid>
+      <description>题号：709 难度：easy 链接：原题 描述：使用 ASCII 把字母统一为小写 class Solution: &amp;#34;&amp;#34;&amp;#34;use ASCII to return the same str in lowercase &amp;#34;&amp;#34;&amp;#34; def to_lower_case(self, str: str) -&amp;gt; str: new_str = &amp;#39;&amp;#39; for c in str: if 65 &amp;lt;= ord(c) &amp;lt;= 90: # Uppercase is between 65 and 90 in ASCII table c = chr(ord(c)+32) new_str += c return new_str # one line solution #return &amp;#39;&amp;#39;.join(chr(ord(c) + 32) if 65 &amp;lt;= ord(c) &amp;lt;= 90 else c for c in str) if __name__ == &amp;#39;__main__&amp;#39;: solution = Solution() s = &amp;#39;Hero&amp;#39; solution.</description>
+    </item>
+    
+    <item>
       <title>Leetcode 165: Compare Version Numbers</title>
       <link>https://codenow.me/algorithm/leetcode_165_compare-version-numbers/</link>
       <pubDate>Sun, 31 Mar 2019 22:17:14 +0800</pubDate>
