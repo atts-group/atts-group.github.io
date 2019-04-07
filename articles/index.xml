@@ -11,6 +11,21 @@
     
     
     <item>
+      <title>Golang Linux Namespace Usage</title>
+      <link>https://codenow.me/articles/golang-namespace/</link>
+      <pubDate>Sun, 07 Apr 2019 20:22:21 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/golang-namespace/</guid>
+      <description>总所周知 Docker 最早诞生于 Linux 平台，利用的是 Linux LXC 技术作为基础。Docker 作为一种 “轻量级虚拟机” 跑在通用操作系统中，那么势必就要对容器进行隔离，保证在宿主机内的独立性。
+Namespace Overview 在 Linux Kernel 中有一组名为 Namespace 的系统调用 API。主要作用是封装了全局的系统资源的调用分配，在一个进程中隔离了其他进程的可见性，让自己 “拥有” 整个计算机的资源的能力。一个典型的用途就是容器的实现。
+namespace 一种只有 4 个 API：
+ clone：创建一个隔离的进程，可以通过参数控制所拥有的资源 setns：允许一个进程到现有的 namespace unshare：从现有 namespace 中移除一个进程 ioctl：用法发现 namespace 信息  接下来主要讨论如何创建一个具有隔离性的进程，也就是 clone 这个系统调用的用法。
+clone 创建一个新的 namespace（进程），可以对其控制几个方面的资源（通过 CLONE_NEW* 这系列参数）。
+ IPC：CLONE_NEWIPC，System V IPC 和 POSIX message queue Network：CLONE_NEWNET，网络设备等 Mount：CLONE_NEWNS，挂载点 PID：CLONE_NEWPID，进程的 ID User：CLONE_NEWUSER：用户或组的 ID UTS：CLONE_NEWUTS：Hostname 和 NIS domain  这里 CLONE_NEWNS 比较奇特，这是最早的一个参数，后面也想不到还有更多粒度的资源控制，所以这是一个历史遗留问题。
+Namespace Usage 由于 Namespace 是 Linux 的系统调用，所以在其他操作系统是无法编译通过的。可以在 build 时候通过设置 GOOS = linux 解决，但是运行还是要放在 Linux 上运行。</description>
+    </item>
+    
+    <item>
       <title>互联网之子 Aaron Swarts 想要看到的世界</title>
       <link>https://codenow.me/articles/aaron_huoju/</link>
       <pubDate>Sun, 07 Apr 2019 14:19:45 +0900</pubDate>

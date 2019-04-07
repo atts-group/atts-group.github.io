@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>Leetcode: 148 Sort List</title>
+      <link>https://codenow.me/algorithm/leetcode_148_sort_list/</link>
+      <pubDate>Sun, 07 Apr 2019 20:21:28 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_148_sort_list/</guid>
+      <description>题号：148
+难度：中等
+链接：https://leetcode-cn.com/problems/sort-list/submissions/
+ /** * Definition for singly-linked list. * type ListNode struct { * Val int * Next *ListNode * } */ func sortList(head *ListNode) *ListNode { quickSort(head, nil) return head } func getPartion(start *ListNode, end *ListNode) *ListNode { key := start.Val i := start j := start.Next for j != end { if (j.Val &amp;lt; key) { i = i.Next i.Val, j.Val = j.Val, i.Val } j = j.</description>
+    </item>
+    
+    <item>
       <title>Leetcode: 709 To Lower Case</title>
       <link>https://codenow.me/algorithm/to_lowercase/</link>
       <pubDate>Sun, 07 Apr 2019 14:12:27 +0900</pubDate>

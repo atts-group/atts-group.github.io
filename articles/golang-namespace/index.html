@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Golang Linux Namespace Usage - ATTS</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <link rel="canonical" href="https://codenow.me/articles/golang-namespace/">
+    
+    <meta name="author" content="ATTS Group">
+    
+
+    <meta property="og:url" content="https://codenow.me/articles/golang-namespace/">
+    <meta property="og:title" content="ATTS">
+    <meta property="og:image" content="https://codenow.me/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="ATTS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://codenow.me/fonts/icon.eot');
+        src: url('https://codenow.me/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://codenow.me/fonts/icon.woff')
+               format('woff'),
+             url('https://codenow.me/fonts/icon.ttf')
+               format('truetype'),
+             url('https://codenow.me/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/application.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://codenow.me/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-indigo ">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Golang Linux Namespace Usage
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/atts-group" title="@atts-group on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+  <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+  </div>
+   
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/atts-group/atts" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://codenow.me/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>ATTS </strong>
+        
+          <br>
+          atts-group/atts
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/atts-group/atts/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/atts-group/atts/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="文章" href="https://codenow.me/articles/">
+	
+	文章
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="算法" href="https://codenow.me/algorithm/">
+	
+	算法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="翻译" href="https://codenow.me/translation/">
+	
+	翻译
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Tips" href="https://codenow.me/tips/">
+	
+	Tips
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="玩法" href="https://codenow.me/rules/">
+	
+	玩法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="加入我们" href="https://codenow.me/joinus/">
+	
+	加入我们
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/atts-group" target="_blank" title="@atts-group on GitHub">
+              @atts-group on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Golang Linux Namespace Usage </h1>
+
+			
+
+<p>总所周知 Docker 最早诞生于 Linux 平台，利用的是 Linux LXC 技术作为基础。Docker 作为一种 “轻量级虚拟机” 跑在通用操作系统中，那么势必就要对容器进行隔离，保证在宿主机内的独立性。</p>
+
+<h2 id="namespace-overview">Namespace Overview</h2>
+
+<p>在 Linux Kernel 中有一组名为 Namespace 的系统调用 API。主要作用是封装了全局的系统资源的调用分配，在一个进程中隔离了其他进程的可见性，让自己 “拥有” 整个计算机的资源的能力。一个典型的用途就是容器的实现。</p>
+
+<p>namespace 一种只有 4 个 API：</p>
+
+<ul>
+<li>clone：创建一个隔离的进程，可以通过参数控制所拥有的资源</li>
+<li>setns：允许一个进程到现有的 namespace</li>
+<li>unshare：从现有 namespace 中移除一个进程</li>
+<li>ioctl：用法发现 namespace 信息</li>
+</ul>
+
+<p>接下来主要讨论如何创建一个具有隔离性的进程，也就是 clone 这个系统调用的用法。</p>
+
+<p>clone 创建一个新的 namespace（进程），可以对其控制几个方面的资源（通过 CLONE_NEW* 这系列参数）。</p>
+
+<ul>
+<li>IPC：CLONE_NEWIPC，System V IPC 和 POSIX message queue</li>
+<li>Network：CLONE_NEWNET，网络设备等</li>
+<li>Mount：CLONE_NEWNS，挂载点</li>
+<li>PID：CLONE_NEWPID，进程的 ID</li>
+<li>User：CLONE_NEWUSER：用户或组的 ID</li>
+<li>UTS：CLONE_NEWUTS：Hostname 和 NIS domain</li>
+</ul>
+
+<p>这里 CLONE_NEWNS 比较奇特，这是最早的一个参数，后面也想不到还有更多粒度的资源控制，所以这是一个历史遗留问题。</p>
+
+<h2 id="namespace-usage">Namespace Usage</h2>
+
+<p>由于 Namespace 是 Linux 的系统调用，所以在其他操作系统是无法编译通过的。可以在 build 时候通过设置 <code>GOOS = linux</code> 解决，但是运行还是要放在 Linux 上运行。</p>
+
+<p>在 Golang 中创建一个新的进程，通过 CLONE_NEW* flag 设置资源隔离。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#8f5902;font-style:italic">// +build linux
+</span><span style="color:#8f5902;font-style:italic"></span>
+<span style="color:#204a87;font-weight:bold">package</span> <span style="color:#000">main</span>
+
+<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000;font-weight:bold">(</span>
+	<span style="color:#4e9a06">&#34;log&#34;</span>
+	<span style="color:#4e9a06">&#34;os&#34;</span>
+	<span style="color:#4e9a06">&#34;os/exec&#34;</span>
+	<span style="color:#4e9a06">&#34;syscall&#34;</span>
+<span style="color:#000;font-weight:bold">)</span>
+
+<span style="color:#204a87;font-weight:bold">func</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+	<span style="color:#000">cmd</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">exec</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Command</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;sh&#34;</span><span style="color:#000;font-weight:bold">)</span>
+
+	<span style="color:#000">cmd</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">SysProcAttr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">syscall</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">SysProcAttr</span><span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#000">Cloneflags</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">syscall</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CLONE_NEWUTS</span> <span style="color:#000;font-weight:bold">|</span> 
+        <span style="color:#000">syscall</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CLONE_NEWIPC</span> <span style="color:#000;font-weight:bold">|</span> 
+        <span style="color:#000">syscall</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CLONE_NEWPID</span> <span style="color:#000;font-weight:bold">|</span> 
+        <span style="color:#000">syscall</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CLONE_NEWNS</span> <span style="color:#000;font-weight:bold">|</span> 
+        <span style="color:#000">syscall</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CLONE_NEWUSER</span> <span style="color:#000;font-weight:bold">|</span> 
+        <span style="color:#000">syscall</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">CLONE_NEWNET</span><span style="color:#000;font-weight:bold">,</span>
+	<span style="color:#000;font-weight:bold">}</span>
+
+	<span style="color:#000">cmd</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Stdin</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Stdin</span>
+	<span style="color:#000">cmd</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Stdout</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Stdout</span>
+	<span style="color:#000">cmd</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Stderr</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">os</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Stderr</span>
+
+	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">:=</span> <span style="color:#000">cmd</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Run</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#000">err</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#204a87;font-weight:bold">nil</span> <span style="color:#000;font-weight:bold">{</span>
+		<span style="color:#000">log</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">Fatal</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">err</span><span style="color:#000;font-weight:bold">)</span>
+	<span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span></code></pre></div>
+<p>使用 <code>env GOOS=linux go build -o nsprocess</code> 编译后，copy <code>nsprocess</code> 到 linux 机器上执行。</p>
+
+<p>先看一下 CLONE_NEWUSER 的功能：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ id
+<span style="color:#000">uid</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">65534</span><span style="color:#ce5c00;font-weight:bold">(</span>nobody<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000">gid</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">65534</span><span style="color:#ce5c00;font-weight:bold">(</span>nogroup<span style="color:#ce5c00;font-weight:bold">)</span> <span style="color:#000">groups</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">65534</span><span style="color:#ce5c00;font-weight:bold">(</span>nogroup<span style="color:#ce5c00;font-weight:bold">)</span></code></pre></div>
+<p>我们可以看到，这时候 UID 和我们宿主机上的不同，表明 user 资源被隔离了。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ifconfig
+$</code></pre></div>
+<p>网络设备信息也是空的，CLONE_NEWNET 的隔离也生效了。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#8f5902;font-style:italic"># hostname -b zxytest</span>
+<span style="color:#8f5902;font-style:italic"># hostname</span>
+zxytest</code></pre></div>
+<p>修改 hostname 后到宿主机发现 hostname 并没有被修改，这就是 CLONE_NEWUTS 的隔离性。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#8f5902;font-style:italic"># mount -t proc proc /proc</span>
+<span style="color:#8f5902;font-style:italic"># ps -ef</span>
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         <span style="color:#0000cf;font-weight:bold">1</span>     <span style="color:#0000cf;font-weight:bold">0</span>  <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">12</span>:16 pts/0    <span style="color:#0000cf;font-weight:bold">00</span>:00:00 sh
+root         <span style="color:#0000cf;font-weight:bold">3</span>     <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">12</span>:17 pts/0    <span style="color:#0000cf;font-weight:bold">00</span>:00:00 ps -ef</code></pre></div>
+<p>mount proc 之后发现进程信息都没有了，只有当前的进程信息。</p>
+
+<blockquote>
+<p>ps 命名是通过读取 /proc 文件输出的，所以要先 mount proc</p>
+</blockquote>
+
+<p>以上就 Linux Namespace 的基本用法，也是 docker 的基础技术。</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/translation/beachmark-details/" title="更详细的 Go 性能测试">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              更详细的 Go 性能测试
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/tips/rsshub/" title="万物皆可 RSS">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              万物皆可 RSS
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/codenow.me\/';
+      var repo_id  = 'atts-group\/atts';
+    
+    </script>
+
+    <script src="https://codenow.me/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "¶";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-136313587-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

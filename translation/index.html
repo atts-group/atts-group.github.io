@@ -316,6 +316,18 @@
             <h1>目录 - 翻译</h1>
 
             
+            <a href="https://codenow.me/translation/beachmark-details/" title="更详细的 Go 性能测试">
+                <h2>更详细的 Go 性能测试 </h2>
+            </a>
+            <br>
+
+              我一直在优化我的 go 代码并且一直优化我的性能测试方案。
+让我们先看一个简单的例子：
+func BenchmarkReport(b *testing.B) { runtime.GC() for i := 0; i &lt; b.N; i++ { r := fmt.Sprintf(&#34;hello, world %d&#34;, 123) runtime.KeepAlive&reg; } } 执行 go test -beach . 会看到这样子的结果：
+BenchmarkReport-32 20000000 107 ns/op  这可能可以初略的估计性能表现，但是彻底的优化需要更详细的结果。
+              <a href="https://codenow.me/translation/beachmark-details/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/translation/howtoencryptyourentirelifelessthanonehour/" title="不用一小时，加密你的整个人生">
                 <h2>不用一小时，加密你的整个人生 </h2>
             </a>
