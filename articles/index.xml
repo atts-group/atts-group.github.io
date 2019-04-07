@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>工作中用到的python写log方式</title>
+      <link>https://codenow.me/articles/python_usefull_log_method/</link>
+      <pubDate>Sun, 07 Apr 2019 22:17:39 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/python_usefull_log_method/</guid>
+      <description>1. 使用logger root@ubuntu:/home/hank# cat test_logger.py #! /usr/bin/python import logging import os class TestLogger: def __init__(self, log_name, log_dir=None, default_level=logging.DEBUG): self.logger = logging.getLogger(log_name) if not self.logger.handlers: log_dir = &amp;#34;/var/log/&amp;#34; if not log_dir else log_dir os.mkdir(log_dir) if not os.path.exists(log_dir) else None absolute_log = os.path.join(log_dir, log_name + &amp;#39;.log&amp;#39;) handler = logging.FileHandler(absolute_log) formatter = logging.Formatter(&amp;#39;%(asctime)-25s%(levelname)-8s%(message)s&amp;#39;) handler.setFormatter(formatter) self.logger.addHandler(handler) self.logger.setLevel(default_level) def debug(self, msg): self.logger.debug(msg) def info(self, msg): self.logger.info(msg) def error(self, msg): self.logger.error(msg) def critical(self, msg): self.logger.critical(msg) if __name__ == &amp;#39;__main__&amp;#39;: log_file, __ = os.</description>
+    </item>
+    
+    <item>
       <title>Windows安装spark</title>
       <link>https://codenow.me/articles/spark_installation_onwindows/</link>
       <pubDate>Sun, 07 Apr 2019 20:48:40 +0800</pubDate>

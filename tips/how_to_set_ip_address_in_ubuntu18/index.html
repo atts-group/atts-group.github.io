@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Windows安装spark - ATTS</title>
+    <title>如何在Ubuntu18中设置静态IP - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/articles/spark_installation_onwindows/">
+    <link rel="canonical" href="https://codenow.me/tips/how_to_set_ip_address_in_ubuntu18/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/articles/spark_installation_onwindows/">
+    <meta property="og:url" content="https://codenow.me/tips/how_to_set_ip_address_in_ubuntu18/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Windows安装spark
+        如何在Ubuntu18中设置静态IP
       </div>
     </div>
 
@@ -312,70 +312,144 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Windows安装spark </h1>
+			<h1>如何在Ubuntu18中设置静态IP </h1>
 
-			
+			<p><strong>修改yaml文件</strong></p>
 
-<h2 id="下载安装java-安装版本为8">下载安装Java，安装版本为8</h2>
+<p>Ubuntu 18.04使用netplan配置网络，其配置文件是yaml格式的。</p>
 
-<p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java8下载地址</a>
-安装教程详见：<a href="https://www.runoob.com/java/java-environment-setup.html">菜鸟教程—Java安装</a></p>
+<p>安装好Ubuntu 18.04之后，在/etc/netplan/目录下默认的配置文件名是50-cloud-init.yaml或者是01-network-manager-all.yaml</p>
 
-<h2 id="下载spark安装包">下载spark安装包</h2>
+<p>我们通过VIM修改它</p>
 
-<p><a href="https://www.apache.org/dyn/closer.lua/spark/spark-2.3.3/spark-2.3.3-bin-hadoop2.7.tgz">spark2.3.3下载地址</a></p>
-
-<p>建议安装2.3.3版本，高版本的2.4.0在运行时会报错Py4j error。
-下载后解压文件夹，并将路径配置到系统变量中。</p>
-
-<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190312091710994.png" alt="系统变量配置" /></p>
-
-<p>系统环境变量中配置路径如下：</p>
-
-<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190407205136.png" alt="环境变量配置" /></p>
-
-<h2 id="下载hadoop支持包">下载Hadoop支持包</h2>
-
-<p><a href="https://pan.baidu.com/s/19wb-gTMtZ_9x8TegbB-_Wg">百度网盘下载地址</a>
-提取码：ezs5</p>
-
-<p>下载后解压，并添加系统变量：</p>
-
-<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190407205301.png" alt="添加Hadoop支持系统变量" /></p>
-
-<h2 id="下载并安装pycharm和anaconda">下载并安装pycharm和anaconda</h2>
-
-<p>具体安装教程可自行百度。</p>
-
-<p>安装后，将spark下的python中的pyspark拷贝到安装的python路径下的：Lib\site-packages
-然后运行pip install py4j</p>
-
-<h2 id="配置pycharm运行spark环境">配置pycharm运行spark环境</h2>
-
-<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190407205405.png" alt="pycharm配置" /></p>
-
-<p><img src="http://pp0miv3mb.bkt.clouddn.com/20190407205447.png" alt="pycharm配置" /></p>
-
-<p>根据上图进行配置后即可运行spark程序。</p>
-
-<h2 id="配置日志显示级别">配置日志显示级别</h2>
-
-<p>在spark\conf目录下创建log4j.properties配置文件，该目录下有template模板，可以直接复制。</p>
-
-<p>然后将其中的：log4j.rootCategory=INFO, console 修改为 log4j.rootCategory=WARN, console</p>
-
-<h2 id="配置cmd下pyspark在jupyter下运行">配置cmd下pyspark在jupyter下运行</h2>
-
-<p>编辑spark目录下：bin\pyspark2.cmd
-修改其中对应部分为以下格式：</p>
-
-<pre><code>rem Figure out which Python to use.
-if &quot;x%PYSPARK_DRIVER_PYTHON%&quot;==&quot;x&quot; (
-  set PYSPARK_DRIVER_PYTHON=jupyter
-  set PYSPARK_DRIVER_PYTHON_OPTS=notebook
-  if not [%PYSPARK_PYTHON%] == [] set PYSPARK_DRIVER_PYTHON=%PYSPARK_PYTHON%
-)
+<pre><code>sudo vim /etc/netplan/50-cloud-init.yaml
+#Let NetworkManager manage all devices on this system 
+network:
+    #version: 2
+    #renderer: NetworkManager
+    ethernets:     
+        ens33:   
+            addresses: [172.20.12.74/24]
+            gateway4: 172.20.12.254
+            dhcp4: no     
+            nameservers:           
+                addresses: [103.16.125.251, 103.16.125.252]
 </code></pre>
+
+<p>重启网络服务使配置生效:</p>
+
+<blockquote>
+<p>sudo netplan apply</p>
+</blockquote>
+
+<p><strong>注意事项</strong></p>
+
+<p>1） 无论是ifupdown还是netplan，配置的思路都是一致的，在配置文件里面按照规则填入IP、掩码、网关、DNS等信息。</p>
+
+<p>注意yaml是层次结构，需要缩进，冒号(:)表示字典，连字符(-)表示列表。</p>
+
+<p>比如：</p>
+
+<pre><code>network:     
+    ethernets:
+        ens160:
+            addresses:
+                - 210.72.92.28/24 # IP及掩码
+            gateway4: 210.72.92.254 # 网关
+            nameservers:
+                addresses:
+                    - 8.8.8.8 # DNS     
+    version：2 
+</code></pre>
+
+<p>2）只是针对ubuntu18.04 Server版，对于18.04 desktop它缺省是使用NetworkManger来进行管理，可使用图形界面进行配置，其网络配置文件是保存在：/etc/NetworkManager/system-connections目录下的，跟Server版区别还是比较大的。</p>
+
+<p>3) 同时，在 Ubuntu 18.04 中，我们定义子网掩码的时候不是像旧版本的那样把 IP 和子网掩码分成两项配置。</p>
+
+<p>在旧版本的 Ubuntu 里，我们一般配置的 IP 和子网掩码是这样的：</p>
+
+<blockquote>
+<p>address = 192.168.225.50
+netmask = 255.255.255.0</p>
+</blockquote>
+
+<p>而在 netplan 中，我们把这两项合并成一项，就像这样：</p>
+
+<blockquote>
+<p>addresses : [192.168.225.<sup>50</sup>&frasl;<sub>24</sub>]</p>
+</blockquote>
+
+<p>4) 配置完成之后保存并关闭配置文件。然后用下面这行命令来应用刚才的配置：</p>
+
+<blockquote>
+<p>$ sudo netplan apply</p>
+</blockquote>
+
+<p>如果在应用配置的时候有出现问题的话，可以通过如下的命令来查看刚才配置的内容出了什么问题。</p>
+
+<blockquote>
+<p>$ sudo netplan &ndash;debug apply</p>
+</blockquote>
+
+<p>这行命令会输出这些 debug 信息：</p>
+
+<pre><code>root@ubuntu:/etc/netplan# vim 01-network-manager-all.yaml 
+root@ubuntu:/etc/netplan# netplan --debug apply
+** (generate:27915): DEBUG: 00:58:04.024: Processing input file /etc/netplan/01-network-manager-all.yaml..
+** (generate:27915): DEBUG: 00:58:04.025: starting new processing pass
+** (generate:27915): DEBUG: 00:58:04.025: ens33: setting default backend to 1
+** (generate:27915): DEBUG: 00:58:04.025: Generating output files..
+** (generate:27915): DEBUG: 00:58:04.025: NetworkManager: definition ens33 is not for us (backend 1)
+DEBUG:netplan generated networkd configuration exists, restarting networkd
+DEBUG:no netplan generated NM configuration exists
+DEBUG:ens33 not found in {}
+DEBUG:Merged config:
+network:
+  bonds: {}
+  bridges: {}
+  ethernets:
+    ens33:
+      addresses:
+      - 192.168.23.129/24
+      dhcp4: false
+      gateway4: 172.20.12.254
+      nameservers:
+        addresses:
+        - 103.16.125.251
+        - 103.16.125.252
+  vlans: {}
+  wifis: {}
+
+DEBUG:Skipping non-physical interface: lo
+DEBUG:device ens33 operstate is up, not changing
+DEBUG:Skipping non-physical interface: docker0
+DEBUG:Skipping non-physical interface: veth6c57bfa
+DEBUG:Skipping non-physical interface: vethf518b7b
+DEBUG:Skipping non-physical interface: veth9faaf09
+DEBUG:{}
+DEBUG:netplan triggering .link rules for lo
+DEBUG:netplan triggering .link rules for ens33
+DEBUG:netplan triggering .link rules for docker0
+DEBUG:netplan triggering .link rules for veth6c57bfa
+DEBUG:netplan triggering .link rules for vethf518b7b
+DEBUG:netplan triggering .link rules for veth9faaf09
+root@ubuntu:/etc/netplan# 
+</code></pre>
+
+<p>5) 在 Ubuntu 18.04 LTS 中配置动态 IP 地址</p>
+
+<p>其实配置文件中的初始配置就是动态 IP 的配置，所以你想要使用动态 IP 的话不需要再去做任何的配置操作。</p>
+
+<p>如果你已经配置了静态 IP 地址，想要恢复之前动态 IP 的配置，就把在上面静态 IP 配置中所添加的相关配置项删除，把整个配置文件恢复成之前的样子</p>
+
+<pre><code># Let NetworkManager manage all devices on this system
+network:   
+    version: 2   
+    renderer: NetworkManager 
+</code></pre>
+
+<p>然后，运行:
+&gt; $ sudo netplan apply</p>
 
 
 			<aside class="copyright" role="note">
@@ -394,7 +468,7 @@ if &quot;x%PYSPARK_DRIVER_PYTHON%&quot;==&quot;x&quot; (
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/algorithm/knn/" title="K近邻算法">
+      <a href="https://codenow.me/articles/python_usefull_log_method/" title="工作中用到的python写log方式">
         <span class="direction">
           Previous
         </span>
@@ -404,7 +478,7 @@ if &quot;x%PYSPARK_DRIVER_PYTHON%&quot;==&quot;x&quot; (
           </div>
           <div class="stretch">
             <div class="title">
-              K近邻算法
+              工作中用到的python写log方式
             </div>
           </div>
         </div>
@@ -414,14 +488,14 @@ if &quot;x%PYSPARK_DRIVER_PYTHON%&quot;==&quot;x&quot; (
 
   <div class="next">
   
-      <a href="https://codenow.me/articles/python_usefull_log_method/" title="工作中用到的python写log方式">
+      <a href="https://codenow.me/algorithm/leetcode_283_move_zeroes/" title="Leetcode_283_Move_Zeroes">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              工作中用到的python写log方式
+              Leetcode_283_Move_Zeroes
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

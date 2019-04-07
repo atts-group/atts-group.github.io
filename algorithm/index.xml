@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Leetcode_283_Move_Zeroes</title>
+      <link>https://codenow.me/algorithm/leetcode_283_move_zeroes/</link>
+      <pubDate>Sun, 07 Apr 2019 23:13:23 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_283_move_zeroes/</guid>
+      <description> 题号：283 难度：Easy 链接：https://leetcode.com/problems/move-zeroes/
+ #!/usr/bin/python # -*- coding:utf-8 -*- class Solution: def moveZeroes(self, nums): &amp;#34;&amp;#34;&amp;#34; Do not return anything, modify nums in-place instead. &amp;#34;&amp;#34;&amp;#34; empty_index_list = [] for i in range(len(nums)): if i == 0: empty_index_list.append(i) elif empty_index_list: nums[empty_index_list.pop(0)] = nums[i] if empty_index_list: for i in range(len(empty_index_list)): nums[len(nums)-i] = 0</description>
+    </item>
+    
+    <item>
       <title>K近邻算法</title>
       <link>https://codenow.me/algorithm/knn/</link>
       <pubDate>Sun, 07 Apr 2019 20:42:56 +0800</pubDate>

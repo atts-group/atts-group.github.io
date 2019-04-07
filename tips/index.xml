@@ -11,6 +11,26 @@
     
     
     <item>
+      <title>如何在Ubuntu18中设置静态IP</title>
+      <link>https://codenow.me/tips/how_to_set_ip_address_in_ubuntu18/</link>
+      <pubDate>Sun, 07 Apr 2019 22:24:28 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/how_to_set_ip_address_in_ubuntu18/</guid>
+      <description>修改yaml文件
+Ubuntu 18.04使用netplan配置网络，其配置文件是yaml格式的。
+安装好Ubuntu 18.04之后，在/etc/netplan/目录下默认的配置文件名是50-cloud-init.yaml或者是01-network-manager-all.yaml
+我们通过VIM修改它
+sudo vim /etc/netplan/50-cloud-init.yaml #Let NetworkManager manage all devices on this system network: #version: 2 #renderer: NetworkManager ethernets: ens33: addresses: [172.20.12.74/24] gateway4: 172.20.12.254 dhcp4: no nameservers: addresses: [103.16.125.251, 103.16.125.252]  重启网络服务使配置生效:
+ sudo netplan apply
+ 注意事项
+1） 无论是ifupdown还是netplan，配置的思路都是一致的，在配置文件里面按照规则填入IP、掩码、网关、DNS等信息。
+注意yaml是层次结构，需要缩进，冒号(:)表示字典，连字符(-)表示列表。
+比如：
+network: ethernets: ens160: addresses: - 210.72.92.28/24 # IP及掩码 gateway4: 210.72.92.254 # 网关 nameservers: addresses: - 8.8.8.8 # DNS version：2  2）只是针对ubuntu18.04 Server版，对于18.04 desktop它缺省是使用NetworkManger来进行管理，可使用图形界面进行配置，其网络配置文件是保存在：/etc/NetworkManager/system-connections目录下的，跟Server版区别还是比较大的。
+3) 同时，在 Ubuntu 18.</description>
+    </item>
+    
+    <item>
       <title>万物皆可 RSS</title>
       <link>https://codenow.me/tips/rsshub/</link>
       <pubDate>Sun, 07 Apr 2019 20:23:19 +0800</pubDate>
