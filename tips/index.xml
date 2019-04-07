@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Awk De Duplication</title>
+      <link>https://codenow.me/tips/awk-de-duplication/</link>
+      <pubDate>Sun, 07 Apr 2019 23:59:32 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/awk-de-duplication/</guid>
+      <description>使用 AWK 对数据进行去重：awk &#39;!a[$0]++{print}&#39;</description>
+    </item>
+    
+    <item>
       <title>如何在Ubuntu18中设置静态IP</title>
       <link>https://codenow.me/tips/how_to_set_ip_address_in_ubuntu18/</link>
       <pubDate>Sun, 07 Apr 2019 22:24:28 +0800</pubDate>

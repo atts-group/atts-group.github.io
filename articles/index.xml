@@ -11,6 +11,21 @@
     
     
     <item>
+      <title>Sentry Python Sdk</title>
+      <link>https://codenow.me/articles/sentry-python-sdk/</link>
+      <pubDate>Sun, 07 Apr 2019 23:58:18 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/sentry-python-sdk/</guid>
+      <description>Sentry 是一个开源的实时错误报告工具，支持 web 前后端、移动应用以及游戏，支持 Python、OC、Java、Go、Node、Django、RoR 等主流编程语言和框架 ，还提供了 GitHub、Slack、Trello 等常见开发工具的集成。
+ 这周重新用 docker 部署了一下 Sentry server，比 python 部署确实方便多了，docker-compose 官方都给写好了，改改配置就可以直接上
+server 端部署好之后，又看了一下 client 端是怎么做的。就感觉这个 SDK 做的真好，接入成本极低，以 Flask 为例，只要加上两行即可：
+from raven.contrib.flask import Sentry sentry = Sentry(app, dsn=&#39;http://00d5b7d6d7f1498687430d160fd48ea8:ae6eaaf3c8d24d3f98537453da1f6a4f@localhost:9000/2&#39;)  于是仔细读了读 SDK 的实现，主要研究三个问题： 1. sentry 是怎么把 SDK 写得如此简洁的？ 2. sentry 是如何捕捉到要发送的错误信息的？ 3. sentry 是如何把错误信息发送到 server 端的？
+注：以下使用的语言及 package 版本为： * python 3.6 * raven 6.10.0 * Flask 1.0.2
+先看一下目录结构：
+raven ├── conf # 配置相关 ├── contrib # 适配各框架的代码 ├── data # 证书等 ├── handlers	# 日志记录等 ├── scripts # 测试脚本 ├── transport # 实际发消息给服务端的东西 ├── utils # 一些内部工具 ├── __init__.</description>
+    </item>
+    
+    <item>
       <title>工作中用到的python写log方式</title>
       <link>https://codenow.me/articles/python_usefull_log_method/</link>
       <pubDate>Sun, 07 Apr 2019 22:17:39 +0800</pubDate>

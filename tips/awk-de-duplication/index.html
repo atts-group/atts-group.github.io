@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode_283_Move_Zeroes - ATTS</title>
+    <title>Awk De Duplication - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_283_move_zeroes/">
+    <link rel="canonical" href="https://codenow.me/tips/awk-de-duplication/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_283_move_zeroes/">
+    <meta property="og:url" content="https://codenow.me/tips/awk-de-duplication/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode_283_Move_Zeroes
+        Awk De Duplication
       </div>
     </div>
 
@@ -312,31 +312,10 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode_283_Move_Zeroes </h1>
+			<h1>Awk De Duplication </h1>
 
-			<blockquote>
-<p>题号：283
-难度：Easy
-链接：<a href="https://leetcode.com/problems/move-zeroes/">https://leetcode.com/problems/move-zeroes/</a></p>
-</blockquote>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic">#!/usr/bin/python</span>
-<span style="color:#8f5902;font-style:italic"># -*- coding:utf-8 -*-</span>
+			<p>使用 AWK 对数据进行去重：<code>awk '!a[$0]++{print}'</code></p>
 
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">moveZeroes</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">nums</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#4e9a06">&#34;&#34;&#34;
-</span><span style="color:#4e9a06">        Do not return anything, modify nums in-place instead.
-</span><span style="color:#4e9a06">        &#34;&#34;&#34;</span>
-        <span style="color:#000">empty_index_list</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
-        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">nums</span><span style="color:#000;font-weight:bold">)):</span>
-            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#000">empty_index_list</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">)</span>
-            <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">empty_index_list</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#000">nums</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">empty_index_list</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nums</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span>
-
-        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">empty_index_list</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">empty_index_list</span><span style="color:#000;font-weight:bold">)):</span>
-                <span style="color:#000">nums</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">nums</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -354,7 +333,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/tips/how_to_set_ip_address_in_ubuntu18/" title="如何在Ubuntu18中设置静态IP">
+      <a href="https://codenow.me/articles/sentry-python-sdk/" title="Sentry Python Sdk">
         <span class="direction">
           Previous
         </span>
@@ -364,7 +343,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              如何在Ubuntu18中设置静态IP
+              Sentry Python Sdk
             </div>
           </div>
         </div>
@@ -373,22 +352,6 @@
   </div>
 
   <div class="next">
-  
-      <a href="https://codenow.me/algorithm/leetcode-13-roman-to-integer/" title="Leetcode 13 Roman to Integer">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              Leetcode 13 Roman to Integer
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
   
   </div>
 </nav>

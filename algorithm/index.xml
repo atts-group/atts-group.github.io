@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>Leetcode 13 Roman to Integer</title>
+      <link>https://codenow.me/algorithm/leetcode-13-roman-to-integer/</link>
+      <pubDate>Sun, 07 Apr 2019 23:55:16 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode-13-roman-to-integer/</guid>
+      <description>题号：13
+难度：easy
+链接：https://leetcode.com/problems/roman-to-integer
+描述：罗马数字转阿拉伯数字(1-3999)
+ class Solution(object): def romanToInt1(self, s: str) -&amp;gt; int: &amp;quot;&amp;quot;&amp;quot;仿照上一题的无脑解法，先直接怼一个出来&amp;quot;&amp;quot;&amp;quot; ten = [&#39;&#39;, &#39;I&#39;, &#39;II&#39;, &#39;III&#39;, &#39;IV&#39;, &#39;V&#39;, &#39;VI&#39;, &#39;VII&#39;, &#39;VIII&#39;, &#39;IX&#39;] res = 0 if s.startswith(&#39;MMM&#39;): res += 3000 s = s[3:] elif s.startswith(&#39;MM&#39;): res += 2000 s = s[2:] elif s.startswith(&#39;M&#39;): res += 1000 s = s[1:] if s.startswith(&#39;CM&#39;): res += 900 s = s[2:] elif s.startswith(&#39;D&#39;): res += 500 s = s[1:] elif s.</description>
+    </item>
+    
+    <item>
       <title>Leetcode_283_Move_Zeroes</title>
       <link>https://codenow.me/algorithm/leetcode_283_move_zeroes/</link>
       <pubDate>Sun, 07 Apr 2019 23:13:23 +0800</pubDate>

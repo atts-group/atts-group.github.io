@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Sentry Python Sdk - ATTS</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <link rel="canonical" href="https://codenow.me/articles/sentry-python-sdk/">
+    
+    <meta name="author" content="ATTS Group">
+    
+
+    <meta property="og:url" content="https://codenow.me/articles/sentry-python-sdk/">
+    <meta property="og:title" content="ATTS">
+    <meta property="og:image" content="https://codenow.me/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="ATTS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://codenow.me/fonts/icon.eot');
+        src: url('https://codenow.me/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://codenow.me/fonts/icon.woff')
+               format('woff'),
+             url('https://codenow.me/fonts/icon.ttf')
+               format('truetype'),
+             url('https://codenow.me/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/application.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://codenow.me/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-indigo ">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Sentry Python Sdk
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/atts-group" title="@atts-group on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+  <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+  </div>
+   
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/atts-group/atts" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://codenow.me/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>ATTS </strong>
+        
+          <br>
+          atts-group/atts
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/atts-group/atts/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/atts-group/atts/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="文章" href="https://codenow.me/articles/">
+	
+	文章
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="算法" href="https://codenow.me/algorithm/">
+	
+	算法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="翻译" href="https://codenow.me/translation/">
+	
+	翻译
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Tips" href="https://codenow.me/tips/">
+	
+	Tips
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="玩法" href="https://codenow.me/rules/">
+	
+	玩法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="加入我们" href="https://codenow.me/joinus/">
+	
+	加入我们
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/atts-group" target="_blank" title="@atts-group on GitHub">
+              @atts-group on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Sentry Python Sdk </h1>
+
+			
+
+<blockquote>
+<p>Sentry 是一个开源的实时错误报告工具，支持 web 前后端、移动应用以及游戏，支持 Python、OC、Java、Go、Node、Django、RoR 等主流编程语言和框架 ，还提供了 GitHub、Slack、Trello 等常见开发工具的集成。</p>
+</blockquote>
+
+<p>这周重新用 docker 部署了一下 Sentry server，比 python 部署确实方便多了，docker-compose 官方都给写好了，改改配置就可以直接上</p>
+
+<p>server 端部署好之后，又看了一下 client 端是怎么做的。就感觉这个 SDK 做的真好，接入成本极低，以 Flask 为例，只要加上两行即可：</p>
+
+<pre><code>from raven.contrib.flask import Sentry
+
+sentry = Sentry(app, dsn='http://00d5b7d6d7f1498687430d160fd48ea8:ae6eaaf3c8d24d3f98537453da1f6a4f@localhost:9000/2')
+</code></pre>
+
+<p>于是仔细读了读 SDK 的实现，主要研究三个问题：
+1. sentry 是怎么把 SDK 写得如此简洁的？
+2. sentry 是如何捕捉到要发送的错误信息的？
+3. sentry 是如何把错误信息发送到 server 端的？</p>
+
+<p>注：以下使用的语言及 package 版本为：
+* python 3.6
+* raven 6.10.0
+* Flask 1.0.2</p>
+
+<p>先看一下目录结构：</p>
+
+<pre><code>raven
+├── conf    		# 配置相关
+├── contrib 		# 适配各框架的代码
+├── data    		# 证书等
+├── handlers		# 日志记录等
+├── scripts 		# 测试脚本
+├── transport   	# 实际发消息给服务端的东西
+├── utils   		# 一些内部工具
+├── __init__.py
+├── base.py 		# 最主要的 Client 类
+├── breadcrumbs.py  # 一个特殊概念，还没搞很懂
+├── context.py      # 上下文相关
+├── events.py       # 事件，是与服务端交互的基本单位
+├── exceptions.py   # 异常类
+├── middleware.py   # wsgi中间件
+├── processors.py   # 数据处理相关
+└── versioning.py   # 获取 git 版本或 pkg 版本
+</code></pre>
+
+<p>最核心的，是 base.py 里的 Client 类，所有的操作都是围绕它来展开的。但是由于 SDK 的封装，我们在使用默认配置时并未直接接触到它，而是使用的 raven.contrib.flask.Sentry。下面我们写一段最简单的代码，然后顺着看下去</p>
+
+<pre><code>from flask import Flask
+from raven.contrib.flask import Sentry
+
+app = Flask(__name__)
+
+sentry = Sentry(app, dsn='http://00d5b7d6d7f1498687430d160fd48ea8:ae6eaaf3c8d24d3f98537453da1f6a4f@localhost:9000/2')
+
+@app.route('/')
+def index():
+    return 'index\n'
+
+@app.route('/bad')
+def bad():
+    return 1/0
+
+if __name__ == '__main__':
+    app.run('0.0.0.0', 8888, debug=True)
+</code></pre>
+
+<p>这段代码创建了一个最简单的 Flask app，然后将其传入 raven.contrib.flask.Sentry 中，并传入 dsn。dsn 就是一个字符串，但包含了很多信息，它会在 conf.remote.RemoteConfig 中被处理，处理结果如下：</p>
+
+<h3 id="dsn">dsn</h3>
+
+<ol>
+<li>schema: <code>'http'</code>，标记给服务端发送请求的方式，同时也可以指示使用哪种 raven.transport，比如写 &lsquo;requests+http&rsquo; 就是用 requests 包直接发送请求，写 &lsquo;gevent+http&rsquo; 就是用 gevent 包异步发送请求</li>
+<li>public_key: <code>'00d5b7d6d7f1498687430d160fd48ea8'</code>，用户名，没有这个的话服务端不会接收请求</li>
+<li>secret_key: <code>'ae6eaaf3c8d24d3f98537453da1f6a4f'</code>，密码，新版已经废弃，不建议继续使用</li>
+<li>base_url: <code>'http://localhost:9000'</code>，是服务端地址</li>
+<li>project: <code>'2'</code>，是在 sentry 的 web 页面里创建的项目的编号</li>
+<li>options: 是 url.query，我这里内容为空</li>
+<li>transport: 新版建议 Transport 应在初始化 Client 时明确传入，而不是用 schema 的方式配置。但仍然支持着这个功能。</li>
+</ol>
+
+<p>这里详细说一下 transport，顺便就可以解决掉我们刚才提出的第三个问题：sentry 是如何把错误信息发送到 server 端的？</p>
+
+<h3 id="transport">transport</h3>
+
+<p>sentry 中的 transport 有两类，同步的和异步的，异步的需要继承 AsyncTransport 和 HTTPTransport，同步的只需要继承 HTTPTransport，如果想增加新的 transport，只需要实现其规定的方法，然后传入 Client 即可：</p>
+
+<p>同步的有：
+* HTTPTransport
+* EventletHTTPTransport
+* RequestsHTTPTransport</p>
+
+<p>异步的有：
+* ThreadedHTTPTransport
+* GeventedHTTPTransport
+* TwistedHTTPTransport
+* ThreadedRequestsHTTPTransport
+* TornadoHTTPTransport</p>
+
+<p>默认 transport 是在 conf.remote.DEFAULT_TRANSPORT 中定义的，当运行环境是 Google App Engine 或 AWS Lambda 时，使用 HTTPTransport(同步)，否则使用 ThreadedHTTPTransport(异步)</p>
+
+<p>ThreadedHTTPTransport 内部用 FIFO Queue + 新开线程的方式来实现异步，这里我们就不用太担心其性能问题了。而发送请求用的是 HTTPTransport 的 urllib2，超时时间5秒，没有重试</p>
+
+<h3 id="base-client">base.Client</h3>
+
+<p>接下来，我们来看一看初始化 Client 的时候，都干了些什么，顺便在这里解决掉第二个问题: sentry 是如何捕捉到要发送的错误信息的？</p>
+
+<pre><code>class Client(object):
+    def __init__(self, dsn=None, raise_send_errors=False,
+    transport=None, install_sys_hook=True,
+    install_logging_hook=True, hook_libraries=None,
+    enable_breadcrumbs=True, _random_seed=None, **options):
+</code></pre>
+
+<p>先看看可传入的参数：
+* raise_send_errors: 没找到合理的用法，无视
+* transport: 上面有说，不建议用 dsn.schema 来控制 transport，最好应该在这里传入
+* install_sys_hook: 默认是True，作用是修改 <code>sys.excepthook</code>，把自己的异常处理函数放进去
+* hook_libraries: 对 httplib 和 requests 库做了些操作，没搞懂用处
+* enable_breadcrumbs: 是否开启此功能
+* _random_seed: sentry 可以设置只有部分异常会被发送到服务端，这个值是生成随机数的种子
+* 其他参数</p>
+
+<p>其中，<code>install_sys_hook</code> 是重点，<code>Client.__init__</code> 里除了进行各种初始化外，最重要的一件事就是这个了</p>
+
+<pre><code>def install_sys_hook(self):
+    global __excepthook__
+
+    if __excepthook__ is None:
+        __excepthook__ = sys.excepthook
+
+    def handle_exception(*exc_info):
+        self.captureException(exc_info=exc_info, level='fatal')
+        __excepthook__(*exc_info)
+    handle_exception.raven_client = self
+    sys.excepthook = handle_exception
+</code></pre>
+
+<p>可以看到，这里在原有内置函数的基础上，加了一句 <code>self.captureException</code>，当一个异常未被 catch 住时，就会调用 sys.excepthook，同时也就发出了发出了请求</p>
+
+<p>至于 self.captureException 内部，简单来说就做三件事：
+1. 获取上下文及各种信息，用到了 sys.exc_info(), flask._request_ctx_stack, flask._app_ctx_stack 和 breadcrumbs 等
+2. 到处记日志
+3. 构建消息体，选择 transport，发送</p>
+
+<p>于是，第二个问题，我们已经知道 sentry 的思路了：用 hook 来获取所有未处理的异常</p>
+
+<p>然而，对 flask 而言，事情并没有这么简单，因为在 flask 里，推荐的异常处理是 <code>@app.errorhandler</code>，同时 sys.excepthook 永远不会被调用</p>
+
+<p>那怎么办？我们看一下 raven.contrib.flask 吧</p>
+
+<h3 id="raven-contrib-flask-sentry">raven.contrib.flask.Sentry</h3>
+
+<pre><code>class Sentry(object):
+    def __init__(self, app=None, client=None,
+    client_cls=Client, dsn=None, logging=False,
+    logging_exclusions=None, level=logging.NOTSET,
+    wrap_wsgi=None, register_signal=True):
+</code></pre>
+
+<p>这个参数就容易懂多了
+* app: flask app
+* client: 即上文的 Client，可以自己定制后传入，不定制的话就默认生成一个
+* client_cls: Client 类，用来默认生成 Client 对象，不过这个参数没什么意思
+* dsn: 开头就有说
+* logging, logging_exclusions，level: 日志定制
+* wrap_wsgi: 是否将 sentry 加入 flask 中间件
+* register_signal: 是否将 sentry 异常处理注册至 flask 的 got_request_exception 信号</p>
+
+<p>这里的关键是最后一个参数</p>
+
+<p>默认情况下 register_signal 被设置为 True，于是它会把一个 capture_exception 函数注册到 flask 的 got_request_exception 上</p>
+
+<p>而 flask 的 got_request_exception 会在 flask.app.handle_exception 的开头，把当前异常 send 出去，然后再执行原有逻辑</p>
+
+<p>到这里，是不是终于可以说，第二个问题也搞明白了？当发生了无法处理的异常时，flask 先用信号把异常发给 sentry.client，然后 sentry 用 sys.exc_info() 获取上下文，再把拼装好的信息传给相应 passport，最后发送给服务端</p>
+
+<p>但是，在做测试的时候，我们可能会发现，发生一个异常的同时，服务端收到了两个一毛一样的 event，这是怎么回事？</p>
+
+<p>答案就在 raven.contrib.flask.Sentry 的一个初始化参数里：wrap_wsgi</p>
+
+<pre><code>if wrap_wsgi is not None:
+    self.wrap_wsgi = wrap_wsgi
+elif self.wrap_wsgi is None:
+    # Fix https://github.com/getsentry/raven-python/issues/412
+    # the gist is that we get errors twice in debug mode if we don't do this
+    if app and app.debug:
+        self.wrap_wsgi = False
+    else:
+        self.wrap_wsgi = True
+if self.wrap_wsgi:
+    app.wsgi_app = SentryMiddleware(app.wsgi_app, self.client)
+</code></pre>
+
+<p>已知：
+1. 在中间件 raven.middleware.Sentry.client 里，对所有未处理的异常，会向 sentry 服务端发送一次请求
+2. production 模式下，发送完 got_request_exception 信号后，会 <code>return InternalServerError()</code>。而 debug 模式下则是把异常重新抛出</p>
+
+<p>因此当 debug 模式 + 有中间件时，<code>raven.contrib.flask.Sentry.client</code>(信号发送) 和 <code>raven.middleware.Sentry.client</code>(中间件异常捕捉发送) 都会捕捉到这个异常，并发送给服务端。而 production 模式下，只有信号的那一次，中间件不会发</p>
+
+<p>上面的代码中可以看到，这个问题被修复过一次了，但在我最开头的代码里，<code>flask.app.debug = True</code> 是在最后才运行的，传给 Sentry 的时候，还是 <code>app.debug = False</code>，因此 <a href="https://github.com/getsentry/raven-python/issues/412">https://github.com/getsentry/raven-python/issues/412</a> 仍然会发生，临时解决方式就是把 <code>app.debug = True</code> 放到初始化 Sentry 前就好</p>
+
+<p>好像写的有点长了，最后终于说到了第一个问题，sentry 是怎么把 SDK 写得如此简洁的？</p>
+
+<p>我认为答案是其丰富的配置项和默认设置，以及对环境变量和全局变量的灵活使用，我真是一边看代码，一边感慨这思路我真得赶紧抄过来&hellip;</p>
+
+<hr />
+
+<p>SDK 里还有一些内容文章里没有涉及到(主要我也还没看)，但比较重要的部分都在这里了，总结一下吧：</p>
+
+<ol>
+<li>初始化 Client 类时，会从环境变量里获取各种配置，从 dsn 里确定 remote 服务端，选定 transport 并初始化各种 logger, 上下文等等</li>
+<li>设置 hook，或者其他手段，保证在发生异常时，能够获取得到异常及上下文</li>
+<li>同步/异步 发送消息给服务端，同时不让 sentry 占用太多资源</li>
+</ol>
+
+<p>TODO:
+1. breadcrumbs 到底是干啥的
+2. 其他框架都是怎么和 sentry 结合的</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/algorithm/leetcode-13-roman-to-integer/" title="Leetcode 13 Roman to Integer">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Leetcode 13 Roman to Integer
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/tips/awk-de-duplication/" title="Awk De Duplication">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Awk De Duplication
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/codenow.me\/';
+      var repo_id  = 'atts-group\/atts';
+    
+    </script>
+
+    <script src="https://codenow.me/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "¶";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-136313587-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
