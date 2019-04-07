@@ -51,6 +51,20 @@ By Steve Symanovich
     </item>
     
     <item>
+      <title>Tidb Proposal: A new aggregate function execution framework</title>
+      <link>https://codenow.me/translation/tidb-proposal-a-new-aggregation-function-execution-framework/</link>
+      <pubDate>Sun, 07 Apr 2019 16:09:38 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/tidb-proposal-a-new-aggregation-function-execution-framework/</guid>
+      <description>原文链接 Proposal: A new aggregate function execution framework
+##摘要
+这篇 proposal 提出了一种的聚合计算执行框架，用来提高聚合函数的执行性能。
+背景 在 release-2.0 版本中，聚合计算框架在 expression/aggregation 模块中。在这个框架中，所有的聚合函数都实现了 Aggregation 接口。所有的聚合函数使用 AggEvaluateContext 来保存聚合计算的中间结果(partial result）。AggEvaluateContext 中的 DistinctChecker 字段使用 byte 数组作为 key，用来对相同分组中的数据进行去重。在执行过程中， Update 接口会被调，为每行数据计算和更新中间结果。在执行过程中，它为每个聚合函数枚举每种可能的聚合状态，这回带来大量的 CPU 分支检测。
+在这个框架下，可以很简单的实现一个新的聚合函数。但是它也有很多缺点：
+ Update 方法会为每条数据被调用。每次调用中都可能会带来大量开销，特别是执行过程中包含了上万条数据的时候。 Update 方法会为每种计算状态调用，这也会带来大量的 CPU 分支检测。比如， AVG 函数在 Partial1 和 Final 状态下行为是不一样的，Update 方法不得不使用 switch 语句来处理所有可能的状态。 GetResult 方法返回 types.Datum 类型作为每个分组的最终结果。在执行阶段，TiDB 目前使用 Chunk 来保存数据。使用了 aggregation 框架，不得不将返回的 Datum 类型转换成 Chunk ，这会带来大量的数据转换和内存分配工作。 AggEvaluateContext 用来保存每组分组数据的最终结果，相比实际所需，这会消耗更多的内存。比如 COUNT 函数原本只需要一个 int64 字段来保存行数。 distinctChecker 用来为数据去重，它使用的是 byte 数组作为 key。针对输入数据的 encoding 和 decoding 操作会带来大量的 CPU 开销，其实这个问题可以通过直接使用输入数据作为 key 来避免掉。  方案 在这个 PR 中 https://github.</description>
+    </item>
+    
+    <item>
       <title>不用一小时，加密你的整个人生</title>
       <link>https://codenow.me/translation/howtoencryptyourentirelifelessthanonehour/</link>
       <pubDate>Sun, 07 Apr 2019 14:26:14 +0900</pubDate>

@@ -20,6 +20,18 @@
     </item>
     
     <item>
+      <title>golang 类型检测</title>
+      <link>https://codenow.me/tips/golang-type-detecting/</link>
+      <pubDate>Sun, 07 Apr 2019 16:01:27 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/golang-type-detecting/</guid>
+      <description>类型直接转换：
+v := value.(*TypeA) 类型检测+转换：
+v, isTypeB := value.(*TypeB) 类型检测 + switch:
+switch v.(*Type) { case TypeA: //...  case TypeB: //... 	default: //... }</description>
+    </item>
+    
+    <item>
       <title>vi cheet sheet: pbcopy</title>
       <link>https://codenow.me/tips/pbcopy/</link>
       <pubDate>Sun, 07 Apr 2019 14:17:25 +0900</pubDate>

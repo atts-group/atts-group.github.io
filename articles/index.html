@@ -344,6 +344,17 @@ namespace 一种只有 4 个 API：
               <a href="https://codenow.me/articles/golang-namespace/"><br>[阅读全文]</a>
 
             <hr> 
+            <a href="https://codenow.me/articles/tidb-aggregation/" title="TiDB 源码学习：聚合查询">
+                <h2>TiDB 源码学习：聚合查询 </h2>
+            </a>
+            <br>
+
+              没了解过 Aggregation 的执行细节之前，感觉 Aggregation 比较神奇，它和普通的 SPJ 查询不太一样，Aggregation 会对数据分组并聚合计算，经过 Aggregation，整个数据的 schema 都会发生改变。
+但其实，常见的 Aggregation 也并不复杂，从代码里看，和 Aggregation 相关的数据结构是这样的：
+// LogicalAggregation represents an aggregate plan. type LogicalAggregation struct { logicalSchemaProducer AggFuncs []*
+              <a href="https://codenow.me/articles/tidb-aggregation/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/articles/aaron_huoju/" title="互联网之子 Aaron Swarts 想要看到的世界">
                 <h2>互联网之子 Aaron Swarts 想要看到的世界 </h2>
             </a>
