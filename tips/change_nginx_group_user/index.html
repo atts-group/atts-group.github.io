@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>使用递归思想进行列表遍历 - ATTS</title>
+    <title>更改Nginx默认用户与组 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/travelsallistwithoutloops/">
+    <link rel="canonical" href="https://codenow.me/tips/change_nginx_group_user/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/travelsallistwithoutloops/">
+    <meta property="og:url" content="https://codenow.me/tips/change_nginx_group_user/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        使用递归思想进行列表遍历
+        更改Nginx默认用户与组
       </div>
     </div>
 
@@ -312,21 +312,36 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>使用递归思想进行列表遍历 </h1>
+			<h1>更改Nginx默认用户与组 </h1>
 
-			<p>之前一次面试上遇到的题，不允许用 for 循环和 while 循环，要求遍历出列表每个元素。
-当时没有想法，回去后就查了一下，原来可以用递归解决。</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">():</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">travelsal_list_with_recursion</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Ls</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Ls</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">return</span>
-        <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Ls</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">end</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39; &#39;</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">travelsal_list_with_recursion</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Ls</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">index</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
-        
-<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">__name__</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;__main__&#39;</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">()</span>
-    <span style="color:#000">ls</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;a&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;3&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;r&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;3&#39;</span><span style="color:#000;font-weight:bold">]</span>
-    <span style="color:#000">s</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">travelsal_list_with_recursion</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ls</span><span style="color:#000;font-weight:bold">)</span>          </code></pre></div>
+			
+
+<h2 id="1-nginx默认用户">1. Nginx默认用户</h2>
+
+<blockquote>
+<p>为了让Web服务更安全没需要尽可能地改掉软件默认的所有配置，包括端口、用户等。</p>
+
+<p>首先查看Nginx服务的默认用户，一般情况下，Nginx服务启动的用户是Nobody,查看默认的配置文件，代码如下：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ce5c00;font-weight:bold">[</span>root@localhost conf<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># grep &#39;#user&#39; /etc/nginx/nginx.conf.default</span> 
+<span style="color:#8f5902;font-style:italic">#user bobody;</span> </code></pre></div>
+<p>为了防止黑客猜到这个Web服务的用户，我们需要将其更改成特殊的用户名；下面以nginx用户为例进行说明。</p>
+</blockquote>
+
+<h2 id="2-为nginx服务建立新用户">2. 为nginx服务建立新用户</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ce5c00;font-weight:bold">[</span>root@localhost conf<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># useradd nginx -s /sbin/nologin -M</span> 
+<span style="color:#8f5902;font-style:italic">#&lt;== 不需要有系统登录权限，应当禁止其登录能力，相当于Apache里的用户</span>   
+<span style="color:#ce5c00;font-weight:bold">[</span>root@localhost conf<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># id nginx   #&lt;==检查用户</span> </code></pre></div>
+<h2 id="3-修改nginx默认用户的两种方法">3. 修改Nginx默认用户的两种方法</h2>
+
+<blockquote>
+<p>3.1 在编译Nginx软件时直接指定编译的用户和组，命令如下</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ce5c00;font-weight:bold">[</span>root@lnmp nginx-1.14.0<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># ./configure --user=nginx --group=nginx ...</span> </code></pre></div>
+<p>3.2 配置Nginx 服务，让其使用刚建立的Nginx用户</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#ce5c00;font-weight:bold">[</span>root@lnmp nginx-1.14.0<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># egrep &#34;user&#34; /etc/nginx/conf/nginx.conf</span>          
+user  nginx<span style="color:#000;font-weight:bold">;</span> 
+<span style="color:#ce5c00;font-weight:bold">[</span>root@lnmp nginx-1.14.0<span style="color:#ce5c00;font-weight:bold">]</span><span style="color:#8f5902;font-style:italic"># ps -ef|grep nginx|grep -v grep</span> 
+nginx   <span style="color:#0000cf;font-weight:bold">56998</span>  <span style="color:#0000cf;font-weight:bold">56721</span>  <span style="color:#0000cf;font-weight:bold">0</span> <span style="color:#0000cf;font-weight:bold">21</span>:18 ?        <span style="color:#0000cf;font-weight:bold">00</span>:00:00 nginx: worker process </code></pre></div></blockquote>
+
 
 			<aside class="copyright" role="note">
 				
@@ -344,7 +359,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/tips/mysql_where11/" title="在 Mysql 里使用 where1=1 的作用">
+      <a href="https://codenow.me/algorithm/travelsallistwithoutloops/" title="使用递归思想进行列表遍历">
         <span class="direction">
           Previous
         </span>
@@ -354,7 +369,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              在 Mysql 里使用 where1=1 的作用
+              使用递归思想进行列表遍历
             </div>
           </div>
         </div>
@@ -364,14 +379,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/tips/change_nginx_group_user/" title="更改Nginx默认用户与组">
+      <a href="https://codenow.me/articles/docker_process_about_run_shell_and_exec/" title="运行shell和exec命令时，Docker进程的区别">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              更改Nginx默认用户与组
+              运行shell和exec命令时，Docker进程的区别
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -316,6 +316,22 @@
             <h1>目录 - 文章</h1>
 
             
+            <a href="https://codenow.me/articles/docker_process_about_run_shell_and_exec/" title="运行shell和exec命令时，Docker进程的区别">
+                <h2>运行shell和exec命令时，Docker进程的区别 </h2>
+            </a>
+            <br>
+
+              <ol>
+<li>前言 Docker容器内运行的进程对于宿主机而言，是独立进程，还是Docker容器进程？
+Docker容器内启动的进程全部都是宿主机上的独立进程
+Docker容器内启动的进程是不是Docker进程本身要看Dockerfile的写法
+比如Docker内启动redis，如果用CMD &ldquo;/usr/bin/redis-server&rdquo;，这是用shell启动，会先启动shell，然后再启动redis，所以不是Docker进程本身；
+如果用CMD [&ldquo;/usr/bin/redis-server&rdquo;]，这是用exec启动，是直接启动redis，进程号为1，所</li>
+</ol>
+
+              <a href="https://codenow.me/articles/docker_process_about_run_shell_and_exec/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/articles/about_mysql_locks/" title="Mysql 锁：灵魂七拷问">
                 <h2>Mysql 锁：灵魂七拷问 </h2>
             </a>

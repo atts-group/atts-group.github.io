@@ -11,6 +11,24 @@
     
     
     <item>
+      <title>运行shell和exec命令时，Docker进程的区别</title>
+      <link>https://codenow.me/articles/docker_process_about_run_shell_and_exec/</link>
+      <pubDate>Sun, 14 Apr 2019 17:55:40 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/docker_process_about_run_shell_and_exec/</guid>
+      <description>1. 前言 Docker容器内运行的进程对于宿主机而言，是独立进程，还是Docker容器进程？
+Docker容器内启动的进程全部都是宿主机上的独立进程
+Docker容器内启动的进程是不是Docker进程本身要看Dockerfile的写法
+比如Docker内启动redis，如果用CMD &amp;ldquo;/usr/bin/redis-server&amp;rdquo;，这是用shell启动，会先启动shell，然后再启动redis，所以不是Docker进程本身；
+如果用CMD [&amp;ldquo;/usr/bin/redis-server&amp;rdquo;]，这是用exec启动，是直接启动redis，进程号为1，所以是Docker进程本身
+2. shell方式 1) shell方式的Dockerfile
+root@ubuntu:~# cat Dockerfile FROM ubuntu:18.04 RUN apt-get update &amp;amp;&amp;amp; apt-get -y install redis-server &amp;amp;&amp;amp; rm -rf /var/lib/apt/lists/* EXPOSE 6379 CMD &amp;#34;/usr/bin/redis-server&amp;#34; 2)shell方式创建容器
+root@ubuntu:~# docker build -t redisshell -f Dockerfile . 3) shell方式创建并运行镜像
+root@ubuntu:~# docker run --name redisshell redisshell 4) redisshell容器内进程
+root@ubuntu:~# docker exec -it redisshell ps -ef UID PID PPID C STIME TTY TIME CMD root 1 0 0 17:36 ?</description>
+    </item>
+    
+    <item>
       <title>Mysql 锁：灵魂七拷问</title>
       <link>https://codenow.me/articles/about_mysql_locks/</link>
       <pubDate>Sun, 14 Apr 2019 13:49:26 +0900</pubDate>
