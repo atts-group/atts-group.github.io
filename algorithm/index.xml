@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>使用递归思想进行列表遍历</title>
+      <link>https://codenow.me/algorithm/travelsallistwithoutloops/</link>
+      <pubDate>Sun, 14 Apr 2019 16:46:49 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/travelsallistwithoutloops/</guid>
+      <description>之前一次面试上遇到的题，不允许用 for 循环和 while 循环，要求遍历出列表每个元素。 当时没有想法，回去后就查了一下，原来可以用递归解决。
+class Solution(): def travelsal_list_with_recursion(self, Ls, index=0): if len(Ls) == index: return print(Ls[index], end=&amp;#39; &amp;#39;) self.travelsal_list_with_recursion(Ls, index+1) if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() ls = [&amp;#39;a&amp;#39;, &amp;#39;3&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;3&amp;#39;] s.travelsal_list_with_recursion(ls) </description>
+    </item>
+    
+    <item>
       <title>Leetcode: 2 Add Two Numbers</title>
       <link>https://codenow.me/algorithm/leetcode_2_add_two_numbers/</link>
       <pubDate>Sat, 13 Apr 2019 17:30:32 +0800</pubDate>

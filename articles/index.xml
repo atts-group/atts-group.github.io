@@ -11,6 +11,31 @@
     
     
     <item>
+      <title>Mysql 锁：灵魂七拷问</title>
+      <link>https://codenow.me/articles/about_mysql_locks/</link>
+      <pubDate>Sun, 14 Apr 2019 13:49:26 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/about_mysql_locks/</guid>
+      <description>Mysql 锁：灵魂七拷问 作者：柳树 on 美业 from 有赞coder
+原链接： Mysql 锁：灵魂七拷问
+一、缘起 假设你想给别人说明，Mysql 里面是有锁的，你会怎么做？
+大多数人，都会开两个窗口，分别起两个事务，然后 update 同一条记录，在发起第二次 update 请求时，block，这样就说明这行记录被锁住了： 二、禁锢 问题来了，貌似只有显式的开启一个事务，才会有锁，如果直接执行一条 update 语句，会不会加锁呢？
+比如直接执行：
+update t set c = c + 1 where id = 1; 这条语句，前面不加 begin，不显式开启事务，那么 Mysql 会不会加锁呢？
+直觉告诉你，会。
+但是为什么要加锁？
+给你五秒钟，说出答案。
+学过多线程和并发的同学，都知道下面这段代码，如果不加锁，就会有灵异事件：
+i++; 开启十个线程，执行 1000 次这段代码，最后 i 有极大可能性，会小于 1000。
+这时候，用 Java 的套路，加锁：
+synchornize { i++; } 问题解决。
+同理，对于数据库，你可以理解为 i，就是数据库里的一行记录，i++ 这段代码，就是一条 update 语句，而多线程，对应的就是数据库里的多个事务。
+既然对内存中 i 的操作需要加锁，保证并发安全，那么对数据库的记录进行修改，也必须加锁。
+这道理很简单，但是很多人，未曾想过。
+三、释然 为什么大家都喜欢用第一部分里的例子来演示 Mysql 锁？</description>
+    </item>
+    
+    <item>
       <title>Python下使用Flask建立API</title>
       <link>https://codenow.me/articles/build_api_by_flask/</link>
       <pubDate>Wed, 10 Apr 2019 19:46:45 +0900</pubDate>

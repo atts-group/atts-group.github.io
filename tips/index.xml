@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>在 Mysql 里使用 where1=1 的作用</title>
+      <link>https://codenow.me/tips/mysql_where11/</link>
+      <pubDate>Sun, 14 Apr 2019 16:38:31 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/mysql_where11/</guid>
+      <description>这周工作时看了同事的代码，发现他写的很多 sql 语句都在后面加上了 where1=1，研究了一下，才发现了他的作用和好处。
+例子：
+string MySqlStr=”select * from table where”； if(Age.Text.Lenght&amp;gt;0) { MySqlStr=MySqlStr+“Age=“+“&amp;#39;Age.Text&amp;#39;“； } if(Address.Text.Lenght&amp;gt;0) { MySqlStr=MySqlStr+“and Address=“+“&amp;#39;Address.Text&amp;#39;“； } 如果两个条件都符合，即 sql 语句 &amp;ldquo;select * from table where Age=x and Address=xx&amp;rdquo; 成立。 但是如果两个条件都不符合，则语句变成了 &amp;ldquo;select * from table where&amp;rdquo;，这个时候就会报错。 使用 where 1=1 可以避免上面发生的问题。
+参考链接： mysql中使用 where 1=1和 0=1 的作用及好处</description>
+    </item>
+    
+    <item>
       <title>Windows下定时执行Py文件</title>
       <link>https://codenow.me/tips/run-scheduled-py-on-windows/</link>
       <pubDate>Sat, 13 Apr 2019 18:07:19 +0800</pubDate>
