@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Goland Refactor</title>
+      <link>https://codenow.me/tips/goland-refactor/</link>
+      <pubDate>Sun, 14 Apr 2019 21:54:59 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/goland-refactor/</guid>
+      <description>Goland 的 Refactor 功能，在修改、移动等操作时候可以对整个文件或者工程生效。</description>
+    </item>
+    
+    <item>
       <title>更改Nginx默认用户与组</title>
       <link>https://codenow.me/tips/change_nginx_group_user/</link>
       <pubDate>Sun, 14 Apr 2019 17:42:53 +0800</pubDate>

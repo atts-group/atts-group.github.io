@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>CGroups 控制进程资源</title>
+      <link>https://codenow.me/articles/linux-cgroups/</link>
+      <pubDate>Sun, 14 Apr 2019 21:53:50 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/linux-cgroups/</guid>
+      <description>cgroups 是 Linux 内核中的一个功能，用来限制、控制分离一个进程的资源，比如 CPU、内存、IO 等。
+cgroups 是由一组子系统构成，每种子系统即时一种资源，目前可使用的资源如下：
+ cpu：限制 cpu 的使用率 cpuacct：cpu 的统计报告 cpuset：分配 cpu memory：分配 mem 的使用量 blkio：限制块设备的 io devices：能够访问的设备 net_cls：控制网络数据的访问 net_prio：网络流量包的优先级 freezer：pause 或者 resume 进程 ns：控制 namespace 的访问  cgroups 中有个 hierarchy 的概念，意思一组 cgroup 是一棵树，cgroup2 可以挂在 cgroup 1 上，这样可以从 cgroup1 中继承设置。
+所以 process、subsystem、hierarchy 存在一些关系。
+ 一个 subsystem 只能附加到一个 hierarchy 一个 hierarchy 可以附加到多个 subsystem 中 一个 process 可以作为多个 cgroups 成员，但是要在不同的 hierarchy 中 fork 出的子进程默认和父进程使用一个 cgroups，但是可以移动到其他的 cgroups 中  在 linux 中 /sys/fs/cgroup 中是 cgroups 默认的 hierarchy，可以看到目前的 subsystem</description>
+    </item>
+    
+    <item>
       <title>运行shell和exec命令时，Docker进程的区别</title>
       <link>https://codenow.me/articles/docker_process_about_run_shell_and_exec/</link>
       <pubDate>Sun, 14 Apr 2019 17:55:40 +0800</pubDate>

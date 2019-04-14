@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Did_you_know_you_can_easily_extend_and_expand_your_datacenter_footprint - ATTS</title>
+    <title>Leetcode: 139 Word Break - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/did_you_know_you_can_easily_extend_and_expand_your_datacenter_footprint/">
+    <link rel="canonical" href="https://codenow.me/algorithm/word-break/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/did_you_know_you_can_easily_extend_and_expand_your_datacenter_footprint/">
+    <meta property="og:url" content="https://codenow.me/algorithm/word-break/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Did_you_know_you_can_easily_extend_and_expand_your_datacenter_footprint
+        Leetcode: 139 Word Break
       </div>
     </div>
 
@@ -312,24 +312,27 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Did_you_know_you_can_easily_extend_and_expand_your_datacenter_footprint </h1>
+			<h1>Leetcode: 139 Word Break </h1>
 
-			
-
-<h2 id="您是否知道可以轻松地延伸和扩展您的数据中心占用空间">您是否知道可以轻松地延伸和扩展您的数据中心占用空间?</h2>
-
-<p>原文链接：<a href="http://app.learn.vmware.com/e/es?s=279193683&amp;e=2902981&amp;elqTrackId=80b432a7915c49a0a70c7d2846b7ff14&amp;elq=52464596ac594d2d93bd227a6575bdc5&amp;elqaid=25584&amp;elqat=1">http://app.learn.vmware.com/e/es?s=279193683&amp;e=2902981&amp;elqTrackId=80b432a7915c49a0a70c7d2846b7ff14&amp;elq=52464596ac594d2d93bd227a6575bdc5&amp;elqaid=25584&amp;elqat=1</a></p>
-
-<p>翻译如下：</p>
-
-<p>现代IT团队承受着难以置信的压力，要以越来越快的速度创新和推出产品和服务，但在快速扩展产品方面存在许多障碍。其中最主要的挑战是如何快速轻松地利用公共云提供的无限可伸缩性、随需应变能力和灵活的消费。</p>
-
-<p>AWS上的VMware Cloud是一种随需应变服务，它允许您跨基于websphere的云环境运行应用程序，并访问广泛的本机AWS服务。</p>
-
-<p>该服务由VMware Cloud Foundation™提供支持，集成了VMware的旗舰计算、存储和网络虚拟化产品(VMware vSphere、VMware vSAN和VMware NSX)以及VMware vCenter management，并优化为在弹性的、裸机AWS基础设施上运行。</p>
-
-<p>有了这项服务，客户可以使用熟悉的VMware工具管理基于云的资源。</p>
-
+			<blockquote>
+<p>题号：139<br>
+难度：中等<br>
+链接：<a href="https://leetcode-cn.com/problems/word-break/submissions/">https://leetcode-cn.com/problems/word-break/submissions/</a></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">wordBreak</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">wordDict</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">bool</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">True</span>
+        
+        <span style="color:#000">word_idx</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span>
+        
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">j</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">word_idx</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">wordDict</span><span style="color:#000;font-weight:bold">:</span>
+                    <span style="color:#000">word_idx</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">)</span>
+                    <span style="color:#204a87;font-weight:bold">break</span>
+        
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">word_idx</span><span style="color:#000;font-weight:bold">[</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -347,7 +350,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/algorithm/leetcode_216_combination_sum_iii/" title="Leetcode_216_Combination_Sum_III">
+      <a href="https://codenow.me/tips/goland-refactor/" title="Goland Refactor">
         <span class="direction">
           Previous
         </span>
@@ -357,7 +360,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Leetcode_216_Combination_Sum_III
+              Goland Refactor
             </div>
           </div>
         </div>
@@ -367,14 +370,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/articles/linux-cgroups/" title="CGroups 控制进程资源">
+      <a href="https://codenow.me/translation/what-every-python-project-should-have/" title="「译」Python 项目应该都有什么？">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              CGroups 控制进程资源
+              「译」Python 项目应该都有什么？
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

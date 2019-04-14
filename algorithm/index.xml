@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>Leetcode: 139 Word Break</title>
+      <link>https://codenow.me/algorithm/word-break/</link>
+      <pubDate>Sun, 14 Apr 2019 21:57:23 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/word-break/</guid>
+      <description> 题号：139
+难度：中等
+链接：https://leetcode-cn.com/problems/word-break/submissions/
+ class Solution: def wordBreak(self, s: str, wordDict: List[str]) -&amp;gt; bool: if not s: return True word_idx = [0] for i in range(len(s) + 1): for j in word_idx: if s[j:i] in wordDict: word_idx.append(i) break return word_idx[-1] == len(s)</description>
+    </item>
+    
+    <item>
       <title>Leetcode_216_Combination_Sum_III</title>
       <link>https://codenow.me/algorithm/leetcode_216_combination_sum_iii/</link>
       <pubDate>Sun, 14 Apr 2019 18:10:33 +0800</pubDate>
