@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>「译」Python 项目应该都有什么？ - ATTS</title>
+    <title>Example of Equi Depth Histograms in Databases - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/what-every-python-project-should-have/">
+    <link rel="canonical" href="https://codenow.me/translation/example-of-equi-depth-histograms-in-databases/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/what-every-python-project-should-have/">
+    <meta property="og:url" content="https://codenow.me/translation/example-of-equi-depth-histograms-in-databases/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        「译」Python 项目应该都有什么？
+        Example of Equi Depth Histograms in Databases
       </div>
     </div>
 
@@ -312,73 +312,35 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>「译」Python 项目应该都有什么？ </h1>
+			<h1>Example of Equi Depth Histograms in Databases </h1>
 
-			
+			<p>原文链接：<a href="https://stackoverflow.com/a/14284218">https://stackoverflow.com/a/14284218</a></p>
 
-<blockquote>
-<p><a href="https://vladcalin.github.io/what-every-python-project-should-have.html#what-every-python-project-should-have">原文地址</a></p>
-</blockquote>
+<p>警告：我不是一个数据库底层的专家，所以这只是一个简单泛泛的回答。</p>
 
-<p>Python 语言在过去的几年有着突飞猛进的发展，社区也在快速发展。在发展过程中，社区中出现了许多工具保持着资源的结构性和可获取性。在这篇文章中，我将提供一个简短列表，让每个 Python 项目中都具有可访问性和可维护性。</p>
+<p>查询编译器会将查询（一般以 sql 的形式）转换成一个查询计划并得到查询结果。查询计划里面包含数据库引擎的低层次指令，比如扫描表 T 在 C 列查询 V 值；在 T 表使用索引 X 来定位 V 等等。</p>
 
-<h2 id="requirements-txt">requirements.txt</h2>
+<p>查询优化是指编译器要在一些列查询计划中判断出哪个代价最小。代价包括始终时间，IO 单宽，存储空间，cpu 等等。从概念上讲，查询编译器是从一组计划空间中衡量每一种计划的代价，选择它能找到的最小代价的。</p>
 
-<p>首先， <code>requirements.txt</code> 在安装项目时候是十分重要的，通常是一个纯文本文件，通过 <code>pip</code> 安装，每行一个项目的依赖。</p>
+<p>上面提到的这些取决于读写的数据条数，数据是否能够被索引定位到，哪些列会被被使用，数据尺寸，以及多少磁盘空间会被占用。</p>
 
-<p>真是简单又实用。</p>
+<p>这些数据很多时候取决于表中到底存了多少数据。比如这样一个查询：<code>select * from data where pay &gt; 100</code> ，其中 <code>pay</code> 被索引。如果 pay 列没有大于 100 的值，那么这个查询代价会很小。使用索引扫描就行了。相反的，结果可能包含了整张表。</p>
 
-<p>你也可以有多个用于不同目的 <code>requirements.txt</code>。例如，<code>requirements.txt</code> 是让项目正常启动的依赖，<code>requirements_dev.txt</code> 是用于开发模式的依赖，<code>requirements_docs.txt</code> 是生成文档的依赖（像 <code>Sphinx</code> 需要的主题）</p>
+<p>这块儿，直方图会起作用（等高直方图只是直方图的其中一种）。在前面的查询中，直方图可以在 O(1) 时间复杂度里对查询匹配的数据行数进行一个评估，在不需要了解数据库里到底有哪些数据的情况下。</p>
 
-<h2 id="setup-py">setup.py</h2>
+<p>实际上，编译器是在数据的摘要之上&rdquo;执行&rdquo;了查询。直方图就是这个摘要。直方图在评估代价和查询算子的结果大小上很有用，比如：表连接结果大小，插入和删除时被影响到的页数等。</p>
 
-<p><code>setup.py</code> 文件在通过 <code>pip</code> 安装时候时候是十分重要的。编写容易，很好的可配置性并且可以处理很多事情，例如导入，项目元数据，更新源，安装依赖项等等。</p>
+<p>以一个简单的内连接为例，假如我们知道用来连接两张表的列的数据分布：</p>
 
-<p>可以查看 <a href="https://setuptools.readthedocs.io/en/latest/">setuptools</a> 文档获取更多的信息。</p>
-
-<h2 id="正确的项目结构">正确的项目结构</h2>
-
-<p>项目结构至关重要。有了一个组织良好的结构，它会更容易组织的东西，找到某些源文件，并鼓励其他人贡献。</p>
-
-<p>一个项目目录应具有类似的结构</p>
-
-<pre><code>root/
-        docs/
-        tests/
-        mymodule/
-        scripts/
-        requirements.txt
-        setup.py
-        README
-        LICENSE
+<pre><code>Bins (25% each)
+Table A                    Table B
+0-100                      151-300 
+101-150                    301-500  
+151-175                    601-700
+176-300                    1001-1100
 </code></pre>
 
-<p>当然，这不是组织项目的唯一方法，但这肯定是最常用的模板。</p>
-
-<h2 id="测试">测试</h2>
-
-<p>单元测试对项目十分重要，可以保证代码的稳定性。我推荐 <code>unittest</code> 模块，因为它是内置的，并且足够灵活，完成正确工作。</p>
-
-<p>还有其他可用于测试项目的库，例如 <code>test.py</code> 或 <code>nose</code>。</p>
-
-<h2 id="文档">文档</h2>
-
-<p>如果你开发一个项目，我确信你不只是为你自己写。其他人也要必须知道如何使用你的项目。即使你只是为自己编写的项目（虽然是开源的目的），但是一段时间后不开发后，你一定不会记得你的代码中发生的任何事情（或API）。</p>
-
-<p>因此，为了实现可重用的代码，你应该：</p>
-
-<ul>
-<li>设计一个简单的API，易于使用和记忆</li>
-<li>API应该足够灵活，容易配置</li>
-<li>记录相关使用例子</li>
-<li>例子不要追求 100% ，最合适的是覆盖 80％ 。</li>
-</ul>
-
-<p>为了充分的记录你的代码，你应该使用特殊的工具开完成文档工作，例如 <code>Sphinx</code> 或者 <code>mkdocs</code> ，所以你可以使用一个流行的标记语言（rst或markdown）来生成具有适当引用链接的漂亮的文档。</p>
-
-<h2 id="结论">结论</h2>
-
-<p>在熟悉上述话题之后，一定能够生成符合社区标准的漂亮的结构化项目和库。不要忘记总是使用PEP-8！</p>
+<p>可以很容易看到 A 表中 50% 的数据和 B 表中 25% 的数据会参与到查询当中。如果有唯一列的话，我们可以评估连接的结果大小应该是 max(.5 * |A|, .25 * |B|)。这是很简单的一个列子。在很多的场景中，统计分析需要更复杂一些的数学知识。对于连接来说，经常通过算子的直方图技术连接的评估直方图。</p>
 
 
 			<aside class="copyright" role="note">
@@ -397,7 +359,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/algorithm/word-break/" title="Leetcode: 139 Word Break">
+      <a href="https://codenow.me/algorithm/leetcode-49-graph-anagrams/" title="Leetcode 49 Graph Anagrams">
         <span class="direction">
           Previous
         </span>
@@ -407,7 +369,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Leetcode: 139 Word Break
+              Leetcode 49 Graph Anagrams
             </div>
           </div>
         </div>
@@ -416,22 +378,6 @@
   </div>
 
   <div class="next">
-  
-      <a href="https://codenow.me/tips/golang-output-table-in-console/" title="golang 中输出表格到 console">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              golang 中输出表格到 console
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
   
   </div>
 </nav>

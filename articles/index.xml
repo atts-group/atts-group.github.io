@@ -24,6 +24,19 @@ cgroups 是由一组子系统构成，每种子系统即时一种资源，目前
     </item>
     
     <item>
+      <title>Tidb 源码学习：关于 join 性能优化</title>
+      <link>https://codenow.me/articles/tidb-join-performance-optimization-1/</link>
+      <pubDate>Sun, 14 Apr 2019 20:41:10 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/tidb-join-performance-optimization-1/</guid>
+      <description>最近在尝试自己写数据库查询模块，满足 http://sigmod18contest.db.in.tum.de/task.shtml 的功能要求。一边看着 TiDB 的代码，一边写… 这个过程中发现了一些 TiDB 优化点。
+join reorder 每个数据库系统基本都要实现 join reorder，修改表连接的顺序，从而提高 join 的性能，比如下面这个查询：
+select a.id, b.id, c.id from a, b, c where a.id = b.a_id and a.id = c.a_id; 查询要连接 a/b/c 三张表，可以先连接 a 和 b，也可以先连接 a 和 c，当然如果你想不开的话，也可以先连接 a 和 c。如果 a join b 产生的数据比 a join c 产生的数据多，那么先计算 a join c 一般性能会更好。
+很多数据库在表少的时候会使用动态规划来解决这个问题，比如 这篇文章 中介绍的算法。大致思路是根据表和用来连接的条件看做是一个无环图，表是节点，筛选条件是边。要计算最优的连接顺序，就是根据这张图计算出一个 sJoin Tree，Join Tree 除叶子节点以外其他的节点都是 Join。动规的过程是将图拆分成各种子图的组合并从中找出最优组合。
+下面是 TiDB 中 join reorder 的主体代码：</description>
+    </item>
+    
+    <item>
       <title>运行shell和exec命令时，Docker进程的区别</title>
       <link>https://codenow.me/articles/docker_process_about_run_shell_and_exec/</link>
       <pubDate>Sun, 14 Apr 2019 17:55:40 +0800</pubDate>

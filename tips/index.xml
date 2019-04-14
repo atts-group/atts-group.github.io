@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>golang 中输出表格到 console</title>
+      <link>https://codenow.me/tips/golang-output-table-in-console/</link>
+      <pubDate>Sun, 14 Apr 2019 22:08:32 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/golang-output-table-in-console/</guid>
+      <description>使用 tablewriter 即可。</description>
+    </item>
+    
+    <item>
       <title>Goland Refactor</title>
       <link>https://codenow.me/tips/goland-refactor/</link>
       <pubDate>Sun, 14 Apr 2019 21:54:59 +0800</pubDate>
