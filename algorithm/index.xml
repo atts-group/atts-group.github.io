@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>Leetcode 14 Longest Common Prefix</title>
+      <link>https://codenow.me/algorithm/leetcode-14-longest-common-prefix/</link>
+      <pubDate>Mon, 15 Apr 2019 00:08:57 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode-14-longest-common-prefix/</guid>
+      <description>题号：14
+难度：easy
+链接：https://leetcode.com/problems/longest-common-prefix
+描述：多个字符串找公共子串(a-z)
+ from typing import List class Solution: def longestCommonPrefix2(self, strs: List[str]) -&amp;gt; str: &amp;#34;&amp;#34;&amp;#34;简单粗暴的方式&amp;#34;&amp;#34;&amp;#34; res = &amp;#39;&amp;#39; if not strs: return res for char in zip(*strs): if len(set(char)) == 1: res += char[0] else: return res return res def longestCommonPrefix(self, strs: List[str]) -&amp;gt; str: &amp;#34;&amp;#34;&amp;#34;不需要一个一个字符地加，只需要找到分界点，一次性取出即可&amp;#34;&amp;#34;&amp;#34; if not strs: return &amp;#39;&amp;#39; for i, letter_group in enumerate(zip(*strs)): if len(set(letter_group)) &amp;gt; 1: return strs[0][:i] else: return min(strs) if __name__ == &amp;#39;__main__&amp;#39;: a = [&amp;#34;flower&amp;#34;,&amp;#34;flow&amp;#34;,&amp;#34;flight&amp;#34;] res = Solution().</description>
+    </item>
+    
+    <item>
       <title>Leetcode 49 Graph Anagrams</title>
       <link>https://codenow.me/algorithm/leetcode-49-graph-anagrams/</link>
       <pubDate>Sun, 14 Apr 2019 22:37:32 +0800</pubDate>

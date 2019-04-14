@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Example of Equi Depth Histograms in Databases - ATTS</title>
+    <title>Leetcode 14 Longest Common Prefix - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/example-of-equi-depth-histograms-in-databases/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode-14-longest-common-prefix/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/example-of-equi-depth-histograms-in-databases/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode-14-longest-common-prefix/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Example of Equi Depth Histograms in Databases
+        Leetcode 14 Longest Common Prefix
       </div>
     </div>
 
@@ -312,36 +312,45 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Example of Equi Depth Histograms in Databases </h1>
+			<h1>Leetcode 14 Longest Common Prefix </h1>
 
-			<p>原文链接：<a href="https://stackoverflow.com/a/14284218">https://stackoverflow.com/a/14284218</a></p>
+			<blockquote>
+<p>题号：14<br>
+难度：easy<br>
+链接：<a href="https://leetcode.com/problems/longest-common-prefix">https://leetcode.com/problems/longest-common-prefix</a><br>
+描述：多个字符串找公共子串(a-z)</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">typing</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">List</span>
 
-<p>警告：我不是一个数据库底层的专家，所以这只是一个简单泛泛的回答。</p>
 
-<p>查询编译器会将查询（一般以 sql 的形式）转换成一个查询计划并得到查询结果。查询计划里面包含数据库引擎的低层次指令，比如扫描表 T 在 C 列查询 V 值；在 T 表使用索引 X 来定位 V 等等。</p>
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">longestCommonPrefix2</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#4e9a06">&#34;&#34;&#34;简单粗暴的方式&#34;&#34;&#34;</span>
+        <span style="color:#000">res</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;&#39;</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">res</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">char</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">strs</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">char</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#000">res</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">char</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span>
+            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">res</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">res</span>
 
-<p>查询优化是指编译器要在一些列查询计划中判断出哪个代价最小。代价包括始终时间，IO 单宽，存储空间，cpu 等等。从概念上讲，查询编译器是从一组计划空间中衡量每一种计划的代价，选择它能找到的最小代价的。</p>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">longestCommonPrefix</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#4e9a06">&#34;&#34;&#34;不需要一个一个字符地加，只需要找到分界点，一次性取出即可&#34;&#34;&#34;</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#39;&#39;</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">letter_group</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">strs</span><span style="color:#000;font-weight:bold">)):</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">letter_group</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">][:</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span>
+        <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">min</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">strs</span><span style="color:#000;font-weight:bold">)</span>
 
-<p>上面提到的这些取决于读写的数据条数，数据是否能够被索引定位到，哪些列会被被使用，数据尺寸，以及多少磁盘空间会被占用。</p>
 
-<p>这些数据很多时候取决于表中到底存了多少数据。比如这样一个查询：<code>select * from data where pay &gt; 100</code> ，其中 <code>pay</code> 被索引。如果 pay 列没有大于 100 的值，那么这个查询代价会很小。使用索引扫描就行了。相反的，结果可能包含了整张表。</p>
-
-<p>这块儿，直方图会起作用（等高直方图只是直方图的其中一种）。在前面的查询中，直方图可以在 O(1) 时间复杂度里对查询匹配的数据行数进行一个评估，在不需要了解数据库里到底有哪些数据的情况下。</p>
-
-<p>实际上，编译器是在数据的摘要之上&rdquo;执行&rdquo;了查询。直方图就是这个摘要。直方图在评估代价和查询算子的结果大小上很有用，比如：表连接结果大小，插入和删除时被影响到的页数等。</p>
-
-<p>以一个简单的内连接为例，假如我们知道用来连接两张表的列的数据分布：</p>
-
-<pre><code>Bins (25% each)
-Table A                    Table B
-0-100                      151-300 
-101-150                    301-500  
-151-175                    601-700
-176-300                    1001-1100
-</code></pre>
-
-<p>可以很容易看到 A 表中 50% 的数据和 B 表中 25% 的数据会参与到查询当中。如果有唯一列的话，我们可以评估连接的结果大小应该是 max(.5 * |A|, .25 * |B|)。这是很简单的一个列子。在很多的场景中，统计分析需要更复杂一些的数学知识。对于连接来说，经常通过算子的直方图技术连接的评估直方图。</p>
-
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">__name__</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;__main__&#39;</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;flower&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;flow&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;flight&#34;</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#000">res</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">longestCommonPrefix</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">res</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -359,7 +368,7 @@ Table A                    Table B
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/algorithm/leetcode-49-graph-anagrams/" title="Leetcode 49 Graph Anagrams">
+      <a href="https://codenow.me/tips/exmail-smtp-tls/" title="Exmail Smtp TLS">
         <span class="direction">
           Previous
         </span>
@@ -369,7 +378,7 @@ Table A                    Table B
           </div>
           <div class="stretch">
             <div class="title">
-              Leetcode 49 Graph Anagrams
+              Exmail Smtp TLS
             </div>
           </div>
         </div>
@@ -378,22 +387,6 @@ Table A                    Table B
   </div>
 
   <div class="next">
-  
-      <a href="https://codenow.me/articles/sentry-raven-vs-sentry_sdk/" title="Sentry Raven vs Sentry_sdk">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              Sentry Raven vs Sentry_sdk
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
   
   </div>
 </nav>

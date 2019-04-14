@@ -11,6 +11,20 @@
     
     
     <item>
+      <title>Sentry Raven vs Sentry_sdk</title>
+      <link>https://codenow.me/articles/sentry-raven-vs-sentry_sdk/</link>
+      <pubDate>Mon, 15 Apr 2019 00:04:31 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/sentry-raven-vs-sentry_sdk/</guid>
+      <description>上周写了 Sentry 的 Python SDK raven 包的工作原理，但这周发现 Sentry Team 把 SDK 又给重构了一版，现在叫做 New Unified Version: sentry-sdk。
+但是更新工作没做彻底， 官网(https://docs.sentry.io) 上的文档虽然已经改成 sentry-sdk 了，但 sentry-web 服务上的各种说明还没改，而且新版 SDK 的版本号还没到 1.0(0.7.10)，raven 已经完善到 6.10.0 了
+于是又读了一下这个包的代码，与之前真的大不相同了。
+以下内容分两部分：
+ 对 SDK 的用户来说，都有哪些变化 新 SDK 在实现方式上有什么变化  新旧 SDK 变化对比 简单写了个表，功能上的区别基本就是这样了，实际使用上倒是完全感受不到什么
+   对比项 raven sentry_sdk     捕捉错误的方式 flask.got_request_exception + middleware flask.got_request_exception + middleware   获取上下文等信息的方式(flask) 直接访问 flask.request，以及 sys.exc_info 和环境相关信息 使用信号 appcontext_pushed, request_started 和 sys.</description>
+    </item>
+    
+    <item>
       <title>CGroups 控制进程资源</title>
       <link>https://codenow.me/articles/linux-cgroups/</link>
       <pubDate>Sun, 14 Apr 2019 21:53:50 +0800</pubDate>
