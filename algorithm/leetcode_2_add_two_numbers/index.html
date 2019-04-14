@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Awk De Duplication - ATTS</title>
+    <title>Leetcode: 2 Add Two Numbers - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tips/awk-de-duplication/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_2_add_two_numbers/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tips/awk-de-duplication/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_2_add_two_numbers/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Awk De Duplication
+        Leetcode: 2 Add Two Numbers
       </div>
     </div>
 
@@ -312,10 +312,51 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Awk De Duplication </h1>
+			<h1>Leetcode: 2 Add Two Numbers </h1>
 
-			<p>使用 AWK 对数据进行去重：<code>awk '!a[$0]++{print}'</code></p>
+			<blockquote>
+<p>题号：2<br>
+难度：Medium<br>
+链接：<a href="https://leetcode.com/problems/add-two-numbers/">https://leetcode.com/problems/add-two-numbers/</a></p>
 
+<p>如下是 python3 代码</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Definition for singly-linked list.</span>
+<span style="color:#8f5902;font-style:italic"># class ListNode(object):</span>
+<span style="color:#8f5902;font-style:italic">#     def __init__(self, x):</span>
+<span style="color:#8f5902;font-style:italic">#         self.val = x</span>
+<span style="color:#8f5902;font-style:italic">#         self.next = None</span>
+
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">addTwoNumbers</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">l1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">l2</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#4e9a06">&#34;&#34;&#34;
+</span><span style="color:#4e9a06">        :type l1: ListNode
+</span><span style="color:#4e9a06">        :type l2: ListNode
+</span><span style="color:#4e9a06">        :rtype: ListNode
+</span><span style="color:#4e9a06">        &#34;&#34;&#34;</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">l1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#204a87;font-weight:bold">is</span> <span style="color:#3465a4">None</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">l1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">l2</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">l2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#204a87;font-weight:bold">is</span> <span style="color:#3465a4">None</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">l2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">l1</span>
+        
+        <span style="color:#000">str1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;&#39;</span>
+        <span style="color:#000">str2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;&#39;</span>
+        
+        <span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000">l1</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">str1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">l1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">str1</span>
+            <span style="color:#000">l1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">l1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span>
+        <span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000">l2</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">str2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">l2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">str2</span>
+            <span style="color:#000">l2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">l2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span>
+        
+        <span style="color:#000">add_num</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">str1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">str2</span><span style="color:#000;font-weight:bold">)))[::</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+        <span style="color:#000">Nodes</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">ListNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">num</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">num</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">add_num</span><span style="color:#000;font-weight:bold">]</span>
+        
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Nodes</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#000">Nodes</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Nodes</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+        
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">Nodes</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span>
+        </code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -333,7 +374,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/sentry-python-sdk/" title="Sentry Python Sdk">
+      <a href="https://codenow.me/articles/build_api_by_flask/" title="Python下使用Flask建立API">
         <span class="direction">
           Previous
         </span>
@@ -343,7 +384,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Sentry Python Sdk
+              Python下使用Flask建立API
             </div>
           </div>
         </div>
@@ -353,14 +394,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/articles/build_api_by_flask/" title="Python下使用Flask建立API">
+      <a href="https://codenow.me/tips/run-scheduled-py-on-windows/" title="Windows下定时执行Py文件">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Python下使用Flask建立API
+              Windows下定时执行Py文件
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

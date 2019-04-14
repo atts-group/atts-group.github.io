@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>Leetcode: 2 Add Two Numbers</title>
+      <link>https://codenow.me/algorithm/leetcode_2_add_two_numbers/</link>
+      <pubDate>Sat, 13 Apr 2019 17:30:32 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_2_add_two_numbers/</guid>
+      <description>题号：2
+难度：Medium
+链接：https://leetcode.com/problems/add-two-numbers/
+如下是 python3 代码
+ # Definition for singly-linked list. # class ListNode(object): # def __init__(self, x): # self.val = x # self.next = None class Solution(object): def addTwoNumbers(self, l1, l2): &amp;#34;&amp;#34;&amp;#34; :type l1: ListNode :type l2: ListNode :rtype: ListNode &amp;#34;&amp;#34;&amp;#34; if l1.next is None and l1.val == 0: return l2 if l2.next is None and l2.val == 0: return l1 str1 = &amp;#39;&amp;#39; str2 = &amp;#39;&amp;#39; while l1: str1 = str(l1.</description>
+    </item>
+    
+    <item>
       <title>Leetcode 13 Roman to Integer</title>
       <link>https://codenow.me/algorithm/leetcode-13-roman-to-integer/</link>
       <pubDate>Sun, 07 Apr 2019 23:55:16 +0800</pubDate>

@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>Windows下定时执行Py文件</title>
+      <link>https://codenow.me/tips/run-scheduled-py-on-windows/</link>
+      <pubDate>Sat, 13 Apr 2019 18:07:19 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/run-scheduled-py-on-windows/</guid>
+      <description>Windows下定时执行任务，本质即在任务计划程序中添加自定义的Py文件执行任务。
+操作方法：
+ 在计算机管理中打开任务计划程序。  点击创建基本任务，开始创建任务程序  设置启动py文件任务   最后点击完成，即可在活动任务中找到添加的任务。</description>
+    </item>
+    
+    <item>
       <title>Awk De Duplication</title>
       <link>https://codenow.me/tips/awk-de-duplication/</link>
       <pubDate>Sun, 07 Apr 2019 23:59:32 +0800</pubDate>
