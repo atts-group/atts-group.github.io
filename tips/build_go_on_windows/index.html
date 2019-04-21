@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode 14 Longest Common Prefix - ATTS</title>
+    <title>Windows安装Go开发环境 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/leetcode-14-longest-common-prefix/">
+    <link rel="canonical" href="https://codenow.me/tips/build_go_on_windows/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/leetcode-14-longest-common-prefix/">
+    <meta property="og:url" content="https://codenow.me/tips/build_go_on_windows/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode 14 Longest Common Prefix
+        Windows安装Go开发环境
       </div>
     </div>
 
@@ -312,45 +312,41 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode 14 Longest Common Prefix </h1>
+			<h1>Windows安装Go开发环境 </h1>
 
-			<blockquote>
-<p>题号：14<br>
-难度：easy<br>
-链接：<a href="https://leetcode.com/problems/longest-common-prefix">https://leetcode.com/problems/longest-common-prefix</a><br>
-描述：多个字符串找公共子串(a-z)</p>
-</blockquote>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">typing</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">List</span>
+			
 
+<h1 id="windows版go安装">Windows版Go安装</h1>
 
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">longestCommonPrefix2</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">:</span>
-        <span style="color:#4e9a06">&#34;&#34;&#34;简单粗暴的方式&#34;&#34;&#34;</span>
-        <span style="color:#000">res</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;&#39;</span>
-        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">res</span>
-        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">char</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">strs</span><span style="color:#000;font-weight:bold">):</span>
-            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">char</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#000">res</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">char</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span>
-            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">res</span>
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">res</span>
+<h2 id="下载msi版进行安装">下载Msi版进行安装。</h2>
 
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">longestCommonPrefix</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">:</span>
-        <span style="color:#4e9a06">&#34;&#34;&#34;不需要一个一个字符地加，只需要找到分界点，一次性取出即可&#34;&#34;&#34;</span>
-        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#39;&#39;</span>
-        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">letter_group</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">strs</span><span style="color:#000;font-weight:bold">)):</span>
-            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">letter_group</span><span style="color:#000;font-weight:bold">))</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">strs</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">][:</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span>
-        <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">min</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">strs</span><span style="color:#000;font-weight:bold">)</span>
+<p><a href="https://studygolang.com/dl">下载地址</a></p>
 
+<p>选择Microsoft Windows版下载。</p>
 
-<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">__name__</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;__main__&#39;</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;flower&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;flow&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;flight&#34;</span><span style="color:#000;font-weight:bold">]</span>
-    <span style="color:#000">res</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">()</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">longestCommonPrefix</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">res</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<p>安装步骤直接根据步骤提示进行。</p>
+
+<h2 id="安装文件目录说明">安装文件目录说明：</h2>
+
+<p>|目录名|备注|
+|-|-|
+|api|每个版本的api变更差异|
+|bin|go源码包编译出的编译器(go)，文档工具(godoc)，格式化工具(gofmt)|
+|blog|Go博客模板，使用Go的网页模板|
+|doc|英文版的Go文档|
+|lib|引用的一些库文件|
+|misc|杂项用途的文件，例如Android平台的编译、git的提交钩子等|
+|pkg|Windows平台编译好的中间文件|
+|src|标准库的源码|
+|test|测试用例|</p>
+
+<h2 id="开发环境安装">开发环境安装</h2>
+
+<p><a href="https://www.jetbrains.com/go/download/#section=windows">GoLand下载地址</a></p>
+
+<p>具体安装步骤参考：
+<a href="https://blog.csdn.net/u014044812/article/details/87621168">CSDN文章</a></p>
+
 
 			<aside class="copyright" role="note">
 				
@@ -368,7 +364,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/tips/exmail-smtp-tls/" title="Exmail Smtp TLS">
+      <a href="https://codenow.me/algorithm/leetcode_3_longest_substring_without_repeating_characters/" title="Leetcode 3 Longest Substring Without Repeating Characters">
         <span class="direction">
           Previous
         </span>
@@ -378,7 +374,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Exmail Smtp TLS
+              Leetcode 3 Longest Substring Without Repeating Characters
             </div>
           </div>
         </div>
@@ -388,14 +384,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/algorithm/leetcode_3_longest_substring_without_repeating_characters/" title="Leetcode 3 Longest Substring Without Repeating Characters">
+      <a href="https://codenow.me/articles/the_image_container_repository_in_docker/" title="Doker核心概念-镜像、容器和仓库">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Leetcode 3 Longest Substring Without Repeating Characters
+              Doker核心概念-镜像、容器和仓库
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>Leetcode 3 Longest Substring Without Repeating Characters</title>
+      <link>https://codenow.me/algorithm/leetcode_3_longest_substring_without_repeating_characters/</link>
+      <pubDate>Sat, 20 Apr 2019 10:43:56 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_3_longest_substring_without_repeating_characters/</guid>
+      <description>题号：3 难度：medium 链接：https://leetcode.com/problems/longest-substring-without-repeating-characters/
+ 如下为Python3代码
+class Solution(object): def lengthOfLongestSubstring(self, s): &amp;#34;&amp;#34;&amp;#34; :type s: str :rtype: int &amp;#34;&amp;#34;&amp;#34; b, m, d = 0, 0, {} for i, l in enumerate(s): b, m, d[l] = max(b, d.get(l, -1) + 1), max(m, i - b), i return max(m, len(s) - b)  参考内容</description>
+    </item>
+    
+    <item>
       <title>Leetcode 14 Longest Common Prefix</title>
       <link>https://codenow.me/algorithm/leetcode-14-longest-common-prefix/</link>
       <pubDate>Mon, 15 Apr 2019 00:08:57 +0800</pubDate>
