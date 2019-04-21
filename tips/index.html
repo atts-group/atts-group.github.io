@@ -316,6 +316,19 @@
             <h1>目录 - Tip</h1>
 
             
+            <a href="https://codenow.me/tips/docker_remove/" title="Docker容器退出时，自动删除容器">
+                <h2>Docker容器退出时，自动删除容器 </h2>
+            </a>
+            <br>
+
+              <ol>
+<li>docker run &ndash;rm -v 在Docker容器退出时，默认容器内部的文件系统仍然被保留，以方便调试并保留用户数据。 但是，对于foreground容器，由于其只是在开发调试过程中短期运行，其用户数据并无保留的必要，因而可以在容器启动时设置&ndash;rm选项，这样在容器退出时就能够自动清理容器内部的文件系统。示例如下：
+docker run &ndash;rm centos4 # 等价于 docker run &ndash;rm=true centos4 显然，&ndash;rm选项不能与-d同时使用，即只能自动清理foreground容器，不能自动清理detached容器 注意，&amp;</li>
+</ol>
+
+              <a href="https://codenow.me/tips/docker_remove/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/tips/linux_tail/" title="用 tail 实时查看日志">
                 <h2>用 tail 实时查看日志 </h2>
             </a>

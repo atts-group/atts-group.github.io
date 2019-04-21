@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>用Python实现单链表反转</title>
+      <link>https://codenow.me/algorithm/reverse_link/</link>
+      <pubDate>Sun, 21 Apr 2019 21:14:09 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/reverse_link/</guid>
+      <description>题目：单链表反转
+1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 -&amp;gt; 5 -&amp;gt; 6 -&amp;gt; 7 -&amp;gt; 8 -&amp;gt; 9 -&amp;gt; None
+9 -&amp;gt; 8 -&amp;gt; 7 -&amp;gt; 6 -&amp;gt; 5 -&amp;gt; 4 -&amp;gt; 3 -&amp;gt; 2 -&amp;gt; 1 -&amp;gt; None
+单链表的反转可以使用循环，也可以使用递归的方式
+ 1. 构造链表 1） 一次性构造无头结点链表 class Node: def __init__(self, data=None, next=None): self.data = data self.next = next link = Node(1, Node(2, Node(3, Node(4, Node(5, Node(6, Node(7, Node(8, Node(9)))))))))  2）循环构造有头结点链表 class LNode: def __init__(self, data=None, next=None): self.</description>
+    </item>
+    
+    <item>
       <title>Leetcode 100: same tree</title>
       <link>https://codenow.me/algorithm/same_tree/</link>
       <pubDate>Sun, 21 Apr 2019 17:52:54 +0900</pubDate>

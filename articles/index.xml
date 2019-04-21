@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Docker的进程</title>
+      <link>https://codenow.me/articles/docker_process/</link>
+      <pubDate>Sun, 21 Apr 2019 20:55:18 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/docker_process/</guid>
+      <description>1. 查看Docker进程 在Linux系统中，启动Docker服务，会看到如下进程：
+CentOS7： [root@lvs-webserver2 ~]# docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES c8a999e1b510 ubuntu &amp;#34;/bin/bash&amp;#34; 34 seconds ago Up 32 seconds ubuntu [root@lvs-webserver2 ~]# [root@lvs-webserver2 ~]# ps -ef|grep docker|grep -v grep root 40362 1 1 18:14 ? 00:00:08 /usr/bin/dockerd root 40373 40362 2 18:14 ? 00:00:14 docker-containerd --config /var/run/docker/containerd/containerd.toml root 40758 40373 0 18:23 ? 00:00:00 docker-containerd-shim -namespace moby -workdir /var/lib/docker/containerd/daemon/io.containerd.runtime.v1.linux/moby/c8a999e1b510abc2136384742f9ce8fa082d297e83af07d50c8b0d8f47254609 -address /var/run/docker/containerd/docker-containerd.sock -containerd-binary /usr/bin/docker-containerd -runtime-root /var/run/docker/runtime-runcUbuntu18 root@lvs-master:/var/run# docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES e96ce4c8c256 redisexec &amp;#34;/usr/bin/redis-serv…&amp;#34; 11 days ago Up 9 minutes 6379/tcp redisexec root@lvs-master:/var/run# root@lvs-master:/var/run# ps -ef|grep docker |grep -v grep root 1039 1 0 18:24 ?</description>
+    </item>
+    
+    <item>
       <title>漫谈死锁</title>
       <link>https://codenow.me/articles/about_mysql_locks_2/</link>
       <pubDate>Sun, 21 Apr 2019 18:18:29 +0900</pubDate>
