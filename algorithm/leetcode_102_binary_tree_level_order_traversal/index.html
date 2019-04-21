@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>如何帮助人们从pip迁移到conda? - ATTS</title>
+    <title>Leetcode 102. 二叉树的层次遍历 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/how_to_help_people_migrating_from_pip_to_conda/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_102_binary_tree_level_order_traversal/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/how_to_help_people_migrating_from_pip_to_conda/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_102_binary_tree_level_order_traversal/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        如何帮助人们从pip迁移到conda?
+        Leetcode 102. 二叉树的层次遍历
       </div>
     </div>
 
@@ -312,21 +312,31 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>如何帮助人们从pip迁移到conda? </h1>
+			<h1>Leetcode 102. 二叉树的层次遍历 </h1>
 
-			<p>原文地址：
-<a href="https://discuss.python.org/t/how-to-help-people-migrating-from-pip-to-conda/1474">https://discuss.python.org/t/how-to-help-people-migrating-from-pip-to-conda/1474</a></p>
+			<blockquote>
+<p>题号：102<br>
+medium<br>
+链接：<a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">https://leetcode-cn.com/problems/binary-tree-level-order-traversal/</a></p>
+</blockquote>
 
-<p>有两种方法可以解决这样的迁移问题：减少摩擦，或者提供胡萝卜（有意义的好处）。</p>
-
-<p>Conda已经提供了胡萝卜，它起作用了。一般来说，这足以克服摩擦（尽管并不总是——见我上面的引言）。</p>
-
-<p>实际上，我们看到的是非Conda用户的挫折感，他们没有胡萝卜，但还不足以克服摩擦。人们越接近孤立的工作包安装而不需要Conda，就会产生更多的虚构。</p>
-
-<p>简言之，基于venv的工具的“成长故事”很弱，因为如果不重新启动，您将无处可逃。解决这个问题不需要任何其他的软件包管理器——他们完全可以自由地说：“是的，我们告诉过你，当你依赖于系统安装时，错误是正确的，但是我们很高兴你现在在这里，让我们开始工作。”如果他们的论点是，基于venv的工具是最初的问题，那么他们不必从中找到放弃的地方，从中走出来。</p>
-
-<p>（Conda和其他系统包管理器在这里都是可互换的。没有人希望apt/yum安装的软件包只适用于高度定制的venv，对吗？）</p>
-
+<p>Python 递归实现</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">levelOrder</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">root</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">List</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">]]:</span>
+        <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">traverse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">root</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
+    
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">traverse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">root</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">depth</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">root</span> <span style="color:#204a87;font-weight:bold">is</span> <span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span>
+        
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">depth</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">result</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#000">result</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">([])</span>
+        
+        <span style="color:#000">result</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">depth</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">traverse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">depth</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">traverse</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">depth</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -344,7 +354,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/algorithm/reverse_link/" title="用Python实现单链表反转">
+      <a href="https://codenow.me/tips/command-line-in-goland/" title="Command Line in Goland">
         <span class="direction">
           Previous
         </span>
@@ -354,7 +364,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              用Python实现单链表反转
+              Command Line in Goland
             </div>
           </div>
         </div>
@@ -364,14 +374,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/translation/emulating-enumerated-types-in-golang/" title="实现 Golang 枚举类型">
+      <a href="https://codenow.me/articles/how-to-orderby-in-mysql/" title="MySQL 排序机制">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              实现 Golang 枚举类型
+              MySQL 排序机制
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

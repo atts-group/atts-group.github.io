@@ -316,6 +316,18 @@
             <h1>目录 - 文章</h1>
 
             
+            <a href="https://codenow.me/articles/how-to-orderby-in-mysql/" title="MySQL 排序机制">
+                <h2>MySQL 排序机制 </h2>
+            </a>
+            <br>
+
+              在 MySQL 中经常使用 Order by 对数据进行排序，其实排序这个行为是比较消耗 IO 的过程，有时候需要回表多次才可以完成排序，所以在任何时候都需要对排序的原理要心知肚明。
+在 MySQL 中排序按照是否使用外部存储可以分为，内存排序和外部排序两种。根据排序所需的字段可以分成 rowid 排序和全字段排序两种。
+在 MySQL 执行排序的时候会分配一块内存 sort_buffer，MySQL 把需要排序的字段放入这个 sort_buffer 中，让，后在 sort_buffer 执行排序的过程，如果 sort_buffer 大小不够，就要使用外部存储。
+一般来说 sort_buffe
+              <a href="https://codenow.me/articles/how-to-orderby-in-mysql/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/articles/docker_process/" title="Docker的进程">
                 <h2>Docker的进程 </h2>
             </a>

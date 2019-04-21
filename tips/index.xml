@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Command Line in Goland</title>
+      <link>https://codenow.me/tips/command-line-in-goland/</link>
+      <pubDate>Sun, 21 Apr 2019 21:54:00 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/command-line-in-goland/</guid>
+      <description>在 Goland 的 tools 下可以创建命令行工具，可以直接在终端通过 goland . 启动 Goland 并且创建项目。</description>
+    </item>
+    
+    <item>
       <title>Docker容器退出时，自动删除容器</title>
       <link>https://codenow.me/tips/docker_remove/</link>
       <pubDate>Sun, 21 Apr 2019 21:04:57 +0800</pubDate>

@@ -38,6 +38,26 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/articles/how-to-orderby-in-mysql/</loc>
+    <lastmod>2019-04-21T21:58:20+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/algorithm/leetcode_102_binary_tree_level_order_traversal/</loc>
+    <lastmod>2019-04-21T21:57:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/tips/command-line-in-goland/</loc>
+    <lastmod>2019-04-21T21:54:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/translation/emulating-enumerated-types-in-golang/</loc>
+    <lastmod>2019-04-21T21:53:14+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/translation/how_to_help_people_migrating_from_pip_to_conda/</loc>
     <lastmod>2019-04-21T21:48:51+08:00</lastmod>
   </url>

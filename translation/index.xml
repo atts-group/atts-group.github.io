@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>实现 Golang 枚举类型</title>
+      <link>https://codenow.me/translation/emulating-enumerated-types-in-golang/</link>
+      <pubDate>Sun, 21 Apr 2019 21:53:14 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/emulating-enumerated-types-in-golang/</guid>
+      <description>原文地址 在这篇文章中，我们将介绍使用 go generate 和 abstract 语法树遍历生成强大的枚举类型。
+这篇文章描述用于生成的 CLI，完全的原代码 可以在 Github 上找到。
+Go 中惯用法 Go 语言实际上没有对枚举类型提供完成的支持。定义枚举类型的其中一种方法就是把一类相关变量定义成一种类型。Iota 可以用于定义连续的递增的整数常量。我们可以像这样定义一个 Color 类型。
+https://play.golang.org/p/1Zib29yiuFy
+package main import &amp;#34;fmt&amp;#34; type Color int const ( Red Color = iota // 0  Blue // 1 ) func main() { var b1 Color = Red b1 = Red fmt.Println(b1) // prints 0  var b2 Color = 1 fmt.Println(b2 == Blue) // prints true  var b3 Color b3 = 42 fmt.</description>
+    </item>
+    
+    <item>
       <title>如何帮助人们从pip迁移到conda?</title>
       <link>https://codenow.me/translation/how_to_help_people_migrating_from_pip_to_conda/</link>
       <pubDate>Sun, 21 Apr 2019 21:48:51 +0800</pubDate>
