@@ -11,6 +11,22 @@
     
     
     <item>
+      <title>漫谈死锁</title>
+      <link>https://codenow.me/articles/about_mysql_locks_2/</link>
+      <pubDate>Sun, 21 Apr 2019 18:18:29 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/about_mysql_locks_2/</guid>
+      <description>作者：杨一
+原链接： 漫谈死锁
+一、前言 死锁是每个 MySQL DBA 都会遇到的技术问题，本文自己针对死锁学习的一个总结，了解死锁是什么，MySQL 如何检测死锁，处理死锁，死锁的案例，如何避免死锁。
+二、死锁 死锁是并发系统中常见的问题，同样也会出现在 Innodb 系统中。当两个及以上的事务，双方都在等待对方释放已经持有的锁或者因为加锁顺序不一致造成循环等待锁资源，就会出现&amp;rdquo;死锁&amp;rdquo;。
+举例来说 A 事务持有 x1锁 ，申请 x2 锁，B 事务持有 x2 锁，申请 x1 锁。A 和 B 事务持有锁并且申请对方持有的锁进入循环等待，就造成死锁。
+从死锁的定义来看，MySQL 出现死锁的几个要素：
+a 两个或者两个以上事务。 b 每个事务都已经持有锁并且申请新的锁。 c 锁资源同时只能被同一个事务持有或者不兼容。 d 事务之间因为持有锁和申请锁导致了循环等待。
+三、MySQL 的死锁机制 死锁机制包含两部分：检测和处理。 把事务等待列表和锁等待信息列表通过事务信息进行 wait-for graph 检测，如果发现有闭环，则回滚 undo log 量少的事务；死锁检测本身也会算检测本身所需要的成本，以便应对检测超时导致的意外情况。 3.1 死锁检测 当 InnoDB 事务尝试获取(请求)加一个锁，并且需要等待时，InnoDB 会进行死锁检测。正常的流程如下: - InnoDB 的初始化一个事务，当事务尝试申请加一个锁，并且需要等待时 (wait_lock)，innodb 会开始进行死锁检测 (deadlock_mark) - 进入到 lock_deadlock_check_and_resolve() 函数进行检测死锁和解决死锁 - 检测死锁过程中，是有计数器来进行限制的，在等待 wait-for graph 检测过程中遇到超时或者超过阈值，则停止检测。 - 死锁检测的逻辑之一是等待图的处理过程，如果通过锁的信息和事务等待链构造出一个图，如果图中出现回路，就认为发生了死锁。 - 死锁的回滚，内部代码的处理逻辑之一是比较 undo 的数量，回滚 undo 数量少的事务。</description>
+    </item>
+    
+    <item>
       <title>Doker核心概念-镜像、容器和仓库</title>
       <link>https://codenow.me/articles/the_image_container_repository_in_docker/</link>
       <pubDate>Sat, 20 Apr 2019 15:55:09 +0800</pubDate>

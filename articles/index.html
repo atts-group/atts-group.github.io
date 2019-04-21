@@ -316,6 +316,20 @@
             <h1>目录 - 文章</h1>
 
             
+            <a href="https://codenow.me/articles/about_mysql_locks_2/" title="漫谈死锁">
+                <h2>漫谈死锁 </h2>
+            </a>
+            <br>
+
+              作者：杨一
+原链接： 漫谈死锁
+一、前言 死锁是每个 MySQL DBA 都会遇到的技术问题，本文自己针对死锁学习的一个总结，了解死锁是什么，MySQL 如何检测死锁，处理死锁，死锁的案例，如何避免死锁。
+二、死锁 死锁是并发系统中常见的问题，同样也会出现在 Innodb 系统中。当两个及以上的事务，双方都在等待对方释放已经持有的锁或者因为加锁顺序不一致造成循环等待锁资源，就会出现&rdquo;死锁&rdquo;。
+举例来说 A 事务持有 x1锁 ，申请 x2 锁，B 事务持有 x2 锁，申请 x1 锁。A 和 B 事务持有锁并且申请对方持有的锁进入循环等待，就造成死锁。
+从死锁的定义来看，M
+              <a href="https://codenow.me/articles/about_mysql_locks_2/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/articles/the_image_container_repository_in_docker/" title="Doker核心概念-镜像、容器和仓库">
                 <h2>Doker核心概念-镜像、容器和仓库 </h2>
             </a>

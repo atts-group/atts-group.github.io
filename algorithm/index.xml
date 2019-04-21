@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Leetcode 100: same tree</title>
+      <link>https://codenow.me/algorithm/same_tree/</link>
+      <pubDate>Sun, 21 Apr 2019 17:52:54 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/same_tree/</guid>
+      <description>题号：100 难度：easy 链接：same tree
+Definition for a binary tree node. class TreeNode: def __init__(self, x): self.val = x self.left = None self.right = None class Solution: def isSameTree(self, p: TreeNode, q: TreeNode) -&amp;gt; bool: if p and q: return p.val == q.val and self.isSameTree(p.right,q.right) and self.isSameTree(p.left,q.left) return p == q if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() tree1 = TreeNode(&amp;#39;s&amp;#39;) tree2 = TreeNode(&amp;#39;s&amp;#39;) s.isSameTree(tree1, tree2)</description>
+    </item>
+    
+    <item>
       <title>Leetcode 3 Longest Substring Without Repeating Characters</title>
       <link>https://codenow.me/algorithm/leetcode_3_longest_substring_without_repeating_characters/</link>
       <pubDate>Sat, 20 Apr 2019 10:43:56 +0800</pubDate>

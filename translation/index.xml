@@ -11,6 +11,21 @@
     
     
     <item>
+      <title>Sharingpwswithgopass</title>
+      <link>https://codenow.me/translation/sharingpwswithgopass/</link>
+      <pubDate>Sun, 21 Apr 2019 16:20:07 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/sharingpwswithgopass/</guid>
+      <description>作者： Woile 原链接： Sharing passwords using gopass, git and gpg  （删减版）
+不想再把你的密码放在不可靠却方便的地方？ 不想再在 slack，notes 这些不可信赖的平台上分享密码？ 不想再在不同的地方放你的团队密码？ 如果对于上面的问题你的回答如果是 yes，那你应该会觉得这篇文章有用。
+背景 我为了寻找一个安全的方式去储存我的密码花了不少时间。当然，除了安全，我还希望有以下性能： - 密码存在云里 - 设备之间可以简单同步 - 可以很方便地与人共享 我找到的解决方案是 gopass
+gopass 是怎么工作的 gopass 就像是有多一份电池的 pass（unix 密码管理器） 在这里面，它拥有的且和我相关的性能有 1. 用 gpg 进行加密； 2. 用 git 进行密码同步； 3. 不同属性的密码可以放在不同的储存地方（个人、公司等）； 4. 每个存储地方指向不同的仓库； 5. 一个存储地址支持多个人运用。接下来我们称他们为收信人
+虽然它还缺乏一些文档和命令，但是我们不必害怕去尝试它。 我很高兴 gopass 使用了 gpg。 它唯一的缺点，我想是它正式的 windows 版本还没发布。
+安装 你可以看看这个网站里介绍的安装或者可以在 gopass repo 里得到更多的信息。
+使用 首先，我们需要一个 gpg 密钥。我们需要 gpg cli 去创建一个，如果你安装了 gopass，那你的系统里应该就有了。</description>
+    </item>
+    
+    <item>
       <title>Why Django Is The Popular Python Framework aMONG wEB dEVELOPERS?</title>
       <link>https://codenow.me/translation/why_django/</link>
       <pubDate>Sun, 21 Apr 2019 14:59:56 +0800</pubDate>

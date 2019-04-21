@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>用 tail 实时查看日志</title>
+      <link>https://codenow.me/tips/linux_tail/</link>
+      <pubDate>Sun, 21 Apr 2019 18:17:44 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/linux_tail/</guid>
+      <description>用 tail 命令看实时的日志文件
+tail -f log_path  </description>
+    </item>
+    
+    <item>
       <title>Windows安装Go开发环境</title>
       <link>https://codenow.me/tips/build_go_on_windows/</link>
       <pubDate>Sat, 20 Apr 2019 10:55:05 +0800</pubDate>
