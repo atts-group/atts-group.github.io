@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>Leetcode 24 Swap Nodes in Pairs</title>
+      <link>https://codenow.me/algorithm/leetcode-24-swap-nodes-in-pairs/</link>
+      <pubDate>Sun, 21 Apr 2019 22:33:22 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode-24-swap-nodes-in-pairs/</guid>
+      <description>24. Swap Nodes in Pairs
+代码如下：
+# Definition for singly-linked list. class ListNode(object): def __init__(self, x): self.val = x self.next = None class Solution(object): def swapPairs(self, head): &amp;#34;&amp;#34;&amp;#34; :type head: ListNode :rtype: ListNode &amp;#34;&amp;#34;&amp;#34; h = ListNode(0) tail = h p = head count = 0 while p != None: n = p.next if count % 2 == 0: tail.next = p p.next = None else: next_node = tail.next tail.next = p p.</description>
+    </item>
+    
+    <item>
       <title>Leetcode 102. 二叉树的层次遍历</title>
       <link>https://codenow.me/algorithm/leetcode_102_binary_tree_level_order_traversal/</link>
       <pubDate>Sun, 21 Apr 2019 21:57:06 +0800</pubDate>

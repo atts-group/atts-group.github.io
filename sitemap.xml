@@ -38,6 +38,11 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/algorithm/leetcode-24-swap-nodes-in-pairs/</loc>
+    <lastmod>2019-04-21T22:33:22+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/articles/how-to-orderby-in-mysql/</loc>
     <lastmod>2019-04-21T21:58:20+08:00</lastmod>
   </url>
@@ -58,8 +63,23 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/articles/tidb-outer-join-elimination-and-column-pruning/</loc>
+    <lastmod>2019-04-21T21:51:04+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/translation/how_to_help_people_migrating_from_pip_to_conda/</loc>
     <lastmod>2019-04-21T21:48:51+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/translation/golang-profile-with-pprof/</loc>
+    <lastmod>2019-04-21T21:43:08+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/tips/perf-cache-miss/</loc>
+    <lastmod>2019-04-21T21:16:02+08:00</lastmod>
   </url>
   
   <url>

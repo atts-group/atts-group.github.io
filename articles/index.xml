@@ -30,6 +30,20 @@
     </item>
     
     <item>
+      <title>TiDB 源码学习：列裁剪</title>
+      <link>https://codenow.me/articles/tidb-outer-join-elimination-and-column-pruning/</link>
+      <pubDate>Sun, 21 Apr 2019 21:51:04 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/tidb-outer-join-elimination-and-column-pruning/</guid>
+      <description>今天整理 TiDB 的一种常见优化手段：列裁剪 (column pruning)
+列裁剪是很常见的一种优化手段，除了能够降低网络开销以外，也能够降低数据库的内存开销和 cpu 开销。比如下面这个查询：
+select t1.id from t1, t2 where t1.id == t2.t1_id where t2.state = 1; 这个查询比较极端，t2 表在 join 之后，没有任何一列会再需要被使用。假如 t2 表里有十多个字段，而查询没有做列裁剪的话。那这十几个字段要在在整个查询树上流动，内存开销就得大出好几倍。
+代码中，是通过递归调用各个 LogicalPlan 子类的 PruneColumns 来完成列裁剪的，PruneColumns 方法会代用上层节点要求使用的列信息，子节点根据上层节点要使用的列信息以及自己要使用的列信息（比如：上个例子中 的 t2.t1_id 和 t2.state ，上层节点不会使用但是连接过程要使用）来计算哪些列可以被裁剪掉。
+Join 的 PruneColumns 方法
+func (p *LogicalJoin) extractUsedCols(parentUsedCols []*expression.Column) (leftCols []*expression.Column, rightCols []*expression.Column) { for _, eqCond := range p.EqualConditions { parentUsedCols = append(parentUsedCols, expression.ExtractColumns(eqCond)...) } for _, leftCond := range p.LeftConditions { parentUsedCols = append(parentUsedCols, expression.</description>
+    </item>
+    
+    <item>
       <title>Docker的进程</title>
       <link>https://codenow.me/articles/docker_process/</link>
       <pubDate>Sun, 21 Apr 2019 20:55:18 +0800</pubDate>

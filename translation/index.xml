@@ -38,6 +38,19 @@ Conda已经提供了胡萝卜，它起作用了。一般来说，这足以克服
     </item>
     
     <item>
+      <title>Golang Profile With Pprof</title>
+      <link>https://codenow.me/translation/golang-profile-with-pprof/</link>
+      <pubDate>Sun, 21 Apr 2019 21:43:08 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/golang-profile-with-pprof/</guid>
+      <description>原文链接：Profile your golang benchmark with pprof
+golang 自带的工具非常有用，我们可以使用 go 自带的 pprof 来做性能分析。
+我们用 Dave Cheney 当中的例子
+package bench import &amp;#34;testing&amp;#34; func Fib(n int) int { if n &amp;lt; 2 { return n } return Fib(n-1) + Fib(n-2) } func BenchmarkFib10(b *testing.B) { // run the Fib function b.N times  for n := 0; n &amp;lt; b.N; n++ { Fib(10) } } 在我们的终端中：
+go test -bench=. -benchmem -cpuprofile profile.out 我们同样可以做内存分析：</description>
+    </item>
+    
+    <item>
       <title>使用 gopass，git 和 gpg 来分享你的密码</title>
       <link>https://codenow.me/translation/sharingpwswithgopass/</link>
       <pubDate>Sun, 21 Apr 2019 16:20:07 +0900</pubDate>
