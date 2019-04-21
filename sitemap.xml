@@ -38,6 +38,26 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/tips/stfw/</loc>
+    <lastmod>2019-04-21T22:58:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/articles/python_i18n/</loc>
+    <lastmod>2019-04-21T22:55:21+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/algorithm/leetcode_15_threesums/</loc>
+    <lastmod>2019-04-21T22:52:55+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/translation/shoule_that_be_a_microservice/</loc>
+    <lastmod>2019-04-21T22:51:16+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/algorithm/leetcode-24-swap-nodes-in-pairs/</loc>
     <lastmod>2019-04-21T22:33:22+08:00</lastmod>
   </url>

@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>STFW</title>
+      <link>https://codenow.me/tips/stfw/</link>
+      <pubDate>Sun, 21 Apr 2019 22:58:19 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/stfw/</guid>
+      <description>当有人提了一个可以 STFW 解决的问题时，可以在给出关键词的同时，甩一个这样的链接：
+http://lmgtfy.com/?q=如何安装python</description>
+    </item>
+    
+    <item>
       <title>Command Line in Goland</title>
       <link>https://codenow.me/tips/command-line-in-goland/</link>
       <pubDate>Sun, 21 Apr 2019 21:54:00 +0800</pubDate>

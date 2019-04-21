@@ -11,6 +11,24 @@
     
     
     <item>
+      <title>Python_i18n</title>
+      <link>https://codenow.me/articles/python_i18n/</link>
+      <pubDate>Sun, 21 Apr 2019 22:55:21 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/python_i18n/</guid>
+      <description>这周有一些 API 需要做国际化，于是看了一下通用的解决方案
+GUN 国际化通用方法: gettext 通用的解决方案是，使用 gettext 工具，先将源码中的字符串提取至 .pot 文件中，再复制成各个 .po 文件并填充相应的语言，填充完毕后，再编译成 .mo 文件。
+读取的时候，从一个 .mo 文件里得到的内容会转换成一个简单的 hash map(python 中就是单纯的 dict)，使用时根据语言和原始字符串到这里查找，即可得到相应的“翻译后的字符串”并返回。
+我们可以看一下前段时间刚刚上线的 python 官方简中文档，这是术语表的 .po 文件链接：https://github.com/python/python-docs-zh-cn/blob/3.7/glossary.po
+参照这个图片，可以看到， .po 文件里会把原文里的每个字符串，都这样对照着给一个翻译
+说到这里我们插播一下，python 中文文档翻译进度已经达到 30% 了，想参与翻译吗？参照我这个帖子开动吧，或者直接留言，我拉你进翻译群~
+说回到国际化，gettext 是一个 GNU 工具，各种语言对它都有支持，官方文档在这里：https://www.gnu.org/software/gettext/manual/gettext.html
+在 shell 下它一共提供三个命令： 1. xgettext: 从源文件中提取 .pot 文件 2. msginit: 将 .pot 准备成对应语言的 .po 文件 3. msgfmt: 将 .po 文件编译成 .mo 文件
+具体的用法就不详细说了，搜一下有很多，我们这里说一下 python 中对其的实现
+python 中内置了一个 gettext 包，其实是为 GUN gettext 提供一个 python 接口，使用时只要指定好语言以及 .</description>
+    </item>
+    
+    <item>
       <title>MySQL 排序机制</title>
       <link>https://codenow.me/articles/how-to-orderby-in-mysql/</link>
       <pubDate>Sun, 21 Apr 2019 21:58:20 +0800</pubDate>

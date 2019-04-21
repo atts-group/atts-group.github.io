@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode 24 Swap Nodes in Pairs - ATTS</title>
+    <title>STFW - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/leetcode-24-swap-nodes-in-pairs/">
+    <link rel="canonical" href="https://codenow.me/tips/stfw/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/leetcode-24-swap-nodes-in-pairs/">
+    <meta property="og:url" content="https://codenow.me/tips/stfw/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode 24 Swap Nodes in Pairs
+        STFW
       </div>
     </div>
 
@@ -312,43 +312,12 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode 24 Swap Nodes in Pairs </h1>
+			<h1>STFW </h1>
 
-			<p><a href="https://leetcode.com/problems/swap-nodes-in-pairs/">24. Swap Nodes in Pairs</a></p>
+			<p>当有人提了一个可以 STFW 解决的问题时，可以在给出关键词的同时，甩一个这样的链接：</p>
 
-<p>代码如下：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Definition for singly-linked list.</span>
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">ListNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">x</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
+<p><a href="http://lmgtfy.com/?q=如何安装python">http://lmgtfy.com/?q=如何安装python</a></p>
 
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">swapPairs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">head</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#4e9a06">&#34;&#34;&#34;
-</span><span style="color:#4e9a06">        :type head: ListNode
-</span><span style="color:#4e9a06">        :rtype: ListNode
-</span><span style="color:#4e9a06">        &#34;&#34;&#34;</span>
-        <span style="color:#000">h</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">ListNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">tail</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">h</span>
-        
-        <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">head</span>
-        <span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span>
-        <span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#000">n</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span>
-            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#000">tail</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">p</span>
-                <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
-            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#000">next_node</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">tail</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span>
-                <span style="color:#000">tail</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">p</span>
-                <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">next_node</span>
-                <span style="color:#000">tail</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">next_node</span>
-                
-            <span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span>
-            <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">n</span>
-
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">h</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -366,7 +335,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/how-to-orderby-in-mysql/" title="MySQL 排序机制">
+      <a href="https://codenow.me/articles/python_i18n/" title="Python_i18n">
         <span class="direction">
           Previous
         </span>
@@ -376,7 +345,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              MySQL 排序机制
+              Python_i18n
             </div>
           </div>
         </div>
@@ -385,22 +354,6 @@
   </div>
 
   <div class="next">
-  
-      <a href="https://codenow.me/translation/shoule_that_be_a_microservice/" title="Shoule_That_Be_A_Microservice">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              Shoule_That_Be_A_Microservice
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
   
   </div>
 </nav>

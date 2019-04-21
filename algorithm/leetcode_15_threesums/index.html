@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode 24 Swap Nodes in Pairs - ATTS</title>
+    <title>Leetcode_15_ThreeSums - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/leetcode-24-swap-nodes-in-pairs/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_15_threesums/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/leetcode-24-swap-nodes-in-pairs/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_15_threesums/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode 24 Swap Nodes in Pairs
+        Leetcode_15_ThreeSums
       </div>
     </div>
 
@@ -312,43 +312,152 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode 24 Swap Nodes in Pairs </h1>
+			<h1>Leetcode_15_ThreeSums </h1>
 
-			<p><a href="https://leetcode.com/problems/swap-nodes-in-pairs/">24. Swap Nodes in Pairs</a></p>
+			<blockquote>
+<p>题号：15<br>
+难度：medium
+链接：<a href="https://leetcode.com/problems/3sum">https://leetcode.com/problems/3sum</a> <br>
+描述：一串数字中，找出&rdquo;和为0的三个数字&rdquo;的所有可能组合</p>
+</blockquote>
 
-<p>代码如下：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Definition for singly-linked list.</span>
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">ListNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">x</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
+<pre><code>from collections import defaultdict
+from typing import List
 
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">object</span><span style="color:#000;font-weight:bold">):</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">swapPairs</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">head</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#4e9a06">&#34;&#34;&#34;
-</span><span style="color:#4e9a06">        :type head: ListNode
-</span><span style="color:#4e9a06">        :rtype: ListNode
-</span><span style="color:#4e9a06">        &#34;&#34;&#34;</span>
-        <span style="color:#000">h</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">ListNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#000">tail</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">h</span>
-        
-        <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">head</span>
-        <span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span>
-        <span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#000">n</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span>
-            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#000">tail</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">p</span>
-                <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
-            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
-                <span style="color:#000">next_node</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">tail</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span>
-                <span style="color:#000">tail</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">p</span>
-                <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">next_node</span>
-                <span style="color:#000">tail</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">next_node</span>
-                
-            <span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">count</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span>
-            <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">n</span>
 
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">h</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">next</span></code></pre></div>
+class Solution:
+    def threeSum_TLE(self, nums: List[int]) -&gt; List[List[int]]:
+        &quot;&quot;&quot;这题有两个要点：
+        1. 遍历并找到所有组合: 尝试直接暴力 n^3
+        2. 保证最终结果里没有重复的: 尝试用集合来解决
+        能做出结果，但果然超时了
+        &quot;&quot;&quot;
+        if not nums:
+            return []
+
+        res = []
+        dup = []
+        for _i, i in enumerate(nums, 1):
+            for _j, j in enumerate(nums[_i:], 1):
+                for k in nums[_i + _j:]:
+                    if not i + j + k:
+                        tmp = [i, j, k]
+                        if set(tmp) not in dup:
+                            dup.append(set(tmp))
+                            res.append(tmp)
+        return res
+
+    def threeSum_TLE2(self, nums: List[int]) -&gt; List[List[int]]:
+        &quot;&quot;&quot;考虑到超时应该是 n^3 太过分了，尝试用 n^2 来解决
+        先 n^2 遍历一遍，把&quot;任意两个值的和&quot;存起来
+        再遍历一遍，找到和为 0 的另外两个值
+        这里对 [0,0,0] 没法很好的判断，干脆单独给它做了个判断
+        结果：仍然超时
+        分析：除了遍历外，耗时最多的是去重
+        &quot;&quot;&quot;
+        if len(nums) &lt; 3:
+            return []
+
+        res = []
+        dup = []
+        two = set()
+
+        # 遍历一遍，存上任意两个值的和
+        sums = defaultdict(list)
+        for _i, i in enumerate(nums, 1):
+            for j in nums[_i:]:
+                if (j, i) not in sums[-i - j]:
+                    sums[-i - j].append((i, j))
+                    pass
+                if i == j:
+                    two.add(i)
+
+        # 再遍历一遍，找出和为0的组合
+        for i in nums:
+            if i in sums:
+                for k, j in sums[i]:
+                    if k == i or j == i and i not in two:
+                        continue
+                    if {i, j, k} not in dup:
+                        res.append([i, j, k])
+                        dup.append({i, j, k})
+        if nums.count(0) &gt; 2:
+            res.append([0, 0, 0])
+        return res
+
+    def threeSum_TEL3(self, nums: List[int]) -&gt; List[List[int]]:
+        &quot;&quot;&quot;意识到 set 里可以存 tuple，考虑这样处理一下
+        时间比上一个缩短了一半，但仍然超时
+        现在主要时间花在了构建 sums 字典上
+        &quot;&quot;&quot;
+        if len(nums) &lt; 3:
+            return []
+
+        res = []
+        dup = set()
+        two = set()
+
+        # 遍历一遍，存上任意两个值的和
+        sums = defaultdict(list)
+        for _i, i in enumerate(nums, 1):
+            for j in nums[_i:]:
+                if (j, i) not in sums[-i - j]:
+                    sums[-i - j].append((i, j))
+                    pass
+                if i == j:
+                    two.add(i)
+
+        # 再遍历一遍，找出和为0的组合
+        for i in nums:
+            if i in sums:
+                for k, j in sums[i]:
+                    if k == i or j == i and i not in two:
+                        continue
+                    tmp = sorted([i, j, k])
+                    if tuple(tmp) not in dup:
+                        res.append([i, j, k])
+                        dup.add(tuple(tmp))
+
+        if nums.count(0) &gt; 2:
+            res.append([0, 0, 0])
+        return res
+
+    def threeSum(self, nums: List[int]) -&gt; List[List[int]]:
+        &quot;&quot;&quot;去看了 discuss, 先排序，确实就完全是另一种思路了
+        不需要构建乱七八糟的辅助变量，按顺序走下去就可以了
+        去重问题，也因为是有序的，而直接跳过已处理好的相同变量
+        &quot;&quot;&quot;
+        if not nums:
+            return []
+        nums.sort()
+        res = []
+        for i in range(len(nums)-2):
+            if i &gt; 0 and nums[i] == nums[i-1]:
+                continue
+            l, r = i+1, len(nums)-1
+            while l &lt; r:
+                s = nums[i] + nums[l] + nums[r]
+                if s &lt; 0:
+                    l +=1
+                elif s &gt; 0:
+                    r -= 1
+                else:
+                    res.append((nums[i], nums[l], nums[r]))
+                    while l &lt; r and nums[l] == nums[l+1]:
+                        l += 1
+                    while l &lt; r and nums[r] == nums[r-1]:
+                        r -= 1
+                    l += 1; r -= 1
+        return res
+
+if __name__ == '__main__':
+    data = [-1, 0, 1, 2, -1, -4]
+    # data = [3, 0, -2, -1, 1, 2]
+    data = [0,0,0,0,0,0,0,0,0]
+    print(Solution().threeSum(data))
+
+</code></pre>
+
 
 			<aside class="copyright" role="note">
 				
@@ -366,7 +475,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/how-to-orderby-in-mysql/" title="MySQL 排序机制">
+      <a href="https://codenow.me/translation/shoule_that_be_a_microservice/" title="Shoule_That_Be_A_Microservice">
         <span class="direction">
           Previous
         </span>
@@ -376,7 +485,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              MySQL 排序机制
+              Shoule_That_Be_A_Microservice
             </div>
           </div>
         </div>
@@ -386,14 +495,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/translation/shoule_that_be_a_microservice/" title="Shoule_That_Be_A_Microservice">
+      <a href="https://codenow.me/articles/python_i18n/" title="Python_i18n">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Shoule_That_Be_A_Microservice
+              Python_i18n
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -316,6 +316,18 @@
             <h1>目录 - 文章</h1>
 
             
+            <a href="https://codenow.me/articles/python_i18n/" title="Python_i18n">
+                <h2>Python_i18n </h2>
+            </a>
+            <br>
+
+              这周有一些 API 需要做国际化，于是看了一下通用的解决方案
+GUN 国际化通用方法: gettext 通用的解决方案是，使用 gettext 工具，先将源码中的字符串提取至 .pot 文件中，再复制成各个 .po 文件并填充相应的语言，填充完毕后，再编译成 .mo 文件。
+读取的时候，从一个 .mo 文件里得到的内容会转换成一个简单的 hash map(python 中就是单纯的 dict)，使用时根据语言和原始字符串到这里查找，即可得到相应的“翻译后的字符串”并返回。
+我们可以看一下前段时间刚刚上线的 python 官方简中文档，这是术语表的 .po 文件链接：<a href="https://github">https://github</a>
+              <a href="https://codenow.me/articles/python_i18n/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/articles/how-to-orderby-in-mysql/" title="MySQL 排序机制">
                 <h2>MySQL 排序机制 </h2>
             </a>

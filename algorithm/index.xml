@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>Leetcode_15_ThreeSums</title>
+      <link>https://codenow.me/algorithm/leetcode_15_threesums/</link>
+      <pubDate>Sun, 21 Apr 2019 22:52:55 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_15_threesums/</guid>
+      <description>题号：15
+难度：medium 链接：https://leetcode.com/problems/3sum 描述：一串数字中，找出&amp;rdquo;和为0的三个数字&amp;rdquo;的所有可能组合
+ from collections import defaultdict from typing import List class Solution: def threeSum_TLE(self, nums: List[int]) -&amp;gt; List[List[int]]: &amp;quot;&amp;quot;&amp;quot;这题有两个要点： 1. 遍历并找到所有组合: 尝试直接暴力 n^3 2. 保证最终结果里没有重复的: 尝试用集合来解决 能做出结果，但果然超时了 &amp;quot;&amp;quot;&amp;quot; if not nums: return [] res = [] dup = [] for _i, i in enumerate(nums, 1): for _j, j in enumerate(nums[_i:], 1): for k in nums[_i + _j:]: if not i + j + k: tmp = [i, j, k] if set(tmp) not in dup: dup.</description>
+    </item>
+    
+    <item>
       <title>Leetcode 24 Swap Nodes in Pairs</title>
       <link>https://codenow.me/algorithm/leetcode-24-swap-nodes-in-pairs/</link>
       <pubDate>Sun, 21 Apr 2019 22:33:22 +0800</pubDate>
