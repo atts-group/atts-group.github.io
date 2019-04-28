@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>让 eslint 运行本地规则</title>
+      <link>https://codenow.me/tips/test-local-rule-eslint/</link>
+      <pubDate>Sun, 28 Apr 2019 22:22:45 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/test-local-rule-eslint/</guid>
+      <description>运行本地规则，需要使用 --rulesdir 参数：
+eslint --rulesdir rules/ test.js 通过上面这个命令，eslint 扫描 test.js 的时候，会加载 rules 文件夹下面的规则。
+不过，还需要注意一点，需要在 eslint 配置文件中配置要使用的本地规则名称，本地规则才能工作：
+module.exports = { &amp;#34;env&amp;#34;: { &amp;#34;browser&amp;#34;: true, &amp;#34;commonjs&amp;#34;: true, &amp;#34;es6&amp;#34;: true }, &amp;#34;extends&amp;#34;: &amp;#34;eslint:recommended&amp;#34;, &amp;#34;globals&amp;#34;: { &amp;#34;Atomics&amp;#34;: &amp;#34;readonly&amp;#34;, &amp;#34;SharedArrayBuffer&amp;#34;: &amp;#34;readonly&amp;#34; }, &amp;#34;parserOptions&amp;#34;: { &amp;#34;ecmaVersion&amp;#34;: 2018 }, &amp;#34;rules&amp;#34;: { &amp;#34;too_long_access_path&amp;#34;: &amp;#34;error&amp;#34; // 需要在 rules 中配置要使用的本地规则  } }; </description>
+    </item>
+    
+    <item>
       <title>Mysql 里的 DATE 函数</title>
       <link>https://codenow.me/tips/mysql_date/</link>
       <pubDate>Sun, 28 Apr 2019 10:55:12 +0900</pubDate>

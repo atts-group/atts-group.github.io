@@ -31,6 +31,18 @@
     </item>
     
     <item>
+      <title>自定义 eslint 规则</title>
+      <link>https://codenow.me/articles/custom-rule-for-eslint/</link>
+      <pubDate>Sun, 28 Apr 2019 22:10:12 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/custom-rule-for-eslint/</guid>
+      <description>本文记录一下如何开发基于 estlint 的自定义检查规则。开发规则的官方文档：文档链接。如何在本地测试规则的方法，请参考 这篇文章。
+下面是一个实际的例子，用这个规则，可以检测下面这种代码：
+if (a.b &amp;amp;&amp;amp; a.b.c &amp;amp;&amp;amp; a.b.c.d &amp;amp;&amp;amp; a.b.c.d) { // send some ajax request }  自定义规则代码如下：
+// 逻辑表达式是一颗二叉树，对其进行 flatten 操作 // 比如 a &amp;amp;&amp;amp; b &amp;amp;&amp;amp; c &amp;amp;&amp;amp; d ，flatten 的结果 [a, b, c, d] function flattenLogicalExpression(node) { if (node.operator !== &amp;#39;&amp;amp;&amp;amp;&amp;#39;) { return [node] } let ret = [] if (node.left.type !== &amp;#39;LogicalExpression&amp;#39;) { ret.push(node.left) } else { ret = ret.concat(flattenLogicalExpression(node.left)) } if (node.</description>
+    </item>
+    
+    <item>
       <title>Dockerfile常见命令(一)</title>
       <link>https://codenow.me/articles/dockerfile_commands1/</link>
       <pubDate>Fri, 26 Apr 2019 18:51:05 +0800</pubDate>

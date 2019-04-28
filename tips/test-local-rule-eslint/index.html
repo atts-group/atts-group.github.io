@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Tmux 快捷键 - ATTS</title>
+    <title>让 eslint 运行本地规则 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/articles/tmux_hotkey/">
+    <link rel="canonical" href="https://codenow.me/tips/test-local-rule-eslint/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/articles/tmux_hotkey/">
+    <meta property="og:url" content="https://codenow.me/tips/test-local-rule-eslint/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Tmux 快捷键
+        让 eslint 运行本地规则
       </div>
     </div>
 
@@ -312,73 +312,32 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Tmux 快捷键 </h1>
+			<h1>让 eslint 运行本地规则 </h1>
 
-			<ul>
-<li><p>启动 tmux： tmux</p></li>
+			<p>运行本地规则，需要使用 <code>--rulesdir</code> 参数：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> eslint --rulesdir rules/ test.js</code></pre></div>
+<p>通过上面这个命令，eslint 扫描 test.js 的时候，会加载 rules 文件夹下面的规则。</p>
 
-<li><p>创建新命名会话和命名窗口：
-tmux new -s name -n name</p></li>
-
-<li><p>恢复会话：
-tmux at [-t 会话名]</p></li>
-
-<li><p>会话后台运行
-prefix d</p></li>
-
-<li><p>列出所有会话：
-tmux ls</p></li>
-
-<li><p>关闭会话：
-tmux kill-session -t 会话名</p></li>
-
-<li><p>关闭所有会话：
-tmux ls | grep : | cut -d. -f1 | awk &lsquo;{print substr($1, 0, length($1)-1)}&rsquo; | xargs kill</p></li>
-
-<li><p>触发 tmux： ctr+b</p></li>
-
-<li><p>新建窗口： prefix c</p></li>
-
-<li><p>切换窗口： alt+窗口号（1，2，3）</p></li>
-
-<li><p>退出窗口 prefix x</p></li>
-
-<li><p>窗口重命名 prefix ，</p></li>
-
-<li><p>左右分屏 prefix shift+|</p></li>
-
-<li><p>上下分屏 prefix shift+-</p></li>
-
-<li><p>左下上右 prefix hjkl</p></li>
-
-<li><p>切换面板 prefix o</p></li>
-
-<li><p>切换面板布局 prefix 空格</p></li>
-
-<li><p>调整窗格大小 prefix HJKL</p></li>
-
-<li><p>最大化当前窗格，再次执行可恢复原来大小 prefix z</p></li>
-
-<li><p>复制 prefix y</p></li>
-
-<li><p>黏贴 prefix p</p></li>
-
-<li><p>向上翻阅 y 进入黄色模式，k向上 q 退出模式</p></li>
-
-<li><p>多行缩进 进入 v 模式，选中，shift + &lt; 或 &gt;</p></li>
-
-<li><p>用户配置（优先级更高） ~/.tmux.conf</p></li>
-
-<li><p>系统配置 /etc/tmux.conf</p></li>
-
-<li><p>查看快捷键 prefix ？</p></li>
-
-<li><p>进入命令模式 prefix ：</p></li>
-</ul>
-
-<p><a href="https://www.kancloud.cn/kancloud/tmux/62463">reference1</a>
-<a href="https://www.cnblogs.com/kaiye/p/6275207.html">reference2</a></p>
-
+<p>不过，还需要注意一点，需要在 eslint 配置文件中配置要使用的本地规则名称，本地规则才能工作：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">module</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">exports</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;env&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;browser&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#34;commonjs&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#34;es6&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    <span style="color:#4e9a06">&#34;extends&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;eslint:recommended&#34;</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#4e9a06">&#34;globals&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;Atomics&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;readonly&#34;</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#34;SharedArrayBuffer&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;readonly&#34;</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    <span style="color:#4e9a06">&#34;parserOptions&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;ecmaVersion&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2018</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    <span style="color:#4e9a06">&#34;rules&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;too_long_access_path&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;error&#34;</span> <span style="color:#8f5902;font-style:italic">// 需要在 rules 中配置要使用的本地规则
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">};</span>
+</code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -396,7 +355,7 @@ tmux ls | grep : | cut -d. -f1 | awk &lsquo;{print substr($1, 0, length($1)-1)}&
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/custom-rule-for-eslint/" title="自定义 eslint 规则">
+      <a href="https://codenow.me/articles/tmux_hotkey/" title="Tmux 快捷键">
         <span class="direction">
           Previous
         </span>
@@ -406,7 +365,7 @@ tmux ls | grep : | cut -d. -f1 | awk &lsquo;{print substr($1, 0, length($1)-1)}&
           </div>
           <div class="stretch">
             <div class="title">
-              自定义 eslint 规则
+              Tmux 快捷键
             </div>
           </div>
         </div>
@@ -416,14 +375,14 @@ tmux ls | grep : | cut -d. -f1 | awk &lsquo;{print substr($1, 0, length($1)-1)}&
 
   <div class="next">
   
-      <a href="https://codenow.me/tips/test-local-rule-eslint/" title="让 eslint 运行本地规则">
+      <a href="https://codenow.me/algorithm/find-longest-path-in-dag/" title="Find Longest Path in Dag">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              让 eslint 运行本地规则
+              Find Longest Path in Dag
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
