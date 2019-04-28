@@ -316,6 +316,17 @@
             <h1>目录 - 文章</h1>
 
             
+            <a href="https://codenow.me/articles/db-without-fk/" title="数据库到底要不要外键">
+                <h2>数据库到底要不要外键 </h2>
+            </a>
+            <br>
+
+              数据库的本质是存储数据，在这个之上还要维护数据的完整性。在维护完整性数据库提供几种方法，一种是事务，一种是外键 FK。这两种方式是分别处理两种情况，事务处理的是多个表中记录的原子性，FK 是处理多条有关系的记录。
+举个外键例子来说，假如有一个资源管理系统，你申请了许多资源，有电脑、账号、书籍、笔记本等好多东西，在你离职时候，这些记录需要全部删除，同时你的账号也要从这个系统中删除。这时候如果存在外键，user 表中的 id 字段关联了各种的资源 id，这时候需要一条 SQL 就可以删除这些记录。
+所以这么看外键貌似很有用，真实情况是真的很有用。但是我们从给一个角度来看，一条 SQL 需要级联多个
+              <a href="https://codenow.me/articles/db-without-fk/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/articles/sentry-wechat/" title="Sentry Wechat">
                 <h2>Sentry Wechat </h2>
             </a>

@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>leetcode_3: Longest Substring Without Repeating Characters</title>
+      <link>https://codenow.me/algorithm/leetcode_3_longest-substring-without-repeating-characters/</link>
+      <pubDate>Mon, 29 Apr 2019 00:06:17 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_3_longest-substring-without-repeating-characters/</guid>
+      <description>class Solution: def lengthOfLongestSubstring(self, s: str) -&amp;gt; int: st = {} i, ans = 0, 0 for j in range(len(s)): if s[j] in st: i = max(st[s[j]], i) ans = max(ans, j - i + 1) st[s[j]] = j + 1 return ans;</description>
+    </item>
+    
+    <item>
       <title>Leetcode_16_three_sum_closest</title>
       <link>https://codenow.me/algorithm/leetcode_16_three_sum_closest/</link>
       <pubDate>Sun, 28 Apr 2019 23:46:54 +0800</pubDate>

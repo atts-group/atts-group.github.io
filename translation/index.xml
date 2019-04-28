@@ -11,6 +11,20 @@
     
     
     <item>
+      <title>「译」Golang 使用高阶函数实现依赖注入</title>
+      <link>https://codenow.me/translation/golang-inject/</link>
+      <pubDate>Mon, 29 Apr 2019 00:05:35 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/golang-inject/</guid>
+      <description>原文地址
+ 你可以在 github.com/steinfletcher/func-dependency-injection-go 找到完整的代码。这个例子包含了一个完整的 REST 的 HTTP 服务器。
+简介 在这篇文章中介绍了一种在 go 的实现依赖注入的方法——使用高阶函数和闭包
+下面是一个返回用户 profile 的接口。
+func GetUserProfile(id string) UserProfile { rows, err := db.Query(&amp;#34;SELECT ...&amp;#34;) ... return profileText } 我们希望将处理用户数据的代码和访问数据库的代码分开。在这个例子中我们希望对业务逻辑代码进行单元测试，同时为访问数据库提供 mock。让我们把这些问题分开，以满足单一原则。
+// domain layer function containing any business logic or mapping code func GetUserProfile(id string) User { ... } // database access layer function func SelectUserByID(id string) UserProfile { ... } 我们可以复用 SelectUserByID 函数在其他接口中。为了要对 GetUserProfile 进行单元测试和 mock 访问数据库，我们需要一种把 SelectUserByID 注入到 GetUserProfile 中的方法。一种方法利用 go 中对函数定义的类型别名实现。</description>
+    </item>
+    
+    <item>
       <title>Git Commit 指南</title>
       <link>https://codenow.me/translation/commit_msg_guide/</link>
       <pubDate>Sun, 28 Apr 2019 10:48:43 +0900</pubDate>

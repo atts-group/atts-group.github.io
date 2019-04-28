@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Python_grave_accent - ATTS</title>
+    <title>leetcode_3: Longest Substring Without Repeating Characters - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tips/python_grave_accent/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_3_longest-substring-without-repeating-characters/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tips/python_grave_accent/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_3_longest-substring-without-repeating-characters/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Python_grave_accent
+        leetcode_3: Longest Substring Without Repeating Characters
       </div>
     </div>
 
@@ -312,10 +312,18 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Python_grave_accent </h1>
+			<h1>leetcode_3: Longest Substring Without Repeating Characters </h1>
 
-			<p>python 里的 `a` 等价于 repr(a)</p>
-
+			<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">lengthOfLongestSubstring</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">st</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{}</span>
+        <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">ans</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">0</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">j</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">)):</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">st</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">max</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">st</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]],</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000">ans</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">max</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ans</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">j</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000">st</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">j</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">ans</span><span style="color:#000;font-weight:bold">;</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -333,7 +341,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/sentry-wechat/" title="Sentry Wechat">
+      <a href="https://codenow.me/translation/golang-inject/" title="「译」Golang 使用高阶函数实现依赖注入">
         <span class="direction">
           Previous
         </span>
@@ -343,7 +351,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Sentry Wechat
+              「译」Golang 使用高阶函数实现依赖注入
             </div>
           </div>
         </div>
@@ -353,14 +361,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/translation/golang-inject/" title="「译」Golang 使用高阶函数实现依赖注入">
+      <a href="https://codenow.me/articles/db-without-fk/" title="数据库到底要不要外键">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              「译」Golang 使用高阶函数实现依赖注入
+              数据库到底要不要外键
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
