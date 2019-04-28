@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode 100: same tree - ATTS</title>
+    <title>Leetcode: 771: Jewels and Stones - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/same_tree/">
+    <link rel="canonical" href="https://codenow.me/algorithm/jewels_and_stones/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/same_tree/">
+    <meta property="og:url" content="https://codenow.me/algorithm/jewels_and_stones/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode 100: same tree
+        Leetcode: 771: Jewels and Stones
       </div>
     </div>
 
@@ -312,30 +312,24 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode 100: same tree </h1>
+			<h1>Leetcode: 771: Jewels and Stones </h1>
 
-			<p>题号：100
+			<p>题号：771
 难度：easy
-链接：<a href="https://leetcode.com/problems/same-tree/">same tree</a></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Definition for a binary tree node.</span>
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">x</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
-
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">q</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">bool</span><span style="color:#000;font-weight:bold">:</span>
-        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">q</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">q</span>
-
+链接：<a href="https://leetcode.com/problems/jewels-and-stones/">Jewels and Stones</a></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">newJewelsInStones</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">J</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">S</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">res</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">s</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">s</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">J</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#000">res</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">res</span><span style="color:#000;font-weight:bold">)</span>
 
 <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">__name__</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;__main__&#39;</span><span style="color:#000;font-weight:bold">:</span>
     <span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">()</span>
-    <span style="color:#000">tree1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;s&#39;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">tree2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;s&#39;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">s</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tree1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">tree2</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+    <span style="color:#000">Jewels</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;aA&#34;</span>
+    <span style="color:#000">Stones</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;aAAbbbb&#34;</span>
+    <span style="color:#000">s</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">newJewelsInStones</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Jewels</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Stones</span><span style="color:#000;font-weight:bold">)</span>          </code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -353,7 +347,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/translation/sharingpwswithgopass/" title="使用 gopass，git 和 gpg 来分享你的密码">
+      <a href="https://codenow.me/tips/mysql_date/" title="Mysql 里的 DATE 函数">
         <span class="direction">
           Previous
         </span>
@@ -363,7 +357,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              使用 gopass，git 和 gpg 来分享你的密码
+              Mysql 里的 DATE 函数
             </div>
           </div>
         </div>
@@ -373,14 +367,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/tips/linux_tail/" title="用 tail 实时查看日志">
+      <a href="https://codenow.me/articles/tmux_hotkey/" title="Tmux 快捷键">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              用 tail 实时查看日志
+              Tmux 快捷键
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

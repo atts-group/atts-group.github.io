@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode 100: same tree - ATTS</title>
+    <title>Mysql 里的 DATE 函数 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/same_tree/">
+    <link rel="canonical" href="https://codenow.me/tips/mysql_date/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/same_tree/">
+    <meta property="og:url" content="https://codenow.me/tips/mysql_date/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode 100: same tree
+        Mysql 里的 DATE 函数
       </div>
     </div>
 
@@ -312,30 +312,18 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode 100: same tree </h1>
+			<h1>Mysql 里的 DATE 函数 </h1>
 
-			<p>题号：100
-难度：easy
-链接：<a href="https://leetcode.com/problems/same-tree/">same tree</a></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Definition for a binary tree node.</span>
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">x</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
+			<p>这周发现目前在做的项目的一个地方，就是要读取特定时间的订单数据，发现这个数据并不准确。
+后来找到原因是因为前端传过来的数据是“YYYY-MM-DD”模式，
+但是数据库保存的数据是“YYYY-MM-DD HH:MM:SS”格式。</p>
 
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">q</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">bool</span><span style="color:#000;font-weight:bold">:</span>
-        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">q</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">q</span>
+<p>所以查询语句从</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Mysql" data-lang="Mysql"><span style="color:#204a87;font-weight:bold">SELECT</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87;font-weight:bold">FROM</span> <span style="color:#000">XX</span> <span style="color:#204a87;font-weight:bold">WHERE</span> <span style="color:#000">ORDER_DATE</span> <span style="color:#204a87;font-weight:bold">BETWEEN</span> <span style="color:#000">ORDER_START_TIME</span> <span style="color:#204a87;font-weight:bold">AND</span> <span style="color:#000">ORDER_END_TIME</span><span style="color:#a40000">；</span> </code></pre></div>
+<p>变成</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Mysql" data-lang="Mysql"><span style="color:#204a87;font-weight:bold">SELECT</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87;font-weight:bold">FROM</span> <span style="color:#000">XX</span> <span style="color:#204a87;font-weight:bold">WHERE</span> <span style="color:#000">ORDER_DATE</span> <span style="color:#204a87;font-weight:bold">BETWEEN</span> <span style="color:#204a87;font-weight:bold">DATE</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ORDER_START_TIME</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">AND</span> <span style="color:#204a87;font-weight:bold">DATE</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ORDER_END_TIME</span><span style="color:#000;font-weight:bold">)</span><span style="color:#a40000">；</span> </code></pre></div>
+<p>不过，这样的话如果读取数据量大，会影响性能。假期后我应该会把数据在前端处理一下，而不是在数据库层面操作。</p>
 
-
-<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">__name__</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;__main__&#39;</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">()</span>
-    <span style="color:#000">tree1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;s&#39;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">tree2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;s&#39;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">s</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tree1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">tree2</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -353,7 +341,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/translation/sharingpwswithgopass/" title="使用 gopass，git 和 gpg 来分享你的密码">
+      <a href="https://codenow.me/translation/commit_msg_guide/" title="Git Commit 指南">
         <span class="direction">
           Previous
         </span>
@@ -363,7 +351,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              使用 gopass，git 和 gpg 来分享你的密码
+              Git Commit 指南
             </div>
           </div>
         </div>
@@ -373,14 +361,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/tips/linux_tail/" title="用 tail 实时查看日志">
+      <a href="https://codenow.me/algorithm/jewels_and_stones/" title="Leetcode: 771: Jewels and Stones">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              用 tail 实时查看日志
+              Leetcode: 771: Jewels and Stones
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

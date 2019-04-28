@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Leetcode 100: same tree - ATTS</title>
+    <title>Tmux 快捷键 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/same_tree/">
+    <link rel="canonical" href="https://codenow.me/articles/tmux_hotkey/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/same_tree/">
+    <meta property="og:url" content="https://codenow.me/articles/tmux_hotkey/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Leetcode 100: same tree
+        Tmux 快捷键
       </div>
     </div>
 
@@ -312,30 +312,73 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Leetcode 100: same tree </h1>
+			<h1>Tmux 快捷键 </h1>
 
-			<p>题号：100
-难度：easy
-链接：<a href="https://leetcode.com/problems/same-tree/">same tree</a></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Definition for a binary tree node.</span>
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">):</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">x</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
-        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
+			<ul>
+<li><p>启动 tmux： tmux</p></li>
 
-<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">p</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">q</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">bool</span><span style="color:#000;font-weight:bold">:</span>
-        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">p</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">q</span><span style="color:#000;font-weight:bold">:</span>
-            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">q</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">)</span>
-        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">q</span>
+<li><p>创建新命名会话和命名窗口：
+tmux new -s name -n name</p></li>
 
+<li><p>恢复会话：
+tmux at [-t 会话名]</p></li>
 
-<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">__name__</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;__main__&#39;</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">()</span>
-    <span style="color:#000">tree1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;s&#39;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">tree2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;s&#39;</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">s</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isSameTree</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">tree1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">tree2</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<li><p>会话后台运行
+prefix d</p></li>
+
+<li><p>列出所有会话：
+tmux ls</p></li>
+
+<li><p>关闭会话：
+tmux kill-session -t 会话名</p></li>
+
+<li><p>关闭所有会话：
+tmux ls | grep : | cut -d. -f1 | awk &lsquo;{print substr($1, 0, length($1)-1)}&rsquo; | xargs kill</p></li>
+
+<li><p>触发 tmux： ctr+b</p></li>
+
+<li><p>新建窗口： prefix c</p></li>
+
+<li><p>切换窗口： alt+窗口号（1，2，3）</p></li>
+
+<li><p>退出窗口 prefix x</p></li>
+
+<li><p>窗口重命名 prefix ，</p></li>
+
+<li><p>左右分屏 prefix shift+|</p></li>
+
+<li><p>上下分屏 prefix shift+-</p></li>
+
+<li><p>左下上右 prefix hjkl</p></li>
+
+<li><p>切换面板 prefix o</p></li>
+
+<li><p>切换面板布局 prefix 空格</p></li>
+
+<li><p>调整窗格大小 prefix HJKL</p></li>
+
+<li><p>最大化当前窗格，再次执行可恢复原来大小 prefix z</p></li>
+
+<li><p>复制 prefix y</p></li>
+
+<li><p>黏贴 prefix p</p></li>
+
+<li><p>向上翻阅 y 进入黄色模式，k向上 q 退出模式</p></li>
+
+<li><p>多行缩进 进入 v 模式，选中，shift + &lt; 或 &gt;</p></li>
+
+<li><p>用户配置（优先级更高） ~/.tmux.conf</p></li>
+
+<li><p>系统配置 /etc/tmux.conf</p></li>
+
+<li><p>查看快捷键 prefix ？</p></li>
+
+<li><p>进入命令模式 prefix ：</p></li>
+</ul>
+
+<p><a href="https://www.kancloud.cn/kancloud/tmux/62463">reference1</a>
+<a href="https://www.cnblogs.com/kaiye/p/6275207.html">reference2</a></p>
+
 
 			<aside class="copyright" role="note">
 				
@@ -353,7 +396,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/translation/sharingpwswithgopass/" title="使用 gopass，git 和 gpg 来分享你的密码">
+      <a href="https://codenow.me/algorithm/jewels_and_stones/" title="Leetcode: 771: Jewels and Stones">
         <span class="direction">
           Previous
         </span>
@@ -363,7 +406,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              使用 gopass，git 和 gpg 来分享你的密码
+              Leetcode: 771: Jewels and Stones
             </div>
           </div>
         </div>
@@ -372,22 +415,6 @@
   </div>
 
   <div class="next">
-  
-      <a href="https://codenow.me/tips/linux_tail/" title="用 tail 实时查看日志">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              用 tail 实时查看日志
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
   
   </div>
 </nav>

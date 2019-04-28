@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Leetcode: 771: Jewels and Stones</title>
+      <link>https://codenow.me/algorithm/jewels_and_stones/</link>
+      <pubDate>Sun, 28 Apr 2019 22:50:02 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/jewels_and_stones/</guid>
+      <description>题号：771 难度：easy 链接：Jewels and Stones
+class Solution: def newJewelsInStones(self,J,S): res = [] for s in S: if s in J: res.append(s) return len(res) if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() Jewels = &amp;#34;aA&amp;#34; Stones = &amp;#34;aAAbbbb&amp;#34; s.newJewelsInStones(Jewels, Stones) </description>
+    </item>
+    
+    <item>
       <title>Leetcode: 3 Longest Palindromic Substring</title>
       <link>https://codenow.me/algorithm/leetcode_5_longest_palindromic_substring/</link>
       <pubDate>Fri, 26 Apr 2019 17:28:32 +0800</pubDate>
@@ -76,7 +86,7 @@ class Solution: def levelOrder(self, root: TreeNode) -&amp;gt; List[List[int]]: 
       
       <guid>https://codenow.me/algorithm/same_tree/</guid>
       <description>题号：100 难度：easy 链接：same tree
-Definition for a binary tree node. class TreeNode: def __init__(self, x): self.val = x self.left = None self.right = None class Solution: def isSameTree(self, p: TreeNode, q: TreeNode) -&amp;gt; bool: if p and q: return p.val == q.val and self.isSameTree(p.right,q.right) and self.isSameTree(p.left,q.left) return p == q if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() tree1 = TreeNode(&amp;#39;s&amp;#39;) tree2 = TreeNode(&amp;#39;s&amp;#39;) s.isSameTree(tree1, tree2)</description>
+# Definition for a binary tree node. class TreeNode: def __init__(self, x): self.val = x self.left = None self.right = None class Solution: def isSameTree(self, p: TreeNode, q: TreeNode) -&amp;gt; bool: if p and q: return p.val == q.val and self.isSameTree(p.right,q.right) and self.isSameTree(p.left,q.left) return p == q if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() tree1 = TreeNode(&amp;#39;s&amp;#39;) tree2 = TreeNode(&amp;#39;s&amp;#39;) s.isSameTree(tree1, tree2)</description>
     </item>
     
     <item>
