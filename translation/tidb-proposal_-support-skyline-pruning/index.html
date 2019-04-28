@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Idea 前进后退快捷键 - ATTS</title>
+    <title>TiDB Proposal: Support Skyline Pruning - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <link rel="canonical" href="https://codenow.me/translation/tidb-proposal_-support-skyline-pruning/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <meta property="og:url" content="https://codenow.me/translation/tidb-proposal_-support-skyline-pruning/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Idea 前进后退快捷键
+        TiDB Proposal: Support Skyline Pruning
       </div>
     </div>
 
@@ -312,13 +312,46 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Idea 前进后退快捷键 </h1>
+			<h1>TiDB Proposal: Support Skyline Pruning </h1>
 
-			<p>前进：Command + ]</p>
+			
 
-<p>后退：Command + [</p>
+<p>原文链接：<a href="https://github.com/pingcap/tidb/blob/master/docs/design/2019-01-25-skyline-pruning.md">Proposal: Support Skyline Pruning</a>，翻译如下：</p>
 
-<p>在追踪比较复杂的代码时，比较有用，可以快速前进后退，不至于迷失在代码中。</p>
+<h2 id="摘要">摘要</h2>
+
+<p>这篇建议引入了一些启发式规则和一个针对消除访问路径 (access path) 的通用框架。通过它的帮助，优化器可以避免选择一些错误的访问路径。</p>
+
+<h2 id="背景">背景</h2>
+
+<p>目前，访问路径的选择很大程度上取决于统计信息。我们可能会因为过期的统计信息而选择错误的索引。然而，很多错误的选择是可以通过简单的规则来消除的，比如：当主键或者唯一性索引能够完全匹配的时候，我们可以直接选择它而不管统计信息。</p>
+
+<h2 id="建议-proposal">建议 (Proposal)</h2>
+
+<p>目前在选择访问路径时最大的因素是需要扫描的数据行数，是否满足物理属性 (physical property) ，以及是否需要两次扫描。在这三个因素当中，只有扫描行数依赖统计信息。那么在没有统计信息的情况下我们能够怎样比较扫描行数呢？让我们来看一下下面这个例子：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#204a87;font-weight:bold">create</span> <span style="color:#204a87;font-weight:bold">table</span> <span style="color:#000">t</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">b</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">c</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">index</span> <span style="color:#000">idx1</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87;font-weight:bold">index</span> <span style="color:#000">idx2</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">));</span>
+<span style="color:#204a87;font-weight:bold">select</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">t</span> <span style="color:#204a87;font-weight:bold">where</span> <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span></code></pre></div>
+<p>从查询和表结构上，我们能够看到使用索引 idx1 扫描能够覆盖 idx2，通过索引 idx1 扫描的数据行数不会比使用 idx2 多，所以在这个场景中，idx1 要比 idx2 好。</p>
+
+<p>我们如何综合这三个因素来消除访问路径呢？假如有两条访问路径 x 和 y，如果 x 在这几个方面都不比 y 差并且某个因素上 x 还好于 y，那么在使用统计数据之前，我们可以消除 y，因为 x 在任何情况下都一定比 y 更好。这就是所谓的 skyline pruning。</p>
+
+<h2 id="基本原理-rationale">基本原理 (Rationale)</h2>
+
+<p>Skyling pruing 已经在其他数据库中实现，包括 MySQL 和 OceanBase。要是没有它，我们可能会在一些简单场景下选择错误的访问路径。</p>
+
+<h2 id="兼容性">兼容性</h2>
+
+<p>Skyling pruning 并不影响兼容性。</p>
+
+<h2 id="实现">实现</h2>
+
+<p>在为数据寻找最好的查询方式时，由于我们要决定使用哪一个满足物理条件的访问路径，我们需要使用 skyling pruning。大部分情况下不会有太多索引，一个简单的嵌套循环算法就足够了。任何两个访问路径的比较方式已经在 Proposal 章节里介绍过了。</p>
+
+<h2 id="引用">引用</h2>
+
+<ul>
+<li><a href="http://skylineresearch.in/skylineintro/The_Skyline_Operator.pdf">The Skyline Operator</a></li>
+</ul>
 
 
 			<aside class="copyright" role="note">
@@ -337,7 +370,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/tidb-subquery-optimization/" title="TiDB 源码学习：常见子查询优化">
+      <a href="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="Idea 前进后退快捷键">
         <span class="direction">
           Previous
         </span>
@@ -347,7 +380,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              TiDB 源码学习：常见子查询优化
+              Idea 前进后退快捷键
             </div>
           </div>
         </div>
@@ -357,14 +390,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/translation/tidb-proposal_-support-skyline-pruning/" title="TiDB Proposal: Support Skyline Pruning">
+      <a href="https://codenow.me/tips/git_lg/" title="Git_lg">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              TiDB Proposal: Support Skyline Pruning
+              Git_lg
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

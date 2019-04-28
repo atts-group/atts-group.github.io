@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>TiDB Proposal: Support Skyline Pruning - ATTS</title>
+    <title>Dockerfile常见命令(一) - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/">
+    <link rel="canonical" href="https://codenow.me/articles/dockerfile_commands1/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/tidb-proposal-support-skyline-pruning/">
+    <meta property="og:url" content="https://codenow.me/articles/dockerfile_commands1/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        TiDB Proposal: Support Skyline Pruning
+        Dockerfile常见命令(一)
       </div>
     </div>
 
@@ -312,46 +312,142 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>TiDB Proposal: Support Skyline Pruning </h1>
+			<h1>Dockerfile常见命令(一) </h1>
 
-			
+			<ol>
+<li>FROM</li>
+</ol>
 
-<p>原文链接：<a href="https://github.com/pingcap/tidb/blob/master/docs/design/2019-01-25-skyline-pruning.md">Proposal: Support Skyline Pruning</a>，翻译如下：</p>
+<p><strong>格式</strong>：</p>
 
-<h2 id="摘要">摘要</h2>
+<p>FROM&lt;image&gt;&#91;AS &lt;name&gt;&#93;<br>
+FROM&lt;image&gt;&#91;: &lt;tag&gt;&#93; &#91;AS &lt;name&gt;&#93;<br>
+FROM&lt;image&gt;&#91;@ &lt;digest&gt;&#93; &#91;AS &lt;name&gt;&#93;<br></p>
 
-<p>这篇建议引入了一些启发式规则和一个针对消除访问路径 (access path) 的通用框架。通过它的帮助，优化器可以避免选择一些错误的访问路径。</p>
+<p><strong>说明</strong>：</p>
 
-<h2 id="背景">背景</h2>
+<p>FROM指令为后续指令创建一个基础镜像。所以所有的Dockerfile应该都是从FROM指令开始。初始化的镜像可以是任意合法的镜像。<br>
+如果初始化的镜像在本地不存在，则会从公告仓库中获取镜像。</p>
 
-<p>目前，访问路径的选择很大程度上取决于统计信息。我们可能会因为过期的统计信息而选择错误的索引。然而，很多错误的选择是可以通过简单的规则来消除的，比如：当主键或者唯一性索引能够完全匹配的时候，我们可以直接选择它而不管统计信息。</p>
+<hr />
 
-<h2 id="建议-proposal">建议 (Proposal)</h2>
+<ol>
+<li>RUN</li>
+</ol>
 
-<p>目前在选择访问路径时最大的因素是需要扫描的数据行数，是否满足物理属性 (physical property) ，以及是否需要两次扫描。在这三个因素当中，只有扫描行数依赖统计信息。那么在没有统计信息的情况下我们能够怎样比较扫描行数呢？让我们来看一下下面这个例子：</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#204a87;font-weight:bold">create</span> <span style="color:#204a87;font-weight:bold">table</span> <span style="color:#000">t</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">b</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">c</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">index</span> <span style="color:#000">idx1</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">b</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87;font-weight:bold">index</span> <span style="color:#000">idx2</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">));</span>
-<span style="color:#204a87;font-weight:bold">select</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">t</span> <span style="color:#204a87;font-weight:bold">where</span> <span style="color:#000">a</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">b</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span></code></pre></div>
-<p>从查询和表结构上，我们能够看到使用索引 idx1 扫描能够覆盖 idx2，通过索引 idx1 扫描的数据行数不会比使用 idx2 多，所以在这个场景中，idx1 要比 idx2 好。</p>
+<p><strong>格式</strong>：</p>
 
-<p>我们如何综合这三个因素来消除访问路径呢？假如有两条访问路径 x 和 y，如果 x 在这几个方面都不比 y 差并且某个因素上 x 还好于 y，那么在使用统计数据之前，我们可以消除 y，因为 x 在任何情况下都一定比 y 更好。这就是所谓的 skyline pruning。</p>
+<p>RUN &lt;command&gt; <br>
+RUN &#91;&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;&#93;</p>
 
-<h2 id="基本原理-rationale">基本原理 (Rationale)</h2>
+<p><strong>说明</strong>：</p>
 
-<p>Skyling pruing 已经在其他数据库中实现，包括 MySQL 和 OceanBase。要是没有它，我们可能会在一些简单场景下选择错误的访问路径。</p>
+<p>RUN指令会在当前镜像上生成新层，并在新层钟执行命令和提交结果。生成的新的镜像将用于下一步的Dockerfile。<br>
+exec表单(第二种格式)被解析为JSON数组，这意味着必须使用双引号，不能使用单引号。<br>
+&ldquo;executable&rdquo;中涉及到的路径必须转义反斜杠(\)。</p>
 
-<h2 id="兼容性">兼容性</h2>
+<hr />
 
-<p>Skyling pruning 并不影响兼容性。</p>
+<ol>
+<li>CMD</li>
+</ol>
 
-<h2 id="实现">实现</h2>
+<p><strong>格式</strong>：</p>
 
-<p>在为数据寻找最好的查询方式时，由于我们要决定使用哪一个满足物理条件的访问路径，我们需要使用 skyling pruning。大部分情况下不会有太多索引，一个简单的嵌套循环算法就足够了。任何两个访问路径的比较方式已经在 Proposal 章节里介绍过了。</p>
+<p>CMD &#91;&ldquo;executable&rdquo;, &ldquo;param1&rdquo;, &ldquo;param2&rdquo;&#93; (执行形式，这是首选形式)<br>
+CMD &#91;&ldquo;param1&rdquo;, &ldquo;param2&rdquo;&#93; (作为ENTRYPOINT的默认参数)<br>
+CMD command param1 param2 (shell形式)</p>
 
-<h2 id="引用">引用</h2>
+<p><strong>说明</strong>：</p>
 
-<ul>
-<li><a href="http://skylineresearch.in/skylineintro/The_Skyline_Operator.pdf">The Skyline Operator</a></li>
-</ul>
+<p>Dockerfile中只能有一个CMD指令，如果使用了多个，则只有在最后的CMD会生效。<br>
+如果CMD用于为ENTRYPOINT指令提供默认参数，则应使用JSON数组格式指定CMD和ENTRYPOINT指令。</p>
+
+<hr />
+
+<ol>
+<li>LABEL</li>
+</ol>
+
+<p><strong>格式</strong>：</p>
+
+<p>LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &hellip;</p>
+
+<p><strong>说明</strong>：</p>
+
+<p>LABEL指令将元数据添加到图像，LABEL使用键值对进行传值。<br>
+镜像可以有多个标签，要指定多个标签，Docker建议LABEL尽可能将标签组合到单个指令中。如果使用多个LABEL，每条指令会生成一个新的图层，从而导致镜像效率低下。</p>
+
+<hr />
+
+<ol>
+<li>EXPOSE</li>
+</ol>
+
+<p><strong>格式</strong>：</p>
+
+<p>EXPOSE &lt;port&gt; &#91;&lt;port&gt; /&lt;protocol&gt;&hellip;&#93;</p>
+
+<p><strong>说明</strong>：</p>
+
+<p>EXPOSE指令通知Docker容器在运行时侦听指定的网络端口。如果未指定，默认侦听TCP。</p>
+
+<hr />
+
+<ol>
+<li>ENV</li>
+</ol>
+
+<p><strong>格式</strong>：</p>
+
+<p>ENV &lt;key&gt; &lt;value&gt;<br>
+ENV &lt;KEY&gt;=&lt;value&gt;</p>
+
+<p><strong>说明</strong>：</p>
+
+<p>ENV指令将环境变量&lt;key&gt;设置为&lt;value&gt; 。<br>
+尽量使用单一ENV作为环境变量指令。这样会产生单个缓存层。<br>
+要为单个命令设置值，请使用RUN &lt;key&gt;=&lt;value&gt; &lt;command&gt; 。</p>
+
+<hr />
+
+<ol>
+<li>ADD</li>
+</ol>
+
+<p><strong>格式</strong>：</p>
+
+<p>ADD &lt;src&gt;&hellip;..&lt;dest&gt;<br>
+ADD &#91;&ldquo;&lt;src&gt;&rdquo;,&hellip;. &ldquo;&lt;dest&gt;&ldquo;&#93;  (包含空格的路径需要此表单)</p>
+
+<p><strong>说明</strong>：</p>
+
+<p>ADD指令从中复制新文件，目录或远程文件URL， 并将它们添加到路径上镜像的文件系统中。<br>
+&lt;src&gt;可以指定多个资源，但如果它们是文件或目录，则它们必须相对于正在构建的源目录(构建的上下文)。<br>
+&lt;src&gt;中可以包含通配符进行匹配。通配符使用Go的<a href="http://golang.org/pkg/path/filepath#Match">filepath.Match</a>规则完成。<br>
+&lt;dest&gt;是容器中的一个绝对路径，或相对于一个路径WORKDIR，&lt;src&gt;内容将在&lt;dest&gt;目录下进行内容复制。<br>
+当路径中存在特殊字符时，需要使用Golang规则进行转义，以防止被视为匹配模式。<br>
+当复制文件为压缩格式时，ADD会将压缩内容在&lt;dest&gt;下解压缩为目录。</p>
+
+<hr />
+
+<ol>
+<li>COPY</li>
+</ol>
+
+<p><strong>格式</strong>：</p>
+
+<p>COPY &lt;src&gt;&hellip; &lt;dest&gt;<br>
+COPY &#91;&ldquo;&lt;src&gt;&rdquo;,&hellip;. &ldquo;&lt;dest&gt;&ldquo;&#93;  (包含空格的路径需要此表单)</p>
+
+<p><strong>说明</strong>：</p>
+
+<p>COPY将&lt;src&gt;中的内容复制到容器的&lt;dest&gt;下。</p>
+
+<hr />
+
+<p>COPY和ADD区别：
+COPY只能从本机上复制内容，而ADD可以从URL地址处获取内容。</p>
 
 
 			<aside class="copyright" role="note">
@@ -370,7 +466,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="Idea 前进后退快捷键">
+      <a href="https://codenow.me/algorithm/leetcode_5_longest_palindromic_substring/" title="Leetcode: 3 Longest Palindromic Substring">
         <span class="direction">
           Previous
         </span>
@@ -380,7 +476,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Idea 前进后退快捷键
+              Leetcode: 3 Longest Palindromic Substring
             </div>
           </div>
         </div>
@@ -390,14 +486,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/tips/git_lg/" title="Git_lg">
+      <a href="https://codenow.me/tips/use_mysql_in_django/" title="Django中使用MySQL数据库">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Git_lg
+              Django中使用MySQL数据库
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

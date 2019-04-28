@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Idea 前进后退快捷键 - ATTS</title>
+    <title>Django中使用MySQL数据库 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <link rel="canonical" href="https://codenow.me/tips/use_mysql_in_django/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <meta property="og:url" content="https://codenow.me/tips/use_mysql_in_django/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Idea 前进后退快捷键
+        Django中使用MySQL数据库
       </div>
     </div>
 
@@ -312,13 +312,21 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Idea 前进后退快捷键 </h1>
+			<h1>Django中使用MySQL数据库 </h1>
 
-			<p>前进：Command + ]</p>
+			<p>在项目settings.py中修改如下内容</p>
 
-<p>后退：Command + [</p>
-
-<p>在追踪比较复杂的代码时，比较有用，可以快速前进后退，不至于迷失在代码中。</p>
+<pre><code>DATABASES={
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # 数据库连接引擎
+        'NAME': '',  # 数据库名
+        'USER': '',  # 用户账号
+        'PASSWORD': '',  # 用户密码
+        'HOST': 'localhost',
+        'PORT': 3306  # 连接端口
+    }
+}
+</code></pre>
 
 
 			<aside class="copyright" role="note">
@@ -337,7 +345,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/tidb-subquery-optimization/" title="TiDB 源码学习：常见子查询优化">
+      <a href="https://codenow.me/articles/dockerfile_commands1/" title="Dockerfile常见命令(一)">
         <span class="direction">
           Previous
         </span>
@@ -347,7 +355,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              TiDB 源码学习：常见子查询优化
+              Dockerfile常见命令(一)
             </div>
           </div>
         </div>
@@ -357,14 +365,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/translation/tidb-proposal_-support-skyline-pruning/" title="TiDB Proposal: Support Skyline Pruning">
+      <a href="https://codenow.me/translation/docker_networking/" title="Dockerfile网络配置概述">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              TiDB Proposal: Support Skyline Pruning
+              Dockerfile网络配置概述
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

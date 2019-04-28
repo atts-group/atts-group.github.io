@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Django中使用MySQL数据库</title>
+      <link>https://codenow.me/tips/use_mysql_in_django/</link>
+      <pubDate>Sat, 27 Apr 2019 09:06:05 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/use_mysql_in_django/</guid>
+      <description>在项目settings.py中修改如下内容
+DATABASES={ &#39;default&#39;: { &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;, # 数据库连接引擎 &#39;NAME&#39;: &#39;&#39;, # 数据库名 &#39;USER&#39;: &#39;&#39;, # 用户账号 &#39;PASSWORD&#39;: &#39;&#39;, # 用户密码 &#39;HOST&#39;: &#39;localhost&#39;, &#39;PORT&#39;: 3306 # 连接端口 } }  </description>
+    </item>
+    
+    <item>
       <title>STFW</title>
       <link>https://codenow.me/tips/stfw/</link>
       <pubDate>Sun, 21 Apr 2019 22:58:19 +0800</pubDate>

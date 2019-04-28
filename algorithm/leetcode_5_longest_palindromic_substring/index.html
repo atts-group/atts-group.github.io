@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Idea 前进后退快捷键 - ATTS</title>
+    <title>Leetcode: 3 Longest Palindromic Substring - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_5_longest_palindromic_substring/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tips/idea-%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_5_longest_palindromic_substring/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Idea 前进后退快捷键
+        Leetcode: 3 Longest Palindromic Substring
       </div>
     </div>
 
@@ -312,14 +312,33 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Idea 前进后退快捷键 </h1>
+			<h1>Leetcode: 3 Longest Palindromic Substring </h1>
 
-			<p>前进：Command + ]</p>
+			<blockquote>
+<p>题号：5 <br>
+难度：medium <br>
+链接：<a href="https://leetcode.com/problems/longest-palindromic-substring/">https://leetcode.com/problems/longest-palindromic-substring/</a></p>
+</blockquote>
 
-<p>后退：Command + [</p>
-
-<p>在追踪比较复杂的代码时，比较有用，可以快速前进后退，不至于迷失在代码中。</p>
-
+<p>如下为Python3代码</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">longestPalindrome</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">s</span>
+        <span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">temp_bool</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000">length</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">length</span><span style="color:#000;font-weight:bold">)]</span>
+        <span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span>
+        <span style="color:#000">right</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span>
+        <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">2</span>
+        <span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&gt;=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">temp_bool</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span>
+            <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">j</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">length</span><span style="color:#000;font-weight:bold">):</span>
+                <span style="color:#000">temp_bool</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">j</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#0000cf;font-weight:bold">3</span> <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">temp_bool</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">j</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">])</span>
+                <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">temp_bool</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">right</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">j</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">:</span>
+                    <span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">i</span>
+                    <span style="color:#000">right</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">j</span>
+            <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">s</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">:</span><span style="color:#000">right</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -337,7 +356,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/tidb-subquery-optimization/" title="TiDB 源码学习：常见子查询优化">
+      <a href="https://codenow.me/tips/stfw/" title="STFW">
         <span class="direction">
           Previous
         </span>
@@ -347,7 +366,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              TiDB 源码学习：常见子查询优化
+              STFW
             </div>
           </div>
         </div>
@@ -357,14 +376,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/translation/tidb-proposal_-support-skyline-pruning/" title="TiDB Proposal: Support Skyline Pruning">
+      <a href="https://codenow.me/articles/dockerfile_commands1/" title="Dockerfile常见命令(一)">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              TiDB Proposal: Support Skyline Pruning
+              Dockerfile常见命令(一)
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
