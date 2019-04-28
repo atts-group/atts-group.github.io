@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Find Longest Path in Dag - ATTS</title>
+    <title>Sentry Wechat - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/algorithm/find-longest-path-in-dag/">
+    <link rel="canonical" href="https://codenow.me/articles/sentry-wechat/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/algorithm/find-longest-path-in-dag/">
+    <meta property="og:url" content="https://codenow.me/articles/sentry-wechat/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Find Longest Path in Dag
+        Sentry Wechat
       </div>
     </div>
 
@@ -312,9 +312,91 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Find Longest Path in Dag </h1>
+			<h1>Sentry Wechat </h1>
 
-			<p>最近在开发 eslint 本地规则，里面遇到个问题，是要查找有向无环图中最长的路径。用了比较简单暴力的方法，backtracking + memo，具体代码看 <a href="https://codenow.me/articles/custom-rule-for-eslint">这篇文章</a>。</p>
+			<p>这周给 sentry 监控多做了一个发送途径</p>
+
+<p>目前我常用的 notification 途径有：
+1. 邮件
+2. slack
+3. 微信</p>
+
+<p>对 sentry 来说，email 和 slack 已经是内置支持的了，甚至 slack 还支持对收到的消息进行操作，比如 assign 给某人，或者标记 resolved</p>
+
+<p>对微信的推送没有显式的支持，但 sentry 提供了 webhook，可以用这种方式来曲线救国</p>
+
+<p>因此需要两个东西：
+1. 从 sentry 接收消息的服务
+2. 能推送微信消息的服务</p>
+
+<p>对于第二点，现在有几个十分方便的解决方式，从最开始的 server酱，到升级版的 PushBear，使用体验都十分丝滑柔顺，也真的推荐大家前去实验</p>
+
+<p>那么第一点要怎么做？</p>
+
+<p>sentry 提供了官方的 webhook 工具：<a href="https://github.com/getsentry/webhook">https://github.com/getsentry/webhook</a></p>
+
+<p>当然如果使用 docker 安装，或者版本够高的话，这个插件已经内置了。也就是填写一个 url，然后设定规则（比如默认规则是当某个 issue 第一次被触发时），那么当满足这个规则时，sentry 就会往这个链接发一个请求，同时在 json 里带上以下数据：</p>
+
+<pre><code>{
+    'project_name': 'woko',
+    'message': 'This is an example Python exception',
+    'id': '1002921092',
+    'culprit': 'raven.scripts.runner in main',
+    'project_slug': 'woko',
+    'url': 'https://sentry.io/organizations/woko/issues/0000000000/?project=00000000&amp;referrer=webhooks_plugin',
+    'level': 'error',
+    'triggering_rules': [],
+    'event': {},
+    'project': 'hcmlink',
+    'logger': None
+}
+</code></pre>
+
+<p>注意其中的 event 字段，内容其实超多，这里因为展示不方便我就删掉了，而且对提示来说，我们主要关注的是 project_name, message, culprit, level, 再加上一个跳转用的 url 就好了</p>
+
+<p>拿到这个数据后，无论是再发邮件，发微信，做错误分析，或者是其他任意什么操作，就都没有任何限制了</p>
+
+<p>我们可以先在本地启动一个简单的脚本</p>
+
+<pre><code>
+from flask import Flask, request
+
+app = Flask(__name__)
+
+
+@app.route('/notice/pushbear')
+def pushbear():
+    print(request.json)
+    return ''
+
+
+if __name__ == '__main__':
+    app.run('0.0.0.0', 8888, debug=True)
+
+</code></pre>
+
+<p>然后在 sentry -&gt; project -&gt; settings -&gt; alerts -&gt; webhook 下填入我们启动的这个服务的链接：</p>
+
+<pre><code>http://0.0.0.0:8888/notice/pushbear
+</code></pre>
+
+<p>然后尝试给 sentry 上推一个错</p>
+
+<p>可以在我们刚刚启动的服务里看到，sentry 发来了一个请求，带上了这些参数</p>
+
+<p>我们手动处理一下这些参数，拼成合适的 text 和 desp，就可以发送给微信了</p>
+
+<p>到这里，sentry 发送错误提示到微信的功能就已经完成了</p>
+
+<p>但是，我们可能没有合适的公网地址，来部署这个无关紧要的转发服务，这里有两个方案：
+1. 在内网部署，给 sentry 的 webhook 地址里直接写内网地址
+2. 把这个功能做成一个 sentry 插件</p>
+
+<p>对于方式二，要怎么做呢</p>
+
+<p>还是参考官方文档：<a href="https://docs.sentry.io/workflow/integrations/integration-platform">https://docs.sentry.io/workflow/integrations/integration-platform</a></p>
+
+<p>我简单看了一下，这里允许自己写 integration 作为插件，这周时间不够了，五一期间我尝试写一下看看，如果能用的话，再来分享~</p>
 
 
 			<aside class="copyright" role="note">
@@ -333,7 +415,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/tips/test-local-rule-eslint/" title="让 eslint 运行本地规则">
+      <a href="https://codenow.me/algorithm/leetcode_16_three_sum_closest/" title="Leetcode_16_three_sum_closest">
         <span class="direction">
           Previous
         </span>
@@ -343,7 +425,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              让 eslint 运行本地规则
+              Leetcode_16_three_sum_closest
             </div>
           </div>
         </div>
@@ -353,14 +435,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/algorithm/leetcode_16_three_sum_closest/" title="Leetcode_16_three_sum_closest">
+      <a href="https://codenow.me/tips/python_grave_accent/" title="Python_grave_accent">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Leetcode_16_three_sum_closest
+              Python_grave_accent
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

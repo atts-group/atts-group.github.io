@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>Leetcode_16_three_sum_closest</title>
+      <link>https://codenow.me/algorithm/leetcode_16_three_sum_closest/</link>
+      <pubDate>Sun, 28 Apr 2019 23:46:54 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_16_three_sum_closest/</guid>
+      <description>题号：16
+难度：medium
+链接：https://leetcode.com/problems/3sum-closest 描述：一串数字中，找出和最接近 target 的三个数的和
+  from typing import List class Solution: def threeSumClosest(self, nums: List[int], target: int) -&amp;gt; int: &amp;quot;&amp;quot;&amp;quot;直接参考上一题，target 减一下就跟 closest 0 一样&amp;quot;&amp;quot;&amp;quot; if not nums: return 0 nums.sort() closest = closest_delta = 0 for i in range(len(nums) - 2): if i &amp;gt; 0 and nums[i] == nums[i - 1]: continue l, r = i + 1, len(nums) - 1 while l &amp;lt; r: s = nums[i] + nums[l] + nums[r] delta = s - target if not closest_delta or abs(delta) &amp;lt; abs(closest_delta): closest_delta = delta closest = s if delta &amp;lt; 0: l += 1 elif delta &amp;gt; 0: r -= 1 else: return target return closest if __name__ == &#39;__main__&#39;: data = [-1, 2, 1, 4] target = 1 print(Solution().</description>
+    </item>
+    
+    <item>
       <title>Find Longest Path in Dag</title>
       <link>https://codenow.me/algorithm/find-longest-path-in-dag/</link>
       <pubDate>Sun, 28 Apr 2019 22:26:12 +0800</pubDate>

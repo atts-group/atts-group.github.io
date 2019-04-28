@@ -11,6 +11,24 @@
     
     
     <item>
+      <title>Sentry Wechat</title>
+      <link>https://codenow.me/articles/sentry-wechat/</link>
+      <pubDate>Sun, 28 Apr 2019 23:49:25 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/sentry-wechat/</guid>
+      <description>这周给 sentry 监控多做了一个发送途径
+目前我常用的 notification 途径有： 1. 邮件 2. slack 3. 微信
+对 sentry 来说，email 和 slack 已经是内置支持的了，甚至 slack 还支持对收到的消息进行操作，比如 assign 给某人，或者标记 resolved
+对微信的推送没有显式的支持，但 sentry 提供了 webhook，可以用这种方式来曲线救国
+因此需要两个东西： 1. 从 sentry 接收消息的服务 2. 能推送微信消息的服务
+对于第二点，现在有几个十分方便的解决方式，从最开始的 server酱，到升级版的 PushBear，使用体验都十分丝滑柔顺，也真的推荐大家前去实验
+那么第一点要怎么做？
+sentry 提供了官方的 webhook 工具：https://github.com/getsentry/webhook
+当然如果使用 docker 安装，或者版本够高的话，这个插件已经内置了。也就是填写一个 url，然后设定规则（比如默认规则是当某个 issue 第一次被触发时），那么当满足这个规则时，sentry 就会往这个链接发一个请求，同时在 json 里带上以下数据：
+{ &#39;project_name&#39;: &#39;woko&#39;, &#39;message&#39;: &#39;This is an example Python exception&#39;, &#39;id&#39;: &#39;1002921092&#39;, &#39;culprit&#39;: &#39;raven.scripts.runner in main&#39;, &#39;project_slug&#39;: &#39;woko&#39;, &#39;url&#39;: &#39;https://sentry.</description>
+    </item>
+    
+    <item>
       <title>Tmux 快捷键</title>
       <link>https://codenow.me/articles/tmux_hotkey/</link>
       <pubDate>Sun, 28 Apr 2019 23:13:11 +0900</pubDate>

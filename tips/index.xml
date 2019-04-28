@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Python_grave_accent</title>
+      <link>https://codenow.me/tips/python_grave_accent/</link>
+      <pubDate>Sun, 28 Apr 2019 23:51:54 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/python_grave_accent/</guid>
+      <description>python 里的 `a` 等价于 repr(a)</description>
+    </item>
+    
+    <item>
       <title>让 eslint 运行本地规则</title>
       <link>https://codenow.me/tips/test-local-rule-eslint/</link>
       <pubDate>Sun, 28 Apr 2019 22:22:45 +0800</pubDate>
