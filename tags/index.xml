@@ -5,9 +5,28 @@
     <link>https://codenow.me/tags/</link>
     <description>Recent content in Tags on ATTS</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 03 May 2019 18:49:11 +0900</lastBuildDate>
     
 	<atom:link href="https://codenow.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kingkoma</title>
+      <link>https://codenow.me/tags/kingkoma/</link>
+      <pubDate>Fri, 03 May 2019 18:49:11 +0900</pubDate>
+      
+      <guid>https://codenow.me/tags/kingkoma/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Leetcode</title>
+      <link>https://codenow.me/tags/leetcode/</link>
+      <pubDate>Fri, 03 May 2019 18:49:11 +0900</pubDate>
+      
+      <guid>https://codenow.me/tags/leetcode/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

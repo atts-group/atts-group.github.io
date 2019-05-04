@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Goland Switch Project - ATTS</title>
+    <title>Range Sum Of BST - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tips/goland-switch-project/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tips/goland-switch-project/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Goland Switch Project
+        Range Sum Of BST
       </div>
     </div>
 
@@ -312,12 +312,26 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Goland Switch Project </h1>
+			<h1>Range Sum Of BST </h1>
 
-			<p>给 manager project 设置快捷键，就可以快速切换项目</p>
+			<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Definition for a binary tree node.</span>
+<span style="color:#8f5902;font-style:italic"># class TreeNode:</span>
+<span style="color:#8f5902;font-style:italic">#     def __init__(self, x):</span>
+<span style="color:#8f5902;font-style:italic">#         self.val = x</span>
+<span style="color:#8f5902;font-style:italic">#         self.left = None</span>
+<span style="color:#8f5902;font-style:italic">#         self.right = None</span>
 
-<p><img src="https://static.zhengxiaowai.cc/2019-04-28-160959.png" alt="" /></p>
-
+<span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+        
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">rangeSumBST</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">root</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">L</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">R</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">root</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span>
+        <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">L</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rangeSumBST</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">L</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">R</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">R</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rangeSumBST</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">L</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">R</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rangeSumBST</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">L</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">R</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">rangeSumBST</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">root</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">L</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">R</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -335,7 +349,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/db-without-fk/" title="数据库到底要不要外键">
+      <a href="https://codenow.me/tips/goland-switch-project/" title="Goland Switch Project">
         <span class="direction">
           Previous
         </span>
@@ -345,7 +359,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              数据库到底要不要外键
+              Goland Switch Project
             </div>
           </div>
         </div>
@@ -355,14 +369,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/" title="Range Sum Of BST">
+      <a href="https://codenow.me/translation/making_first_contribution/" title="手把手带你创建你第一个 GitHub 贡献">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Range Sum Of BST
+              手把手带你创建你第一个 GitHub 贡献
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

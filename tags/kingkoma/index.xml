@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kingkoma on ATTS</title>
+    <link>https://codenow.me/tags/kingkoma/</link>
+    <description>Recent content in Kingkoma on ATTS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 03 May 2019 18:49:11 +0900</lastBuildDate>
+    
+	<atom:link href="https://codenow.me/tags/kingkoma/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Range Sum Of BST</title>
+      <link>https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/</link>
+      <pubDate>Fri, 03 May 2019 18:49:11 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/</guid>
+      <description># Definition for a binary tree node. # class TreeNode: # def __init__(self, x): # self.val = x # self.left = None # self.right = None class Solution: def rangeSumBST(self, root: TreeNode, L: int, R: int) -&amp;gt; int: if not root: return 0 elif root.val &amp;lt; L: return self.rangeSumBST(root.right, L, R) elif root.val &amp;gt; R: return self.rangeSumBST(root.left, L, R) else: return root.val + self.rangeSumBST(root.right, L, R) + self.rangeSumBST(root.left, L, R)</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -11,6 +11,19 @@
     
     
     <item>
+      <title>手把手带你创建你第一个 GitHub 贡献</title>
+      <link>https://codenow.me/translation/making_first_contribution/</link>
+      <pubDate>Sat, 04 May 2019 17:20:23 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/making_first_contribution/</guid>
+      <description>原链接： A Step by Step Guide to Making Your First GitHub Contribution 
+前言 如果你还没有 Github 账户，或者不知道什么是 Git，请阅读：编程菜鸟？你昨天就应该把 Git 给学了
+拜见老师 希望你来这之前已经注册好 Github 账户并做好开始第一个开源项目贡献的准备了。 作为一个新手，贡献一个项目可能会觉得可怕。我明白，我也曾经试过。我花了很长时间才完成我的第一个 Pull Request。这就是为什么我希望你认识 Roshan Jossey 的原因。Roshan 建了一个 Github 仓库 First Contributions ，手把手带新人过一遍 Github 的贡献流程，还提供了一个仓库给大家做自己的第一个贡献。
+开始你的第一个开源项目贡献 1. Fork 仓库 打开 First Contributions 这个仓库，点击页面上的 Fork 按钮。这样会创建一份仓库备份到你自己的账户。 2. 克隆仓库 现在把这个仓库克隆到你自己的电脑上。点击 clone 按钮 再点击 copy to clipboard 图标。 打开终端并运行以下的 git 指令：
+git clone &amp;quot;你刚刚拷贝到的地址&amp;quot;  你刚刚拷贝到的地址（不包括双引号）就是 First Contributions 这个仓库的地址。查看你之前的步骤去获得这个地址。 比如：</description>
+    </item>
+    
+    <item>
       <title>「译」Golang 使用高阶函数实现依赖注入</title>
       <link>https://codenow.me/translation/golang-inject/</link>
       <pubDate>Mon, 29 Apr 2019 00:05:35 +0800</pubDate>
