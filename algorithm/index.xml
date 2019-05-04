@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>Leetcode_17_LetterCombinationsOfAPhoneNumber</title>
+      <link>https://codenow.me/algorithm/leetcode_17_lettercombinationsofaphonenumber/</link>
+      <pubDate>Sat, 04 May 2019 23:22:55 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_17_lettercombinationsofaphonenumber/</guid>
+      <description>题号：17
+难度：medium
+链接：https://leetcode.com/problems/letter-combinations-of-a-phone-number/ 描述：手机9键盘上，每个数字代表几个字母，给定几个数字，返回他们能组成的所有组合
+ from functools import reduce from typing import List class Solution: def letterCombinations1(self, digits: str) -&amp;gt; List[str]: &amp;quot;&amp;quot;&amp;quot;一个一个数字地来就可以了，直接 reduce 解决&amp;quot;&amp;quot;&amp;quot; data = { &#39;0&#39;: &#39;&#39;, &#39;1&#39;: &#39;&#39;, &#39;2&#39;: &#39;abc&#39;, &#39;3&#39;: &#39;def&#39;, &#39;4&#39;: &#39;ghi&#39;, &#39;5&#39;: &#39;jkl&#39;, &#39;6&#39;: &#39;mno&#39;, &#39;7&#39;: &#39;pqrs&#39;, &#39;8&#39;: &#39;tuv&#39;, &#39;9&#39;: &#39;wxyz&#39; } if not digits: return [] if len(digits) == 1: return list(data[digits]) return reduce(lambda x, y: [i + j for i in x for j in y], [data[x] for x in digits]) def letterCombinations(self, digits: str) -&amp;gt; List[str]: &amp;quot;&amp;quot;&amp;quot;看了 discuss ，确实还可以用递归 就结果而言，递归比reduce多消耗了一点点空间，时间上则是相同的 &amp;quot;&amp;quot;&amp;quot; data = { &#39;0&#39;: &#39;&#39;, &#39;1&#39;: &#39;&#39;, &#39;2&#39;: &#39;abc&#39;, &#39;3&#39;: &#39;def&#39;, &#39;4&#39;: &#39;ghi&#39;, &#39;5&#39;: &#39;jkl&#39;, &#39;6&#39;: &#39;mno&#39;, &#39;7&#39;: &#39;pqrs&#39;, &#39;8&#39;: &#39;tuv&#39;, &#39;9&#39;: &#39;wxyz&#39; } if not digits: return [] if len(digits) == 1: return list(data[digits]) others = self.</description>
+    </item>
+    
+    <item>
       <title>Range Sum Of BST</title>
       <link>https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/</link>
       <pubDate>Fri, 03 May 2019 18:49:11 +0900</pubDate>

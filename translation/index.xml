@@ -11,6 +11,21 @@
     
     
     <item>
+      <title>Explain_python_entry_point</title>
+      <link>https://codenow.me/translation/explain_python_entry_point/</link>
+      <pubDate>Sat, 04 May 2019 23:21:00 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/explain_python_entry_point/</guid>
+      <description>原文链接：https://stackoverflow.com/a/9615473/7537990
+EntryPoints 提供了一个基于文件系统的，持久化的对象名称注册机制，以及一个基于名称的直接对象导入机制（由 setuptools 包实现）
+它们将一个 Python 对象的名称与自由格式标识符相关联。因此只要是使用了当前 Python 安装环境并且知道此标识符，任何代码都可以通过这个关联了的名称访问对应的对象，无论这个对象在什么地方被定义。这个被关联的名称可以是存在于一个 Python 模块的任意一个名称；例如一个类名，函数名，或者变量名。Entry point 机制并不在乎这个名称指向什么，只要它是可以被导入的。
+举个例子吧，我们写一个函数，以及一个有完全合格的名称的虚拟 python 模块“myns.mypkg.mymodule”：
+def the_function(): &amp;quot;function whose name is &#39;the_function&#39;, in &#39;mymodule&#39; module&amp;quot; print &amp;quot;hello from the_function&amp;quot;  Entry points 通过 setup.py 里的 entry_points 声明来注册。要把 the_function 注册到 my_ep_func 这个 entrypoint 上，我们可以这样：
+	entry_points = { &#39;my_ep_group_id&#39;: [ &#39;my_ep_func = myns.mypkg.mymodule:the_function&#39; ] },  在上面的例子中，entry points 是分组写的；有一个对应的 API 可以找到一个分组下的所有 entry points（如下示例）。
+在 package 被安装时（例如运行 python setup.py install），上面的声明会被传递给 setuptools。然后它会把传递过来的信息写到一个特殊的文件里。在那之后，我们就可以使用 pkg_resources_API（setuptools 的一部分）通过被关联的名称来查找 entry point 并且访问相应的对象了。</description>
+    </item>
+    
+    <item>
       <title>手把手带你创建你第一个 GitHub 贡献</title>
       <link>https://codenow.me/translation/making_first_contribution/</link>
       <pubDate>Sat, 04 May 2019 17:20:23 +0900</pubDate>

@@ -11,6 +11,21 @@
     
     
     <item>
+      <title>Sentry Pushbear</title>
+      <link>https://codenow.me/articles/sentry-pushbear/</link>
+      <pubDate>Sat, 04 May 2019 23:19:21 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/sentry-pushbear/</guid>
+      <description>上周写了一下 sentry 可以通过 webhook 发送错误日志给微信，但是需要自己额外搭一个服务，虽然可定制化确实强，但还是有点麻烦
+于是五一期间给 sentry 写了个插件，简单安装之后，只需要填上 pushbear 的 SendKey，就可以直接在微信上接收错误提醒啦~
+效果如下：
+(这里缺上图，后面补)
+目前我配了这四个参数：project, culprit, message 和 tags。一般已经可以快速定位错误项目和位置了，至于具体的 trace，可以点击 message 直接进入 sentry 查看
+安装也超简单：
+如果 sentry 是 docker 安装的  在 onpremise/requirements.txt 里加上一行 sentry-pushbear docker-compose build: 拉取插件代码 docker-compose run --rm web upgrade: 更新 web 服务，如果插件有问题这里会报错 docker-compose up -d: 重启 sentry，插件生效  如果 sentry 是 python 安装的  pip install sentry-pushbear 重启 sentry  使用 pushbear 服务 在项目配置页，也就是 project-&amp;gt;{project}-&amp;gt;settings 页面里，点击 All integration(or plugins or Legacy Integrations) 页面，可以找到 PushBear Notifications 插件</description>
+    </item>
+    
+    <item>
       <title>数据库到底要不要外键</title>
       <link>https://codenow.me/articles/db-without-fk/</link>
       <pubDate>Mon, 29 Apr 2019 00:06:39 +0800</pubDate>

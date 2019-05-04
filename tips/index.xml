@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Mysql_backslash</title>
+      <link>https://codenow.me/tips/mysql_backslash/</link>
+      <pubDate>Sat, 04 May 2019 23:24:33 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/mysql_backslash/</guid>
+      <description>MySQL 中，使用 like 匹配 / 时，前面要加 四个 反斜杠</description>
+    </item>
+    
+    <item>
       <title>Goland Switch Project</title>
       <link>https://codenow.me/tips/goland-switch-project/</link>
       <pubDate>Mon, 29 Apr 2019 00:06:56 +0800</pubDate>

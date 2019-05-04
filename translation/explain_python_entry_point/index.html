@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>手把手带你创建你第一个 GitHub 贡献 - ATTS</title>
+    <title>Explain_python_entry_point - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/making_first_contribution/">
+    <link rel="canonical" href="https://codenow.me/translation/explain_python_entry_point/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/making_first_contribution/">
+    <meta property="og:url" content="https://codenow.me/translation/explain_python_entry_point/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        手把手带你创建你第一个 GitHub 贡献
+        Explain_python_entry_point
       </div>
     </div>
 
@@ -312,146 +312,50 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>手把手带你创建你第一个 GitHub 贡献 </h1>
+			<h1>Explain_python_entry_point </h1>
 
-			
+			<p>原文链接：<a href="https://stackoverflow.com/a/9615473/7537990">https://stackoverflow.com/a/9615473/7537990</a></p>
 
-<p>原链接： <a href="https://codeburst.io/a-step-by-step-guide-to-making-your-first-github-contribution-5302260a2940">A Step by Step Guide to Making Your First GitHub Contribution
-</a></p>
+<p><a href="https://setuptools.readthedocs.io/en/latest/pkg_resources.html#entry-points">EntryPoints</a> 提供了一个基于文件系统的，持久化的对象名称注册机制，以及一个基于名称的直接对象导入机制（由 <a href="http://pypi.python.org/pypi/setuptools">setuptools</a> 包实现）</p>
 
-<h3 id="前言">前言</h3>
+<p>它们将一个 Python 对象的名称与自由格式标识符相关联。因此只要是使用了当前 Python 安装环境并且知道此标识符，任何代码都可以通过这个关联了的名称访问对应的对象，无论这个对象在什么地方被定义。<strong>这个被关联的名称可以是存在于一个 Python 模块的任意一个名称</strong>；例如一个类名，函数名，或者变量名。Entry point 机制并不在乎这个名称指向什么，只要它是可以被导入的。</p>
 
-<p>如果你还没有 Github 账户，或者不知道什么是 Git，请阅读：<a href="https://codeburst.io/number-one-piece-of-advice-for-new-developers-ddd08abc8bfa">编程菜鸟？你昨天就应该把 Git 给学了</a></p>
+<p>举个例子吧，我们写一个函数，以及一个有完全合格的名称的虚拟 python 模块“myns.mypkg.mymodule”：</p>
 
-<h3 id="拜见老师">拜见老师</h3>
-
-<p>希望你来这之前已经注册好 Github 账户并做好开始第一个开源项目贡献的准备了。
-作为一个新手，贡献一个项目可能会觉得可怕。我明白，我也曾经试过。我花了很长时间才完成我的第一个 Pull Request。这就是为什么我希望你认识 <a href="https://github.com/Roshanjossey">Roshan Jossey</a> 的原因。Roshan 建了一个 Github 仓库 <a href="https://github.com/Roshanjossey/first-contributions">First Contributions</a> ，手把手带新人过一遍 Github 的贡献流程，还提供了一个仓库给大家做自己的第一个贡献。</p>
-
-<h3 id="开始你的第一个开源项目贡献">开始你的第一个开源项目贡献</h3>
-
-<h4 id="1-fork-仓库">1. Fork 仓库</h4>
-
-<p>打开 <a href="https://github.com/Roshanjossey/first-contributions">First Contributions</a> 这个仓库，点击页面上的 Fork 按钮。这样会创建一份仓库备份到你自己的账户。
-<img src="https://cdn-images-1.medium.com/max/1600/0*8NFC0LcrKJhDoQAG.png" alt="0*8NFC0LcrKJhDoQAG.png" /></p>
-
-<h4 id="2-克隆仓库">2. 克隆仓库</h4>
-
-<p>现在把这个仓库克隆到你自己的电脑上。点击 clone 按钮 再点击 copy to clipboard 图标。
-<img src="https://cdn-images-1.medium.com/max/1600/0*J4YiNCc3AOOUMYTT.png" alt="0*J4YiNCc3AOOUMYTT.png" />
-打开终端并运行以下的 git 指令：</p>
-
-<pre><code>git clone &quot;你刚刚拷贝到的地址&quot;
+<pre><code>def the_function():
+   &quot;function whose name is 'the_function', in 'mymodule' module&quot;
+   print &quot;hello from the_function&quot;
 </code></pre>
 
-<p>你刚刚拷贝到的地址（不包括双引号）就是 <a href="https://github.com/Roshanjossey/first-contributions">First Contributions</a> 这个仓库的地址。查看你之前的步骤去获得这个地址。
-<img src="https://cdn-images-1.medium.com/max/1600/0*D3fowk-gRvjlMJjQ.png" alt="0*D3fowk-gRvjlMJjQ.png" />
-比如：</p>
+<p>Entry points 通过 setup.py 里的 <code>entry_points</code> 声明来注册。要把 <code>the_function</code> 注册到 <code>my_ep_func</code> 这个 entrypoint 上，我们可以这样：</p>
 
-<pre><code>git clone https://github.com/this-is-you/first-contributions.git
+<pre><code>	entry_points = {
+        'my_ep_group_id': [
+            'my_ep_func = myns.mypkg.mymodule:the_function'
+        ]
+    },
 </code></pre>
 
-<p><code>this-is-you</code> 的地方就是你的 Github 用户名。
-这样你就把你 Github 上这个仓库的内容拷贝到你的电脑了。</p>
+<p>在上面的例子中，entry points 是分组写的；有一个对应的 API 可以找到一个分组下的所有 entry points（如下示例）。</p>
 
-<h4 id="3-创建分支">3. 创建分支</h4>
+<p>在 package 被安装时（例如运行 <code>python setup.py install</code>），上面的声明会被传递给 setuptools。然后它会把传递过来的信息写到一个特殊的文件里。在那之后，我们就可以使用 <a href="https://setuptools.readthedocs.io/en/latest/pkg_resources.html#api-reference">pkg_resources_API</a>（setuptools 的一部分）通过被关联的名称来查找 entry point 并且访问相应的对象了。</p>
 
-<p>进入到你电脑上的仓库目录</p>
+<pre><code>import pkg_resources
 
-<pre><code>cd first-contributions
+named_objects = {}
+for ep in pkg_resources.iter_entry_points(group='my_ep_group_id'):
+   named_objects.update({ep.name: ep.load()})
 </code></pre>
 
-<p>使用 <code>git checkout</code> 指令创建一个分支</p>
+<p>在这里，setuptools 读取了写到特殊文件里的 entry point 信息，找到了 entry point，导入了对应的模块（myns.mypkg.mymodule），并且在调用 <code>pkg_resources.load()</code> 时检索到了在那里被定义的 <code>the_function</code>。</p>
 
-<pre><code>git checkout -b &lt;add-your-name&gt;
+<p>假设这个分组内没有其他 entry point 被注册，那么调用 <code>the_function</code> 就会非常简单：</p>
+
+<pre><code>&gt;&gt;&gt; named_objects['my_ep_func']()
+hello from the_function
 </code></pre>
 
-<p>例子：</p>
-
-<pre><code>git checkout -b add-alonzo-church
-</code></pre>
-
-<p>（分支的名字不一定要有 add 在里面，但是因为这个分支的目的是为了把你的名字加入名单中，所以有 add 是合理的。）</p>
-
-<h4 id="4-增加一些必要的修改并对修改进行-commit">4. 增加一些必要的修改并对修改进行 commit</h4>
-
-<p>现在用文本编辑器打开 <code>Contributors.md</code> 这个文件，把你的名字加在里面，然后保存。回到你的终端上的项目目录，执行 <code>git status</code> 指令，你就会看到这些修改。执行 <code>git add</code> 指令把这些修改加到你刚刚创立的分支上。</p>
-
-<pre><code>git add Contributors.md
-</code></pre>
-
-<p>现在用 <code>git commit</code> 指令提交修改</p>
-
-<pre><code>git commit -m &quot;Add &lt;your-name&gt; to Contributors list&quot;
-</code></pre>
-
-<p>用你自己的名字替代 <code>&lt;your-name&gt;</code></p>
-
-<h4 id="5-push-修改到-github">5. Push 修改到 Github</h4>
-
-<p>用 <code>git push</code> 指令 push 修改</p>
-
-<pre><code>git push origin &lt;add-your-name&gt;
-</code></pre>
-
-<p>用你早前创建的分支名字替代 <code>&lt;add-your-name&gt;</code></p>
-
-<h4 id="6-确认你的修改">6. 确认你的修改</h4>
-
-<p>这时你去到你 Github 仓库页面上看，会发现一个 <code>Compare &amp; pull request</code> 按钮。
-点击按钮。
-<img src="https://cdn-images-1.medium.com/max/1600/0*F-LrOSu0kL3fO_Nt.png" alt="0*F-LrOSu0kL3fO_Nt.png" />
-现在确认这个 pull request
-<img src="https://cdn-images-1.medium.com/max/1600/0*T1wiLQV5w5X42w1i.png" alt="0*T1wiLQV5w5X42w1i.png" />
-然后我就会把你的修改合并到这个项目的主分支上。一旦修改被合并你就会收到一封提醒邮件。
-你 fork 的主分支不会有改变。为了让你的 fork 与我的同步，请跟着下一步走。</p>
-
-<h4 id="7-让你的-fork-与这个仓库同步">7. 让你的 fork 与这个仓库同步</h4>
-
-<p>首先，切换到主分支上</p>
-
-<pre><code>git checkout master 
-</code></pre>
-
-<p>然后增加我仓库的地址为 <code>upstream remote url</code></p>
-
-<pre><code>git remote add upstream https://github.com/Roshanjossey/first-contributions
-</code></pre>
-
-<p>这是在告诉 git 这个项目的另一个版本在这个地址上，我们称之为 <code>upstream</code>。一旦修改被合并，拉取这个仓库的最新版本。</p>
-
-<pre><code>git fetch upstream
-</code></pre>
-
-<p>这就是我们怎么拉取 fork（远程上游） 里所有修改的了。
-现在你需要把我仓库的最新版本合并到你的主分支。</p>
-
-<pre><code>git rebase upstream/master
-</code></pre>
-
-<p>这里你在把你拉取的所有修改应用到主分支上。
-如果你现在 push 主分支，你的 fork 也会有这些变化：</p>
-
-<pre><code>git push origin master
-</code></pre>
-
-<p>注意你这里 push 的远程对象叫 origin
-这个时候我已经把你的分支 <code>&lt;add-your-name&gt;</code> 合并到我的主分支上了，你也把我的主分支合并到你自己的主分支上了。
-你的分支不再用到了，你可以删掉它。</p>
-
-<pre><code>git branch -d &lt;add-your-name&gt;
-</code></pre>
-
-<p>你也可以删掉在远程仓库的分支的版本</p>
-
-<pre><code>git push origin --delete &lt;add-your-name&gt;
-</code></pre>
-
-<p>这不是必须的，但是这个分支的名字展示了它的主要目的。因此它的寿命相应的会很短。</p>
-
-<h3 id="你做到啦">你做到啦！</h3>
-
-<p>现在你已经具备了在网上做开源项目贡献的能力。尽管放胆去试试吧！</p>
+<p>因此，即使在刚开始可能有点难以掌握，但这个 entry point 机制确实简单易用。它为可插拔 Python 软件开发提供了一个有用的工具。</p>
 
 
 			<aside class="copyright" role="note">
@@ -470,7 +374,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/" title="Range Sum Of BST">
+      <a href="https://codenow.me/articles/sentry-pushbear/" title="Sentry Pushbear">
         <span class="direction">
           Previous
         </span>
@@ -480,7 +384,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Range Sum Of BST
+              Sentry Pushbear
             </div>
           </div>
         </div>
@@ -490,14 +394,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/articles/sentry-pushbear/" title="Sentry Pushbear">
+      <a href="https://codenow.me/algorithm/leetcode_17_lettercombinationsofaphonenumber/" title="Leetcode_17_LetterCombinationsOfAPhoneNumber">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Sentry Pushbear
+              Leetcode_17_LetterCombinationsOfAPhoneNumber
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
