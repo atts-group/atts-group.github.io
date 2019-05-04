@@ -11,12 +11,49 @@
     
     
     <item>
-      <title>Range Sum Of BST</title>
+      <title>Leetcode_938: Range Sum Of BST</title>
       <link>https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/</link>
       <pubDate>Fri, 03 May 2019 18:49:11 +0900</pubDate>
       
       <guid>https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/</guid>
-      <description># Definition for a binary tree node. # class TreeNode: # def __init__(self, x): # self.val = x # self.left = None # self.right = None class Solution: def rangeSumBST(self, root: TreeNode, L: int, R: int) -&amp;gt; int: if not root: return 0 elif root.val &amp;lt; L: return self.rangeSumBST(root.right, L, R) elif root.val &amp;gt; R: return self.rangeSumBST(root.left, L, R) else: return root.val + self.rangeSumBST(root.right, L, R) + self.rangeSumBST(root.left, L, R)</description>
+      <description> 题号：938 难度：easy 链接：https://leetcode.com/problems/range-sum-of-bst/ 描述：返回一棵二叉搜索树两个节点之间的值的和，包括两个节点  class TreeNode: def __init__(self, x): self.val = x self.left = None self.right = None class Solution: def rangeSumBST(self, root: TreeNode, L: int, R: int) -&amp;gt; int: if not root: return 0 elif root.val &amp;lt; L: return self.rangeSumBST(root.right, L, R) elif root.val &amp;gt; R: return self.rangeSumBST(root.left, L, R) else: return root.val + self.rangeSumBST(root.right, L, R) + self.rangeSumBST(root.left, L, R)</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_771: Jewels and Stones</title>
+      <link>https://codenow.me/algorithm/jewels_and_stones/</link>
+      <pubDate>Sun, 28 Apr 2019 22:50:02 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/jewels_and_stones/</guid>
+      <description> 题号：771 难度：easy 链接：https://leetcode.com/problems/jewels-and-stones/ 描述：看看自己手上的石头有多少是宝石  class Solution: def newJewelsInStones(self,J,S): res = [] for s in S: if s in J: res.append(s) return len(res) if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() Jewels = &amp;#34;aA&amp;#34; Stones = &amp;#34;aAAbbbb&amp;#34; s.newJewelsInStones(Jewels, Stones) </description>
+    </item>
+    
+    <item>
+      <title>Leetcode_100: same tree</title>
+      <link>https://codenow.me/algorithm/same_tree/</link>
+      <pubDate>Sun, 21 Apr 2019 17:52:54 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/same_tree/</guid>
+      <description> 题号：100 难度：easy 链接：https://leetcode.com/problems/same-tree/ 描述：查看两棵树是否一致  class TreeNode: def __init__(self, x): self.val = x self.left = None self.right = None class Solution: def isSameTree(self, p: TreeNode, q: TreeNode) -&amp;gt; bool: if p and q: return p.val == q.val and self.isSameTree(p.right,q.right) and self.isSameTree(p.left,q.left) return p == q if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() tree1 = TreeNode(&amp;#39;s&amp;#39;) tree2 = TreeNode(&amp;#39;s&amp;#39;) s.isSameTree(tree1, tree2)</description>
+    </item>
+    
+    <item>
+      <title>使用递归思想进行列表遍历</title>
+      <link>https://codenow.me/algorithm/travelsallistwithoutloops/</link>
+      <pubDate>Sun, 14 Apr 2019 16:46:49 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/travelsallistwithoutloops/</guid>
+      <description>之前一次面试上遇到的题，不允许用 for 循环和 while 循环，要求遍历出列表每个元素。 当时没有想法，回去后就查了一下，原来可以用递归解决。
+class Solution(): def travelsal_list_with_recursion(self, Ls, index=0): if len(Ls) == index: return print(Ls[index], end=&amp;#39; &amp;#39;) self.travelsal_list_with_recursion(Ls, index+1) if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() ls = [&amp;#39;a&amp;#39;, &amp;#39;3&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;3&amp;#39;] s.travelsal_list_with_recursion(ls) </description>
+    </item>
+    
+    <item>
+      <title>Leetcode_709: To Lower Case</title>
+      <link>https://codenow.me/algorithm/to_lowercase/</link>
+      <pubDate>Sun, 07 Apr 2019 14:12:27 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/to_lowercase/</guid>
+      <description>题号：709 难度：easy 链接：https://leetcode.com/problems/to-lower-case/ 描述：使用 ASCII 把字母统一为小写  class Solution: &amp;#34;&amp;#34;&amp;#34;use ASCII to return the same str in lowercase &amp;#34;&amp;#34;&amp;#34; def to_lower_case(self, str: str) -&amp;gt; str: new_str = &amp;#39;&amp;#39; for c in str: if 65 &amp;lt;= ord(c) &amp;lt;= 90: # Uppercase is between 65 and 90 in ASCII table c = chr(ord(c)+32) new_str += c return new_str # one line solution #return &amp;#39;&amp;#39;.join(chr(ord(c) + 32) if 65 &amp;lt;= ord(c) &amp;lt;= 90 else c for c in str) if __name__ == &amp;#39;__main__&amp;#39;: solution = Solution() s = &amp;#39;Hero&amp;#39; solution.</description>
     </item>
     
   </channel>

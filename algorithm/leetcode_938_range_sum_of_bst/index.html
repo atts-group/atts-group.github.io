@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Range Sum Of BST - ATTS</title>
+    <title>Leetcode_938: Range Sum Of BST - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Range Sum Of BST
+        Leetcode_938: Range Sum Of BST
       </div>
     </div>
 
@@ -312,14 +312,19 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Range Sum Of BST </h1>
+			<h1>Leetcode_938: Range Sum Of BST </h1>
 
-			<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic"># Definition for a binary tree node.</span>
-<span style="color:#8f5902;font-style:italic"># class TreeNode:</span>
-<span style="color:#8f5902;font-style:italic">#     def __init__(self, x):</span>
-<span style="color:#8f5902;font-style:italic">#         self.val = x</span>
-<span style="color:#8f5902;font-style:italic">#         self.left = None</span>
-<span style="color:#8f5902;font-style:italic">#         self.right = None</span>
+			<blockquote>
+<p>题号：938 <br>
+难度：easy <br>
+链接：<a href="https://leetcode.com/problems/range-sum-of-bst/">https://leetcode.com/problems/range-sum-of-bst/</a> <br>
+描述：返回一棵二叉搜索树两个节点之间的值的和，包括两个节点 <br></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">TreeNode</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__init__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">val</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">x</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
+        <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">right</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#3465a4">None</span>
 
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
         
