@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>如何用Python产生验证码</title>
+      <link>https://codenow.me/tips/create_verification_code_using_python/</link>
+      <pubDate>Mon, 06 May 2019 00:18:55 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/create_verification_code_using_python/</guid>
+      <description>#!/usr/bin/env python # -*- coding:utf-8 -*- import random import string def gen_random_string(length): num_of_numeric = random.randint(1,length-1) num_of_letter = length - num_of_numeric numerics = [random.choice(string.digits) for _ in range(num_of_numeric)] letters = [random.choice(string.ascii_letters) for _ in range(num_of_letter)] all_chars = numerics + letters random.shuffle(all_chars) result = &amp;#39;&amp;#39;.join(all_chars) return result if __name__ == &amp;#39;__main__&amp;#39;: print(gen_random_string(10)) C:\Python37\python.exe C:/python_workspace/test2.py 1863N575T5</description>
+    </item>
+    
+    <item>
       <title>Goland Live Template</title>
       <link>https://codenow.me/tips/goland-live-template/</link>
       <pubDate>Mon, 06 May 2019 00:14:34 +0800</pubDate>

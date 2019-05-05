@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>如何使用Python过滤emoji</title>
+      <link>https://codenow.me/articles/how_to_use_python_filter_emoji/</link>
+      <pubDate>Mon, 06 May 2019 00:32:31 +0800</pubDate>
+      
+      <guid>https://codenow.me/articles/how_to_use_python_filter_emoji/</guid>
+      <description> 参考博客：http://my.oschina.net/jiemachina/blog/189460
+1. 将emoji表情替换为指定字符串 import re def filter_emoji(desstr, restr=&amp;#39;&amp;#39;): &amp;#34;&amp;#34;&amp;#34;过滤表情&amp;#34;&amp;#34;&amp;#34; try: # python UCS-4 build的处理方式 highpoints = re.compile(u&amp;#39;[\U00010000-\U0010ffff]&amp;#39;) except re.error: # python UCS-2 build的处理方式 highpoints = re.compile(u&amp;#39;[\uD800-\uDBFF][\uDC00-\uDFFF]&amp;#39;) return highpoints.sub(restr, desstr) 2. 把字符串变成表情 import HTMLParser def str_2_emoji(emoji_str): &amp;#34;&amp;#34;&amp;#34;把字符串转换为表情&amp;#34;&amp;#34;&amp;#34; if not emoji_str: return emoji_str h = HTMLParser.HTMLParser() emoji_str = h.unescape(h.unescape(emoji_str)) # 匹配u&amp;#34;\U0001f61c&amp;#34;和u&amp;#34;\u274c&amp;#34;这种表情的字符串 co = re.compile(r&amp;#34;u[\&amp;#39;\&amp;#34;]\\[Uu]([\w\&amp;#34;]{9}|[\w\&amp;#34;]{5})&amp;#34;) pos_list=[] result=emoji_str # 先找位置 for m in co.finditer(emoji_str): pos_list.append((m.start(),m.end())) # 根据位置拼接替换 for pos in range(len(pos_list)): if pos == 0: result=emoji_str[0:pos_list[0][0]] else: result=result+emoji_str[pos_list[pos-1][1]:pos_list[pos][0]] result = result +eval(emoji_str[pos_list[pos][0]:pos_list[pos][1]]) if pos==len(pos_list)-1: result=result+emoji_str[pos_list[pos][1]:len(emoji_str)] return result</description>
+    </item>
+    
+    <item>
       <title>JAVA初始化零碎知识点整理</title>
       <link>https://codenow.me/articles/java_initialization/</link>
       <pubDate>Sun, 05 May 2019 14:19:45 +0900</pubDate>

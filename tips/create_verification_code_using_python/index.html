@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Goland Live Template - ATTS</title>
+    <title>如何用Python产生验证码 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tips/goland-live-template/">
+    <link rel="canonical" href="https://codenow.me/tips/create_verification_code_using_python/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tips/goland-live-template/">
+    <meta property="og:url" content="https://codenow.me/tips/create_verification_code_using_python/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Goland Live Template
+        如何用Python产生验证码
       </div>
     </div>
 
@@ -312,12 +312,32 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Goland Live Template </h1>
+			<h1>如何用Python产生验证码 </h1>
 
-			<p>配置 Goland 的 live template 提升开发效率</p>
+			<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#8f5902;font-style:italic">#!/usr/bin/env python</span>
+<span style="color:#8f5902;font-style:italic"># -*- coding:utf-8 -*-</span>
 
-<p><img src="https://static.zhengxiaowai.cc/2019-05-05-161657.png" alt="" /></p>
 
+<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">random</span>
+<span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">string</span>
+
+
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">gen_random_string</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">length</span><span style="color:#000;font-weight:bold">):</span>
+     <span style="color:#000">num_of_numeric</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">random</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">randint</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">length</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+     <span style="color:#000">num_of_letter</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">num_of_numeric</span>
+     <span style="color:#000">numerics</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">random</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">choice</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">digits</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">_</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">num_of_numeric</span><span style="color:#000;font-weight:bold">)]</span>
+     <span style="color:#000">letters</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">random</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">choice</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">string</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">ascii_letters</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">_</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">num_of_letter</span><span style="color:#000;font-weight:bold">)]</span>
+     <span style="color:#000">all_chars</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">numerics</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">letters</span>
+     <span style="color:#000">random</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">shuffle</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">all_chars</span><span style="color:#000;font-weight:bold">)</span>
+     <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;&#39;</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">all_chars</span><span style="color:#000;font-weight:bold">)</span>
+     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
+
+
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">__name__</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;__main__&#39;</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">gen_random_string</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">))</span>
+
+<span style="color:#000">C</span><span style="color:#000;font-weight:bold">:</span>\<span style="color:#000">Python37</span>\<span style="color:#000">python</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">exe</span> <span style="color:#000">C</span><span style="color:#000;font-weight:bold">:</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">python_workspace</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">test2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">py</span>
+<span style="color:#0000cf;font-weight:bold">1863</span><span style="color:#000">N575T5</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -335,7 +355,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/algorithm/leetcode_58_length-of-last-word/" title="Leetcode_58_length of Last Word">
+      <a href="https://codenow.me/tips/goland-live-template/" title="Goland Live Template">
         <span class="direction">
           Previous
         </span>
@@ -345,7 +365,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Leetcode_58_length of Last Word
+              Goland Live Template
             </div>
           </div>
         </div>
@@ -355,14 +375,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/tips/create_verification_code_using_python/" title="如何用Python产生验证码">
+      <a href="https://codenow.me/articles/how_to_use_python_filter_emoji/" title="如何使用Python过滤emoji">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              如何用Python产生验证码
+              如何使用Python过滤emoji
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
