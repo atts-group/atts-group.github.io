@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>STFW - ATTS</title>
+    <title>在微信小程序中切换Tab的同时挑战Swiper - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tips/stfw/">
+    <link rel="canonical" href="https://codenow.me/tips/switchtab_and_swiper_in_wechat/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tips/stfw/">
+    <meta property="og:url" content="https://codenow.me/tips/switchtab_and_swiper_in_wechat/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        STFW
+        在微信小程序中切换Tab的同时挑战Swiper
       </div>
     </div>
 
@@ -312,11 +312,26 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>STFW </h1>
+			<h1>在微信小程序中切换Tab的同时挑战Swiper </h1>
 
-			<p>当有人提了一个可以 STFW 解决的问题时，可以在给出关键词的同时，甩一个这样的链接：</p>
+			
 
-<p><a href="http://lmgtfy.com/?q=如何安装python">http://lmgtfy.com/?q=如何安装python</a></p>
+<h2 id="场景说明">场景说明：</h2>
+
+<p>在首页面中通过点击事件，跳转到另一个Tab页面中。同时根据点选的内容，在跳转到的Tab页面中，跳转到不同的加载不同的swiper。</p>
+
+<h2 id="实现方式">实现方式：</h2>
+
+<ol>
+<li>在Tab的wxml中将swiper设置不同的currentID，借此来标识不同的swiper。</li>
+<li>在js中撰写swiper切换函数。具体可百度此部分内容。</li>
+<li>在app.js中设置全局变量current。并在Tab页面Js中引入app。</li>
+<li>将全局变量与Tab页面js中的current进行绑定。然后在首页面中设置跳转函数的同时，修改全局current。</li>
+</ol>
+
+<h2 id="实现效果">实现效果：</h2>
+
+<p>通过首页中修改current，然后在Tab页面中根据全局current来实现不同swiper的转换。</p>
 
 
 			<aside class="copyright" role="note">
@@ -335,7 +350,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/tips/switchtab_and_swiper_in_wechat/" title="在微信小程序中切换Tab的同时挑战Swiper">
+      <a href="https://codenow.me/articles/python_i18n/" title="Python_i18n">
         <span class="direction">
           Previous
         </span>
@@ -345,7 +360,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              在微信小程序中切换Tab的同时挑战Swiper
+              Python_i18n
             </div>
           </div>
         </div>
@@ -355,14 +370,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/algorithm/leetcode_5_longest_palindromic_substring/" title="Leetcode: 3 Longest Palindromic Substring">
+      <a href="https://codenow.me/tips/stfw/" title="STFW">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Leetcode: 3 Longest Palindromic Substring
+              STFW
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

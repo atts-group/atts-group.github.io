@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>Leetcode: 9 Palindrome Number</title>
+      <link>https://codenow.me/algorithm/leetcode_9_palindrome_number/</link>
+      <pubDate>Sun, 05 May 2019 17:28:32 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_9_palindrome_number/</guid>
+      <description> 题号：9 难度：Easy 链接：https://leetcode.com/problems/palindrome-number/
+ Python代码
+class Solution: def isPalindrome(self, x: int) -&amp;gt; bool: str_x = str(x) for i in range(0,int(len(str_x)/2)): if str_x[i] != str_x[-i-1]: return False return True</description>
+    </item>
+    
+    <item>
       <title>Leetcode_17_LetterCombinationsOfAPhoneNumber</title>
       <link>https://codenow.me/algorithm/leetcode_17_lettercombinationsofaphonenumber/</link>
       <pubDate>Sat, 04 May 2019 23:22:55 +0800</pubDate>

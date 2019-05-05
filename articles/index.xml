@@ -11,6 +11,18 @@
     
     
     <item>
+      <title>JAVA初始化零碎知识点整理</title>
+      <link>https://codenow.me/articles/java_initialization/</link>
+      <pubDate>Sun, 05 May 2019 14:19:45 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/java_initialization/</guid>
+      <description>近期在学习Java语言，整理了部分初始化内容的知识点
+区分重载方法 当有多个方法拥有相同名字时，可以为每个方法设置不同的参数类型列表，从而实现方法的区分。
+public class Test{ static f(String s, int i){ System.out.println(&amp;#34;String:&amp;#34; + s + &amp;#34;, int:&amp;#34; + i); } static f(String s, int i, int j){ System.out.println(&amp;#34;String:&amp;#34; + s + &amp;#34;, int:&amp;#34; + i + &amp;#34;, int:&amp;#34;+ j); } } 同样可以通过改变参数顺序重载方法：
+public class Test{ static f(String s, int i){ System.out.println(&amp;#34;String:&amp;#34; + s + &amp;#34;, int:&amp;#34; + i); } static f(int i, String s){ System.out.println(&amp;#34;String:&amp;#34; + s + &amp;#34;, int:&amp;#34; + i); } } this关键字  this：调用对象的引用</description>
+    </item>
+    
+    <item>
       <title>Shell　入门 01</title>
       <link>https://codenow.me/articles/learning_the_shell_01/</link>
       <pubDate>Sun, 05 May 2019 13:51:10 +0900</pubDate>
