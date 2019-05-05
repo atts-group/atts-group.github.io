@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Goland Live Template</title>
+      <link>https://codenow.me/tips/goland-live-template/</link>
+      <pubDate>Mon, 06 May 2019 00:14:34 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/goland-live-template/</guid>
+      <description>配置 Goland 的 live template 提升开发效率</description>
+    </item>
+    
+    <item>
       <title>调用 vim 来提交 Git Commit 多行注释</title>
       <link>https://codenow.me/tips/git_commit_multiple_lines_messages/</link>
       <pubDate>Sun, 05 May 2019 02:07:13 +0900</pubDate>

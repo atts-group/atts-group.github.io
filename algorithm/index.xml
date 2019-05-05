@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Leetcode_58_length of Last Word</title>
+      <link>https://codenow.me/algorithm/leetcode_58_length-of-last-word/</link>
+      <pubDate>Mon, 06 May 2019 00:13:36 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_58_length-of-last-word/</guid>
+      <description> 题号：58 难度：Easy 链接：https://leetcode-cn.com/problems/length-of-last-word/
+ class Solution: def lengthOfLastWord(self, s: str) -&amp;gt; int: words = s.strip().split(&amp;#34; &amp;#34;) last_world = words[-1] return len(last_world)</description>
+    </item>
+    
+    <item>
       <title>Leetcode: 9 Palindrome Number</title>
       <link>https://codenow.me/algorithm/leetcode_9_palindrome_number/</link>
       <pubDate>Sun, 05 May 2019 17:28:32 +0800</pubDate>

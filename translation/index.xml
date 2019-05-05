@@ -11,6 +11,23 @@
     
     
     <item>
+      <title>Goroutine 泄露——被遗忘的发送者</title>
+      <link>https://codenow.me/translation/goroutine-leaks-the-forgotten-sender/</link>
+      <pubDate>Mon, 06 May 2019 00:05:52 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/goroutine-leaks-the-forgotten-sender/</guid>
+      <description>原文地址
+ 简介 并发编程允许开发者使用多个执行者去解决问题，这么做通常可以提高性能。并发并不意味着多个执行者同时运行，意味着执行的顺序从有序变成无序。在过去这种编程方法（并发编程）一般是由标准库或者第三方开发者为主导。
+在 Go 中类似 Gotoutines 和 channels 的并发特性都是集成语言中同时减少乃至移除了对库的依赖，这就造成了在 Go 中写并发编程很容易的错觉。在决定使用并发的时候还是需要谨慎，如果没有正确的使用还是会带来一些特别的副作用和陷阱。如果你不小心，这些陷阱会产生复杂和令人厌恶的错误。
+我将在这篇文章中讨论 Goroutine 泄露带来的陷阱。
+Goroutine 泄露 在内存管理方面 Go 屏蔽了许多细节。Go 编译器使用 逃逸分析 确定变量在内存中的位置，在运行时使用 GC 来跟踪和管理堆的分配。虽然这些机制可以不能完全避免 内存泄露，但是极大的降低了发生的概率。
+一种常见的内存泄露类型就是 Goroutine 泄露。如果你启动了一个你希望它终止但是它不会终止的 Goroutine，这时候它已经泄露了。它会一直存在程序的生命周期中，并且无法释放为 Goroutine 分配的内存，这也是 “Never start a goroutine without knowing how it will stop” 建议的主要原因之一。
+要说明基本的 Goroutine 泄露，看下面代码：
+Listing 1 https://play.golang.org/p/dsu3PARM24K
+31 // leak is a buggy function. It launches a goroutine that 32 // blocks receiving from a channel.</description>
+    </item>
+    
+    <item>
       <title>Explain_python_entry_point</title>
       <link>https://codenow.me/translation/explain_python_entry_point/</link>
       <pubDate>Sat, 04 May 2019 23:21:00 +0800</pubDate>
