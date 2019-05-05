@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>调用 vim 来提交 Git Commit 多行注释</title>
+      <link>https://codenow.me/tips/git_commit_multiple_lines_messages/</link>
+      <pubDate>Sun, 05 May 2019 02:07:13 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/git_commit_multiple_lines_messages/</guid>
+      <description>配置 git 调用 vim 编辑器
+git config --global core.editor vim  使用 直接使用 git commit 调用</description>
+    </item>
+    
+    <item>
       <title>Mysql_backslash</title>
       <link>https://codenow.me/tips/mysql_backslash/</link>
       <pubDate>Sat, 04 May 2019 23:24:33 +0800</pubDate>
