@@ -387,8 +387,12 @@ GROUP BY v.column1, v.column3;
 
 <p>这种转换有没有什么问题呢？是有的（这也是 Mike Dietrich 提到它的原因）。为了做这个转换，Oracle 优化器必须判断出来什么时候可以用什么时候不可以用，这背后的逻辑可能会很复杂。The bottom line is that there were some cases where the transformation was being applied and it shouldn’t have been. Generally, this was where the outer group-by query was truncating or casting columns used by the inner group-by. This is now fixed and it’s covered by patch number <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?id=21826068.8">21826068</a>. Please use <a href="https://support.oracle.com/">MOS</a> to check availability for your platform and database version.</p>
 
-
+     
+                        </br>
                         
+                        <div>
+                        
+                        </div>
 
 			<aside class="copyright" role="note">
 				
