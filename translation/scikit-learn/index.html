@@ -1,2 +1,517 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
 
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Scikit-Learn - ATTS</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <link rel="canonical" href="https://codenow.me/translation/scikit-learn/">
+    
+    <meta name="author" content="ATTS Group">
+    
+
+    <meta property="og:url" content="https://codenow.me/translation/scikit-learn/">
+    <meta property="og:title" content="ATTS">
+    <meta property="og:image" content="https://codenow.me/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="ATTS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://codenow.me/fonts/icon.eot');
+        src: url('https://codenow.me/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://codenow.me/fonts/icon.woff')
+               format('woff'),
+             url('https://codenow.me/fonts/icon.ttf')
+               format('truetype'),
+             url('https://codenow.me/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/application.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://codenow.me/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-indigo ">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Scikit-Learn
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/atts-group" title="@atts-group on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+  <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+  </div>
+   
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/atts-group/atts" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://codenow.me/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>ATTS </strong>
+        
+          <br>
+          atts-group/atts
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/atts-group/atts/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/atts-group/atts/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="文章" href="https://codenow.me/articles/">
+	
+	文章
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="算法" href="https://codenow.me/algorithm/">
+	
+	算法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="翻译" href="https://codenow.me/translation/">
+	
+	翻译
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Tips" href="https://codenow.me/tips/">
+	
+	Tips
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="玩法" href="https://codenow.me/rules/">
+	
+	玩法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="加入我们" href="https://codenow.me/joinus/">
+	
+	加入我们
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/atts-group" target="_blank" title="@atts-group on GitHub">
+              @atts-group on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Scikit-Learn </h1>
+
+			
+
+<h1 id="scikit-learn-machine-learning-in-python">Scikit-learn: Machine Learning in Python</h1>
+
+<p>最近在学习机器学习算法和深度学习的部分内容。于是将Scikit-Learn的相关介绍论文看了看，翻译了一部分。<a href="http://www.jmlr.org/papers/v12/pedregosa11a.html">原文地址</a></p>
+
+<h2 id="摘要">摘要</h2>
+
+<p>Scikit-learn是一个Python模块，集成了各种最先进的机器学习算法，适用于中等规模和无监督的问题。该软件包侧重于使用通用高级语言将机器学习引入非专业人员。重点在于易于使用，性能，文档以及API的一致性。它具有最小的依赖性，并在简化的BSD许可下分发，鼓励在学术和商业环境中使用它。二进制文件和文档可以从<a href="http://scikit-learn.sourceforge.net">http://scikit-learn.sourceforge.net</a> 下载。</p>
+
+<h2 id="介绍">介绍</h2>
+
+<p>Python编程语言正在成为最流行的科学计算语言之一。由于其高水平的交互性和成熟的科学库生态系统，Python在算法开发和探索数据分析领域成为极有吸引力的选择。然而，作为一种通用语言，它不仅越来越多的应用于学术领域，也应用于工业。Scikit-learn利用这种环境提供许多出名的机器学习算法的最先进的实现方式，同时保持易于使用的界面以及和Python语言紧密集成。这满足了软件和网络行业的非专业人员以及计算机科学以外领域（如生物学或物理学）对统计数据分析的日益增长的需求。<br>
+Scikit-learn不同于其他Python的机器学习库的原因在于：</p>
+
+<ol>
+<li>它根据BSD许可证分发。</li>
+<li>与DMP和pybrain不同，它结合了编译代码来提升效率。</li>
+<li>它仅仅依赖于Numpy和Scipy来促进易于分发。不像pymvpa那样拥有例如R和shogun这样的可选依赖项。</li>
+<li>与使用数据流框架的pybrain不同，它侧重于命令式编程。虽然该软件包主要是用Python编写的，但它包含了C ++库LibSVM和LibLinear，它们提供了SVMS的参考实现和具有兼容许可的广义线性模型。二进制包可在包括Windows和任何POSIX平台在内的丰富平台上使用。此外，由于其自由许可，它已被广泛分发为主要的免费软件发行版，如Ubuntu，Debian，Mandriva，NetBSD和商业广告诸如“Enthought Python Distributions”之类的发行版。</li>
+</ol>
+
+<h2 id="项目愿景">项目愿景</h2>
+
+<p>代码质量。该项目的目标不是提供尽可能多的功能，而是提供可靠的实施能力。通过单元测试来保证代码质量。在发布的0.8版本，测试覆盖率为81%，与此同时，使用静态分析工具例如pyflakes和PEP8.最后，我们严格遵守Python编程指南和Numpy样式文档中使用的函数与参数命名，努力保持一致性。<br>
+BSD许可。大多数Python生态系统都是用非copyleft许可证进行许可。虽然这种政策有利于商业项目采用这些工具，但它确实施加了一些限制：我们无法使用某些现有的科学代码，例如GSL。<br>
+裸骨设计和API。 为了降低进入门槛，我们避免使用框架代码并将不同对象的数量保持在最低限度，依赖于数据容器的numpy数组。<br>
+社区驱动的发展。 我们的开发基于git，GitHub和公共邮件列表等协作工具。 欢迎并鼓励外部捐助。<br>
+开发者文档。Scikit-learn提供了约300页的用户指南，包括叙述文档，类参考，教程，安装说明，以及60多个示例，其中一些包含实际应用程序。 我们尽量减少机器学习术语的使用，同时主要训练精度与所使用的算法有关。</p>
+
+<h2 id="基础技术">基础技术</h2>
+
+<p>Numpy：数据和模型参数的基础数据结构用户。 输入数据表示为numpy数组，因此可以与其他科学Python库无缝集成。 Numpy的基于视图的内存模型限制了副本，即使与编译代码绑定也是如此。它还提供基本的算术运算。<br>
+Scipy：线性代数的有效算法，稀疏矩阵表示，特殊函数和基本统计函数。 Scipy具有许多基于Fortran的标准数字包的绑定，例如LAPACK。 这对于易于安装和可移植性非常重要，因为围绕Fortran代码提供库在各种平台上都具有挑战性。<br>
+Cython：一种在Python中组合C的语言。 Cython使用类似Python的语法和高级操作轻松实现编译语言的性能。 它还用于绑定已编译的库，从而消除了Python / C扩展的样板代码。</p>
+
+<h2 id="总结">总结</h2>
+
+<p>Scikit-learn使用一致的，面向任务的界面，公开了各种机器学习算法，包括监督和非监督，从而可以轻松地比较给定应用程序的方法。 由于它依赖于科学的Python生态系统，因此可以轻松地将其集成到传统统计数据分析范围之外的应用程序中。 重要的是，以高级语言实现的算法可以用作特定于用例的方法的构建块，例如，在医学成像中。 未来的工作包括在线学习，扩展到大型数据集。</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/algorithm/decision_tree/" title="DecisionTree">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              DecisionTree
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/articles/spark-broadcast_accumulator/" title="Spark累加器和广播变量">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Spark累加器和广播变量
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/codenow.me\/';
+      var repo_id  = 'atts-group\/atts';
+    
+    </script>
+
+    <script src="https://codenow.me/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "¶";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-136313587-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
 

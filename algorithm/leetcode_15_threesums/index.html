@@ -1,2 +1,621 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
 
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Leetcode_15_ThreeSums - ATTS</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_15_threesums/">
+    
+    <meta name="author" content="ATTS Group">
+    
+
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_15_threesums/">
+    <meta property="og:title" content="ATTS">
+    <meta property="og:image" content="https://codenow.me/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="ATTS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://codenow.me/fonts/icon.eot');
+        src: url('https://codenow.me/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://codenow.me/fonts/icon.woff')
+               format('woff'),
+             url('https://codenow.me/fonts/icon.ttf')
+               format('truetype'),
+             url('https://codenow.me/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/application.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://codenow.me/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-indigo ">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Leetcode_15_ThreeSums
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/atts-group" title="@atts-group on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+  <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+  </div>
+   
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/atts-group/atts" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://codenow.me/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>ATTS </strong>
+        
+          <br>
+          atts-group/atts
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/atts-group/atts/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/atts-group/atts/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="文章" href="https://codenow.me/articles/">
+	
+	文章
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="算法" href="https://codenow.me/algorithm/">
+	
+	算法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="翻译" href="https://codenow.me/translation/">
+	
+	翻译
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Tips" href="https://codenow.me/tips/">
+	
+	Tips
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="玩法" href="https://codenow.me/rules/">
+	
+	玩法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="加入我们" href="https://codenow.me/joinus/">
+	
+	加入我们
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/atts-group" target="_blank" title="@atts-group on GitHub">
+              @atts-group on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Leetcode_15_ThreeSums </h1>
+
+			<blockquote>
+<p>题号：15<br>
+难度：medium
+链接：<a href="https://leetcode.com/problems/3sum">https://leetcode.com/problems/3sum</a> <br>
+描述：一串数字中，找出&rdquo;和为0的三个数字&rdquo;的所有可能组合</p>
+</blockquote>
+
+<pre><code>from collections import defaultdict
+from typing import List
+
+
+class Solution:
+    def threeSum_TLE(self, nums: List[int]) -&gt; List[List[int]]:
+        &quot;&quot;&quot;这题有两个要点：
+        1. 遍历并找到所有组合: 尝试直接暴力 n^3
+        2. 保证最终结果里没有重复的: 尝试用集合来解决
+        能做出结果，但果然超时了
+        &quot;&quot;&quot;
+        if not nums:
+            return []
+
+        res = []
+        dup = []
+        for _i, i in enumerate(nums, 1):
+            for _j, j in enumerate(nums[_i:], 1):
+                for k in nums[_i + _j:]:
+                    if not i + j + k:
+                        tmp = [i, j, k]
+                        if set(tmp) not in dup:
+                            dup.append(set(tmp))
+                            res.append(tmp)
+        return res
+
+    def threeSum_TLE2(self, nums: List[int]) -&gt; List[List[int]]:
+        &quot;&quot;&quot;考虑到超时应该是 n^3 太过分了，尝试用 n^2 来解决
+        先 n^2 遍历一遍，把&quot;任意两个值的和&quot;存起来
+        再遍历一遍，找到和为 0 的另外两个值
+        这里对 [0,0,0] 没法很好的判断，干脆单独给它做了个判断
+        结果：仍然超时
+        分析：除了遍历外，耗时最多的是去重
+        &quot;&quot;&quot;
+        if len(nums) &lt; 3:
+            return []
+
+        res = []
+        dup = []
+        two = set()
+
+        # 遍历一遍，存上任意两个值的和
+        sums = defaultdict(list)
+        for _i, i in enumerate(nums, 1):
+            for j in nums[_i:]:
+                if (j, i) not in sums[-i - j]:
+                    sums[-i - j].append((i, j))
+                    pass
+                if i == j:
+                    two.add(i)
+
+        # 再遍历一遍，找出和为0的组合
+        for i in nums:
+            if i in sums:
+                for k, j in sums[i]:
+                    if k == i or j == i and i not in two:
+                        continue
+                    if {i, j, k} not in dup:
+                        res.append([i, j, k])
+                        dup.append({i, j, k})
+        if nums.count(0) &gt; 2:
+            res.append([0, 0, 0])
+        return res
+
+    def threeSum_TEL3(self, nums: List[int]) -&gt; List[List[int]]:
+        &quot;&quot;&quot;意识到 set 里可以存 tuple，考虑这样处理一下
+        时间比上一个缩短了一半，但仍然超时
+        现在主要时间花在了构建 sums 字典上
+        &quot;&quot;&quot;
+        if len(nums) &lt; 3:
+            return []
+
+        res = []
+        dup = set()
+        two = set()
+
+        # 遍历一遍，存上任意两个值的和
+        sums = defaultdict(list)
+        for _i, i in enumerate(nums, 1):
+            for j in nums[_i:]:
+                if (j, i) not in sums[-i - j]:
+                    sums[-i - j].append((i, j))
+                    pass
+                if i == j:
+                    two.add(i)
+
+        # 再遍历一遍，找出和为0的组合
+        for i in nums:
+            if i in sums:
+                for k, j in sums[i]:
+                    if k == i or j == i and i not in two:
+                        continue
+                    tmp = sorted([i, j, k])
+                    if tuple(tmp) not in dup:
+                        res.append([i, j, k])
+                        dup.add(tuple(tmp))
+
+        if nums.count(0) &gt; 2:
+            res.append([0, 0, 0])
+        return res
+
+    def threeSum(self, nums: List[int]) -&gt; List[List[int]]:
+        &quot;&quot;&quot;去看了 discuss, 先排序，确实就完全是另一种思路了
+        不需要构建乱七八糟的辅助变量，按顺序走下去就可以了
+        去重问题，也因为是有序的，而直接跳过已处理好的相同变量
+        &quot;&quot;&quot;
+        if not nums:
+            return []
+        nums.sort()
+        res = []
+        for i in range(len(nums)-2):
+            if i &gt; 0 and nums[i] == nums[i-1]:
+                continue
+            l, r = i+1, len(nums)-1
+            while l &lt; r:
+                s = nums[i] + nums[l] + nums[r]
+                if s &lt; 0:
+                    l +=1
+                elif s &gt; 0:
+                    r -= 1
+                else:
+                    res.append((nums[i], nums[l], nums[r]))
+                    while l &lt; r and nums[l] == nums[l+1]:
+                        l += 1
+                    while l &lt; r and nums[r] == nums[r-1]:
+                        r -= 1
+                    l += 1; r -= 1
+        return res
+
+if __name__ == '__main__':
+    data = [-1, 0, 1, 2, -1, -4]
+    # data = [3, 0, -2, -1, 1, 2]
+    data = [0,0,0,0,0,0,0,0,0]
+    print(Solution().threeSum(data))
+
+</code></pre>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/translation/shoule_that_be_a_microservice/" title="Shoule_That_Be_A_Microservice">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Shoule_That_Be_A_Microservice
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/articles/python_i18n/" title="Python_i18n">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Python_i18n
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/codenow.me\/';
+      var repo_id  = 'atts-group\/atts';
+    
+    </script>
+
+    <script src="https://codenow.me/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "¶";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-136313587-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
 

@@ -1,2 +1,550 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
 
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Group by and Aggregation Elimination - ATTS</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <link rel="canonical" href="https://codenow.me/translation/group-by-and-aggregation-elimination/">
+    
+    <meta name="author" content="ATTS Group">
+    
+
+    <meta property="og:url" content="https://codenow.me/translation/group-by-and-aggregation-elimination/">
+    <meta property="og:title" content="ATTS">
+    <meta property="og:image" content="https://codenow.me/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="ATTS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://codenow.me/fonts/icon.eot');
+        src: url('https://codenow.me/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://codenow.me/fonts/icon.woff')
+               format('woff'),
+             url('https://codenow.me/fonts/icon.ttf')
+               format('truetype'),
+             url('https://codenow.me/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/application.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://codenow.me/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-indigo ">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Group by and Aggregation Elimination
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/atts-group" title="@atts-group on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+  <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+  </div>
+   
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/atts-group/atts" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://codenow.me/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>ATTS </strong>
+        
+          <br>
+          atts-group/atts
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/atts-group/atts/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/atts-group/atts/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="文章" href="https://codenow.me/articles/">
+	
+	文章
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="算法" href="https://codenow.me/algorithm/">
+	
+	算法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="翻译" href="https://codenow.me/translation/">
+	
+	翻译
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Tips" href="https://codenow.me/tips/">
+	
+	Tips
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="玩法" href="https://codenow.me/rules/">
+	
+	玩法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="加入我们" href="https://codenow.me/joinus/">
+	
+	加入我们
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/atts-group" target="_blank" title="@atts-group on GitHub">
+              @atts-group on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Group by and Aggregation Elimination </h1>
+
+			<p>原文链接：<a href="https://blogs.oracle.com/optimizer/group-by-and-aggregation-elimination">Group-by and Aggregation Elimination</a> 是一篇关于数据库查询优化的文章，有几句话实在不知道咋翻译好，也影响不大，直接留下原句了。翻译如下：</p>
+
+<p>I get a fair number of questions on query transformations, and it’s especially true at the moment because we’re in the middle of the <a href="https://www.oracle.com/corporate/pressrelease/db12r2-beta-oow-102615.html">Oracle Database 12c Release 2 beta program</a>. 有时用户可能会发现在一个执行计划里有些环节消失了或者有些反常，然后会意识到查询发生了转换 (transformation) 。举个例子，有时你会惊讶的发现，查询语句里的表和它的索引可能压根就没有出现在查询计划当中，这是连接消除 (Join Elimination) 机制在起作用。</p>
+
+<p>我相信，你已经发现查询转换是查询优化中很重要的一环，因为它经常能够通过消除一些像连接（join）、排序（sort）的步骤来降低查询的代价。有时修改查询的形式可以让查询使用不同的访问路径（access path），不同类型的连接和甚至完全不同的查询方式。在每个发布版本附带的优化器白皮书中（比如 <a href="https://www.oracle.com/technetwork/database/bi-datawarehousing/twp-optimizer-with-oracledb-12c-1963236.pdf">Oracle 12c One</a> 的），我们都介绍了大多数的查询转换模式。</p>
+
+<p>在 Oracle 12.1.0.1 中，我们增加了一种新的转换模式，叫做 <em>Group-by and Aggregation Elimination</em> ，之前一直没有提到。它在 Oracle 优化器中是最简单的一种查询转换模式了，很多人应该都已经很了解了。你们可能在 <a href="https://blogs.oracle.com/UPGRADE/">Mike Dietrich’s upgrade blog</a> 中看到过关于它的介绍。让我们来看一下这种转换模式到底做了什么。</p>
+
+<p>很多应用都有用过这么一种查询，这是一种单表分组查询的形式，数据是由另一个底层的分组查询形成的视图来提供的。比如下面这个例子：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#204a87;font-weight:bold">SELECT</span> <span style="color:#000">v</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">v</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">MAX</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">v</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">sm</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87;font-weight:bold">SUM</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">v</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">sm</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">FROM</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">SELECT</span> <span style="color:#000">t1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">t1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">SUM</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">t1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">item_count</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">AS</span> <span style="color:#000">sm</span>
+      <span style="color:#204a87;font-weight:bold">FROM</span>   <span style="color:#000">t1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">t2</span>
+      <span style="color:#204a87;font-weight:bold">WHERE</span>  <span style="color:#000">t1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column4</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">3</span>
+      <span style="color:#204a87;font-weight:bold">AND</span>    <span style="color:#000">t1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">id</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">t2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">id</span>
+      <span style="color:#204a87;font-weight:bold">AND</span>    <span style="color:#000">t2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column5</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">10</span>
+      <span style="color:#204a87;font-weight:bold">GROUP</span> <span style="color:#204a87;font-weight:bold">BY</span> <span style="color:#000">t1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">t1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column2</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">V</span>
+<span style="color:#204a87;font-weight:bold">GROUP</span> <span style="color:#204a87;font-weight:bold">BY</span> <span style="color:#000">v</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">v</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">column2</span><span style="color:#000;font-weight:bold">;</span></code></pre></div>
+<p>如果没有查询转换，这个语句可能是下面这样的查询计划。每张表里有十万行数据，查询要运行 2.09 秒:</p>
+
+<pre><code>------------------------------------------------------
+   Id | Operation             | Name | Rows  | Bytes |
+------------------------------------------------------
+|   0 | SELECT STATEMENT      |      |       |       |
+|   1 |  HASH GROUP BY        |      | 66521 |  1494K|
+|   2 |   VIEW                |      | 66521 |  1494K|
+|   3 |    HASH GROUP BY      |      | 66521 |  2143K|
+|   4 |     HASH JOIN         |      | 99800 |  3216K|
+|   5 |      TABLE ACCESS FULL| T2   | 99800 |   877K|
+|   6 |      TABLE ACCESS FULL| T1   | 99998 |  2343K|
+------------------------------------------------------
+</code></pre>
+
+<p>从上面的计划中，你会看到有两个 Hash Group By 步骤，一个是为了视图，一个是为了外层的查询。我用的是 12.1.0.2 版本的数据库，通过设置隐藏参数 <code>_optimizer_aggr_groupby_elim</code> 为 false 的方式禁用了查询转换。</p>
+
+<p>下面我们看一下查询转换生效时被转换的查询，你会发现只有一个 Hash Group By 步骤。查询时间也少了很多，只有 1.29 秒：</p>
+
+<pre><code>----------------------------------------------------
+   Id | Operation           | Name | Rows  | Bytes |
+----------------------------------------------------
+|   0 | SELECT STATEMENT    |      |       |       |
+|   1 |  HASH GROUP BY      |      | 66521 |  2143K|
+|   2 |   HASH JOIN         |      | 99800 |  3216K|
+|   3 |    TABLE ACCESS FULL| T2   | 99800 |   877K|
+|   4 |    TABLE ACCESS FULL| T1   | 99998 |  2343K|
+----------------------------------------------------
+</code></pre>
+
+<p>上面这个例子是相对比较好理解的，因为在视图中分组查询的列信息和外层查询是一样的。不一定非要是这样的形式才行。有的时候即使外层的 Group By 是视图中 Group By 的子集也是可以的。比如下面这个例子：</p>
+
+<pre><code>SELECT v.column1, v.column3, MAX(v.column1), SUM(v.sm)
+FROM (SELECT t1.column1, t1.column2, t1.column3, SUM(t1.item_count) AS sm
+      FROM   t1, t2
+      WHERE  t1.column4 &gt; 3 AND
+             t1.id = t2.id  AND
+             t2.column5 &gt; 10
+      GROUP BY t1.column1, t1.column2, t1.column3) V
+GROUP BY v.column1, v.column3;
+
+----------------------------------------------------
+   Id | Operation           | Name | Rows  | Bytes |
+----------------------------------------------------
+|   0 | SELECT STATEMENT    |      |       |       |
+|   1 |  HASH GROUP BY      |      | 49891 |  1607K|
+|*  2 |   HASH JOIN         |      | 99800 |  3216K|
+|*  3 |    TABLE ACCESS FULL| T2   | 99800 |   877K|
+|*  4 |    TABLE ACCESS FULL| T1   | 99998 |  2343K|
+----------------------------------------------------
+</code></pre>
+
+<p>你不需要额外做什么操作来开启这个查询转换。它默认是被开启的，当某个查询符合条件的时候就会自动被转换。在实际的企业级系统中，这种方式一定会带来很多显著的优化。不过要注意，这种转换模式在使用了 rollup 和 cube 的分组函数时是不起作用的。</p>
+
+<p>这种转换有没有什么问题呢？是有的（这也是 Mike Dietrich 提到它的原因）。为了做这个转换，Oracle 优化器必须判断出来什么时候可以用什么时候不可以用，这背后的逻辑可能会很复杂。The bottom line is that there were some cases where the transformation was being applied and it shouldn’t have been. Generally, this was where the outer group-by query was truncating or casting columns used by the inner group-by. This is now fixed and it’s covered by patch number <a href="https://support.oracle.com/epmos/faces/DocumentDisplay?id=21826068.8">21826068</a>. Please use <a href="https://support.oracle.com/">MOS</a> to check availability for your platform and database version.</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/algorithm/leetcode_62._unique_paths_by_jarvys/" title="Leetcode: 62. Unique Paths by jarvys">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Leetcode: 62. Unique Paths by jarvys
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/articles/code-reading-coverage/" title="代码「阅读」覆盖率">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              代码「阅读」覆盖率
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/codenow.me\/';
+      var repo_id  = 'atts-group\/atts';
+    
+    </script>
+
+    <script src="https://codenow.me/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "¶";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-136313587-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
 
