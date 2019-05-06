@@ -388,10 +388,10 @@ module.exports = { &#34;env&#34;: { &#34;browser&#34;: true, &#34;commonjs&#34;:
             </a>
             <br>
 
-              这周发现目前在做的项目的一个地方，就是要读取特定时间的订单数据，发现这个数据并不准确。 后来找到原因是因为前端传过来的数据是“YYYY-MM-DD”模式， 但是数据库保存的数据是“YYYY-MM-DD HH:MM:SS”格式。
+              这周发现目前在做的项目的一个地方，就是要读取特定时间的订单数据，发现这个数据并不准确。 后来找到原因是因为前端传过来的数据是 “YYYY-MM-DD” 模式， 但是数据库保存的数据是 “YYYY-MM-DD HH:MM:SS” 格式。
 所以查询语句从
 SELECT * FROM XX WHERE ORDER_DATE BETWEEN ORDER_START_TIME AND ORDER_END_TIME；  变成
-SELECT * FROM XX WHERE ORDER_DATE BETWEEN DATE(ORDER_START_TIME) AND DATE(ORDER_END_TIME)；  不过，
+SELECT * FROM XX WHERE ORDER_DATE BETWEEN DATE(ORDER_START_TIME) AND DATE(ORDER_END_TIME)；
               <a href="https://codenow.me/tips/mysql_date/"><br>[阅读全文]</a>
 
             <hr> 
@@ -585,12 +585,12 @@ switch v.(*Type) { case TypeA: //&hellip;  case TypeB: //&hellip;     default: /
               <a href="https://codenow.me/tips/golang-type-detecting/"><br>[阅读全文]</a>
 
             <hr> 
-            <a href="https://codenow.me/tips/pbcopy/" title="vi cheet sheet: pbcopy">
-                <h2>vi cheet sheet: pbcopy </h2>
+            <a href="https://codenow.me/tips/pbcopy/" title="VIM Cheetsheet: pbcopy">
+                <h2>VIM Cheetsheet: pbcopy </h2>
             </a>
             <br>
 
-              用 vi 在 terminal 中复制信息 pbcopy &lt; filename.extension # eg. pbcopy &lt; a.txt
+              用 vim 在 terminal 中复制信息 pbcopy &lt; filename.extension # eg. pbcopy &lt; a.txt
               <a href="https://codenow.me/tips/pbcopy/"><br>[阅读全文]</a>
 
             <hr> 

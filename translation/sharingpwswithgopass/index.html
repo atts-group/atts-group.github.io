@@ -316,10 +316,11 @@
 
 			
 
-<p>作者： Woile
+<blockquote>
+<p>作者： Woile </br>
 原链接： <a href="https://woile.github.io/posts/sharing-team-secrets/">Sharing passwords using gopass, git and gpg
-</a>
-（删减版）</p>
+</a></p>
+</blockquote>
 
 <p>不想再把你的密码放在不可靠却方便的地方？
 不想再在 slack，notes 这些不可信赖的平台上分享密码？
@@ -328,21 +329,27 @@
 
 <h2 id="背景">背景</h2>
 
-<p>我为了寻找一个安全的方式去储存我的密码花了不少时间。当然，除了安全，我还希望有以下性能：
-- 密码存在云里
-- 设备之间可以简单同步
-- 可以很方便地与人共享
-我找到的解决方案是 <a href="https://www.gopass.pw/">gopass</a></p>
+<p>我为了寻找一个安全的方式去储存我的密码花了不少时间。当然，除了安全，我还希望有以下性能：</p>
+
+<ul>
+<li>密码存在云里</li>
+<li>设备之间可以简单同步</li>
+<li>可以很方便地与人共享
+我找到的解决方案是 <a href="https://www.gopass.pw/">gopass</a></li>
+</ul>
 
 <h2 id="gopass-是怎么工作的">gopass 是怎么工作的</h2>
 
 <p>gopass 就像是有多一份电池的 <a href="https://www.passwordstore.org/">pass</a>（unix 密码管理器）
-在这里面，它拥有的且和我相关的性能有
-1. 用 gpg 进行加密；
-2. 用 git 进行密码同步；
-3. 不同属性的密码可以放在不同的储存地方（个人、公司等）；
-4. 每个存储地方指向不同的仓库；
-5. 一个存储地址支持多个人运用。接下来我们称他们为收信人</p>
+在这里面，它拥有的且和我相关的性能有</p>
+
+<ol>
+<li>用 gpg 进行加密；</li>
+<li>用 git 进行密码同步；</li>
+<li>不同属性的密码可以放在不同的储存地方（个人、公司等）；</li>
+<li>每个存储地方指向不同的仓库；</li>
+<li>一个存储地址支持多个人运用。接下来我们称他们为收信人</li>
+</ol>
 
 <p>虽然它还缺乏一些文档和命令，但是我们不必害怕去尝试它。
 我很高兴 gopass 使用了 gpg。
@@ -360,9 +367,12 @@
 
 <p>在 gopass 的文本中，我们需要用 gpg 提供的公钥和私钥。
 想象一下你有很多的公钥，万一它们被锁了，只能用你手上拥有的私钥才能打开。
-从此我们可以总结出两件事情：
-1. 你可以分发你的公钥并且让任何人对它的信息进行加密。比如说我把公钥给朋友了，他们放了一些东西进去并锁住，只有我可以打开它。当然，我也可以自己加密自己的东西，以防别人窥探。
-2. 私钥非常重要。私钥要安全的使用，不要丢失私钥，要备份私钥。你可以用加密的随身硬盘、放在安全地方的小纸条或者 <a href="https://www.yubico.com/">yubikey</a>。</p>
+从此我们可以总结出两件事情：</p>
+
+<ol>
+<li>你可以分发你的公钥并且让任何人对它的信息进行加密。比如说我把公钥给朋友了，他们放了一些东西进去并锁住，只有我可以打开它。当然，我也可以自己加密自己的东西，以防别人窥探。</li>
+
+<li><p>私钥非常重要。私钥要安全的使用，不要丢失私钥，要备份私钥。你可以用加密的随身硬盘、放在安全地方的小纸条或者 <a href="https://www.yubico.com/">yubikey</a>。</p>
 
 <h3 id="创建密钥">创建密钥</h3>
 
@@ -392,11 +402,12 @@
 <p>gopass 就像 unix，你有一棵树（不同的文件夹），树上有叶子（加密文件）。</p>
 
 <pre><code>gopass
-    ├── my-company
-    │   └── pepe@my-company.com
-    └── personal
-        └── pepe@personal.com
-</code></pre>
+├── my-company
+│   └── pepe@my-company.com
+└── personal
+    └── pepe@personal.com
+</code></pre></li>
+</ol>
 
 <p>我们开始来加入加密信息吧。</p>
 
@@ -531,24 +542,49 @@
 你自己查一下怎么操作吧。
 提示： gopass recipients &ndash;help</p>
 
-<h1 id="结论">结论</h1>
+<h2 id="结论">结论</h2>
 
-<p>我弄了一份 gopass <a href="https://woile.github.io/gopass-cheat-sheet/">cheatsheet</a> 和 一个 <a href="https://woile.github.io/gopass-presentation/">presentation</a>。
+<p>我弄了一份 gopass <a href="https://woile.github.io/gopass-cheat-sheet/">cheatsheet</a> 和 一个 <a href="https://woile.github.io/gopass-presentation/">presentation</a>。</br>
 gopass 是一个很棒的工具。不幸的是对于非开发者可能有点门槛。
-下面是一些我用来加强 gopass 操作用到的其它工具。
-<a href="https://github.com/zeapo/Android-Password-Store">Android password store</a>
-我建议用 f-droid 来安装它，你需要 OpenKey-chain 来创建一个新的 gpg 密钥
-<a href="https://github.com/gopasspw/gopassbridge">gopass bridge</a>
-firefox 或 chrome 上的插件，可以让你登录你的存储地址。
-<a href="https://github.com/codecentric/gopass-ui">gopass ui</a>
+下面是一些我用来加强 gopass 操作用到的其它工具。</p>
+
+<p><a href="https://github.com/zeapo/Android-Password-Store">Android password store</a> </br>
+我建议用 f-droid 来安装它，你需要 OpenKey-chain 来创建一个新的 gpg 密钥</p>
+
+<p><a href="https://github.com/gopasspw/gopassbridge">gopass bridge</a> </br>
+firefox 或 chrome 上的插件，可以让你登录你的存储地址。</p>
+
+<p><a href="https://github.com/codecentric/gopass-ui">gopass ui</a> </br>
 在命令行里使用 gopass 的基于 electron 的 ui 软件。
-提供了丰富的图形界面去搜索和管理你的密码。
-欢迎任何反馈，我不是安全专家，如果有更好的更安全的工作流可以告诉我，我很高兴。</p>
+提供了丰富的图形界面去搜索和管理你的密码。</p>
+
+<p>欢迎任何反馈，我不是安全专家，如果有更好的更安全的工作流可以告诉我，我很高兴。</p>
 
      
-                        </br>
+                        <hr>
                         
                         <div>
+
+							</br>
+                        
+							<div>tags: </div>
+                            
+                                <div id="tags">
+                                    
+                                    <div>
+                                        <a href="https://codenow.me/tags/kingkoma">kingkoma</a> 
+                                    </div>
+                                    
+                                    <div>
+                                        <a href="https://codenow.me/tags/security">security</a> 
+                                    </div>
+                                    
+                                    <div>
+                                        <a href="https://codenow.me/tags/git">git</a> 
+                                    </div>
+                                    
+                                </div>
+                            
                         
                         </div>
 

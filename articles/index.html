@@ -342,10 +342,12 @@ public class Test{ static f(String s, int i){ System.out.println(&#34;String:&#3
             </a>
             <br>
 
-              Shell 的定义  一个命令解释器， 位于操作系统和应用程序之间  Shell 的作用 shell 负责把应用程序的输入命令信息解释给操作系统，将操作系统指令处理后的结果解释给应用程序。
-Shell 的分类  图形界面式  桌面  命令行式  windows 系统 cmd.exe Linux 系统 sh bash zsh &hellip;   查看系统 shell 信息 echo $SHELL  查看系统支持的 shell cat /etc/shells  Shell 的使用  手工方式 逐行输入命令，逐行进行确认执行
- 脚本方式 把执行命令写进脚本文件中，通过执行脚本达到执行效果
-  sh
+              Shell 的定义  一个命令解释器 位于操作系统和应用程序之间  Shell 的作用 shell 负责把应用程序的输入命令信息解释给操作系统，将操作系统指令处理后的结果解释给应用程序。
+Shell 的分类  图形界面式  桌面  命令行式
+ windows 系统 (cmd.exe)
+ Linux 系统 (sh, bash, zsh&hellip;)
+   查看系统 shell 信息 echo $SHELL  查看系统支持的 shell cat /etc/shells  Shell 的使用  手工方式  逐行输入命令，逐行进行确认执行
+ 脚本方式  把执行命令写进脚本文件中，通过执行脚本达到执
               <a href="https://codenow.me/articles/learning_the_shell_01/"><br>[阅读全文]</a>
 
             <hr> 
@@ -491,10 +493,10 @@ CentOS7： [root@lvs-webserver2 ~]# docker ps -a CONTAINER ID IMAGE COMMAND CREA
 
               作者：杨一
 原链接： 漫谈死锁
-一、前言 死锁是每个 MySQL DBA 都会遇到的技术问题，本文自己针对死锁学习的一个总结，了解死锁是什么，MySQL 如何检测死锁，处理死锁，死锁的案例，如何避免死锁。
+ 一、前言 死锁是每个 MySQL DBA 都会遇到的技术问题，本文自己针对死锁学习的一个总结，了解死锁是什么，MySQL 如何检测死锁，处理死锁，死锁的案例，如何避免死锁。
 二、死锁 死锁是并发系统中常见的问题，同样也会出现在 Innodb 系统中。当两个及以上的事务，双方都在等待对方释放已经持有的锁或者因为加锁顺序不一致造成循环等待锁资源，就会出现&rdquo;死锁&rdquo;。
 举例来说 A 事务持有 x1锁 ，申请 x2 锁，B 事务持有 x2 锁，申请 x1 锁。A 和 B 事务持有锁并且申请对方持有的锁进入循环等待，就造成死锁。
-从死锁的定义来看，M
+从死锁的定义来看，
               <a href="https://codenow.me/articles/about_mysql_locks_2/"><br>[阅读全文]</a>
 
             <hr> 
@@ -564,12 +566,13 @@ Docker容器内启动的进程是不是Docker进程本身要看Dockerfile的写�
             </a>
             <br>
 
-              Mysql 锁：灵魂七拷问 作者：柳树 on 美业 from 有赞coder
+              作者：柳树 on 美业 from 有赞coder
 原链接： Mysql 锁：灵魂七拷问
-一、缘起 假设你想给别人说明，Mysql 里面是有锁的，你会怎么做？
+ 一、缘起 假设你想给别人说明，Mysql 里面是有锁的，你会怎么做？
 大多数人，都会开两个窗口，分别起两个事务，然后 update 同一条记录，在发起第二次 update 请求时，block，这样就说明这行记录被锁住了： 二、禁锢 问题来了，貌似只有显式的开启一个事务，才会有锁，如果直接执行一条 update 语句，会不会加锁呢？
 比如直接执行：
-update t set c = c + 1 where id = 1; 这条语句，前面不加 begin，不显式开启事务，那么 Mys
+update t set c = c + 1 where id = 1; 这条语句，前面不加 begin，不显式开启事务，那么 Mysql 会不会加锁呢？
+直觉
               <a href="https://codenow.me/articles/about_mysql_locks/"><br>[阅读全文]</a>
 
             <hr> 
@@ -651,9 +654,9 @@ namespace 一种只有 4 个 API：
             </a>
             <br>
 
-              互联网之子 Aaron Swarts 想要看到的世界 作者: Jade &amp; 霍炬 链接：互联网之子 Aaron Swarts 想要看到的世界
-Jade 和我偶尔会聊起一些宏大的话题，最近聊到了 Aaron 和互联网创建者们的一些历史。她觉得应该正经的来一次对话，记录下来分享给其他人。我们约了个时间，原计划聊 2 个小时，实际上聊了 5 个小时。最后形成了一篇交谈形式的文字，她称之为文字版的 Podcast。我很喜欢这种形式，我也更认同文字的价值，更好分享，更好检索，也更好修改或者摘录使用。以后我们应该还会继续这样的对话，这次聊天里面很多东西都可以继续讲下去。希望你也喜欢这个形式。
-网
+              作者: Jade &amp; 霍炬  链接：互联网之子 Aaron Swarts 想要看到的世界
+ Jade 和我偶尔会聊起一些宏大的话题，最近聊到了 Aaron 和互联网创建者们的一些历史。她觉得应该正经的来一次对话，记录下来分享给其他人。我们约了个时间，原计划聊 2 个小时，实际上聊了 5 个小时。最后形成了一篇交谈形式的文字，她称之为文字版的 Podcast。我很喜欢这种形式，我也更认同文字的价值，更好分享，更好检索，也更好修改或者摘录使用。以后我们应该还会继续这样的对话，这次聊天里面很多东西都可以继续讲下去。希望你也喜欢这个形式。
+网络和 BBS 在我们现在知道的互联网诞生之前就存在
               <a href="https://codenow.me/articles/aaron_huoju/"><br>[阅读全文]</a>
 
             <hr> 

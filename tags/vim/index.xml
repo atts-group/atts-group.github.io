@@ -20,5 +20,24 @@
 git config --global core.editor vim  使用 直接使用 git commit 调用</description>
     </item>
     
+    <item>
+      <title>用 tail 实时查看日志</title>
+      <link>https://codenow.me/tips/linux_tail/</link>
+      <pubDate>Sun, 21 Apr 2019 18:17:44 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/linux_tail/</guid>
+      <description>用 tail 命令看实时的日志文件
+tail -f log_path  </description>
+    </item>
+    
+    <item>
+      <title>VIM Cheetsheet: pbcopy</title>
+      <link>https://codenow.me/tips/pbcopy/</link>
+      <pubDate>Sun, 07 Apr 2019 14:17:25 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/pbcopy/</guid>
+      <description> 用 vim 在 terminal 中复制信息 pbcopy &amp;lt; filename.extension # eg. pbcopy &amp;lt; a.txt  </description>
+    </item>
+    
   </channel>
 </rss>

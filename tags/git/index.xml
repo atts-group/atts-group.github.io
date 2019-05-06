@@ -20,5 +20,35 @@
 git config --global core.editor vim  使用 直接使用 git commit 调用</description>
     </item>
     
+    <item>
+      <title>Git Commit 指南</title>
+      <link>https://codenow.me/translation/commit_msg_guide/</link>
+      <pubDate>Sun, 28 Apr 2019 10:48:43 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/commit_msg_guide/</guid>
+      <description>原链接： Commit messages guide
+一个让你了解 commit 信息的重要性以及如何写好它们的指南。 本文可以帮助到你 - 了解什么是 commit - 写好一个 commit 信息为什么如此重要 - 最佳实践 - 一些关于计划、编写或重写好的 commit 历史记录的建议
+什么是 commit？ 简单来说，一次 commit 就是对于你的本地文件的一份快照，写在你的本地仓库里。和某些人想法相反，git 不仅保存了文件之间的差异，而是保存了文件的完整版本。对于那些 commit 和 commit 之间没有发生变化的文件，git 保存了一个快捷链接，这个链接指向之前保存好的相同的文件。 下图展示了 git 是如何随着时间存储数据的，其中每个 version 表示一次 commit。
+()
+为什么写好一个 commit 信息如此重要  为了提高代码审核的效率，及简化代码审核的过程； 帮助了解历史变化； 去阐述代码无法解释的原因； 帮助未来的维护人员弄清楚为什么要更改和如何更改的，让排除故障和调试更容易。  为了最大化这些好处，我们接下来会举一些好例子和标准范本。
+好示范 这些都是我从自己经历、网络文章或其它的指南收集的例子。 如果你对它们有任何意见或建议，欢迎新开一个 pull request。
+用命令式 # 好的 Use InventoryBackendPool to retrieve inventory backend # 不好的 Used InventoryBackendPool to retrieve inventory backend  为什么要用命令式？ 一次 commit 消息描述了相应改变实际执行的操作及其影响，而不是它做了什么。 Chris Beams 的这篇优秀的文章给了我们提供了一个很简单的句式，可以帮助我们用命令式写出更好的 commit 消息</description>
+    </item>
+    
+    <item>
+      <title>使用 gopass，git 和 gpg 来分享你的密码</title>
+      <link>https://codenow.me/translation/sharingpwswithgopass/</link>
+      <pubDate>Sun, 21 Apr 2019 16:20:07 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/sharingpwswithgopass/</guid>
+      <description>作者： Woile  原链接： Sharing passwords using gopass, git and gpg 
+ 不想再把你的密码放在不可靠却方便的地方？ 不想再在 slack，notes 这些不可信赖的平台上分享密码？ 不想再在不同的地方放你的团队密码？ 如果对于上面的问题你的回答如果是 yes，那你应该会觉得这篇文章有用。
+背景 我为了寻找一个安全的方式去储存我的密码花了不少时间。当然，除了安全，我还希望有以下性能：
+ 密码存在云里 设备之间可以简单同步 可以很方便地与人共享 我找到的解决方案是 gopass  gopass 是怎么工作的 gopass 就像是有多一份电池的 pass（unix 密码管理器） 在这里面，它拥有的且和我相关的性能有
+ 用 gpg 进行加密； 用 git 进行密码同步； 不同属性的密码可以放在不同的储存地方（个人、公司等）； 每个存储地方指向不同的仓库； 一个存储地址支持多个人运用。接下来我们称他们为收信人  虽然它还缺乏一些文档和命令，但是我们不必害怕去尝试它。 我很高兴 gopass 使用了 gpg。 它唯一的缺点，我想是它正式的 windows 版本还没发布。
+安装 你可以看看这个网站里介绍的安装或者可以在 gopass repo 里得到更多的信息。
+使用 首先，我们需要一个 gpg 密钥。我们需要 gpg cli 去创建一个，如果你安装了 gopass，那你的系统里应该就有了。</description>
+    </item>
+    
   </channel>
 </rss>

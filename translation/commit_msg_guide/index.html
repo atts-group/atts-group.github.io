@@ -325,14 +325,14 @@
 - 最佳实践
 - 一些关于计划、编写或重写好的 commit 历史记录的建议</p>
 
-<h3 id="什么是-commit">什么是 commit？</h3>
+<h2 id="什么是-commit">什么是 commit？</h2>
 
 <p>简单来说，一次 commit 就是对于你的本地文件的一份快照，写在你的本地仓库里。和某些人想法相反，<a href="https://git-scm.com/book/eo/v1/Ekkomenci-Git-Basics#Snapshots,-Not-Differences">git 不仅保存了文件之间的差异，而是保存了文件的完整版本</a>。对于那些 commit 和 commit 之间没有发生变化的文件，git 保存了一个快捷链接，这个链接指向之前保存好的相同的文件。
 下图展示了 git 是如何随着时间存储数据的，其中每个 version 表示一次 commit。</p>
 
 <p>(<img src="https://camo.githubusercontent.com/461832542a2262717f4cd9e843e8e523a10b83b2/68747470733a2f2f692e737461636b2e696d6775722e636f6d2f41513554472e706e67" alt="68747470733a2f2f692e737461636b2e696d6775722e636f6d2f41513554472e706e67" />)</p>
 
-<h3 id="为什么写好一个-commit-信息如此重要">为什么写好一个 commit 信息如此重要</h3>
+<h2 id="为什么写好一个-commit-信息如此重要">为什么写好一个 commit 信息如此重要</h2>
 
 <ul>
 <li>为了提高代码审核的效率，及简化代码审核的过程；</li>
@@ -343,12 +343,12 @@
 
 <p>为了最大化这些好处，我们接下来会举一些好例子和标准范本。</p>
 
-<h3 id="好示范">好示范</h3>
+<h2 id="好示范">好示范</h2>
 
 <p>这些都是我从自己经历、网络文章或其它的指南收集的例子。
 如果你对它们有任何意见或建议，欢迎新开一个 pull request。</p>
 
-<h4 id="用命令式">用命令式</h4>
+<h3 id="用命令式">用命令式</h3>
 
 <pre><code># 好的
 Use InventoryBackendPool to retrieve inventory backend
@@ -373,7 +373,7 @@ If applied, this commit will use InventoryBackendPool to retrieve inventory back
 If applied, this commit will used InventoryBackendPool to retrieve inventory backend
 </code></pre>
 
-<h4 id="第一个字大写">第一个字大写</h4>
+<h3 id="第一个字大写">第一个字大写</h3>
 
 <pre><code># 好的
 Add `use` method to Credit model
@@ -385,7 +385,7 @@ add `use` method to Credit model
 <p>为什么要这样做？因为要遵守“一句话的第一个字母要大写”这个语法规则。
 对于这个做法，人与人之间、团队与团队之间，甚至语言和语言之间都不一定是一样的。无论要不要第一个字母大写，更重要的是，定一个简单的标准，然后坚持遵守它。</p>
 
-<h4 id="尝试不需要看源码就可以知道有什么变化">尝试不需要看源码就可以知道有什么变化</h4>
+<h3 id="尝试不需要看源码就可以知道有什么变化">尝试不需要看源码就可以知道有什么变化</h3>
 
 <pre><code># 好的
 Add `use` method to Credit model
@@ -403,7 +403,7 @@ Adjust css
 
 <p>这个在很多场景都非常有用处，比如多次提交、多次修改和重构的时候。可以帮助审核者了解提交者的想法。</p>
 
-<h4 id="用信息去解释-为什么-为了什么-怎么做的-和一些细节">用信息去解释<code>为什么</code>、<code>为了什么</code>、<code>怎么做的</code>和一些细节</h4>
+<h3 id="用信息去解释-为什么-为了什么-怎么做的-和一些细节">用信息去解释<code>为什么</code>、<code>为了什么</code>、<code>怎么做的</code>和一些细节</h3>
 
 <pre><code># 好的
 Fix method name of InventoryBackend child classes
@@ -436,7 +436,7 @@ setup a new attribute (in_use_amount) with a new value
 一个多余的空行是被看作这个正文的一部分的。
 同时，像 <code>-</code>,<code>*</code> <code>｀</code> 是可以提高可读性的元素。</p>
 
-<h4 id="避免通用信息或没有内容的信息">避免通用信息或没有内容的信息</h4>
+<h3 id="避免通用信息或没有内容的信息">避免通用信息或没有内容的信息</h3>
 
 <pre><code># 不好的
 Fix this
@@ -450,11 +450,11 @@ Change stuff
 Adjust css
 </code></pre>
 
-<h4 id="限制字数">限制字数</h4>
+<h3 id="限制字数">限制字数</h3>
 
 <p><a href="https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines">建议主题少于 50 个字母，正文少于 72 个字母</a></p>
 
-<h4 id="保持语言一致性">保持语言一致性</h4>
+<h3 id="保持语言一致性">保持语言一致性</h3>
 
 <p>给项目持有人：选择一个语言，并用那个语言写所有的 commit 信息。更理想的是，和代码的注释、默认翻译区域设置（用本地化项目时）等保持一致。
 给项目贡献者：查看项目历史 commit 信息，使用同一种语言写你的 commit 语句。</p>
@@ -477,7 +477,7 @@ efefef Add `use` method to Credit model
 cdcdcd Agora vai
 </code></pre>
 
-<h4 id="模版">模版</h4>
+<h3 id="模版">模版</h3>
 
 <p>这是来自 <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim Pope </a>的一个模版，<a href="https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project">Pro Git Book </a>上有记载。</p>
 
@@ -510,24 +510,24 @@ Resolves: #123
 See also: #456, #789
 </code></pre>
 
-<h3 id="rebase-和-merge">Rebase 和 Merge</h3>
+<h2 id="rebase-和-merge">Rebase 和 Merge</h2>
 
 <p>这个部分是来自 Atlassian 的 TL;DR 的一个很好的教程。<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">Merging vs. Rebasing | Atlassian Git Tutorial</a></p>
 
 <p><img src="https://camo.githubusercontent.com/100363e5ea3ea688e98a05ff4aad4d491f68ba05/68747470733a2f2f7761632d63646e2e61746c61737369616e2e636f6d2f64616d2f6a63723a30316230623034652d363466332d343635392d616632312d6334643836626337636230622f30312e7376673f63646e56657273696f6e3d6871" alt="68747470733a2f2f7761632d63646e2e61746c61737369616e2e636f6d2f64616d2f6a63723a30316230623034652d363466332d343635392d616632312d6334643836626337636230622f30312e7376673f63646e56657273696f6e3d6871" /></p>
 
-<h4 id="rebase">Rebase</h4>
+<h3 id="rebase">Rebase</h3>
 
 <p>TL;DR：在你的基本分支基础上，逐步进行你的分支 commit，生成一棵新树。</p>
 
 <p><img src="https://camo.githubusercontent.com/55a8d4d1514ae2b5f95d2852b907444bdf90c1a2/68747470733a2f2f7761632d63646e2e61746c61737369616e2e636f6d2f64616d2f6a63723a35623135336132322d333862652d343064302d616563382d3566326666666337373165352f30332e7376673f63646e56657273696f6e3d6871" alt="68747470733a2f2f7761632d63646e2e61746c61737369616e2e636f6d2f64616d2f6a63723a35623135336132322d333862652d343064302d616563382d3566326666666337373165352f30332e7376673f63646e56657273696f6e3d6871" /></p>
 
-<h4 id="merge">Merge</h4>
+<h3 id="merge">Merge</h3>
 
 <p>TL;DR：创建一个新的 commit，成为一个合并 commit，两个分支间存在一些差异。
 <img src="https://camo.githubusercontent.com/5db7f575cb9d38a52d7204353d39ad40b484fcf5/68747470733a2f2f7761632d63646e2e61746c61737369616e2e636f6d2f64616d2f6a63723a65323239666566362d326332662d346134662d623237302d6531653162616139343035352f30322e7376673f63646e56657273696f6e3d6871" alt="68747470733a2f2f7761632d63646e2e61746c61737369616e2e636f6d2f64616d2f6a63723a65323239666566362d326332662d346134662d623237302d6531653162616139343035352f30322e7376673f63646e56657273696f6e3d6871" /></p>
 
-<h4 id="为什么有些人喜欢-rebase-多于-merge">为什么有些人喜欢 rebase 多于 merge？</h4>
+<h3 id="为什么有些人喜欢-rebase-多于-merge">为什么有些人喜欢 rebase 多于 merge？</h3>
 
 <p>我本人喜欢 rebase 多于 merge，理由有如下：
 - 它生成一个干净的历史记录，没有不必要的合并 commit；
@@ -535,7 +535,7 @@ See also: #456, #789
 - 提交者能解决更多的合并，以及在一个 commit 里的每个合并更改都有准确的信息；
 - 挖掘和审核合并 commit 是不寻常的，因此要尽量避免它们，确保所有的更改都有一个所属的 commit。</p>
 
-<h4 id="什么时候-squash">什么时候 squash？</h4>
+<h3 id="什么时候-squash">什么时候 squash？</h3>
 
 <p><code>Squashing</code> 是指将多个 commit 合并成一个 commit 的过程。
 在某些场合下很有用处，比如：
@@ -543,14 +543,14 @@ See also: #456, #789
 - 把一些分开的更改一起应用，会更有意义
 - 进展 commit 的重写工作</p>
 
-<h4 id="什么时候应该避免-rebases-或-squash">什么时候应该避免 rebases 或 squash？</h4>
+<h3 id="什么时候应该避免-rebases-或-squash">什么时候应该避免 rebases 或 squash？</h3>
 
 <p>在公共 commit 或者共享分支上尽量避免用 rebase 和 squash。
 rebase 和 squash 会重写历史和覆盖已存在的 commits，在共享分支上这样操作，因为冲突会引起混乱和导致某些人丢失他们的 commits（包括本地和远程）。</p>
 
-<h3 id="有用的-git-命令">有用的 git 命令</h3>
+<h2 id="有用的-git-命令">有用的 git 命令</h2>
 
-<h4 id="rebase-i">rebase -i</h4>
+<h3 id="rebase-i">rebase -i</h3>
 
 <p>用它来 squash commits，修改信息，重写、删除或重新调整 commit 等。</p>
 
@@ -590,11 +590,11 @@ pick 9b81c72 Add &quot;Rebase vs Merge&quot; section
 # Note that empty commits are commented out
 </code></pre>
 
-<h4 id="fixup">fixup</h4>
+<h3 id="fixup">fixup</h3>
 
 <p>用它可以很方便的清理 commits，没有 rebases 那么复杂的操作。<a href="http://fle.github.io/git-tip-keep-your-branch-clean-with-fixup-and-autosquash.html">这篇文章</a>介绍了一些例子来展示如何用它和应该什么情况下用它。</p>
 
-<h4 id="cherry-pick">cherry-pick</h4>
+<h3 id="cherry-pick">cherry-pick</h3>
 
 <p>这个当你在错误分支上进行 commit 时非常有用</p>
 
@@ -604,7 +604,7 @@ pick 9b81c72 Add &quot;Rebase vs Merge&quot; section
  1 file changed, 1 insertion(+), 1 deletion(-)
 </code></pre>
 
-<h4 id="add-checkout-reset-patch-p">add/checkout/reset <code>[--patch | -p]</code></h4>
+<h3 id="add-checkout-reset-patch-p">add/checkout/reset <code>[--patch | -p]</code></h3>
 
 <p>假如说我们有以下差异：</p>
 
@@ -681,9 +681,26 @@ Stage this hunk [y,n,q,a,d,/,K,j,J,g,e,?]?
 </code></pre>
 
      
-                        </br>
+                        <hr>
                         
                         <div>
+
+							</br>
+                        
+							<div>tags: </div>
+                            
+                                <div id="tags">
+                                    
+                                    <div>
+                                        <a href="https://codenow.me/tags/kingkoma">kingkoma</a> 
+                                    </div>
+                                    
+                                    <div>
+                                        <a href="https://codenow.me/tags/git">git</a> 
+                                    </div>
+                                    
+                                </div>
+                            
                         
                         </div>
 

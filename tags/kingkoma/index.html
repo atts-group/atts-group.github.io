@@ -318,10 +318,12 @@
             </a>
             <br>
 
-              Shell 的定义  一个命令解释器， 位于操作系统和应用程序之间  Shell 的作用 shell 负责把应用程序的输入命令信息解释给操作系统，将操作系统指令处理后的结果解释给应用程序。
-Shell 的分类  图形界面式  桌面  命令行式  windows 系统 cmd.exe Linux 系统 sh bash zsh &hellip;   查看系统 shell 信息 echo $SHELL  查看系统支持的 shell cat /etc/shells  Shell 的使用  手工方式 逐行输入命令，逐行进行确认执行
- 脚本方式 把执行命令写进脚本文件中，通过执行脚本达到执行效果
-  sh
+              Shell 的定义  一个命令解释器 位于操作系统和应用程序之间  Shell 的作用 shell 负责把应用程序的输入命令信息解释给操作系统，将操作系统指令处理后的结果解释给应用程序。
+Shell 的分类  图形界面式  桌面  命令行式
+ windows 系统 (cmd.exe)
+ Linux 系统 (sh, bash, zsh&hellip;)
+   查看系统 shell 信息 echo $SHELL  查看系统支持的 shell cat /etc/shells  Shell 的使用  手工方式  逐行输入命令，逐行进行确认执行
+ 脚本方式  把执行命令写进脚本文件中，通过执行脚本达到执
               <a href="https://codenow.me/articles/learning_the_shell_01/"><br>[阅读全文]</a>
 
             <hr> 
@@ -335,6 +337,17 @@ git config &ndash;global core.editor vim  使用 直接使用 git commit 调用
               <a href="https://codenow.me/tips/git_commit_multiple_lines_messages/"><br>[阅读全文]</a>
 
             <hr> 
+            <a href="https://codenow.me/translation/making_first_contribution/" title="手把手带你创建你第一个 GitHub 贡献">
+                <h2>手把手带你创建你第一个 GitHub 贡献 </h2>
+            </a>
+            <br>
+
+              原链接： A Step by Step Guide to Making Your First GitHub Contribution
+前言 如果你还没有 Github 账户，或者不知道什么是 Git，请阅读：编程菜鸟？你昨天就应该把 Git 给学了
+拜见老师 希望你来这之前已经注册好 Github 账户并做好开始第一个开源项目贡献的准备了。 作为一个新手，贡献一个项目可能会觉得可怕。我明白，我也曾经试过。我花了很长时间才完成我的第一个 Pull Request。这就是为什么我希望你认识 Roshan Jossey 的原因。Roshan 建了一个 Github 仓库 First Contrib
+              <a href="https://codenow.me/translation/making_first_contribution/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/" title="Leetcode_938: Range Sum Of BST">
                 <h2>Leetcode_938: Range Sum Of BST </h2>
             </a>
@@ -342,6 +355,24 @@ git config &ndash;global core.editor vim  使用 直接使用 git commit 调用
 
               题号：938 难度：easy 链接：<a href="https://leetcode.com/problems/range-sum-of-bst/">https://leetcode.com/problems/range-sum-of-bst/</a> 描述：返回一棵二叉搜索树两个节点之间的值的和，包括两个节点  class TreeNode: def <strong>init</strong>(self, x): self.val = x self.left = None self.right = None class Solution: def rangeSumBST(self, root: TreeNode, L: int, R: int) -&gt; int: if not root: return 0 elif root.va
               <a href="https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/articles/tmux_hotkey/" title="Tmux 快捷键">
+                <h2>Tmux 快捷键 </h2>
+            </a>
+            <br>
+
+              启动 tmux： tmux
+ 创建新命名会话和命名窗口： tmux new -s name -n name
+ 恢复会话： tmux at [-t 会话名]
+ 会话后台运行 prefix d
+ 列出所有会话： tmux ls
+ 关闭会话： tmux kill-session -t 会话名
+ 关闭所有会话： tmux ls | grep : | cut -d. -f1 | awk &lsquo;{print substr($1, 0, length($1)-1)}&rsquo; | xargs kill
+ 触发 tmux： ctr+b
+ 新建窗口： prefix c
+ 切换窗口： alt+窗口号（
+              <a href="https://codenow.me/articles/tmux_hotkey/"><br>[阅读全文]</a>
 
             <hr> 
             <a href="https://codenow.me/algorithm/jewels_and_stones/" title="Leetcode_771: Jewels and Stones">
@@ -353,6 +384,53 @@ git config &ndash;global core.editor vim  使用 直接使用 git commit 调用
               <a href="https://codenow.me/algorithm/jewels_and_stones/"><br>[阅读全文]</a>
 
             <hr> 
+            <a href="https://codenow.me/tips/mysql_date/" title="Mysql 里的 DATE 函数">
+                <h2>Mysql 里的 DATE 函数 </h2>
+            </a>
+            <br>
+
+              这周发现目前在做的项目的一个地方，就是要读取特定时间的订单数据，发现这个数据并不准确。 后来找到原因是因为前端传过来的数据是 “YYYY-MM-DD” 模式， 但是数据库保存的数据是 “YYYY-MM-DD HH:MM:SS” 格式。
+所以查询语句从
+SELECT * FROM XX WHERE ORDER_DATE BETWEEN ORDER_START_TIME AND ORDER_END_TIME；  变成
+SELECT * FROM XX WHERE ORDER_DATE BETWEEN DATE(ORDER_START_TIME) AND DATE(ORDER_END_TIME)；
+              <a href="https://codenow.me/tips/mysql_date/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/translation/commit_msg_guide/" title="Git Commit 指南">
+                <h2>Git Commit 指南 </h2>
+            </a>
+            <br>
+
+              原链接： Commit messages guide
+一个让你了解 commit 信息的重要性以及如何写好它们的指南。 本文可以帮助到你 - 了解什么是 commit - 写好一个 commit 信息为什么如此重要 - 最佳实践 - 一些关于计划、编写或重写好的 commit 历史记录的建议
+什么是 commit？ 简单来说，一次 commit 就是对于你的本地文件的一份快照，写在你的本地仓库里。和某些人想法相反，git 不仅保存了文件之间的差异，而是保存了文件的完整版本。对于那些 commit 和 commit 之间没有发生变化的文件，git 保存了一个快捷链接，这个链接指向之前保存好的相同
+              <a href="https://codenow.me/translation/commit_msg_guide/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/articles/about_mysql_locks_2/" title="漫谈死锁">
+                <h2>漫谈死锁 </h2>
+            </a>
+            <br>
+
+              作者：杨一
+原链接： 漫谈死锁
+ 一、前言 死锁是每个 MySQL DBA 都会遇到的技术问题，本文自己针对死锁学习的一个总结，了解死锁是什么，MySQL 如何检测死锁，处理死锁，死锁的案例，如何避免死锁。
+二、死锁 死锁是并发系统中常见的问题，同样也会出现在 Innodb 系统中。当两个及以上的事务，双方都在等待对方释放已经持有的锁或者因为加锁顺序不一致造成循环等待锁资源，就会出现&rdquo;死锁&rdquo;。
+举例来说 A 事务持有 x1锁 ，申请 x2 锁，B 事务持有 x2 锁，申请 x1 锁。A 和 B 事务持有锁并且申请对方持有的锁进入循环等待，就造成死锁。
+从死锁的定义来看，
+              <a href="https://codenow.me/articles/about_mysql_locks_2/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/tips/linux_tail/" title="用 tail 实时查看日志">
+                <h2>用 tail 实时查看日志 </h2>
+            </a>
+            <br>
+
+              用 tail 命令看实时的日志文件
+tail -f log_path
+              <a href="https://codenow.me/tips/linux_tail/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/algorithm/same_tree/" title="Leetcode_100: same tree">
                 <h2>Leetcode_100: same tree </h2>
             </a>
@@ -360,6 +438,18 @@ git config &ndash;global core.editor vim  使用 直接使用 git commit 调用
 
               题号：100 难度：easy 链接：<a href="https://leetcode.com/problems/same-tree/">https://leetcode.com/problems/same-tree/</a> 描述：查看两棵树是否一致  class TreeNode: def <strong>init</strong>(self, x): self.val = x self.left = None self.right = None class Solution: def isSameTree(self, p: TreeNode, q: TreeNode) -&gt; bool: if p and q: return p.val == q.val and self.isSameTree(p.right,q.
               <a href="https://codenow.me/algorithm/same_tree/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/translation/sharingpwswithgopass/" title="使用 gopass，git 和 gpg 来分享你的密码">
+                <h2>使用 gopass，git 和 gpg 来分享你的密码 </h2>
+            </a>
+            <br>
+
+              作者： Woile  原链接： Sharing passwords using gopass, git and gpg
+ 不想再把你的密码放在不可靠却方便的地方？ 不想再在 slack，notes 这些不可信赖的平台上分享密码？ 不想再在不同的地方放你的团队密码？ 如果对于上面的问题你的回答如果是 yes，那你应该会觉得这篇文章有用。
+背景 我为了寻找一个安全的方式去储存我的密码花了不少时间。当然，除了安全，我还希望有以下性能：
+ 密码存在云里 设备之间可以简单同步 可以很方便地与人共享 我找到的解决方案是 gopass  gopass 是怎么工作的 gopass 就像是有多一份电池的 pa
+              <a href="https://codenow.me/translation/sharingpwswithgopass/"><br>[阅读全文]</a>
 
             <hr> 
             <a href="https://codenow.me/algorithm/travelsallistwithoutloops/" title="使用递归思想进行列表遍历">
@@ -370,6 +460,77 @@ git config &ndash;global core.editor vim  使用 直接使用 git commit 调用
               之前一次面试上遇到的题，不允许用 for 循环和 while 循环，要求遍历出列表每个元素。 当时没有想法，回去后就查了一下，原来可以用递归解决。
 class Solution(): def travelsal_list_with_recursion(self, Ls, index=0): if len(Ls) == index: return print(Ls[index], end=&#39; &#39;) self.travelsal_list_with_recursion(Ls, index+1) if <strong>name</strong> == &#39;<strong>main</strong>&#39;: s = Solut
               <a href="https://codenow.me/algorithm/travelsallistwithoutloops/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/tips/mysql_where11/" title="在 Mysql 里使用 where1=1 的作用">
+                <h2>在 Mysql 里使用 where1=1 的作用 </h2>
+            </a>
+            <br>
+
+              这周工作时看了同事的代码，发现他写的很多 sql 语句都在后面加上了 where1=1，研究了一下，才发现了他的作用和好处。
+例子：
+string MySqlStr=”select * from table where”； if(Age.Text.Lenght&gt;0) { MySqlStr=MySqlStr+“Age=“+“&#39;Age.Text&#39;“； } if(Address.Text.Lenght&gt;0) { MySqlStr=MySqlStr+“and Address=“+“&#39;Address.Text&#39;“； } 如果两个条件都符合，即 sql 语句 &amp;
+              <a href="https://codenow.me/tips/mysql_where11/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/articles/about_mysql_locks/" title="Mysql 锁：灵魂七拷问">
+                <h2>Mysql 锁：灵魂七拷问 </h2>
+            </a>
+            <br>
+
+              作者：柳树 on 美业 from 有赞coder
+原链接： Mysql 锁：灵魂七拷问
+ 一、缘起 假设你想给别人说明，Mysql 里面是有锁的，你会怎么做？
+大多数人，都会开两个窗口，分别起两个事务，然后 update 同一条记录，在发起第二次 update 请求时，block，这样就说明这行记录被锁住了： 二、禁锢 问题来了，貌似只有显式的开启一个事务，才会有锁，如果直接执行一条 update 语句，会不会加锁呢？
+比如直接执行：
+update t set c = c + 1 where id = 1; 这条语句，前面不加 begin，不显式开启事务，那么 Mysql 会不会加锁呢？
+直觉
+              <a href="https://codenow.me/articles/about_mysql_locks/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/translation/4waysdeveloperimprovetools/" title="只需 4 步，改善你的编程工具">
+                <h2>只需 4 步，改善你的编程工具 </h2>
+            </a>
+            <br>
+
+              作者： bmusings  原链接： 4 Ways Every Software Developer Should Improve Their Tools
+ 工具可以让开发人员的想法转换成为计算机能够理解的确切指令。 从文本编辑器到源代码控制，为了技术和效率，它们是我们每天使用上百次的伙伴。和木匠不同，当我们想要更好的工具时，不能直接去商店里买一把更好的锤子。 这引发了一个问题： 我们如何去改善我们的日常工具。 下面我介绍 4 个能够升级工具的方法。
+学习快捷键 设置快捷键和别名是我们使用现有工具最方便最有效的方法。 它通过使用键盘输入代替鼠标点击操作，从而节省时间。 一个人机交互领域出名的法
+              <a href="https://codenow.me/translation/4waysdeveloperimprovetools/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/translation/howtoencryptyourentirelifelessthanonehour/" title="不用一小时，加密你的整个人生">
+                <h2>不用一小时，加密你的整个人生 </h2>
+            </a>
+            <br>
+
+              不用一小时，加密你的整个人生  作者：Quincy Larson  原链接：How to encrypt your entire life in less than an hour
+ 前言略, 全文有精简
+好，让我们开始吧！ 首先，解释几个术语。
+Attacker：所有未经本人同意却尝试获取本人数据的人或组织，甚至政府。 Private/secure：理想很丰满，现实是只要人类参与，没有任何系统可以保证百分百隐私或安全。
+只要你的手机、电脑 、账户受到充分保护，它们的内容会保持在一个加密的状态，那无论其他人多么强大，也无法可施。
+Tip1: 对你的收件箱进行两步验证 你的收件箱是你生活的主钥
+              <a href="https://codenow.me/translation/howtoencryptyourentirelifelessthanonehour/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/articles/aaron_huoju/" title="互联网之子 Aaron Swarts 想要看到的世界">
+                <h2>互联网之子 Aaron Swarts 想要看到的世界 </h2>
+            </a>
+            <br>
+
+              作者: Jade &amp; 霍炬  链接：互联网之子 Aaron Swarts 想要看到的世界
+ Jade 和我偶尔会聊起一些宏大的话题，最近聊到了 Aaron 和互联网创建者们的一些历史。她觉得应该正经的来一次对话，记录下来分享给其他人。我们约了个时间，原计划聊 2 个小时，实际上聊了 5 个小时。最后形成了一篇交谈形式的文字，她称之为文字版的 Podcast。我很喜欢这种形式，我也更认同文字的价值，更好分享，更好检索，也更好修改或者摘录使用。以后我们应该还会继续这样的对话，这次聊天里面很多东西都可以继续讲下去。希望你也喜欢这个形式。
+网络和 BBS 在我们现在知道的互联网诞生之前就存在
+              <a href="https://codenow.me/articles/aaron_huoju/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/tips/pbcopy/" title="VIM Cheetsheet: pbcopy">
+                <h2>VIM Cheetsheet: pbcopy </h2>
+            </a>
+            <br>
+
+              用 vim 在 terminal 中复制信息 pbcopy &lt; filename.extension # eg. pbcopy &lt; a.txt
+              <a href="https://codenow.me/tips/pbcopy/"><br>[阅读全文]</a>
 
             <hr> 
             <a href="https://codenow.me/algorithm/to_lowercase/" title="Leetcode_709: To Lower Case">

@@ -16,12 +16,14 @@
       <pubDate>Sun, 05 May 2019 13:51:10 +0900</pubDate>
       
       <guid>https://codenow.me/articles/learning_the_shell_01/</guid>
-      <description>Shell 的定义  一个命令解释器， 位于操作系统和应用程序之间  Shell 的作用 shell 负责把应用程序的输入命令信息解释给操作系统，将操作系统指令处理后的结果解释给应用程序。
-Shell 的分类  图形界面式  桌面  命令行式  windows 系统 cmd.exe Linux 系统 sh bash zsh &amp;hellip;   查看系统 shell 信息 echo $SHELL  查看系统支持的 shell cat /etc/shells  Shell 的使用  手工方式 逐行输入命令，逐行进行确认执行
- 脚本方式 把执行命令写进脚本文件中，通过执行脚本达到执行效果
-  shell 脚本 当可执行的 Linux 命令或语句不在命令行状态下执行，而是通过一个文件执行时，我们称文件为shell 脚本。
-shell 脚本示范  创建一个脚本  vim temp.sh  脚本内容
-# !/bin/bash 告知系统解释器执行路径 # it&#39;s a temp script echo &#39;hi&#39; echo &#39;atts group&#39;  执行脚本</description>
+      <description>Shell 的定义  一个命令解释器 位于操作系统和应用程序之间  Shell 的作用 shell 负责把应用程序的输入命令信息解释给操作系统，将操作系统指令处理后的结果解释给应用程序。
+Shell 的分类  图形界面式  桌面  命令行式
+ windows 系统 (cmd.exe)
+ Linux 系统 (sh, bash, zsh&amp;hellip;)
+   查看系统 shell 信息 echo $SHELL  查看系统支持的 shell cat /etc/shells  Shell 的使用  手工方式  逐行输入命令，逐行进行确认执行
+ 脚本方式  把执行命令写进脚本文件中，通过执行脚本达到执行效果
+  shell 脚本定义 当可执行的 Linux 命令或语句不在命令行状态下执行，而是通过一个文件执行时，我们称文件为shell 脚本。
+shell 脚本示范  创建一个脚本   vim temp.sh  脚本内容</description>
     </item>
     
     <item>
@@ -35,12 +37,45 @@ git config --global core.editor vim  使用 直接使用 git commit 调用</desc
     </item>
     
     <item>
+      <title>手把手带你创建你第一个 GitHub 贡献</title>
+      <link>https://codenow.me/translation/making_first_contribution/</link>
+      <pubDate>Sat, 04 May 2019 17:20:23 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/making_first_contribution/</guid>
+      <description>原链接： A Step by Step Guide to Making Your First GitHub Contribution 
+前言 如果你还没有 Github 账户，或者不知道什么是 Git，请阅读：编程菜鸟？你昨天就应该把 Git 给学了
+拜见老师 希望你来这之前已经注册好 Github 账户并做好开始第一个开源项目贡献的准备了。 作为一个新手，贡献一个项目可能会觉得可怕。我明白，我也曾经试过。我花了很长时间才完成我的第一个 Pull Request。这就是为什么我希望你认识 Roshan Jossey 的原因。Roshan 建了一个 Github 仓库 First Contributions ，手把手带新人过一遍 Github 的贡献流程，还提供了一个仓库给大家做自己的第一个贡献。
+开始你的第一个开源项目贡献 1. Fork 仓库 打开 First Contributions 这个仓库，点击页面上的 Fork 按钮。这样会创建一份仓库备份到你自己的账户。 2. 克隆仓库 现在把这个仓库克隆到你自己的电脑上。点击 clone 按钮 再点击 copy to clipboard 图标。 打开终端并运行以下的 git 指令：
+git clone &amp;quot;你刚刚拷贝到的地址&amp;quot;  你刚刚拷贝到的地址（不包括双引号）就是 First Contributions 这个仓库的地址。查看你之前的步骤去获得这个地址。 比如：</description>
+    </item>
+    
+    <item>
       <title>Leetcode_938: Range Sum Of BST</title>
       <link>https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/</link>
       <pubDate>Fri, 03 May 2019 18:49:11 +0900</pubDate>
       
       <guid>https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/</guid>
       <description> 题号：938 难度：easy 链接：https://leetcode.com/problems/range-sum-of-bst/ 描述：返回一棵二叉搜索树两个节点之间的值的和，包括两个节点  class TreeNode: def __init__(self, x): self.val = x self.left = None self.right = None class Solution: def rangeSumBST(self, root: TreeNode, L: int, R: int) -&amp;gt; int: if not root: return 0 elif root.val &amp;lt; L: return self.rangeSumBST(root.right, L, R) elif root.val &amp;gt; R: return self.rangeSumBST(root.left, L, R) else: return root.val + self.rangeSumBST(root.right, L, R) + self.rangeSumBST(root.left, L, R)</description>
+    </item>
+    
+    <item>
+      <title>Tmux 快捷键</title>
+      <link>https://codenow.me/articles/tmux_hotkey/</link>
+      <pubDate>Sun, 28 Apr 2019 23:13:11 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/tmux_hotkey/</guid>
+      <description>启动 tmux： tmux
+ 创建新命名会话和命名窗口： tmux new -s name -n name
+ 恢复会话： tmux at [-t 会话名]
+ 会话后台运行 prefix d
+ 列出所有会话： tmux ls
+ 关闭会话： tmux kill-session -t 会话名
+ 关闭所有会话： tmux ls | grep : | cut -d. -f1 | awk &amp;lsquo;{print substr($1, 0, length($1)-1)}&amp;rsquo; | xargs kill
+ 触发 tmux： ctr+b
+ 新建窗口： prefix c
+ 切换窗口： alt+窗口号（1，2，3）
+ 退出窗口 prefix x
+ 窗口重命名 prefix ，</description>
     </item>
     
     <item>
@@ -53,12 +88,81 @@ git config --global core.editor vim  使用 直接使用 git commit 调用</desc
     </item>
     
     <item>
+      <title>Mysql 里的 DATE 函数</title>
+      <link>https://codenow.me/tips/mysql_date/</link>
+      <pubDate>Sun, 28 Apr 2019 10:55:12 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/mysql_date/</guid>
+      <description>这周发现目前在做的项目的一个地方，就是要读取特定时间的订单数据，发现这个数据并不准确。 后来找到原因是因为前端传过来的数据是 “YYYY-MM-DD” 模式， 但是数据库保存的数据是 “YYYY-MM-DD HH:MM:SS” 格式。
+所以查询语句从
+SELECT * FROM XX WHERE ORDER_DATE BETWEEN ORDER_START_TIME AND ORDER_END_TIME；  变成
+SELECT * FROM XX WHERE ORDER_DATE BETWEEN DATE(ORDER_START_TIME) AND DATE(ORDER_END_TIME)；  不过，这样的话如果读取数据量大，会影响性能。假期后我应该会把数据在前端处理一下，而不是在数据库层面操作。</description>
+    </item>
+    
+    <item>
+      <title>Git Commit 指南</title>
+      <link>https://codenow.me/translation/commit_msg_guide/</link>
+      <pubDate>Sun, 28 Apr 2019 10:48:43 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/commit_msg_guide/</guid>
+      <description>原链接： Commit messages guide
+一个让你了解 commit 信息的重要性以及如何写好它们的指南。 本文可以帮助到你 - 了解什么是 commit - 写好一个 commit 信息为什么如此重要 - 最佳实践 - 一些关于计划、编写或重写好的 commit 历史记录的建议
+什么是 commit？ 简单来说，一次 commit 就是对于你的本地文件的一份快照，写在你的本地仓库里。和某些人想法相反，git 不仅保存了文件之间的差异，而是保存了文件的完整版本。对于那些 commit 和 commit 之间没有发生变化的文件，git 保存了一个快捷链接，这个链接指向之前保存好的相同的文件。 下图展示了 git 是如何随着时间存储数据的，其中每个 version 表示一次 commit。
+()
+为什么写好一个 commit 信息如此重要  为了提高代码审核的效率，及简化代码审核的过程； 帮助了解历史变化； 去阐述代码无法解释的原因； 帮助未来的维护人员弄清楚为什么要更改和如何更改的，让排除故障和调试更容易。  为了最大化这些好处，我们接下来会举一些好例子和标准范本。
+好示范 这些都是我从自己经历、网络文章或其它的指南收集的例子。 如果你对它们有任何意见或建议，欢迎新开一个 pull request。
+用命令式 # 好的 Use InventoryBackendPool to retrieve inventory backend # 不好的 Used InventoryBackendPool to retrieve inventory backend  为什么要用命令式？ 一次 commit 消息描述了相应改变实际执行的操作及其影响，而不是它做了什么。 Chris Beams 的这篇优秀的文章给了我们提供了一个很简单的句式，可以帮助我们用命令式写出更好的 commit 消息</description>
+    </item>
+    
+    <item>
+      <title>漫谈死锁</title>
+      <link>https://codenow.me/articles/about_mysql_locks_2/</link>
+      <pubDate>Sun, 21 Apr 2019 18:18:29 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/about_mysql_locks_2/</guid>
+      <description>作者：杨一
+原链接： 漫谈死锁
+ 一、前言 死锁是每个 MySQL DBA 都会遇到的技术问题，本文自己针对死锁学习的一个总结，了解死锁是什么，MySQL 如何检测死锁，处理死锁，死锁的案例，如何避免死锁。
+二、死锁 死锁是并发系统中常见的问题，同样也会出现在 Innodb 系统中。当两个及以上的事务，双方都在等待对方释放已经持有的锁或者因为加锁顺序不一致造成循环等待锁资源，就会出现&amp;rdquo;死锁&amp;rdquo;。
+举例来说 A 事务持有 x1锁 ，申请 x2 锁，B 事务持有 x2 锁，申请 x1 锁。A 和 B 事务持有锁并且申请对方持有的锁进入循环等待，就造成死锁。
+从死锁的定义来看，MySQL 出现死锁的几个要素：
+a 两个或者两个以上事务。 b 每个事务都已经持有锁并且申请新的锁。 c 锁资源同时只能被同一个事务持有或者不兼容。 d 事务之间因为持有锁和申请锁导致了循环等待。
+三、MySQL 的死锁机制 死锁机制包含两部分：检测和处理。 把事务等待列表和锁等待信息列表通过事务信息进行 wait-for graph 检测，如果发现有闭环，则回滚 undo log 量少的事务；死锁检测本身也会算检测本身所需要的成本，以便应对检测超时导致的意外情况。 3.1 死锁检测 当 InnoDB 事务尝试获取(请求)加一个锁，并且需要等待时，InnoDB 会进行死锁检测。正常的流程如下:
+ InnoDB 的初始化一个事务，当事务尝试申请加一个锁，并且需要等待时 (wait_lock)，innodb 会开始进行死锁检测 (deadlock_mark) 进入到 lock_deadlock_check_and_resolve() 函数进行检测死锁和解决死锁 检测死锁过程中，是有计数器来进行限制的，在等待 wait-for graph 检测过程中遇到超时或者超过阈值，则停止检测。 死锁检测的逻辑之一是等待图的处理过程，如果通过锁的信息和事务等待链构造出一个图，如果图中出现回路，就认为发生了死锁。 死锁的回滚，内部代码的处理逻辑之一是比较 undo 的数量，回滚 undo 数量少的事务。  3.</description>
+    </item>
+    
+    <item>
+      <title>用 tail 实时查看日志</title>
+      <link>https://codenow.me/tips/linux_tail/</link>
+      <pubDate>Sun, 21 Apr 2019 18:17:44 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/linux_tail/</guid>
+      <description>用 tail 命令看实时的日志文件
+tail -f log_path  </description>
+    </item>
+    
+    <item>
       <title>Leetcode_100: same tree</title>
       <link>https://codenow.me/algorithm/same_tree/</link>
       <pubDate>Sun, 21 Apr 2019 17:52:54 +0900</pubDate>
       
       <guid>https://codenow.me/algorithm/same_tree/</guid>
       <description> 题号：100 难度：easy 链接：https://leetcode.com/problems/same-tree/ 描述：查看两棵树是否一致  class TreeNode: def __init__(self, x): self.val = x self.left = None self.right = None class Solution: def isSameTree(self, p: TreeNode, q: TreeNode) -&amp;gt; bool: if p and q: return p.val == q.val and self.isSameTree(p.right,q.right) and self.isSameTree(p.left,q.left) return p == q if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() tree1 = TreeNode(&amp;#39;s&amp;#39;) tree2 = TreeNode(&amp;#39;s&amp;#39;) s.isSameTree(tree1, tree2)</description>
+    </item>
+    
+    <item>
+      <title>使用 gopass，git 和 gpg 来分享你的密码</title>
+      <link>https://codenow.me/translation/sharingpwswithgopass/</link>
+      <pubDate>Sun, 21 Apr 2019 16:20:07 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/sharingpwswithgopass/</guid>
+      <description>作者： Woile  原链接： Sharing passwords using gopass, git and gpg 
+ 不想再把你的密码放在不可靠却方便的地方？ 不想再在 slack，notes 这些不可信赖的平台上分享密码？ 不想再在不同的地方放你的团队密码？ 如果对于上面的问题你的回答如果是 yes，那你应该会觉得这篇文章有用。
+背景 我为了寻找一个安全的方式去储存我的密码花了不少时间。当然，除了安全，我还希望有以下性能：
+ 密码存在云里 设备之间可以简单同步 可以很方便地与人共享 我找到的解决方案是 gopass  gopass 是怎么工作的 gopass 就像是有多一份电池的 pass（unix 密码管理器） 在这里面，它拥有的且和我相关的性能有
+ 用 gpg 进行加密； 用 git 进行密码同步； 不同属性的密码可以放在不同的储存地方（个人、公司等）； 每个存储地方指向不同的仓库； 一个存储地址支持多个人运用。接下来我们称他们为收信人  虽然它还缺乏一些文档和命令，但是我们不必害怕去尝试它。 我很高兴 gopass 使用了 gpg。 它唯一的缺点，我想是它正式的 windows 版本还没发布。
+安装 你可以看看这个网站里介绍的安装或者可以在 gopass repo 里得到更多的信息。
+使用 首先，我们需要一个 gpg 密钥。我们需要 gpg cli 去创建一个，如果你安装了 gopass，那你的系统里应该就有了。</description>
     </item>
     
     <item>
@@ -69,6 +173,106 @@ git config --global core.editor vim  使用 直接使用 git commit 调用</desc
       <guid>https://codenow.me/algorithm/travelsallistwithoutloops/</guid>
       <description>之前一次面试上遇到的题，不允许用 for 循环和 while 循环，要求遍历出列表每个元素。 当时没有想法，回去后就查了一下，原来可以用递归解决。
 class Solution(): def travelsal_list_with_recursion(self, Ls, index=0): if len(Ls) == index: return print(Ls[index], end=&amp;#39; &amp;#39;) self.travelsal_list_with_recursion(Ls, index+1) if __name__ == &amp;#39;__main__&amp;#39;: s = Solution() ls = [&amp;#39;a&amp;#39;, &amp;#39;3&amp;#39;, &amp;#39;r&amp;#39;, &amp;#39;3&amp;#39;] s.travelsal_list_with_recursion(ls) </description>
+    </item>
+    
+    <item>
+      <title>在 Mysql 里使用 where1=1 的作用</title>
+      <link>https://codenow.me/tips/mysql_where11/</link>
+      <pubDate>Sun, 14 Apr 2019 16:38:31 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/mysql_where11/</guid>
+      <description>这周工作时看了同事的代码，发现他写的很多 sql 语句都在后面加上了 where1=1，研究了一下，才发现了他的作用和好处。
+例子：
+string MySqlStr=”select * from table where”； if(Age.Text.Lenght&amp;gt;0) { MySqlStr=MySqlStr+“Age=“+“&amp;#39;Age.Text&amp;#39;“； } if(Address.Text.Lenght&amp;gt;0) { MySqlStr=MySqlStr+“and Address=“+“&amp;#39;Address.Text&amp;#39;“； } 如果两个条件都符合，即 sql 语句 &amp;ldquo;select * from table where Age=x and Address=xx&amp;rdquo; 成立。 但是如果两个条件都不符合，则语句变成了 &amp;ldquo;select * from table where&amp;rdquo;，这个时候就会报错。 使用 where 1=1 可以避免上面发生的问题。
+参考链接： mysql中使用 where 1=1和 0=1 的作用及好处</description>
+    </item>
+    
+    <item>
+      <title>Mysql 锁：灵魂七拷问</title>
+      <link>https://codenow.me/articles/about_mysql_locks/</link>
+      <pubDate>Sun, 14 Apr 2019 13:49:26 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/about_mysql_locks/</guid>
+      <description>作者：柳树 on 美业 from 有赞coder
+原链接： Mysql 锁：灵魂七拷问
+ 一、缘起 假设你想给别人说明，Mysql 里面是有锁的，你会怎么做？
+大多数人，都会开两个窗口，分别起两个事务，然后 update 同一条记录，在发起第二次 update 请求时，block，这样就说明这行记录被锁住了： 二、禁锢 问题来了，貌似只有显式的开启一个事务，才会有锁，如果直接执行一条 update 语句，会不会加锁呢？
+比如直接执行：
+update t set c = c + 1 where id = 1; 这条语句，前面不加 begin，不显式开启事务，那么 Mysql 会不会加锁呢？
+直觉告诉你，会。
+但是为什么要加锁？
+给你五秒钟，说出答案。
+学过多线程和并发的同学，都知道下面这段代码，如果不加锁，就会有灵异事件：
+i++; 开启十个线程，执行 1000 次这段代码，最后 i 有极大可能性，会小于 1000。
+这时候，用 Java 的套路，加锁：
+synchornize { i++; } 问题解决。
+同理，对于数据库，你可以理解为 i，就是数据库里的一行记录，i++ 这段代码，就是一条 update 语句，而多线程，对应的就是数据库里的多个事务。
+既然对内存中 i 的操作需要加锁，保证并发安全，那么对数据库的记录进行修改，也必须加锁。
+这道理很简单，但是很多人，未曾想过。
+三、释然 为什么大家都喜欢用第一部分里的例子来演示 Mysql 锁？</description>
+    </item>
+    
+    <item>
+      <title>只需 4 步，改善你的编程工具</title>
+      <link>https://codenow.me/translation/4waysdeveloperimprovetools/</link>
+      <pubDate>Sun, 14 Apr 2019 13:43:03 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/4waysdeveloperimprovetools/</guid>
+      <description>作者： bmusings  原链接： 4 Ways Every Software Developer Should Improve Their Tools
+ 工具可以让开发人员的想法转换成为计算机能够理解的确切指令。 从文本编辑器到源代码控制，为了技术和效率，它们是我们每天使用上百次的伙伴。和木匠不同，当我们想要更好的工具时，不能直接去商店里买一把更好的锤子。 这引发了一个问题： 我们如何去改善我们的日常工具。 下面我介绍 4 个能够升级工具的方法。
+学习快捷键 设置快捷键和别名是我们使用现有工具最方便最有效的方法。 它通过使用键盘输入代替鼠标点击操作，从而节省时间。 一个人机交互领域出名的法则 Fitt&amp;rsquo;s Law 指出，点击目标所需的时间和指针的距离成正相关，和目标的大小成反比。也就是说，更小更远的目标比更大更近的目标需要花更多的时间。我见过很多次有些专业的软件工程师使用键盘在三个越来越小的目录花费了很多时间只为了操作一个指令，这真是荒谬。学习快捷键进行指令操控会让你把时间控制到常量级别（0.1 - 0.4 秒之间）
+大多数文字编辑器、浏览器还有其它界面工具都有一套可以让你马上使用的快捷键，不要想着一下子就把它们都学会。从一两个开始，把它们拿下，然后再用多几个再熟练，重复这个过程即可。
+有时候你需要使用一系列键盘操作才能完成一个指令，这时候别名和宏就派上用场了。你只需要把你常用的一系列操作用一个简单明了的命令代替就可以了。做好得了的话，一个月可以节省了几个小时的时间呢。
+自定义 有许多你重要的工具（比如你的文本编辑器）会允许你自定义它们的界面，这样不仅仅可以让界面符合你个人的使用习惯，甚至可以加强与别的工具的协同效应。比如说，你是一个 vim 使用者，你经常使用 j 和 k 进行上下移动，那为什么不尝试安装 chrome 插件让你可以在 chrome 里使用一样的快捷键呢？ 你甚至可以不止步于简单的键盘绑定。许多工具都有脚本语言或扩展框架让你可以自己写代码去自定义工具。当然这比简单的键盘绑定花费更多的时间，但是这是一个能够让你明白工具内部运行的好方法，也是一个启动开源项目的好机会，这些都可以让你的简历锦上添花。
+可移植的配置 你安装了所有工具，学了所有的键盘绑定，把它们都自定义化了。 但是突然，你被迫要在一个远程机器或者新电脑上工作，那前面所有努力都白费了，你要从 0 开始，对吗？ 那如果你不仅仅自定义了你的工具，还把相应的配置都变得轻便可以移植了呢？许多工具拥有包含工具配置参数的 .rc 文件或者配置文件。这个可以允许你把它们放到源代码控制里面，或分享到其它机器其它仓库里面。你只需要用脚本把它们关联到正确的位置，让你大多数的配置在两步命令中启动-克隆你的仓库，运行脚本，然后，你就可以开始工作了。
+这是一个很好的类似的例子
+减少文本切换 最后一个方法是最小化你切换工具的时间。 在你其实只需要看几行代码的时候，你真的需要把终端放大到占满整个屏幕吗？
+尝试一下使用不同的窗口界面、不同的屏幕数量和不同的工作区设置，来帮你你找到一套最适用于你的解决方案。你可以在不同的工作场景使用几套不同的预设置界面。像我，我写代码和调试的时候会使用一套窗口设置，在读代码和审核代码时会使用另一套。切换它们也是关联了一个热键。
+结论 你的工具就是你的扩展，就像你的其它部位，需要投资和实践去改善。 如果你有时会因为你过时的工作流而感到沮丧，或者只是想挤出更多的时间，我希望我这篇文章可以在如何改善你的日常工作工具使用上给到帮助。</description>
+    </item>
+    
+    <item>
+      <title>不用一小时，加密你的整个人生</title>
+      <link>https://codenow.me/translation/howtoencryptyourentirelifelessthanonehour/</link>
+      <pubDate>Sun, 07 Apr 2019 14:26:14 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/howtoencryptyourentirelifelessthanonehour/</guid>
+      <description>不用一小时，加密你的整个人生  作者：Quincy Larson  原链接：How to encrypt your entire life in less than an hour 
+ 前言略, 全文有精简
+好，让我们开始吧！ 首先，解释几个术语。
+Attacker：所有未经本人同意却尝试获取本人数据的人或组织，甚至政府。 Private/secure：理想很丰满，现实是只要人类参与，没有任何系统可以保证百分百隐私或安全。
+只要你的手机、电脑 、账户受到充分保护，它们的内容会保持在一个加密的状态，那无论其他人多么强大，也无法可施。
+Tip1: 对你的收件箱进行两步验证 你的收件箱是你生活的主钥。如果入侵者解开了它，那他不仅可以读取你的邮件，还可以通过重置你的密码去做更多的事，包括社交账户甚至银行账户。 你仅仅需要通过一个很简单的操作就可以大大改善你的个人隐私，就是去开启你收件箱的两步验证。 基本上两步验证就是你登录后的第二层保护。通常当你登录你的账户时，你会收到一条验证码。 两步验证基本上可以减少你收件箱被黑的可能性。 如果你用的是 gmail，你应该开启两步验证
+说真的，现在就去开启吧，我在这等你回来。
+Tip2: 加密你的硬盘 Windows 和 Macos 都有内置全盘加密。你只需要开启它。
+Tip3: 开启你手机的密码保护 指纹验证比其他方法都好，但是还不足够。 第五修订法允许你可以对你的密码进行保密，但是法院可以强迫你用指纹解锁手机（美国法律）。 而且，你的指纹是唯一的，不能在入侵者掌控你的指纹信息后进行更改。 一般入侵者会在手机完全锁住前有十次尝试机会。所以如果你的 4 个数字的密码属于以下常见的这些之一的话，请修改你的密码。
+1234 9999 1111 3333 0000 5555 1212 6666 7777 1122 1004 1313 2000 8888 4444 4321 2222 2001 6969 1010  如果为了方便还是坚持使用指纹验证的话，万一被逮捕，请马上关机。当他们重启手机，因为没有你的密码，他们也没办法解锁你的手机。（接前面美国法律的事）</description>
+    </item>
+    
+    <item>
+      <title>互联网之子 Aaron Swarts 想要看到的世界</title>
+      <link>https://codenow.me/articles/aaron_huoju/</link>
+      <pubDate>Sun, 07 Apr 2019 14:19:45 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/aaron_huoju/</guid>
+      <description>作者: Jade &amp;amp; 霍炬  链接：互联网之子 Aaron Swarts 想要看到的世界 
+ Jade 和我偶尔会聊起一些宏大的话题，最近聊到了 Aaron 和互联网创建者们的一些历史。她觉得应该正经的来一次对话，记录下来分享给其他人。我们约了个时间，原计划聊 2 个小时，实际上聊了 5 个小时。最后形成了一篇交谈形式的文字，她称之为文字版的 Podcast。我很喜欢这种形式，我也更认同文字的价值，更好分享，更好检索，也更好修改或者摘录使用。以后我们应该还会继续这样的对话，这次聊天里面很多东西都可以继续讲下去。希望你也喜欢这个形式。
+网络和 BBS 在我们现在知道的互联网诞生之前就存在了，普通人有机会接触网络的历史，至今也有 30 多年了。虚拟世界的时间进度远远比现实世界快，在中国，也有“互联网是属狗的，一年当作七年用这个说法”。按照这个比例推测，换算到现实世界，互联网实际上走过了相当于 200 年左右的历史了。对它的研究已经可以产生一个“互联网考古学”之类的新学科了，然而没有多少人意识到这件事，也没多少人对这些历史和人物有兴趣。尽管我认为这些非常重要，其中有太多的教训和经验今天仍然可以学习。而且，这些历史也不应该被忘掉。
+Usenet 今天已经变成了下载者的乐园，但是它的废墟里埋葬了太多的历史和欢笑血泪。一些人已经消失，一些人还在积极工作，一些人已经走上了另外一条道路，还有一些人已经离开了我们。如果你从 80 年代就对整个网络世界有所了解，你会发现到今天一切都是相连的，从拨号 BBS 到区块链，有一条暗线始终存在。差不多也到了挖掘这些故事的时候了。
+01 自由的代价 Jade：首先问个题外话，你为什么会选择在寒冷的加拿大生活和开发产品？
+霍炬：几年前我觉得世界似乎变得越来越混乱，我和太太就想找一个“安全的地方”躲起来。于是我去读了所有可能去的国家的历史和政治制度，最后认为最安全的两个地方是新西兰和加拿大。但新西兰太偏远，科技和互联网不够发达，加拿大科技水平很高，创新能力也好，于是，就加拿大了。
+Jade：没想到一个八卦问题引发了如此深刻的答案，吓了我一跳。之所以咱们决定有这次对谈，我记得是有一次我们聊起了 Aaron Swarts，你给我推荐了关于他的纪录片（互联网之子 The Internet&amp;rsquo;s Own Boy: The Story of Aaron Swartz (2014)），然后就一发不可收拾地聊起了一大堆宏大的主题。能不能从你的角度再介绍一下 Aaron 这个人，我们都知道他是一个互联网天才，14 岁参与制订 RSS 标准，26 岁在 MIT 事件的压力下自杀。为什么你觉得这个人很重要？他带来了什么？
+霍炬：Aaron 最常见的介绍是“reddit 联合创始人，RSS 参与者，Markdown 标准参与者”。但是这些不是我想说的重点，重点是他是一个承接上一代和下一代的人物。应该是承接互联网创建者们的理念，并且用来改造世界的人。
+Aaron 深受 John Perry Barlow（电子前线基金会 EFF 的创始人）的影响。在 Aaron 中学时代，John 到他们学校演讲，Aaron 听了这个演讲之后，深受影响。后来 Aaron 的爸爸说那天他回家就像变了一个人一样。以及后来 Aaron 和 Tim Berners-Lee 在一起工作，等等。按照他的年龄，很难想象和这些互联网的创建者们一起工作和活动。但是他和他们相处很好，这些人也都喜欢他。</description>
+    </item>
+    
+    <item>
+      <title>VIM Cheetsheet: pbcopy</title>
+      <link>https://codenow.me/tips/pbcopy/</link>
+      <pubDate>Sun, 07 Apr 2019 14:17:25 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/pbcopy/</guid>
+      <description> 用 vim 在 terminal 中复制信息 pbcopy &amp;lt; filename.extension # eg. pbcopy &amp;lt; a.txt  </description>
     </item>
     
     <item>

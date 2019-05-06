@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on ATTS</title>
+    <link>https://codenow.me/tags/mysql/</link>
+    <description>Recent content in Mysql on ATTS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 28 Apr 2019 10:55:12 +0900</lastBuildDate>
+    
+	<atom:link href="https://codenow.me/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysql 里的 DATE 函数</title>
+      <link>https://codenow.me/tips/mysql_date/</link>
+      <pubDate>Sun, 28 Apr 2019 10:55:12 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/mysql_date/</guid>
+      <description>这周发现目前在做的项目的一个地方，就是要读取特定时间的订单数据，发现这个数据并不准确。 后来找到原因是因为前端传过来的数据是 “YYYY-MM-DD” 模式， 但是数据库保存的数据是 “YYYY-MM-DD HH:MM:SS” 格式。
+所以查询语句从
+SELECT * FROM XX WHERE ORDER_DATE BETWEEN ORDER_START_TIME AND ORDER_END_TIME；  变成
+SELECT * FROM XX WHERE ORDER_DATE BETWEEN DATE(ORDER_START_TIME) AND DATE(ORDER_END_TIME)；  不过，这样的话如果读取数据量大，会影响性能。假期后我应该会把数据在前端处理一下，而不是在数据库层面操作。</description>
+    </item>
+    
+    <item>
+      <title>漫谈死锁</title>
+      <link>https://codenow.me/articles/about_mysql_locks_2/</link>
+      <pubDate>Sun, 21 Apr 2019 18:18:29 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/about_mysql_locks_2/</guid>
+      <description>作者：杨一
+原链接： 漫谈死锁
+ 一、前言 死锁是每个 MySQL DBA 都会遇到的技术问题，本文自己针对死锁学习的一个总结，了解死锁是什么，MySQL 如何检测死锁，处理死锁，死锁的案例，如何避免死锁。
+二、死锁 死锁是并发系统中常见的问题，同样也会出现在 Innodb 系统中。当两个及以上的事务，双方都在等待对方释放已经持有的锁或者因为加锁顺序不一致造成循环等待锁资源，就会出现&amp;rdquo;死锁&amp;rdquo;。
+举例来说 A 事务持有 x1锁 ，申请 x2 锁，B 事务持有 x2 锁，申请 x1 锁。A 和 B 事务持有锁并且申请对方持有的锁进入循环等待，就造成死锁。
+从死锁的定义来看，MySQL 出现死锁的几个要素：
+a 两个或者两个以上事务。 b 每个事务都已经持有锁并且申请新的锁。 c 锁资源同时只能被同一个事务持有或者不兼容。 d 事务之间因为持有锁和申请锁导致了循环等待。
+三、MySQL 的死锁机制 死锁机制包含两部分：检测和处理。 把事务等待列表和锁等待信息列表通过事务信息进行 wait-for graph 检测，如果发现有闭环，则回滚 undo log 量少的事务；死锁检测本身也会算检测本身所需要的成本，以便应对检测超时导致的意外情况。 3.1 死锁检测 当 InnoDB 事务尝试获取(请求)加一个锁，并且需要等待时，InnoDB 会进行死锁检测。正常的流程如下:
+ InnoDB 的初始化一个事务，当事务尝试申请加一个锁，并且需要等待时 (wait_lock)，innodb 会开始进行死锁检测 (deadlock_mark) 进入到 lock_deadlock_check_and_resolve() 函数进行检测死锁和解决死锁 检测死锁过程中，是有计数器来进行限制的，在等待 wait-for graph 检测过程中遇到超时或者超过阈值，则停止检测。 死锁检测的逻辑之一是等待图的处理过程，如果通过锁的信息和事务等待链构造出一个图，如果图中出现回路，就认为发生了死锁。 死锁的回滚，内部代码的处理逻辑之一是比较 undo 的数量，回滚 undo 数量少的事务。  3.</description>
+    </item>
+    
+    <item>
+      <title>在 Mysql 里使用 where1=1 的作用</title>
+      <link>https://codenow.me/tips/mysql_where11/</link>
+      <pubDate>Sun, 14 Apr 2019 16:38:31 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/mysql_where11/</guid>
+      <description>这周工作时看了同事的代码，发现他写的很多 sql 语句都在后面加上了 where1=1，研究了一下，才发现了他的作用和好处。
+例子：
+string MySqlStr=”select * from table where”； if(Age.Text.Lenght&amp;gt;0) { MySqlStr=MySqlStr+“Age=“+“&amp;#39;Age.Text&amp;#39;“； } if(Address.Text.Lenght&amp;gt;0) { MySqlStr=MySqlStr+“and Address=“+“&amp;#39;Address.Text&amp;#39;“； } 如果两个条件都符合，即 sql 语句 &amp;ldquo;select * from table where Age=x and Address=xx&amp;rdquo; 成立。 但是如果两个条件都不符合，则语句变成了 &amp;ldquo;select * from table where&amp;rdquo;，这个时候就会报错。 使用 where 1=1 可以避免上面发生的问题。
+参考链接： mysql中使用 where 1=1和 0=1 的作用及好处</description>
+    </item>
+    
+    <item>
+      <title>Mysql 锁：灵魂七拷问</title>
+      <link>https://codenow.me/articles/about_mysql_locks/</link>
+      <pubDate>Sun, 14 Apr 2019 13:49:26 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/about_mysql_locks/</guid>
+      <description>作者：柳树 on 美业 from 有赞coder
+原链接： Mysql 锁：灵魂七拷问
+ 一、缘起 假设你想给别人说明，Mysql 里面是有锁的，你会怎么做？
+大多数人，都会开两个窗口，分别起两个事务，然后 update 同一条记录，在发起第二次 update 请求时，block，这样就说明这行记录被锁住了： 二、禁锢 问题来了，貌似只有显式的开启一个事务，才会有锁，如果直接执行一条 update 语句，会不会加锁呢？
+比如直接执行：
+update t set c = c + 1 where id = 1; 这条语句，前面不加 begin，不显式开启事务，那么 Mysql 会不会加锁呢？
+直觉告诉你，会。
+但是为什么要加锁？
+给你五秒钟，说出答案。
+学过多线程和并发的同学，都知道下面这段代码，如果不加锁，就会有灵异事件：
+i++; 开启十个线程，执行 1000 次这段代码，最后 i 有极大可能性，会小于 1000。
+这时候，用 Java 的套路，加锁：
+synchornize { i++; } 问题解决。
+同理，对于数据库，你可以理解为 i，就是数据库里的一行记录，i++ 这段代码，就是一条 update 语句，而多线程，对应的就是数据库里的多个事务。
+既然对内存中 i 的操作需要加锁，保证并发安全，那么对数据库的记录进行修改，也必须加锁。
+这道理很简单，但是很多人，未曾想过。
+三、释然 为什么大家都喜欢用第一部分里的例子来演示 Mysql 锁？</description>
+    </item>
+    
+  </channel>
+</rss>
