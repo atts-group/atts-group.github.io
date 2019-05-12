@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Shell - ATTS</title>
+    <title>Shell　入门 02 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tags/shell/">
+    <link rel="canonical" href="https://codenow.me/articles/learning_the_shell_02/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tags/shell/">
+    <meta property="og:url" content="https://codenow.me/articles/learning_the_shell_02/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -67,16 +67,18 @@
     <script src="https://codenow.me/javascripts/modernizr.js"></script>
 
     
-    <link href="https://codenow.me/tags/shell/index.xml" rel="alternate" type="application/rss+xml" title="ATTS" />
-    <link href="https://codenow.me/tags/shell/index.xml" rel="feed" type="application/rss+xml" title="ATTS" />
-    
 
   </head>
   <body class="palette-primary-indigo ">
-    
+
+
+
+	
+	
+
 
 <div class="backdrop">
-    <div class="backdrop-paper"></div>
+	<div class="backdrop-paper"></div>
 </div>
 
 <input class="toggle" type="checkbox" id="toggle-drawer">
@@ -84,7 +86,7 @@
 <label class="toggle-button overlay" for="toggle-drawer"></label>
 
 <header class="header">
-    <nav aria-label="Header">
+	<nav aria-label="Header">
   <div class="bar default">
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
@@ -93,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Shell
+        Shell　入门 02
       </div>
     </div>
 
@@ -127,8 +129,8 @@
 </header>
 
 <main class="main">
-    <div class="drawer">
-        <nav aria-label="Navigation">
+	<div class="drawer">
+		<nav aria-label="Navigation">
   <a href="https://github.com/atts-group/atts" class="project">
     <div class="banner">
       
@@ -306,57 +308,175 @@
   </div>
 </nav>
 
-    </div>
+	</div>
 
-    <article class="article">
-        <div class="wrapper">
-            <h1>目录 - Shell</h1>
+	<article class="article">
+		<div class="wrapper">
+			<h1>Shell　入门 02 </h1>
 
-            
-            <a href="https://codenow.me/articles/learning_the_shell_02/" title="Shell　入门 02">
-                <h2>Shell　入门 02 </h2>
-            </a>
-            <br>
+			
 
-              Shell 脚本基本知识  脚本常见编辑器：
- vi vim
- 脚本命名：
- 见名知义
- 脚本执行方式
- # 推荐 - bin/bash /path/to/script-name 或 bash /path/to/script-name # 文件有可执行权限，在当前路径下执行脚本 - /path/to/script-name 或 ./script-name # 注意 <code>.</code> 符号 - source script-name 或 . script-name    说明：
-  ☆☆☆ 当脚本文件本身没有<code>可执行权限</code>或脚本首行没有命令解释器时使用的方法时，推荐用 bash 执行。 会开启新进程，不能共
-              <a href="https://codenow.me/articles/learning_the_shell_02/"><br>[阅读全文]</a>
+<h2 id="shell-脚本基本知识">Shell 脚本基本知识</h2>
 
-            <hr> 
-            <a href="https://codenow.me/articles/learning_the_shell_01/" title="Shell　入门 01">
-                <h2>Shell　入门 01 </h2>
-            </a>
-            <br>
+<blockquote>
+<p>脚本常见编辑器：</p>
 
-              Shell 的定义  一个命令解释器 位于操作系统和应用程序之间  Shell 的作用 shell 负责把应用程序的输入命令信息解释给操作系统，将操作系统指令处理后的结果解释给应用程序。
-Shell 的分类  图形界面式  桌面  命令行式
- windows 系统 (cmd.exe)
- Linux 系统 (sh, bash, zsh&hellip;)
-   查看系统 shell 信息 echo $SHELL  查看系统支持的 shell cat /etc/shells  Shell 的使用  手工方式  逐行输入命令，逐行进行确认执行
- 脚本方式  把执行命令写进脚本文件中，通过执行脚本达到执
-              <a href="https://codenow.me/articles/learning_the_shell_01/"><br>[阅读全文]</a>
+<blockquote>
+<p>vi
+vim</p>
+</blockquote>
 
-            <hr> 
+<p>脚本命名：</p>
 
-            <aside class="copyright" role="note">
-                 &copy; 2019 CC BY 4.0 License &ndash;  - By ATTS.
-            </aside>
-        </div>
-    </article>
+<blockquote>
+<p>见名知义</p>
+</blockquote>
 
-    <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-            <div class="wrapper">
-                <div class="meta"></div>
-                <div class="list"></div>
+<p>脚本执行方式</p>
+</blockquote>
+
+<pre><code># 推荐
+- bin/bash /path/to/script-name 或 bash /path/to/script-name
+# 文件有可执行权限，在当前路径下执行脚本
+- /path/to/script-name 或 ./script-name
+# 注意 `.` 符号
+- source script-name 或 . script-name
+</code></pre>
+
+<blockquote>
+<blockquote>
+<p>说明：</p>
+</blockquote>
+</blockquote>
+
+<pre><code>☆☆☆
+当脚本文件本身没有`可执行权限`或脚本首行没有命令解释器时使用的方法时，推荐用 bash 执行。
+会开启新进程，不能共享环境，不能共享变量
+☆☆☆
+当脚本文件具有可执行权限时使用。
+会开启新进程，不能共享环境，不能共享变量
+☆☆
+使用 source 或者 `.` 加载脚本文件，使脚本环境与当前用户环境一致，
+不会新开进程，能与 shell 窗口共享进程，共享环境，共享变量
+</code></pre>
+
+<blockquote>
+<p>脚本开发规范</p>
+
+<blockquote>
+<p>文件后缀是 <code>.sh</code> </br>
+脚本文件首行是且必须是脚本解释器，一般是 <code>#！ /bin/bash</code> </br>
+脚本解释器后要有脚本基本信息，尽量用英文注释。</br> 常见注释信息包括脚本名字、功能描述、脚本版本、作者和联系方式等 </br>
+脚本内容执行：由上至下，依次执行 </br>
+代码书写优秀习惯</p>
+</blockquote>
+
+<ul>
+<li><p>成对符号一次性写，如　<code>()</code>、<code>{}</code>、<code>[]</code>、<code>''</code> 等</p></li>
+
+<li><p><code>[ ]</code> 中括号两端要有空格</p></li>
+
+<li><p>流程控制语句一次性写完，再写内容</p></li>
+
+<li><p>通过缩进增加可读性</p></li>
+</ul>
+</blockquote>
+
+     
+                        <hr>
+                        
+                        <div>
+
+							</br>
+                        
+							<div>tags: </div>
+                            
+                                <div id="tags">
+                                    
+                                    <div>
+                                        <a href="https://codenow.me/tags/kingkoma">kingkoma</a> 
+                                    </div>
+                                    
+                                    <div>
+                                        <a href="https://codenow.me/tags/shell">shell</a> 
+                                    </div>
+                                    
+                                </div>
+                            
+                        
+                        </div>
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/tips/mysql_replace/" title="用 replace 方法修改 mysql 存储的数据">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              用 replace 方法修改 mysql 存储的数据
             </div>
+          </div>
         </div>
-    </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/translation/howtocontributetoopensource01/" title="如何做开源贡献者 01">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              如何做开源贡献者 01
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
 </main>
 
     <script>

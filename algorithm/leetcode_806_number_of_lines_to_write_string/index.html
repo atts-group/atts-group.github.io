@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>手把手带你创建你第一个 GitHub 贡献 - ATTS</title>
+    <title>Leetcode_806: Number of Lines To Write String - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/making_first_contribution/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_806_number_of_lines_to_write_string/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/making_first_contribution/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_806_number_of_lines_to_write_string/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        手把手带你创建你第一个 GitHub 贡献
+        Leetcode_806: Number of Lines To Write String
       </div>
     </div>
 
@@ -312,147 +312,38 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>手把手带你创建你第一个 GitHub 贡献 </h1>
+			<h1>Leetcode_806: Number of Lines To Write String </h1>
 
-			
-
-<p>原链接： <a href="https://codeburst.io/a-step-by-step-guide-to-making-your-first-github-contribution-5302260a2940">A Step by Step Guide to Making Your First GitHub Contribution
-</a></p>
-
-<h3 id="前言">前言</h3>
-
-<p>如果你还没有 Github 账户，或者不知道什么是 Git，请阅读：<a href="https://codeburst.io/number-one-piece-of-advice-for-new-developers-ddd08abc8bfa">编程菜鸟？你昨天就应该把 Git 给学了</a></p>
-
-<h3 id="拜见老师">拜见老师</h3>
-
-<p>希望你来这之前已经注册好 Github 账户并做好开始第一个开源项目贡献的准备了。
-作为一个新手，贡献一个项目可能会觉得可怕。我明白，我也曾经试过。我花了很长时间才完成我的第一个 Pull Request。这就是为什么我希望你认识 <a href="https://github.com/Roshanjossey">Roshan Jossey</a> 的原因。Roshan 建了一个 Github 仓库 <a href="https://github.com/Roshanjossey/first-contributions">First Contributions</a> ，手把手带新人过一遍 Github 的贡献流程，还提供了一个仓库给大家做自己的第一个贡献。</p>
-
-<h3 id="开始你的第一个开源项目贡献">开始你的第一个开源项目贡献</h3>
-
-<h3 id="1-fork-仓库">1. Fork 仓库</h3>
-
-<p>打开 <a href="https://github.com/Roshanjossey/first-contributions">First Contributions</a> 这个仓库，点击页面上的 Fork 按钮。这样会创建一份仓库备份到你自己的账户。
-<img src="https://cdn-images-1.medium.com/max/1600/0*8NFC0LcrKJhDoQAG.png" alt="0*8NFC0LcrKJhDoQAG.png" /></p>
-
-<h3 id="2-克隆仓库">2. 克隆仓库</h3>
-
-<p>现在把这个仓库克隆到你自己的电脑上。点击 clone 按钮 再点击 copy to clipboard 图标。
-<img src="https://cdn-images-1.medium.com/max/1600/0*J4YiNCc3AOOUMYTT.png" alt="0*J4YiNCc3AOOUMYTT.png" />
-打开终端并运行以下的 git 指令：</p>
-
-<pre><code>git clone &quot;你刚刚拷贝到的地址&quot;
-</code></pre>
-
-<p>你刚刚拷贝到的地址（不包括双引号）就是 <a href="https://github.com/Roshanjossey/first-contributions">First Contributions</a> 这个仓库的地址。查看你之前的步骤去获得这个地址。
-<img src="https://cdn-images-1.medium.com/max/1600/0*D3fowk-gRvjlMJjQ.png" alt="0*D3fowk-gRvjlMJjQ.png" />
-比如：</p>
-
-<pre><code>git clone https://github.com/this-is-you/first-contributions.git
-</code></pre>
-
-<p><code>this-is-you</code> 的地方就是你的 Github 用户名。
-这样你就把你 Github 上这个仓库的内容拷贝到你的电脑了。</p>
-
-<h3 id="3-创建分支">3. 创建分支</h3>
-
-<p>进入到你电脑上的仓库目录</p>
-
-<pre><code>cd first-contributions
-</code></pre>
-
-<p>使用 <code>git checkout</code> 指令创建一个分支</p>
-
-<pre><code>git checkout -b &lt;add-your-name&gt;
-</code></pre>
-
-<p>例子：</p>
-
-<pre><code>git checkout -b add-alonzo-church
-</code></pre>
-
-<p>（分支的名字不一定要有 add 在里面，但是因为这个分支的目的是为了把你的名字加入名单中，所以有 add 是合理的。）</p>
-
-<h3 id="4-增加一些必要的修改并对修改进行-commit">4. 增加一些必要的修改并对修改进行 commit</h3>
-
-<p>现在用文本编辑器打开 <code>Contributors.md</code> 这个文件，把你的名字加在里面，然后保存。回到你的终端上的项目目录，执行 <code>git status</code> 指令，你就会看到这些修改。执行 <code>git add</code> 指令把这些修改加到你刚刚创立的分支上。</p>
-
-<pre><code>git add Contributors.md
-</code></pre>
-
-<p>现在用 <code>git commit</code> 指令提交修改</p>
-
-<pre><code>git commit -m &quot;Add &lt;your-name&gt; to Contributors list&quot;
-</code></pre>
-
-<p>用你自己的名字替代 <code>&lt;your-name&gt;</code></p>
-
-<h3 id="5-push-修改到-github">5. Push 修改到 Github</h3>
-
-<p>用 <code>git push</code> 指令 push 修改</p>
-
-<pre><code>git push origin &lt;add-your-name&gt;
-</code></pre>
-
-<p>用你早前创建的分支名字替代 <code>&lt;add-your-name&gt;</code></p>
-
-<h3 id="6-确认你的修改">6. 确认你的修改</h3>
-
-<p>这时你去到你 Github 仓库页面上看，会发现一个 <code>Compare &amp; pull request</code> 按钮。
-点击按钮。
-<img src="https://cdn-images-1.medium.com/max/1600/0*F-LrOSu0kL3fO_Nt.png" alt="0*F-LrOSu0kL3fO_Nt.png" />
-现在确认这个 pull request
-<img src="https://cdn-images-1.medium.com/max/1600/0*T1wiLQV5w5X42w1i.png" alt="0*T1wiLQV5w5X42w1i.png" />
-然后我就会把你的修改合并到这个项目的主分支上。一旦修改被合并你就会收到一封提醒邮件。
-你 fork 的主分支不会有改变。为了让你的 fork 与我的同步，请跟着下一步走。</p>
-
-<h3 id="7-让你的-fork-与这个仓库同步">7. 让你的 fork 与这个仓库同步</h3>
-
-<p>首先，切换到主分支上</p>
-
-<pre><code>git checkout master 
-</code></pre>
-
-<p>然后增加我仓库的地址为 <code>upstream remote url</code></p>
-
-<pre><code>git remote add upstream https://github.com/Roshanjossey/first-contributions
-</code></pre>
-
-<p>这是在告诉 git 这个项目的另一个版本在这个地址上，我们称之为 <code>upstream</code>。一旦修改被合并，拉取这个仓库的最新版本。</p>
-
-<pre><code>git fetch upstream
-</code></pre>
-
-<p>这就是我们怎么拉取 fork（远程上游） 里所有修改的了。
-现在你需要把我仓库的最新版本合并到你的主分支。</p>
-
-<pre><code>git rebase upstream/master
-</code></pre>
-
-<p>这里你在把你拉取的所有修改应用到主分支上。
-如果你现在 push 主分支，你的 fork 也会有这些变化：</p>
-
-<pre><code>git push origin master
-</code></pre>
-
-<p>注意你这里 push 的远程对象叫 origin
-这个时候我已经把你的分支 <code>&lt;add-your-name&gt;</code> 合并到我的主分支上了，你也把我的主分支合并到你自己的主分支上了。
-你的分支不再用到了，你可以删掉它。</p>
-
-<pre><code>git branch -d &lt;add-your-name&gt;
-</code></pre>
-
-<p>你也可以删掉在远程仓库的分支的版本</p>
-
-<pre><code>git push origin --delete &lt;add-your-name&gt;
-</code></pre>
-
-<p>这不是必须的，但是这个分支的名字展示了它的主要目的。因此它的寿命相应的会很短。</p>
-
-<h3 id="你做到啦">你做到啦！</h3>
-
-<p>现在你已经具备了在网上做开源项目贡献的能力。尽管放胆去试试吧！</p>
-
+			<blockquote>
+<p>题号：806 <br>
+难度：easy <br>
+链接：<a href="https://leetcode.com/problems/number-of-lines-to-write-string/">https://leetcode.com/problems/number-of-lines-to-write-string/</a> <br>
+描述：给出 26 个字母每个占位的宽度和一串字母字符串，每行宽度为 100， 当每行加上要输入下一个的字母宽度超过 100 的话这个字母就跳到下一行。求这串字母占多少行且最后一行占位宽度 <br></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+    
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">numberOfLines</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">widths</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#000">List</span><span style="color:#000;font-weight:bold">[</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">]:</span>
+        
+        <span style="color:#000">letter_list</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;a&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;b&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;c&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;e&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;f&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;g&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;h&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;i&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;j&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;k&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;l&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;m&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;n&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;o&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;p&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;q&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;r&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;s&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;t&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;u&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;v&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;w&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;x&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;y&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;z&#34;</span><span style="color:#000;font-weight:bold">]</span>
+        
+        <span style="color:#000">letter_d</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">dict</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">letter_list</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">widths</span><span style="color:#000;font-weight:bold">))</span>
+        
+        <span style="color:#000">str_widths</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span>
+        <span style="color:#000">lines</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span>
+        
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">letter</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">letter_width</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">letter_d</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">letter</span><span style="color:#000;font-weight:bold">]</span>
+            
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">str_widths</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">letter_width</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">lines</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#000">str_widths</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">lines</span>  <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">letter_width</span>
+                <span style="color:#000">lines</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#0000cf;font-weight:bold">1</span>
+            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#000">str_widths</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">letter_width</span>
+            
+        <span style="color:#000">last_line_width</span> <span style="color:#ce5c00;font-weight:bold">=</span>  <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">lines</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">100</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">str_widths</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">res</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">lines</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">last_line_width</span><span style="color:#000;font-weight:bold">]</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">res</span>
+            </code></pre></div>
      
                         <hr>
                         
@@ -469,15 +360,7 @@
                                     </div>
                                     
                                     <div>
-                                        <a href="https://codenow.me/tags/github">github</a> 
-                                    </div>
-                                    
-                                    <div>
-                                        <a href="https://codenow.me/tags/contribute">contribute</a> 
-                                    </div>
-                                    
-                                    <div>
-                                        <a href="https://codenow.me/tags/opensource">OpenSource</a> 
+                                        <a href="https://codenow.me/tags/leetcode">leetcode</a> 
                                     </div>
                                     
                                 </div>
@@ -501,7 +384,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/algorithm/leetcode_938_range_sum_of_bst/" title="Leetcode_938: Range Sum Of BST">
+      <a href="https://codenow.me/translation/choosing_a_faster_json_library_for_python/" title="为Python选择一个快速的JSON库">
         <span class="direction">
           Previous
         </span>
@@ -511,7 +394,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Leetcode_938: Range Sum Of BST
+              为Python选择一个快速的JSON库
             </div>
           </div>
         </div>
@@ -521,14 +404,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/articles/sentry-pushbear/" title="Sentry Pushbear">
+      <a href="https://codenow.me/tips/mysql_replace/" title="用 replace 方法修改 mysql 存储的数据">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Sentry Pushbear
+              用 replace 方法修改 mysql 存储的数据
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

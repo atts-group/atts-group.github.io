@@ -5,10 +5,27 @@
     <link>https://codenow.me/tags/mysql/</link>
     <description>Recent content in Mysql on ATTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 28 Apr 2019 10:55:12 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 11 May 2019 16:27:04 +0900</lastBuildDate>
     
 	<atom:link href="https://codenow.me/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>用 replace 方法修改 mysql 存储的数据</title>
+      <link>https://codenow.me/tips/mysql_replace/</link>
+      <pubDate>Sat, 11 May 2019 16:27:04 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/mysql_replace/</guid>
+      <description> 描述：
+ 数据库存储的数据与前端传过来的数据格式不一定统一
+ 解决：
+ 用　replace 方法解决这个问题
+ 例子：
+  数据库表里的电话号码： PHONE_NUMBER: xxx-xxxx-xxxx
+ 前端传过来的电话号码： phoneNumber: xxxxxxxxxxx
+  另要注意，当语句里用到 OR 时要用括号给括起来
+SELECT * FROM table WHERE 1 = 1 AND （REPLACE(PHONE_NUMBER, &amp;#34;-&amp;#34;, &amp;#34;&amp;#34;) = phoneNumber OR PHONE_NUMBER = phoneNumber）;</description>
+    </item>
     
     <item>
       <title>Mysql 里的 DATE 函数</title>

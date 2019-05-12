@@ -38,6 +38,26 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/translation/howtocontributetoopensource01/</loc>
+    <lastmod>2019-05-12T09:46:14+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/articles/learning_the_shell_02/</loc>
+    <lastmod>2019-05-11T17:35:27+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/tips/mysql_replace/</loc>
+    <lastmod>2019-05-11T16:27:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/algorithm/leetcode_806_number_of_lines_to_write_string/</loc>
+    <lastmod>2019-05-11T16:13:13+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/translation/choosing_a_faster_json_library_for_python/</loc>
     <lastmod>2019-05-06T01:23:42+08:00</lastmod>
   </url>
@@ -733,6 +753,12 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/tags/contribute/</loc>
+    <lastmod>2019-05-12T09:46:14+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/tags/efficiency/</loc>
     <lastmod>2019-04-14T13:43:03+09:00</lastmod>
     <priority>0</priority>
@@ -758,13 +784,13 @@
   
   <url>
     <loc>https://codenow.me/tags/kingkoma/</loc>
-    <lastmod>2019-05-05T13:51:10+09:00</lastmod>
+    <lastmod>2019-05-12T09:46:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://codenow.me/tags/leetcode/</loc>
-    <lastmod>2019-05-03T18:49:11+09:00</lastmod>
+    <lastmod>2019-05-11T16:13:13+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -776,7 +802,13 @@
   
   <url>
     <loc>https://codenow.me/tags/mysql/</loc>
-    <lastmod>2019-04-28T10:55:12+09:00</lastmod>
+    <lastmod>2019-05-11T16:27:04+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/tags/opensource/</loc>
+    <lastmod>2019-05-12T09:46:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -788,13 +820,13 @@
   
   <url>
     <loc>https://codenow.me/tags/shell/</loc>
-    <lastmod>2019-05-05T13:51:10+09:00</lastmod>
+    <lastmod>2019-05-11T17:35:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://codenow.me/tags/</loc>
-    <lastmod>2019-04-14T13:43:03+09:00</lastmod>
+    <lastmod>2019-05-12T09:46:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   

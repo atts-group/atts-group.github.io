@@ -11,6 +11,23 @@
     
     
     <item>
+      <title>用 replace 方法修改 mysql 存储的数据</title>
+      <link>https://codenow.me/tips/mysql_replace/</link>
+      <pubDate>Sat, 11 May 2019 16:27:04 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/mysql_replace/</guid>
+      <description> 描述：
+ 数据库存储的数据与前端传过来的数据格式不一定统一
+ 解决：
+ 用　replace 方法解决这个问题
+ 例子：
+  数据库表里的电话号码： PHONE_NUMBER: xxx-xxxx-xxxx
+ 前端传过来的电话号码： phoneNumber: xxxxxxxxxxx
+  另要注意，当语句里用到 OR 时要用括号给括起来
+SELECT * FROM table WHERE 1 = 1 AND （REPLACE(PHONE_NUMBER, &amp;#34;-&amp;#34;, &amp;#34;&amp;#34;) = phoneNumber OR PHONE_NUMBER = phoneNumber）;</description>
+    </item>
+    
+    <item>
       <title>如何用Python产生验证码</title>
       <link>https://codenow.me/tips/create_verification_code_using_python/</link>
       <pubDate>Mon, 06 May 2019 00:18:55 +0800</pubDate>

@@ -5,10 +5,70 @@
     <link>https://codenow.me/tags/kingkoma/</link>
     <description>Recent content in Kingkoma on ATTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 05 May 2019 13:51:10 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2019 09:46:14 +0900</lastBuildDate>
     
 	<atom:link href="https://codenow.me/tags/kingkoma/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何做开源贡献者 01</title>
+      <link>https://codenow.me/translation/howtocontributetoopensource01/</link>
+      <pubDate>Sun, 12 May 2019 09:46:14 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/howtocontributetoopensource01/</guid>
+      <description>一、为什么要为开源做贡献 给开源项目做贡献是一个具有投资价值回报的事情，在学习、传授和积累任何你可以想象到的技能经验 等等各个方面。 为什么人们要为开源做贡献？原因很多！
+提高现有技能 无论是敲代码、UI 设计、平面设计、写作或整理，如果你想要实践，开源项目里可以总有一个任务适合你。
+认识拥有同样爱好的人 热情的开源项目团队总是可以让人流连忘返。 许多人的终身友谊就是在参加开源项目时认识的，无论是在会议里遇到还是在深夜里讨论墨西哥卷饼，都保持着良好的联系。
+找到导师或者传授他人 在一个共享项目里和别人合作意味着你不得不告诉别人你的做事方式以及向他人寻求帮助。 学习和教学对于每一个参加的人来说，都会变的日常和丰富。
+建立公共事务帮助你提高声誉以及事业 根据定义，你所有的开源项目都是公共的，意味着你在任何地方都可以以它们为例子来证明你的能力。
+学习通用技能 开源项目提供很多锻炼领导力和管理能力的机会，像解决冲突、管理团队和确定工作的优先级。
+能够让你作出改变，就算是小改变 参加开源项目不意味着你是一个终身贡献者。你有没有在什么网站上看到过什么错字，然后希望有人可以纠正它，其实你可以去做。 开源项目通过它们的活动帮助人们感受到组织的氛围以及它们如何体验这个世界的。这本身就很有意义。
+二、贡献什么 如果你是一个新手贡献者，这个过程看上去有点吓人。  怎么找到合适的项目？如果不会敲代码怎么办？如果出了错怎么办？  别担心，有各种参与开源项目的方式！ 为了能让你充分利用自身经验，下面有一些提示。
+你不必贡献代码 对于贡献开源的一个常见误解就是你一定要贡献代码。事实上，这是一个项目里最被忽视的一个部分。
+你喜欢活动策划吗？  组织项目的研讨会或者聚会，像@fzamperin 为 NodeSchool 做的那样 组织项目会议 帮助社区成员找到合适的会议室和写会议提案  你喜欢设计吗？  重组布局，帮助项目可读性 进行用户研究，改进项目的导航条和目录，像 Drupal 建议的那样 整理设计风格指南，帮助项目拥有一个一致的视觉效果 设计 T 恤或者新 logo，像 hapi.js 的贡献者做的那样  你喜欢写作吗？  写项目文档或者改进项目文档 建立一个示例文件夹，展示项目的使用方式 为项目启动简报，或从邮件列表里挑出一些精彩的集锦 写项目教程，像 PyPA 的贡献者做的那样 翻译项目文档  你喜欢整理东西吗？  对于重复的 issues 的链接，建议增加一个新的 issue 标签，保持事情的调整性 浏览公开 issues，建议关闭旧的 issues 在最近的公开 issues 里问具体的问题，使讨论向前推进  你喜欢敲代码吗？  找到一个待解决的公开 issue，像 @dianjin 为 Leaflet 做的那样 询问你是否可以帮助写一些新功能 使项目启动自动化 改进工具和测试  你喜欢帮助别人吗？  在像 Stack Overflow 或 Reddit 的网站上解答有关项目的问题，像这个 Postgres 例子一样 在公开 issues 为人解答疑问 帮助调节项目与外界的沟通渠道  你喜欢帮助别人有关代码的事吗？  审核别人提交的代码 写项目使用教程 为贡献者提供指导，像 @ereichert 为 @bronzdoc 在 Rust 上做的那样  你不一定要做软件项目！ 虽然开源项目通常指软件，你也可以尝试别的东西。还有很多其它像书籍、食谱、列表或者类等形式的开源项目。 例子：</description>
+    </item>
+    
+    <item>
+      <title>Shell　入门 02</title>
+      <link>https://codenow.me/articles/learning_the_shell_02/</link>
+      <pubDate>Sat, 11 May 2019 17:35:27 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/learning_the_shell_02/</guid>
+      <description>Shell 脚本基本知识  脚本常见编辑器：
+ vi vim
+ 脚本命名：
+ 见名知义
+ 脚本执行方式
+ # 推荐 - bin/bash /path/to/script-name 或 bash /path/to/script-name # 文件有可执行权限，在当前路径下执行脚本 - /path/to/script-name 或 ./script-name # 注意 `.` 符号 - source script-name 或 . script-name    说明：
+  ☆☆☆ 当脚本文件本身没有`可执行权限`或脚本首行没有命令解释器时使用的方法时，推荐用 bash 执行。 会开启新进程，不能共享环境，不能共享变量 ☆☆☆ 当脚本文件具有可执行权限时使用。 会开启新进程，不能共享环境，不能共享变量 ☆☆ 使用 source 或者 `.` 加载脚本文件，使脚本环境与当前用户环境一致， 不会新开进程，能与 shell 窗口共享进程，共享环境，共享变量   脚本开发规范
+ 文件后缀是 .sh  脚本文件首行是且必须是脚本解释器，一般是 #！ /bin/bash  脚本解释器后要有脚本基本信息，尽量用英文注释。 常见注释信息包括脚本名字、功能描述、脚本版本、作者和联系方式等  脚本内容执行：由上至下，依次执行  代码书写优秀习惯</description>
+    </item>
+    
+    <item>
+      <title>用 replace 方法修改 mysql 存储的数据</title>
+      <link>https://codenow.me/tips/mysql_replace/</link>
+      <pubDate>Sat, 11 May 2019 16:27:04 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/mysql_replace/</guid>
+      <description> 描述：
+ 数据库存储的数据与前端传过来的数据格式不一定统一
+ 解决：
+ 用　replace 方法解决这个问题
+ 例子：
+  数据库表里的电话号码： PHONE_NUMBER: xxx-xxxx-xxxx
+ 前端传过来的电话号码： phoneNumber: xxxxxxxxxxx
+  另要注意，当语句里用到 OR 时要用括号给括起来
+SELECT * FROM table WHERE 1 = 1 AND （REPLACE(PHONE_NUMBER, &amp;#34;-&amp;#34;, &amp;#34;&amp;#34;) = phoneNumber OR PHONE_NUMBER = phoneNumber）;</description>
+    </item>
+    
+    <item>
+      <title>Leetcode_806: Number of Lines To Write String</title>
+      <link>https://codenow.me/algorithm/leetcode_806_number_of_lines_to_write_string/</link>
+      <pubDate>Sat, 11 May 2019 16:13:13 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_806_number_of_lines_to_write_string/</guid>
+      <description> 题号：806 难度：easy 链接：https://leetcode.com/problems/number-of-lines-to-write-string/ 描述：给出 26 个字母每个占位的宽度和一串字母字符串，每行宽度为 100， 当每行加上要输入下一个的字母宽度超过 100 的话这个字母就跳到下一行。求这串字母占多少行且最后一行占位宽度  class Solution: def numberOfLines(self, widths: List[int], S: str) -&amp;gt; List[int]: letter_list = [&amp;#34;a&amp;#34;, &amp;#34;b&amp;#34;, &amp;#34;c&amp;#34;, &amp;#34;d&amp;#34;, &amp;#34;e&amp;#34;, &amp;#34;f&amp;#34;,&amp;#34;g&amp;#34;,&amp;#34;h&amp;#34;,&amp;#34;i&amp;#34;,&amp;#34;j&amp;#34;,&amp;#34;k&amp;#34;,&amp;#34;l&amp;#34;,&amp;#34;m&amp;#34;,&amp;#34;n&amp;#34;,&amp;#34;o&amp;#34;,&amp;#34;p&amp;#34;,&amp;#34;q&amp;#34;,&amp;#34;r&amp;#34;,&amp;#34;s&amp;#34;,&amp;#34;t&amp;#34;,&amp;#34;u&amp;#34;,&amp;#34;v&amp;#34;,&amp;#34;w&amp;#34;,&amp;#34;x&amp;#34;,&amp;#34;y&amp;#34;,&amp;#34;z&amp;#34;] letter_d = dict(zip(letter_list, widths)) str_widths = 0 lines = 1 for letter in S: letter_width = letter_d[letter] if str_widths + letter_width &amp;gt; 100 * lines: str_widths = 100 * lines + letter_width lines += 1 else: str_widths += letter_width last_line_width = 100 - (lines * 100 - str_widths) res = [lines,last_line_width] return res </description>
+    </item>
     
     <item>
       <title>Shell　入门 01</title>

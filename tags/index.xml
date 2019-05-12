@@ -5,10 +5,19 @@
     <link>https://codenow.me/tags/</link>
     <description>Recent content in Tags on ATTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 14 Apr 2019 13:43:03 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2019 09:46:14 +0900</lastBuildDate>
     
 	<atom:link href="https://codenow.me/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Contribute</title>
+      <link>https://codenow.me/tags/contribute/</link>
+      <pubDate>Sun, 12 May 2019 09:46:14 +0900</pubDate>
+      
+      <guid>https://codenow.me/tags/contribute/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Efficiency</title>
@@ -49,7 +58,7 @@
     <item>
       <title>Kingkoma</title>
       <link>https://codenow.me/tags/kingkoma/</link>
-      <pubDate>Sun, 05 May 2019 13:51:10 +0900</pubDate>
+      <pubDate>Sun, 12 May 2019 09:46:14 +0900</pubDate>
       
       <guid>https://codenow.me/tags/kingkoma/</guid>
       <description></description>
@@ -58,7 +67,7 @@
     <item>
       <title>Leetcode</title>
       <link>https://codenow.me/tags/leetcode/</link>
-      <pubDate>Fri, 03 May 2019 18:49:11 +0900</pubDate>
+      <pubDate>Sat, 11 May 2019 16:13:13 +0900</pubDate>
       
       <guid>https://codenow.me/tags/leetcode/</guid>
       <description></description>
@@ -76,9 +85,18 @@
     <item>
       <title>Mysql</title>
       <link>https://codenow.me/tags/mysql/</link>
-      <pubDate>Sun, 28 Apr 2019 10:55:12 +0900</pubDate>
+      <pubDate>Sat, 11 May 2019 16:27:04 +0900</pubDate>
       
       <guid>https://codenow.me/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Opensource</title>
+      <link>https://codenow.me/tags/opensource/</link>
+      <pubDate>Sun, 12 May 2019 09:46:14 +0900</pubDate>
+      
+      <guid>https://codenow.me/tags/opensource/</guid>
       <description></description>
     </item>
     
@@ -94,7 +112,7 @@
     <item>
       <title>Shell</title>
       <link>https://codenow.me/tags/shell/</link>
-      <pubDate>Sun, 05 May 2019 13:51:10 +0900</pubDate>
+      <pubDate>Sat, 11 May 2019 17:35:27 +0900</pubDate>
       
       <guid>https://codenow.me/tags/shell/</guid>
       <description></description>

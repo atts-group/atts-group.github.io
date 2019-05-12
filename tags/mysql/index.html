@@ -313,6 +313,23 @@
             <h1>目录 - Mysql</h1>
 
             
+            <a href="https://codenow.me/tips/mysql_replace/" title="用 replace 方法修改 mysql 存储的数据">
+                <h2>用 replace 方法修改 mysql 存储的数据 </h2>
+            </a>
+            <br>
+
+              描述：
+ 数据库存储的数据与前端传过来的数据格式不一定统一
+ 解决：
+ 用　replace 方法解决这个问题
+ 例子：
+  数据库表里的电话号码： PHONE_NUMBER: xxx-xxxx-xxxx
+ 前端传过来的电话号码： phoneNumber: xxxxxxxxxxx
+  另要注意，当语句里用到 OR 时要用括号给括起来
+SELECT * FROM table WHERE 1 = 1 AND （REPLACE(PHONE_NUMBER, &#34;-&#34;, &#34;&#34;) = phoneNumber OR PHONE_NUMBER = phoneNumber）;
+              <a href="https://codenow.me/tips/mysql_replace/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/tips/mysql_date/" title="Mysql 里的 DATE 函数">
                 <h2>Mysql 里的 DATE 函数 </h2>
             </a>

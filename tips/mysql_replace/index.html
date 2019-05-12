@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Shell - ATTS</title>
+    <title>用 replace 方法修改 mysql 存储的数据 - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/tags/shell/">
+    <link rel="canonical" href="https://codenow.me/tips/mysql_replace/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/tags/shell/">
+    <meta property="og:url" content="https://codenow.me/tips/mysql_replace/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -67,16 +67,18 @@
     <script src="https://codenow.me/javascripts/modernizr.js"></script>
 
     
-    <link href="https://codenow.me/tags/shell/index.xml" rel="alternate" type="application/rss+xml" title="ATTS" />
-    <link href="https://codenow.me/tags/shell/index.xml" rel="feed" type="application/rss+xml" title="ATTS" />
-    
 
   </head>
   <body class="palette-primary-indigo ">
-    
+
+
+
+	
+	
+
 
 <div class="backdrop">
-    <div class="backdrop-paper"></div>
+	<div class="backdrop-paper"></div>
 </div>
 
 <input class="toggle" type="checkbox" id="toggle-drawer">
@@ -84,7 +86,7 @@
 <label class="toggle-button overlay" for="toggle-drawer"></label>
 
 <header class="header">
-    <nav aria-label="Header">
+	<nav aria-label="Header">
   <div class="bar default">
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
@@ -93,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Shell
+        用 replace 方法修改 mysql 存储的数据
       </div>
     </div>
 
@@ -127,8 +129,8 @@
 </header>
 
 <main class="main">
-    <div class="drawer">
-        <nav aria-label="Navigation">
+	<div class="drawer">
+		<nav aria-label="Navigation">
   <a href="https://github.com/atts-group/atts" class="project">
     <div class="banner">
       
@@ -306,57 +308,133 @@
   </div>
 </nav>
 
-    </div>
+	</div>
 
-    <article class="article">
-        <div class="wrapper">
-            <h1>目录 - Shell</h1>
+	<article class="article">
+		<div class="wrapper">
+			<h1>用 replace 方法修改 mysql 存储的数据 </h1>
 
-            
-            <a href="https://codenow.me/articles/learning_the_shell_02/" title="Shell　入门 02">
-                <h2>Shell　入门 02 </h2>
-            </a>
-            <br>
+			<blockquote>
+<p>描述：</p>
+</blockquote>
 
-              Shell 脚本基本知识  脚本常见编辑器：
- vi vim
- 脚本命名：
- 见名知义
- 脚本执行方式
- # 推荐 - bin/bash /path/to/script-name 或 bash /path/to/script-name # 文件有可执行权限，在当前路径下执行脚本 - /path/to/script-name 或 ./script-name # 注意 <code>.</code> 符号 - source script-name 或 . script-name    说明：
-  ☆☆☆ 当脚本文件本身没有<code>可执行权限</code>或脚本首行没有命令解释器时使用的方法时，推荐用 bash 执行。 会开启新进程，不能共
-              <a href="https://codenow.me/articles/learning_the_shell_02/"><br>[阅读全文]</a>
+<p><code>数据库</code>存储的数据与<code>前端</code>传过来的数据格式不一定统一</p>
 
-            <hr> 
-            <a href="https://codenow.me/articles/learning_the_shell_01/" title="Shell　入门 01">
-                <h2>Shell　入门 01 </h2>
-            </a>
-            <br>
+<blockquote>
+<p>解决：</p>
+</blockquote>
 
-              Shell 的定义  一个命令解释器 位于操作系统和应用程序之间  Shell 的作用 shell 负责把应用程序的输入命令信息解释给操作系统，将操作系统指令处理后的结果解释给应用程序。
-Shell 的分类  图形界面式  桌面  命令行式
- windows 系统 (cmd.exe)
- Linux 系统 (sh, bash, zsh&hellip;)
-   查看系统 shell 信息 echo $SHELL  查看系统支持的 shell cat /etc/shells  Shell 的使用  手工方式  逐行输入命令，逐行进行确认执行
- 脚本方式  把执行命令写进脚本文件中，通过执行脚本达到执
-              <a href="https://codenow.me/articles/learning_the_shell_01/"><br>[阅读全文]</a>
+<p>用　replace 方法解决这个问题</p>
 
-            <hr> 
+<blockquote>
+<p>例子：</p>
+</blockquote>
 
-            <aside class="copyright" role="note">
-                 &copy; 2019 CC BY 4.0 License &ndash;  - By ATTS.
-            </aside>
-        </div>
-    </article>
+<ul>
+<li><p>数据库表里的电话号码：</br>
+PHONE_NUMBER: xxx-xxxx-xxxx</p></li>
 
-    <div class="results" role="status" aria-live="polite">
-        <div class="scrollable">
-            <div class="wrapper">
-                <div class="meta"></div>
-                <div class="list"></div>
+<li><p>前端传过来的电话号码：</br>
+phoneNumber: xxxxxxxxxxx</p></li>
+</ul>
+
+<p>另要注意，当语句里用到 OR 时要用括号给括起来</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-mysql" data-lang="mysql"><span style="color:#204a87;font-weight:bold">SELECT</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#204a87;font-weight:bold">FROM</span> <span style="color:#204a87;font-weight:bold">table</span> <span style="color:#204a87;font-weight:bold">WHERE</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">AND</span> <span style="color:#a40000">（</span><span style="color:#204a87;font-weight:bold">REPLACE</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">PHONE_NUMBER</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;-&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">phoneNumber</span> <span style="color:#204a87;font-weight:bold">OR</span> <span style="color:#000">PHONE_NUMBER</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">phoneNumber</span><span style="color:#a40000">）</span><span style="color:#000;font-weight:bold">;</span></code></pre></div>
+     
+                        <hr>
+                        
+                        <div>
+
+							</br>
+                        
+							<div>tags: </div>
+                            
+                                <div id="tags">
+                                    
+                                    <div>
+                                        <a href="https://codenow.me/tags/kingkoma">kingkoma</a> 
+                                    </div>
+                                    
+                                    <div>
+                                        <a href="https://codenow.me/tags/mysql">mysql</a> 
+                                    </div>
+                                    
+                                </div>
+                            
+                        
+                        </div>
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/algorithm/leetcode_806_number_of_lines_to_write_string/" title="Leetcode_806: Number of Lines To Write String">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Leetcode_806: Number of Lines To Write String
             </div>
+          </div>
         </div>
-    </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/articles/learning_the_shell_02/" title="Shell　入门 02">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Shell　入门 02
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
 </main>
 
     <script>
