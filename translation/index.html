@@ -316,6 +316,20 @@
             <h1>目录 - 翻译</h1>
 
             
+            <a href="https://codenow.me/translation/goroutine-leaks-abandoned-receivers/" title="Goroutine 泄露——被遗弃的接受者">
+                <h2>Goroutine 泄露——被遗弃的接受者 </h2>
+            </a>
+            <br>
+
+              原文地址
+简介 Goroutine 泄露在 Go 编程中是很常见的问题。在我的前一篇文章中，我介绍了 Goroutine 泄露的问题，并提供一个许多开发者都会犯的错误。这篇文章继续前文，讨论另一个关于 Goroutine 泄露的场景。
+被遗弃接收者的泄露 在这个例子中，你将可以看到多个 Goroutine 被阻塞，等待永远不会被发送的值
+文章中的这个程序启动了多个 Goroutine 来处理文件中一批数据。每个 Goroutine 从输入 channel 接受值，然后通过输出 channel 发送新值。
+Listing 1
+<a href="https://play.golang.org/p/Jtpla_Uvr">https://play.golang.org/p/Jtpla_Uvr</a>
+              <a href="https://codenow.me/translation/goroutine-leaks-abandoned-receivers/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/translation/howtocontributetoopensource01/" title="如何做开源贡献者 01">
                 <h2>如何做开源贡献者 01 </h2>
             </a>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Python Namedtuple 源码分析 - ATTS</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <link rel="canonical" href="https://codenow.me/articles/python-namedtuple/">
+    
+    <meta name="author" content="ATTS Group">
+    
+
+    <meta property="og:url" content="https://codenow.me/articles/python-namedtuple/">
+    <meta property="og:title" content="ATTS">
+    <meta property="og:image" content="https://codenow.me/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="ATTS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://codenow.me/fonts/icon.eot');
+        src: url('https://codenow.me/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://codenow.me/fonts/icon.woff')
+               format('woff'),
+             url('https://codenow.me/fonts/icon.ttf')
+               format('truetype'),
+             url('https://codenow.me/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/application.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://codenow.me/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-indigo ">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Python Namedtuple 源码分析
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/atts-group" title="@atts-group on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+  <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+  </div>
+   
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/atts-group/atts" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://codenow.me/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>ATTS </strong>
+        
+          <br>
+          atts-group/atts
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/atts-group/atts/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/atts-group/atts/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="文章" href="https://codenow.me/articles/">
+	
+	文章
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="算法" href="https://codenow.me/algorithm/">
+	
+	算法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="翻译" href="https://codenow.me/translation/">
+	
+	翻译
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Tips" href="https://codenow.me/tips/">
+	
+	Tips
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="玩法" href="https://codenow.me/rules/">
+	
+	玩法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="加入我们" href="https://codenow.me/joinus/">
+	
+	加入我们
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/atts-group" target="_blank" title="@atts-group on GitHub">
+              @atts-group on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Python Namedtuple 源码分析 </h1>
+
+			<p><code>namedtuple</code> 是一个简化 <code>tuple</code> 操作的工厂函数，对于普通元组我们在访问上只能通过游标的访问，在表现力上有时候比不上对象。</p>
+
+<p>命名的元组实例没有每个实例的字典，因此它们是轻量级的，并且不需要比常规元组更多的内存。</p>
+
+<p>假如想计算两个点之间的距离根据定义：</p>
+
+<p>需要两个点的 x、y 坐标，我们可以直接使用元组表示 p1 和 p2 点</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">math</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> 
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">p1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">p2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">math</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">sqrt</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">p1</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">p2</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">])</span><span style="color:#ce5c00;font-weight:bold">**</span><span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">p1</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">p2</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">])</span><span style="color:#ce5c00;font-weight:bold">**</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> 
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#0000cf;font-weight:bold">1.4142135623730951</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span></code></pre></div>
+<p>对于 p1 点的 x 坐标使用 p1[0] 表示，对阅读上有一定的困扰，如果可以使用 <code>p1.x</code> 就语义清晰了。</p>
+
+<p>这个场景就是 <code>namedtuple</code> 的典型应用，让字段具有名字，使用 <code>namedtuple</code> 重写上面例子</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">collections</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">math</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> 
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">Point</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">collections</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">namedtuple</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Point&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;x&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;y&#39;</span><span style="color:#000;font-weight:bold">])</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">p1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">p2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Point</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000">Point</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> 
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">math</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">sqrt</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">p1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">p2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">**</span><span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">p1</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">p2</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">**</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> 
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#0000cf;font-weight:bold">1.4142135623730951</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span></code></pre></div>
+<p>好奇宝宝肯定就会想知道 <code>namedtuple</code> 是如何让字段具有名字的，先看看函数的签名</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">namedtuple</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">typename</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">*</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">rename</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">False</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">defaults</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">,</span><span style="color:#000">module</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<p>第一个和第二参数前面已经使用过了，<code>typename</code> 就是新命名元组的名字，我们最经常的就是模仿的类，所以会使用类的定义风格。<code>field_names</code> 参数用于定义字段的名字，除了上面使用 <code>['x', 'y']</code> 还可以使用 <code>&quot;x y&quot;</code> 或者 <code>&quot;x, y&quot;</code>，定义方法选择自己喜欢的就好。</p>
+
+<p><code>rename</code> 参数默认是 <code>False</code>，顾名思义就是重命名字段名字，假如我们使用了非法的变量名（比如关键字等）会被重命名成别的名字。</p>
+
+<blockquote>
+<p>[!DANGER]</p>
+
+<p>这种改变定义的行为是最好不要做，除非你能保证任何人知道这个行为。</p>
+</blockquote>
+
+<p><code>defaults</code> 参数可以是 <code>None</code> 或者一个可迭代的值，根据具有默认值的字段必须在没有初始值的后面，所以<code>defaults</code> 提供的默认值都是最右匹配。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87;font-weight:bold">from</span> <span style="color:#000">collections</span> <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">namedtuple</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> 
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">Point</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">namedtuple</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Point&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;x y z&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">defaults</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">])</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">p1</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">Point</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> 
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">p1</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000">Point</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">z</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span></code></pre></div>
+<p>如果定义了 <code>module</code>，则将命名元组的 <code>__module__</code>属性设置为该值。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">...</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">isinstance</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">field_names</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">field_names</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;,&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39; &#39;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">split</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#000">field_names</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#000">typename</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">_sys</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">intern</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">typename</span><span style="color:#000;font-weight:bold">))</span>
+<span style="color:#ce5c00;font-weight:bold">...</span></code></pre></div>
+<p>进入函数的第一步先对两个基本的参数 <code>typename</code> 和 <code>field_names</code> 进行处理。</p>
+
+<p>如果 <code>field_names</code> 是一个字符串就 replace 把 <code>,</code> 转化成空格，再 split 成标准的 list。 <code>list(map(str, field_names))</code> 保证了 <code>field_names</code> 的每个值都是 str 类型。
+<code>_sys.intern</code> 把 typename 注册到全局中，可以加快对字符串的寻找。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">...</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">rename</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">seen</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">set</span><span style="color:#000;font-weight:bold">()</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isidentifier</span><span style="color:#000;font-weight:bold">()</span>
+                <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">_iskeyword</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
+                <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">startswith</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;_&#39;</span><span style="color:#000;font-weight:bold">)</span>
+                <span style="color:#204a87;font-weight:bold">or</span> <span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">seen</span><span style="color:#000;font-weight:bold">):</span>
+                <span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#4e9a06">&#39;_{index}&#39;</span>
+            <span style="color:#000">seen</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">...</span></code></pre></div>
+<p>对于设置了 <code>rename=True</code> 会对不合法的 field_name 重新命名，从代码中可以看出重新命名的规则是：如果不合法，判断是不是 <strong>关键字</strong>、是不是以 <strong>下划线</strong> 开头，是不是 <strong>已经存在</strong>，如果符合其中一项就会对用 <code>_{当前的 index}</code>变量重新命名。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">...</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">typename</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">type</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">is</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">TypeError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Type names and field names must be strings&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isidentifier</span><span style="color:#000;font-weight:bold">():</span>
+            <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">ValueError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Type names and field names must be valid &#39;</span>
+                             <span style="color:#000">f</span><span style="color:#4e9a06">&#39;identifiers: {name!r}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">_iskeyword</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">ValueError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Type names and field names cannot be a &#39;</span>
+                             <span style="color:#000">f</span><span style="color:#4e9a06">&#39;keyword: {name!r}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+    
+    <span style="color:#000">seen</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">set</span><span style="color:#000;font-weight:bold">()</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">name</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">startswith</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;_&#39;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">rename</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">ValueError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Field names cannot start with an underscore: &#39;</span>
+                             <span style="color:#000">f</span><span style="color:#4e9a06">&#39;{name!r}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">seen</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">ValueError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#4e9a06">&#39;Encountered duplicate field name: {name!r}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">seen</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">add</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">...</span></code></pre></div>
+<p>接下来对输入的 typename 和 field_names 经检查了一下参数，仍是使用上面的三个规则，确保 typename 和 field_names 中的元素是合法的字符串。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">...</span>
+    <span style="color:#000">field_defaults</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{}</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">defaults</span> <span style="color:#204a87;font-weight:bold">is</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">defaults</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">tuple</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">defaults</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">defaults</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">TypeError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;Got more default values than field names&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">field_defaults</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">dict</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">reversed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">reversed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">),</span>
+                                                <span style="color:#204a87">reversed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">defaults</span><span style="color:#000;font-weight:bold">)))))</span>
+<span style="color:#ce5c00;font-weight:bold">...</span></code></pre></div>
+<p>如果设置了 defaults 参数，要最右匹配到 field_names。先使用了 <code>zip</code> 函数，把 <code>reversed</code> 后的 field_names 和 defaults 组合成元组的 list</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">field_names</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;x&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;y&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;z&#39;</span><span style="color:#000;font-weight:bold">]</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">defaults</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">]</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> 
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">reversed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#204a87">reversed</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">defaults</span><span style="color:#000;font-weight:bold">))))</span>
+<span style="color:#000;font-weight:bold">[(</span><span style="color:#4e9a06">&#39;z&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;y&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)]</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span></code></pre></div>
+<p>最后在使用 <code>dict(reversed(...))</code> 转化成 dict 类型。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">...</span>
+    <span style="color:#8f5902;font-style:italic"># Variables used in the methods and docstrings</span>
+    <span style="color:#000">field_names</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">tuple</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">_sys</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">intern</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">))</span>
+    <span style="color:#000">num_fields</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000">arg_list</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">repr</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;&#39;&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#000;font-weight:bold">)[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#000">repr_fmt</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#39;(&#39;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#39;, &#39;</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#4e9a06">&#39;{name}=</span><span style="color:#4e9a06">%r</span><span style="color:#4e9a06">&#39;</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#39;)&#39;</span>
+    <span style="color:#000">tuple_new</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">tuple</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__new__</span>
+    <span style="color:#000">_dict</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_tuple</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_len</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_map</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_zip</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">dict</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">tuple</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">zip</span>
+
+    <span style="color:#8f5902;font-style:italic"># Create all the named tuple methods to be added to the class namespace</span>
+
+    <span style="color:#000">s</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#4e9a06">&#39;def __new__(_cls, {arg_list}): return _tuple_new(_cls, ({arg_list}))&#39;</span>
+    <span style="color:#000">namespace</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#39;_tuple_new&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">tuple_new</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;__name__&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">f</span><span style="color:#4e9a06">&#39;namedtuple_{typename}&#39;</span><span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#8f5902;font-style:italic"># Note: exec() has the side-effect of interning the field names</span>
+    <span style="color:#204a87;font-weight:bold">exec</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">s</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">namespace</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000">__new__</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">namespace</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;__new__&#39;</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#000">__new__</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__doc__</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#4e9a06">&#39;Create new instance of {typename}({arg_list})&#39;</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">defaults</span> <span style="color:#204a87;font-weight:bold">is</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">__new__</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__defaults__</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">defaults</span>
+<span style="color:#ce5c00;font-weight:bold">...</span></code></pre></div>
+<p>这部分动态设置参数的过程，重点关注 <code>exec(s, namespace)</code> ，s 是 <code>__new__</code> 方法的定义，其中的 <code>arg_list</code> 是我们设置的属性名字会转换成 <code>x, y, x</code> 这种形式，填充的 s 中。namespace 则是 exec 过程中可使用的变量，这里传入了 <code>tuple_new = tuple.__new__</code> 用于创建一个新的 tuple。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">...</span>
+    <span style="color:#5c35cc;font-weight:bold">@classmethod</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">_make</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">cls</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">iterable</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">tuple_new</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">cls</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">iterable</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">_len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">result</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">num_fields</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">TypeError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#4e9a06">&#39;Expected {num_fields} arguments, got {len(result)}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
+
+    <span style="color:#000">_make</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__func__</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__doc__</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#4e9a06">&#39;Make a new {typename} object from a sequence &#39;</span>
+                              <span style="color:#4e9a06">&#39;or iterable&#39;</span><span style="color:#000;font-weight:bold">)</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">_replace</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">_self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">**</span><span style="color:#000">kwds</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">_self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_make</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">_map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">kwds</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_self</span><span style="color:#000;font-weight:bold">))</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">kwds</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">raise</span> <span style="color:#c00;font-weight:bold">ValueError</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#4e9a06">&#39;Got unexpected field names: {list(kwds)!r}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
+
+    <span style="color:#000">_replace</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__doc__</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#4e9a06">&#39;Return a new {typename} object replacing specified &#39;</span>
+                        <span style="color:#4e9a06">&#39;fields with new values&#39;</span><span style="color:#000;font-weight:bold">)</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__repr__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#4e9a06">&#39;Return a nicely formatted representation string&#39;</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__class__</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__name__</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">repr_fmt</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#3465a4">self</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">_asdict</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#4e9a06">&#39;Return a new dict which maps field names to their values.&#39;</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">_dict</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">_zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_fields</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">))</span>
+
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">__getnewargs__</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#4e9a06">&#39;Return self as a plain tuple.  Used by copy and pickle.&#39;</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">_tuple</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">)</span>
+
+    <span style="color:#8f5902;font-style:italic"># Modify function metadata to help with introspection and debugging</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">method</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">__new__</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_make</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__func__</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_replace</span><span style="color:#000;font-weight:bold">,</span>
+                   <span style="color:#000">__repr__</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">_asdict</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">__getnewargs__</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">method</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__qualname__</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">f</span><span style="color:#4e9a06">&#39;{typename}.{method.__name__}&#39;</span>
+<span style="color:#ce5c00;font-weight:bold">...</span></code></pre></div>
+<p>接着定义了一些列的方法，这些方法最后都是用于生成 namedtuple 后所拥有的方法，根据简单的注释可以很容易知道他们的用途</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">...</span>
+    <span style="color:#8f5902;font-style:italic"># Build-up the class namespace dictionary</span>
+    <span style="color:#8f5902;font-style:italic"># and use type() to build the result class</span>
+    <span style="color:#000">class_namespace</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#39;__doc__&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">f</span><span style="color:#4e9a06">&#39;{typename}({arg_list})&#39;</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#39;__slots__&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">(),</span>
+        <span style="color:#4e9a06">&#39;_fields&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#39;_field_defaults&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">field_defaults</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#8f5902;font-style:italic"># alternate spelling for backward compatiblity</span>
+        <span style="color:#4e9a06">&#39;_fields_defaults&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">field_defaults</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#39;__new__&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">__new__</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#39;_make&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">_make</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#39;_replace&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">_replace</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#39;__repr__&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">__repr__</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#39;_asdict&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">_asdict</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#4e9a06">&#39;__getnewargs__&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">__getnewargs__</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    
+    <span style="color:#8f5902;font-style:italic"># _tuplegetter = lambda index, doc: property(_itemgetter(index), doc=doc)</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">index</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">name</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">field_names</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">doc</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">_sys</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#204a87">intern</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">f</span><span style="color:#4e9a06">&#39;Alias for field number {index}&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">class_namespace</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">name</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">_tuplegetter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">index</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">doc</span><span style="color:#000;font-weight:bold">)</span>
+    
+    <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">type</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">typename</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">tuple</span><span style="color:#000;font-weight:bold">,),</span> <span style="color:#000">class_namespace</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">...</span></code></pre></div>
+<p>定义 <code>class_namespace</code> 传入上面定义好一系列方法，最后使用 <code>type</code> 创建出一个新的 class。</p>
+
+<blockquote>
+<p>[!NOTE]</p>
+
+<p>Python 所有的东西都是 type 这个函数创建出来的，包括 type 本身，更多 type 相关信息参考
+<a href="https://docs.python.org/3/library/functions.html#type">https://docs.python.org/3/library/functions.html#type</a></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"> <span style="color:#ce5c00;font-weight:bold">...</span>
+    <span style="color:#8f5902;font-style:italic"># For pickling to work, the __module__ variable needs to be set to the frame</span>
+    <span style="color:#8f5902;font-style:italic"># where the named tuple is created.  Bypass this step in environments where</span>
+    <span style="color:#8f5902;font-style:italic"># sys._getframe is not defined (Jython for example) or sys._getframe is not</span>
+    <span style="color:#8f5902;font-style:italic"># defined for arguments greater than 0 (IronPython), or where the user has</span>
+    <span style="color:#8f5902;font-style:italic"># specified a particular module.</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">module</span> <span style="color:#204a87;font-weight:bold">is</span> <span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">try</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#000">module</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">_sys</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">_getframe</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">f_globals</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;__name__&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;__main__&#39;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#204a87;font-weight:bold">except</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#c00;font-weight:bold">AttributeError</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#c00;font-weight:bold">ValueError</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#204a87;font-weight:bold">pass</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">module</span> <span style="color:#204a87;font-weight:bold">is</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#3465a4">None</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#000">result</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">__module__</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">module</span>
+
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">result</span>
+ <span style="color:#ce5c00;font-weight:bold">...</span></code></pre></div>
+<p>最后需要把 module 属性设置回 result 的 <code>__module__</code> 中，这些信息会在 pickle 会被用到。</p>
+
+<p>总结一下，namedtuple 创建过程大体分成三个部分：</p>
+
+<ol>
+<li>提取参数、定义 tuple 所需的方法</li>
+<li>根据参数名字动态构建 <code>__new__</code> 函数，和最后生成的 tuple 的属性可以对应上</li>
+<li>填充 class_namespace，用 <code>type</code> 函数创建一个 tuple 对象</li>
+</ol>
+
+<p>其实在不久之前，namedtuple 还是直接使用字符串模板生成，现在这种实现方法更优雅了。</p>
+
+     
+                        <hr>
+                        
+                        <div>
+
+							</br>
+                        
+                        </div>
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/translation/howtocontributetoopensource01/" title="如何做开源贡献者 01">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              如何做开源贡献者 01
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://codenow.me/translation/goroutine-leaks-abandoned-receivers/" title="Goroutine 泄露——被遗弃的接受者">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Goroutine 泄露——被遗弃的接受者
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/codenow.me\/';
+      var repo_id  = 'atts-group\/atts';
+    
+    </script>
+
+    <script src="https://codenow.me/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "¶";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-136313587-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>Leetcode 70: Climbing Stairs</title>
+      <link>https://codenow.me/algorithm/leetcode_70_climbing_stairs/</link>
+      <pubDate>Sun, 12 May 2019 21:43:33 +0800</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_70_climbing_stairs/</guid>
+      <description> 题号：70 难度：Easy 链接：https://leetcode-cn.com/problems/climbing-stairs/
+ Python代码
+class Solution: def __init__(self): self.cache = {1: 1, 2: 2} def climbStairs(self, n: int) -&amp;gt; int: if n in self.cache: return self.cache[n] result = self.climbStairs(n - 1) + self.climbStairs(n - 2) self.cache[n] = result return result</description>
+    </item>
+    
+    <item>
       <title>Leetcode_806: Number of Lines To Write String</title>
       <link>https://codenow.me/algorithm/leetcode_806_number_of_lines_to_write_string/</link>
       <pubDate>Sat, 11 May 2019 16:13:13 +0900</pubDate>

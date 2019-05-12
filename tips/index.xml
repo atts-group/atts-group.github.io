@@ -11,6 +11,16 @@
     
     
     <item>
+      <title>Goland Jvm Optimize</title>
+      <link>https://codenow.me/tips/goland-jvm-optimize/</link>
+      <pubDate>Sun, 12 May 2019 21:44:40 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/goland-jvm-optimize/</guid>
+      <description>Help-&amp;gt;Edit Custom VM Options
+-Xms3g -Xmx3g -XX:ReservedCodeCacheSize=512m -XX:+UseCompressedOops -Dfile.encoding=UTF-8 -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -Djdk.http.auth.tunneling.disabledSchemes=&amp;quot;&amp;quot; -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Xverify:none -server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:ErrorFile=$USER_HOME/java_error_in_idea_%p.log -XX:HeapDumpPath=$USER_HOME/java_error_in_idea.hprof  </description>
+    </item>
+    
+    <item>
       <title>用 replace 方法修改 mysql 存储的数据</title>
       <link>https://codenow.me/tips/mysql_replace/</link>
       <pubDate>Sat, 11 May 2019 16:27:04 +0900</pubDate>
