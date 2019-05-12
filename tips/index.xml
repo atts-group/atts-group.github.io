@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Django中Mysql的使用</title>
+      <link>https://codenow.me/tips/django_mysql/</link>
+      <pubDate>Sun, 12 May 2019 22:00:34 +0800</pubDate>
+      
+      <guid>https://codenow.me/tips/django_mysql/</guid>
+      <description>1. 数据库设置 settings.py DATABASES = { &amp;#39;default&amp;#39;: { &amp;#39;ENGINE&amp;#39;: &amp;#39;django.db.backends.mysql&amp;#39;, &amp;#39;NAME&amp;#39;: &amp;#39;autotest&amp;#39;, &amp;#39;USER&amp;#39;: &amp;#39;root&amp;#39;, &amp;#39;PASSWORD&amp;#39;: &amp;#39;123456&amp;#39;, &amp;#39;HOST&amp;#39;: &amp;#39;127.0.0.1&amp;#39;, &amp;#39;PORT&amp;#39;: &amp;#39;3306&amp;#39;, } } 2. models.py from django.db import models from django import forms from datetime import datetime # Create your models here. class indexUsers(models.Model): username = models.CharField(max_length=30,verbose_name=&amp;#34;姓名&amp;#34; ) age = models.IntegerField(default=3, verbose_name=&amp;#34;年龄&amp;#34;) phone = models.IntegerField(default=11, verbose_name=&amp;#34;电话&amp;#34;) addtime = models.DateField(default=datetime.now, blank=True, null=True, verbose_name=&amp;#34;添加时间&amp;#34;) class Meta: verbose_name = u&amp;#39;用户管理&amp;#39; verbose_name_plural = u&amp;#39;用户管理&amp;#39; def __str__(self): return self.</description>
+    </item>
+    
+    <item>
       <title>Goland Jvm Optimize</title>
       <link>https://codenow.me/tips/goland-jvm-optimize/</link>
       <pubDate>Sun, 12 May 2019 21:44:40 +0800</pubDate>

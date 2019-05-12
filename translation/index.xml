@@ -11,6 +11,29 @@
     
     
     <item>
+      <title>Python的函数式编程</title>
+      <link>https://codenow.me/translation/an_introduction_to_functional_programming_with_python/</link>
+      <pubDate>Sun, 12 May 2019 23:18:30 +0800</pubDate>
+      
+      <guid>https://codenow.me/translation/an_introduction_to_functional_programming_with_python/</guid>
+      <description>原文地址：https://julien.danjou.info/python-and-functional-programming/
+许多Python开发人员不知道您可以在多大程度上使用Python中的函数式编程，这是一个遗憾：除了少数例外，函数式编程允许您编写更简洁和高效的代码。此外，Python对函数式编程的支持非常广泛。
+在这里，我想谈一点关于如何真正使用我们最喜欢的语言进行编程的功能性方法。
+纯函数 当您使用函数样式编写代码时，您的函数被设计为没有副作用：相反，它们接受输入并生成输出，而不保留状态或修改返回值中未反映的任何内容。遵循这个理想的函数被称为纯函数函数。
+让我们从一个常规的、非纯函数的示例开始，该函数删除列表中的最后一项：
+def remove_last_item(mylist): &amp;#34;&amp;#34;&amp;#34;Removes the last item from a list.&amp;#34;&amp;#34;&amp;#34; mylist.pop(-1) # This modifies mylist 此函数不是纯函数：它在修改给定参数时有副作用。让我们将其重写为纯粹的函数：
+def butlast(mylist): &amp;#34;&amp;#34;&amp;#34;Like butlast in Lisp; returns the list without the last element.&amp;#34;&amp;#34;&amp;#34; return mylist[:-1] # This returns a copy of mylist 我们定义了一个butlast（）函数（如lisp中的butlast），该函数不修改原始列表而返回最后一个元素的列表。相反，它会返回一份已进行修改的列表副本，允许我们保留原始列表。使用函数式编程的实际优势包括：
+ 模块性。以功能性的风格写作，在一定程度上分离在解决你的个别问题和使代码部分在其他环境中更容易重用。因为函数不依赖于任何外部变量或状态，从另一段代码调用它是直截了当。
+ 简洁。函数式编程通常比其他范式更不冗长。
+ 并发性。纯函数函数是线程安全的，可以运行同时地。有些函数语言会自动执行此操作，可以如果您需要扩展应用程序，这是一个很大的帮助，尽管这不是在python中是这样的。
+ 可测试性。测试一个功能性程序非常简单：你所需要的一切是一组输入和一组预期输出。它们是等幂的，意思是用相同的参数反复调用相同的函数将始终返回相同的结果。
+  注意，Python中的列表理解等概念在其方法中已经具有了功能，因为它们的设计是为了避免副作用。下面我们将看到，python提供的一些功能函数实际上可以表示为列表理解！
+python函数式函数 在使用函数式编程操作数据时，您可能会反复遇到相同的一组问题。为了帮助您有效地处理这种情况，python包含了许多用于函数编程的函数。在这里，我们将快速概述一些内置函数，这些函数允许您构建完全功能的程序。一旦您了解了什么是可用的，我鼓励您进一步研究并尝试在您自己的代码中可能应用的函数。
+将函数应用于带有映射的项 map（）函数采用形式map（function，iterable），并对iterable中的每个项应用函数，以返回iterable映射对象：
+&amp;gt;&amp;gt;&amp;gt; map(lambda x: x + &amp;#34;bzz!&amp;#34;, [&amp;#34;I think&amp;#34;, &amp;#34;I&amp;#39;m good&amp;#34;]) &amp;lt;map object at 0x7fe7101abdd0&amp;gt; &amp;gt;&amp;gt;&amp;gt; list(map(lambda x: x + &amp;#34;bzz!</description>
+    </item>
+    
+    <item>
       <title>Goroutine 泄露——被遗弃的接受者</title>
       <link>https://codenow.me/translation/goroutine-leaks-abandoned-receivers/</link>
       <pubDate>Sun, 12 May 2019 21:42:51 +0800</pubDate>

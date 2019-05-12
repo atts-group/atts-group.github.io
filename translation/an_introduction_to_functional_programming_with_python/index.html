@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Python的函数式编程 - ATTS</title>
+    <meta name="generator" content="Hugo 0.54.0" />
+
+    
+    <link rel="canonical" href="https://codenow.me/translation/an_introduction_to_functional_programming_with_python/">
+    
+    <meta name="author" content="ATTS Group">
+    
+
+    <meta property="og:url" content="https://codenow.me/translation/an_introduction_to_functional_programming_with_python/">
+    <meta property="og:title" content="ATTS">
+    <meta property="og:image" content="https://codenow.me/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="ATTS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="https://codenow.me/images/favicon.png">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://codenow.me/fonts/icon.eot');
+        src: url('https://codenow.me/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://codenow.me/fonts/icon.woff')
+               format('woff'),
+             url('https://codenow.me/fonts/icon.ttf')
+               format('truetype'),
+             url('https://codenow.me/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/application.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://codenow.me/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://codenow.me/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-indigo ">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Python的函数式编程
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/atts-group" title="@atts-group on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+  <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+  </div>
+   
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/atts-group/atts" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://codenow.me/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>ATTS </strong>
+        
+          <br>
+          atts-group/atts
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/atts-group/atts/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/atts-group/atts/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="文章" href="https://codenow.me/articles/">
+	
+	文章
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="算法" href="https://codenow.me/algorithm/">
+	
+	算法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="翻译" href="https://codenow.me/translation/">
+	
+	翻译
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Tips" href="https://codenow.me/tips/">
+	
+	Tips
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="玩法" href="https://codenow.me/rules/">
+	
+	玩法
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="加入我们" href="https://codenow.me/joinus/">
+	
+	加入我们
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/atts-group" target="_blank" title="@atts-group on GitHub">
+              @atts-group on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Python的函数式编程 </h1>
+
+			
+
+<p>原文地址：<a href="https://julien.danjou.info/python-and-functional-programming/">https://julien.danjou.info/python-and-functional-programming/</a></p>
+
+<p>许多Python开发人员不知道您可以在多大程度上使用Python中的函数式编程，这是一个遗憾：除了少数例外，函数式编程允许您编写更简洁和高效的代码。此外，Python对函数式编程的支持非常广泛。</p>
+
+<p>在这里，我想谈一点关于如何真正使用我们最喜欢的语言进行编程的功能性方法。</p>
+
+<h2 id="纯函数">纯函数</h2>
+
+<p>当您使用函数样式编写代码时，您的函数被设计为没有副作用：相反，它们接受输入并生成输出，而不保留状态或修改返回值中未反映的任何内容。遵循这个理想的函数被称为纯函数函数。</p>
+
+<p>让我们从一个常规的、非纯函数的示例开始，该函数删除列表中的最后一项：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">remove_last_item</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">mylist</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#4e9a06">&#34;&#34;&#34;Removes the last item from a list.&#34;&#34;&#34;</span>
+    <span style="color:#000">mylist</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>  <span style="color:#8f5902;font-style:italic"># This modifies mylist</span></code></pre></div>
+<p>此函数不是纯函数：它在修改给定参数时有副作用。让我们将其重写为纯粹的函数：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">butlast</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">mylist</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#4e9a06">&#34;&#34;&#34;Like butlast in Lisp; returns the list without the last element.&#34;&#34;&#34;</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">mylist</span><span style="color:#000;font-weight:bold">[:</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>  <span style="color:#8f5902;font-style:italic"># This returns a copy of mylist</span></code></pre></div>
+<p>我们定义了一个butlast（）函数（如lisp中的butlast），该函数不修改原始列表而返回最后一个元素的列表。相反，它会返回一份已进行修改的列表副本，允许我们保留原始列表。使用函数式编程的实际优势包括：</p>
+
+<ul>
+<li><p>模块性。以功能性的风格写作，在一定程度上分离在解决你的个别问题和使代码部分在其他环境中更容易重用。因为函数不依赖于任何外部变量或状态，从另一段代码调用它是直截了当。</p></li>
+
+<li><p>简洁。函数式编程通常比其他范式更不冗长。</p></li>
+
+<li><p>并发性。纯函数函数是线程安全的，可以运行同时地。有些函数语言会自动执行此操作，可以如果您需要扩展应用程序，这是一个很大的帮助，尽管这不是在python中是这样的。</p></li>
+
+<li><p>可测试性。测试一个功能性程序非常简单：你所需要的一切是一组输入和一组预期输出。它们是等幂的，意思是用相同的参数反复调用相同的函数将始终返回相同的结果。</p></li>
+</ul>
+
+<p>注意，Python中的列表理解等概念在其方法中已经具有了功能，因为它们的设计是为了避免副作用。下面我们将看到，python提供的一些功能函数实际上可以表示为列表理解！</p>
+
+<h2 id="python函数式函数">python函数式函数</h2>
+
+<p>在使用函数式编程操作数据时，您可能会反复遇到相同的一组问题。为了帮助您有效地处理这种情况，python包含了许多用于函数编程的函数。在这里，我们将快速概述一些内置函数，这些函数允许您构建完全功能的程序。一旦您了解了什么是可用的，我鼓励您进一步研究并尝试在您自己的代码中可能应用的函数。</p>
+
+<h3 id="将函数应用于带有映射的项">将函数应用于带有映射的项</h3>
+
+<p>map（）函数采用形式map（function，iterable），并对iterable中的每个项应用函数，以返回iterable映射对象：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">lambda</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#34;bzz!&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;I think&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m good&#34;</span><span style="color:#000;font-weight:bold">])</span>
+<span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87">map</span> <span style="color:#204a87">object</span> <span style="color:#000">at</span> <span style="color:#0000cf;font-weight:bold">0x7fe7101abdd0</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">lambda</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#34;bzz!&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;I think&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m good&#34;</span><span style="color:#000;font-weight:bold">]))</span>
+<span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;I thinkbzz!&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m goodbzz!&#34;</span><span style="color:#000;font-weight:bold">]</span></code></pre></div>
+<p>您还可以使用列表理解编写一个相当于map（）的函数，其中</p>
+
+<p>如下所示：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#34;bzz!&#34;</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;I think&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m good&#34;</span><span style="color:#000;font-weight:bold">])</span>
+<span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">generator</span> <span style="color:#204a87">object</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">genexpr</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">at</span> <span style="color:#0000cf;font-weight:bold">0x7f9a0d697dc0</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#34;bzz!&#34;</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;I think&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m good&#34;</span><span style="color:#000;font-weight:bold">]]</span>
+<span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;I thinkbzz!&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m goodbzz!&#34;</span><span style="color:#000;font-weight:bold">]</span></code></pre></div>
+<h3 id="用筛选器筛选列表">用筛选器筛选列表</h3>
+
+<p>filter（）函数接受表单筛选器（function or none，iterable），并根据函数返回的结果筛选iterable中的项。这将返回ITerable筛选器对象：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">filter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">lambda</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">x</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">startswith</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;I &#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;I think&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m good&#34;</span><span style="color:#000;font-weight:bold">])</span>
+<span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87">filter</span> <span style="color:#204a87">object</span> <span style="color:#000">at</span> <span style="color:#0000cf;font-weight:bold">0x7f9a0d636dd0</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">filter</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">lambda</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">x</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">startswith</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;I &#34;</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;I think&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m good&#34;</span><span style="color:#000;font-weight:bold">]))</span>
+<span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;I think&#39;</span><span style="color:#000;font-weight:bold">]</span></code></pre></div>
+<p>您还可以使用列表理解编写一个相当于filter（）的函数，比如:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;I think&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m good&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">x</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">startswith</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;I &#34;</span><span style="color:#000;font-weight:bold">))</span>
+<span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">generator</span> <span style="color:#204a87">object</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">genexpr</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">at</span> <span style="color:#0000cf;font-weight:bold">0x7f9a0d697dc0</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;I think&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;I&#39;m good&#34;</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">x</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">startswith</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;I &#34;</span><span style="color:#000;font-weight:bold">)]</span>
+<span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#39;I think&#39;</span><span style="color:#000;font-weight:bold">]</span></code></pre></div>
+<h3 id="使用枚举获取索引">使用枚举获取索引</h3>
+
+<p>enumerate（）函数的形式为enumerate（iterable[，start]），并返回一个iterable对象，该对象提供一系列元组，每个元组由一个整数索引（从start开始，如果提供）和iterable中的相应项组成。当需要编写引用数组索引的代码时，此函数非常有用。例如，不要写：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span>
+<span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">mylist</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Item </span><span style="color:#4e9a06">%d</span><span style="color:#4e9a06">: </span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">mylist</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]))</span>
+    <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#0000cf;font-weight:bold">1</span></code></pre></div>
+<p>使用enumerate（）可以更有效地完成相同的任务，如：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">item</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">mylist</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Item </span><span style="color:#4e9a06">%d</span><span style="color:#4e9a06">: </span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">item</span><span style="color:#000;font-weight:bold">))</span></code></pre></div>
+<h3 id="对列表进行排序">对列表进行排序</h3>
+
+<p>sorted（）函数采用排序的形式（iterable，key=none，reverse=false），并返回iterable的排序版本。key参数允许您提供返回要排序的值的函数：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">sorted</span><span style="color:#000;font-weight:bold">([(</span><span style="color:#4e9a06">&#34;a&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;c&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)])</span>
+<span style="color:#000;font-weight:bold">[(</span><span style="color:#4e9a06">&#39;a&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;c&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;d&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)]</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">sorted</span><span style="color:#000;font-weight:bold">([(</span><span style="color:#4e9a06">&#34;a&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;c&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)],</span> <span style="color:#000">key</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">lambda</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">])</span>
+<span style="color:#000;font-weight:bold">[(</span><span style="color:#4e9a06">&#39;c&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;a&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;d&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">)]</span></code></pre></div>
+<h3 id="查找满足任何和所有条件的项">查找满足任何和所有条件的项</h3>
+
+<p>any（iterable）和all（iterable）函数都根据iterable返回的值返回布尔值。这些简单函数相当于以下完整的python代码：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">all</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">iterable</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">iterable</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">False</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">True</span>
+
+<span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">any</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">iterable</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">iterable</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">True</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">False</span></code></pre></div>
+<p>这些函数用于检查iterable中的任何或所有值是否满足给定条件。例如，下面检查了两个条件的列表：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">mylist</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">all</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">lambda</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">mylist</span><span style="color:#000;font-weight:bold">)):</span>
+    <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;All items are greater than 0&#34;</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">any</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">lambda</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">x</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">mylist</span><span style="color:#000;font-weight:bold">)):</span>
+    <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;At least one item is greater than 0&#34;</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<p>这里的关键区别在于，您可以看到，当至少一个元素满足条件时，any（）返回true，而all（）仅当每个元素满足条件时返回true。对于空的iterable，all（）函数也将返回true，因为所有元素都不是false。</p>
+
+<h3 id="将列表与zip组合">将列表与zip组合</h3>
+
+<p>函数的形式是zip（iter1[，iter2[…]），它接受多个序列并将它们组合成元组。当需要将键列表和值列表组合到dict中时，这很有用。与这里描述的其他函数一样，zip（）返回iterable。这里有一个键列表，我们映射到值列表以创建字典：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000">keys</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;foobar&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;barzz&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;ba!&#34;</span><span style="color:#000;font-weight:bold">]</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">keys</span><span style="color:#000;font-weight:bold">)</span>
+<span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87">map</span> <span style="color:#204a87">object</span> <span style="color:#000">at</span> <span style="color:#0000cf;font-weight:bold">0x7fc1686100d0</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">keys</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">keys</span><span style="color:#000;font-weight:bold">))</span>
+<span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87">zip</span> <span style="color:#204a87">object</span> <span style="color:#000">at</span> <span style="color:#0000cf;font-weight:bold">0x7fc16860d440</span><span style="color:#ce5c00;font-weight:bold">&gt;</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">keys</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">keys</span><span style="color:#000;font-weight:bold">)))</span>
+<span style="color:#000;font-weight:bold">[(</span><span style="color:#4e9a06">&#39;foobar&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;barzz&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">),</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;ba!&#39;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">)]</span>
+<span style="color:#ce5c00;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#204a87">dict</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">zip</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">keys</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">map</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">keys</span><span style="color:#000;font-weight:bold">)))</span>
+<span style="color:#000;font-weight:bold">{</span><span style="color:#4e9a06">&#39;foobar&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">6</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;barzz&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#39;ba!&#39;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">}</span></code></pre></div>
+<h2 id="下一步是什么">下一步是什么？</h2>
+
+<p>虽然Python经常被宣传为面向对象的，但它可以以非常实用的方式使用。它的许多内置概念，如生成器和列表理解，都是面向功能的，不会与面向对象的方法冲突。python提供了一组内置函数，可以帮助您保持代码不受任何副作用的影响。这也限制了对一个项目的全球状态的依赖，为了你自己的利益。</p>
+
+     
+                        <hr>
+                        
+                        <div>
+
+							</br>
+                        
+                        </div>
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 CC BY 4.0 License &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://codenow.me/algorithm/binary_tree_using_python/" title="用Python实现二叉树">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              用Python实现二叉树
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = 'https:\/\/codenow.me\/';
+      var repo_id  = 'atts-group\/atts';
+    
+    </script>
+
+    <script src="https://codenow.me/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "¶";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-136313587-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

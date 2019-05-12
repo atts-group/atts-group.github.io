@@ -38,6 +38,26 @@
   </url>
   
   <url>
+    <loc>https://codenow.me/translation/an_introduction_to_functional_programming_with_python/</loc>
+    <lastmod>2019-05-12T23:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/algorithm/binary_tree_using_python/</loc>
+    <lastmod>2019-05-12T22:39:01+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/articles/django_support_https/</loc>
+    <lastmod>2019-05-12T22:11:42+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codenow.me/tips/django_mysql/</loc>
+    <lastmod>2019-05-12T22:00:34+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codenow.me/tips/goland-jvm-optimize/</loc>
     <lastmod>2019-05-12T21:44:40+08:00</lastmod>
   </url>
