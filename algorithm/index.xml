@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Leetcode_917: Reverse Only Letters</title>
+      <link>https://codenow.me/algorithm/leetcode_917_reverse_only_letters/</link>
+      <pubDate>Sun, 19 May 2019 15:03:07 +0900</pubDate>
+      
+      <guid>https://codenow.me/algorithm/leetcode_917_reverse_only_letters/</guid>
+      <description>题号：917 难度：easy 链接：https://leetcode.com/problems/reverse-only-letters/ 描述：只反转字符串中的字母  class Solution: def reverseOnlyLetters(self, S: str) -&amp;gt; str: # solution 1 # new_list = [] # for s in S[::-1]: # if s.isalpha(): # new_list.append(s) # for i,s in enumerate(S): # if not s.isalpha(): # new_list.insert(i, s) # return &amp;#39;&amp;#39;.join(new_list) # solution 2 S = list(S) left, right = 0, len(S)-1 while left &amp;lt;= right: if S[left].isalpha() and S[right].isalpha(): S[left], S[right] = S[right], S[left] left += 1 right -= 1 elif S[left].</description>
+    </item>
+    
+    <item>
       <title>用Python实现二叉树</title>
       <link>https://codenow.me/algorithm/binary_tree_using_python/</link>
       <pubDate>Sun, 12 May 2019 22:39:01 +0800</pubDate>

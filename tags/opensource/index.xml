@@ -5,10 +5,31 @@
     <link>https://codenow.me/tags/opensource/</link>
     <description>Recent content in Opensource on ATTS</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 12 May 2019 09:46:14 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 19 May 2019 15:52:45 +0900</lastBuildDate>
     
 	<atom:link href="https://codenow.me/tags/opensource/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>如何做开源贡献者 02</title>
+      <link>https://codenow.me/translation/howtocontributetoopensource02/</link>
+      <pubDate>Sun, 19 May 2019 15:52:45 +0900</pubDate>
+      
+      <guid>https://codenow.me/translation/howtocontributetoopensource02/</guid>
+      <description>四、寻找你想要贡献的项目 如果你没有过开源项目的经验，不妨参考一下美国前总统肯尼迪的一些建议，他曾经说过，“不要问你的国家可以为你做什么，问一下你可以为你的国家做什么”。
+开源贡献可以在项目的任何阶段，贯穿整个项目始终。 你不必担心太多你的第一个贡献是怎么样的，看起来是怎么样的。 相反，你应该回顾一下你用过的项目和你想要用的项目。你将会发现你热衷于贡献的项目会是你经常使用的项目。
+在那些项目里面，当你觉得某个地方某个东西可以更好或者更不一样时，按照你的直觉做。
+开源项目并不是一个私人俱乐部，它是由像你这样的人组成的。“开源项目”只是一个特别的术语，把世界上的问题当成可修复的来看待的。
+你可能在浏览 README 文件的时候发现了一个打不开的链接或一个错字。或者你是一个新用户，然后你发现有些地方走不通，或者有个问题需要加进文档里。 与其忽略它不理不顾，不如叫人来修复它，看看你能不能帮上什么忙。这就是开源项目的意义所在。
+有 28% 的开源贡献都是文档类型，比如修改错字，调整格式或翻译文档。
+下面的资源也许能够帮助你发现你新的开源项目：
+ GitHub Explore Open Source Friday First Timers Only CodeTriage 24 Pull Requests Up For Grabs Contributor-ninja First Contributions  评估清单 当你发现了一个你想要贡献的项目，看看这个项目是不是接受贡献者，对此做一个快速的判断。否则，你的辛勤工作可能就得不到任何回复了。 这里有一个简单的清单帮助评估项目是否适合新的贡献者。
+是否满足开源项目的定义
+是否有许可证？一般在仓库的根目录里有个叫 LICENSE 的文件  项目是否活跃地接受贡献
+看一下主分支里的提交活动。在 GitHub 里，你可以在仓库的主页面里看到相关的信息。
+上一个提交是什么时候？ 这个项目有多少个贡献者？ 多久有人提交一次？（在 github 里，你可以点击顶部的 Commits 查看）  下一步，看看这个项目的 issues。
+有多少个公开 issues？ 维护者对这些公开 issues 回复得快吗？ 在 issues 里是否有积极地讨论？ 这些 issues 是近期的吗？ 有已关闭的 issues 吗？（在 Github 里，在 issues 页面点击 closed 可以看到关闭的 issues）  现在看看项目的 pull requests</description>
+    </item>
     
     <item>
       <title>如何做开源贡献者 01</title>
@@ -16,7 +37,8 @@
       <pubDate>Sun, 12 May 2019 09:46:14 +0900</pubDate>
       
       <guid>https://codenow.me/translation/howtocontributetoopensource01/</guid>
-      <description>一、为什么要为开源做贡献 给开源项目做贡献是一个具有投资价值回报的事情，在学习、传授和积累任何你可以想象到的技能经验 等等各个方面。 为什么人们要为开源做贡献？原因很多！
+      <description>原链接： How to Contribute to Open Source
+一、为什么要为开源做贡献 给开源项目做贡献是一个具有投资价值回报的事情，在学习、传授和积累任何你可以想象到的技能经验 等等各个方面。 为什么人们要为开源做贡献？原因很多！
 提高现有技能 无论是敲代码、UI 设计、平面设计、写作或整理，如果你想要实践，开源项目里可以总有一个任务适合你。
 认识拥有同样爱好的人 热情的开源项目团队总是可以让人流连忘返。 许多人的终身友谊就是在参加开源项目时认识的，无论是在会议里遇到还是在深夜里讨论墨西哥卷饼，都保持着良好的联系。
 找到导师或者传授他人 在一个共享项目里和别人合作意味着你不得不告诉别人你的做事方式以及向他人寻求帮助。 学习和教学对于每一个参加的人来说，都会变的日常和丰富。

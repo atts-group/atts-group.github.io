@@ -313,15 +313,68 @@
             <h1>目录 - Kingkoma</h1>
 
             
+            <a href="https://codenow.me/articles/learning_the_shell_03/" title="Shell　入门 03">
+                <h2>Shell　入门 03 </h2>
+            </a>
+            <br>
+
+              变量  变量包括
+  变量名 变量值   本地变量
+  在当前系统某个环境才生效的变量，作用范围小。 包括普通变量和命令变量。   普通变量定义方式
+  变量名=变量值（变量值必须是一个整体，中间无特殊字符，=两边无空格） 变量名=&lsquo;变量值&rsquo;（看到什么输出什么） 变量名=&ldquo;变量值&rdquo;（变量值范围内有可以解析的变量 A，将 A 的结果和其余内容组合成整体重新赋值给变量 B）  注意：数字一般不加引号，其它默认加双引号。
+ 命令变量定义方式
+  变量名=命令 变量名=$(命令)  执行流程：
+ 执行反引号或者 $() 里的命令 将命令执行后的结果赋值给
+              <a href="https://codenow.me/articles/learning_the_shell_03/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/translation/howtocontributetoopensource02/" title="如何做开源贡献者 02">
+                <h2>如何做开源贡献者 02 </h2>
+            </a>
+            <br>
+
+              四、寻找你想要贡献的项目 如果你没有过开源项目的经验，不妨参考一下美国前总统肯尼迪的一些建议，他曾经说过，“不要问你的国家可以为你做什么，问一下你可以为你的国家做什么”。
+开源贡献可以在项目的任何阶段，贯穿整个项目始终。 你不必担心太多你的第一个贡献是怎么样的，看起来是怎么样的。 相反，你应该回顾一下你用过的项目和你想要用的项目。你将会发现你热衷于贡献的项目会是你经常使用的项目。
+在那些项目里面，当你觉得某个地方某个东西可以更好或者更不一样时，按照你的直觉做。
+开源项目并不是一个私人俱乐部，它是由像你这样的人组成的。“开源项目”只是一个特别的术语，把世界上的问题当成可修复的来看待的。
+你可能在
+              <a href="https://codenow.me/translation/howtocontributetoopensource02/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/tips/jquery_noconflict/" title="jQuery NoConflict()">
+                <h2>jQuery NoConflict() </h2>
+            </a>
+            <br>
+
+              描述：
+ 前段时间在调用 jQuery 表单验证的一个方法时发现怎么样都调不到。搜索了一下感觉是因为引进的其它第三方库里也用了其它版本的 jQuery。因为存在多个 jQuery 版本，无法识别。
+ 解决：
+ jQuery.noConflict()
+ 作用：
+  让渡 jQuery 控制权  也可以为 jQuery 变量规定新的名字   例子：
+ var j = jQuery.noConflict(); // 再用它来调用 jQuery 方法 j.validator.addMethod();
+              <a href="https://codenow.me/tips/jquery_noconflict/"><br>[阅读全文]</a>
+
+            <hr> 
+            <a href="https://codenow.me/algorithm/leetcode_917_reverse_only_letters/" title="Leetcode_917: Reverse Only Letters">
+                <h2>Leetcode_917: Reverse Only Letters </h2>
+            </a>
+            <br>
+
+              题号：917 难度：easy 链接：<a href="https://leetcode.com/problems/reverse-only-letters/">https://leetcode.com/problems/reverse-only-letters/</a> 描述：只反转字符串中的字母  class Solution: def reverseOnlyLetters(self, S: str) -&gt; str: # solution 1 # new_list = [] # for s in S[::-1]: # if s.isalpha(): # new_list.append(s) # for i,s in enumerate(S): # if not s.isalpha(): # new_list.ins
+              <a href="https://codenow.me/algorithm/leetcode_917_reverse_only_letters/"><br>[阅读全文]</a>
+
+            <hr> 
             <a href="https://codenow.me/translation/howtocontributetoopensource01/" title="如何做开源贡献者 01">
                 <h2>如何做开源贡献者 01 </h2>
             </a>
             <br>
 
-              一、为什么要为开源做贡献 给开源项目做贡献是一个具有投资价值回报的事情，在学习、传授和积累任何你可以想象到的技能经验 等等各个方面。 为什么人们要为开源做贡献？原因很多！
+              原链接： How to Contribute to Open Source
+一、为什么要为开源做贡献 给开源项目做贡献是一个具有投资价值回报的事情，在学习、传授和积累任何你可以想象到的技能经验 等等各个方面。 为什么人们要为开源做贡献？原因很多！
 提高现有技能 无论是敲代码、UI 设计、平面设计、写作或整理，如果你想要实践，开源项目里可以总有一个任务适合你。
 认识拥有同样爱好的人 热情的开源项目团队总是可以让人流连忘返。 许多人的终身友谊就是在参加开源项目时认识的，无论是在会议里遇到还是在深夜里讨论墨西哥卷饼，都保持着良好的联系。
-找到导师或者传授他人 在一个共享项目里和别人合作意味着你不得不告诉别人你的做事方式以及向他人寻求帮助。 学习和教学对于每一个参加的人来说，
+找到导师或者传授他人 在一个共享项目里和别人合作意味着你不得不
               <a href="https://codenow.me/translation/howtocontributetoopensource01/"><br>[阅读全文]</a>
 
             <hr> 

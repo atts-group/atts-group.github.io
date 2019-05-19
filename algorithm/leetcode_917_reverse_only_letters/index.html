@@ -9,16 +9,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>如何做开源贡献者 01 - ATTS</title>
+    <title>Leetcode_917: Reverse Only Letters - ATTS</title>
     <meta name="generator" content="Hugo 0.54.0" />
 
     
-    <link rel="canonical" href="https://codenow.me/translation/howtocontributetoopensource01/">
+    <link rel="canonical" href="https://codenow.me/algorithm/leetcode_917_reverse_only_letters/">
     
     <meta name="author" content="ATTS Group">
     
 
-    <meta property="og:url" content="https://codenow.me/translation/howtocontributetoopensource01/">
+    <meta property="og:url" content="https://codenow.me/algorithm/leetcode_917_reverse_only_letters/">
     <meta property="og:title" content="ATTS">
     <meta property="og:image" content="https://codenow.me/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="ATTS">
@@ -95,7 +95,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        如何做开源贡献者 01
+        Leetcode_917: Reverse Only Letters
       </div>
     </div>
 
@@ -312,178 +312,44 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>如何做开源贡献者 01 </h1>
+			<h1>Leetcode_917: Reverse Only Letters </h1>
 
-			
+			<blockquote>
+<p>题号：917 <br>
+难度：easy <br>
+链接：<a href="https://leetcode.com/problems/reverse-only-letters/">https://leetcode.com/problems/reverse-only-letters/</a> <br>
+描述：只反转字符串中的字母 <br></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">Solution</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">reverseOnlyLetters</span><span style="color:#000;font-weight:bold">(</span><span style="color:#3465a4">self</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span> <span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">:</span>
+<span style="color:#8f5902;font-style:italic"># solution 1</span>
+<span style="color:#8f5902;font-style:italic">#         new_list = []</span>
 
-<p>原链接： <a href="https://opensource.guide/how-to-contribute/">How to Contribute to Open Source</a></p>
+<span style="color:#8f5902;font-style:italic">#         for s in S[::-1]:</span>
+<span style="color:#8f5902;font-style:italic">#             if s.isalpha():</span>
+<span style="color:#8f5902;font-style:italic">#                 new_list.append(s)</span>
 
-<h2 id="一-为什么要为开源做贡献">一、为什么要为开源做贡献</h2>
+<span style="color:#8f5902;font-style:italic">#         for i,s in enumerate(S):</span>
+<span style="color:#8f5902;font-style:italic">#             if not s.isalpha():</span>
+<span style="color:#8f5902;font-style:italic">#                 new_list.insert(i, s)</span>
 
-<p>给开源项目做贡献是一个具有投资价值回报的事情，在学习、传授和积累任何你可以想象到的技能经验
-等等各个方面。
-为什么人们要为开源做贡献？原因很多！</p>
+<span style="color:#8f5902;font-style:italic">#         return &#39;&#39;.join(new_list)</span>
 
-<h3 id="提高现有技能">提高现有技能</h3>
+        <span style="color:#8f5902;font-style:italic"># solution 2</span>
 
-<p>无论是敲代码、UI 设计、平面设计、写作或整理，如果你想要实践，开源项目里可以总有一个任务适合你。</p>
+        <span style="color:#000">S</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">list</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">S</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">left</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">right</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">S</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span>
 
-<h3 id="认识拥有同样爱好的人">认识拥有同样爱好的人</h3>
-
-<p>热情的开源项目团队总是可以让人流连忘返。
-许多人的终身友谊就是在参加开源项目时认识的，无论是在会议里遇到还是在深夜里讨论墨西哥卷饼，都保持着良好的联系。</p>
-
-<h3 id="找到导师或者传授他人">找到导师或者传授他人</h3>
-
-<p>在一个共享项目里和别人合作意味着你不得不告诉别人你的做事方式以及向他人寻求帮助。
-学习和教学对于每一个参加的人来说，都会变的日常和丰富。</p>
-
-<h3 id="建立公共事务帮助你提高声誉以及事业">建立公共事务帮助你提高声誉以及事业</h3>
-
-<p>根据定义，你所有的开源项目都是公共的，意味着你在任何地方都可以以它们为例子来证明你的能力。</p>
-
-<h3 id="学习通用技能">学习通用技能</h3>
-
-<p>开源项目提供很多锻炼领导力和管理能力的机会，像解决冲突、管理团队和确定工作的优先级。</p>
-
-<h3 id="能够让你作出改变-就算是小改变">能够让你作出改变，就算是小改变</h3>
-
-<p>参加开源项目不意味着你是一个终身贡献者。你有没有在什么网站上看到过什么错字，然后希望有人可以纠正它，其实你可以去做。
-开源项目通过它们的活动帮助人们感受到组织的氛围以及它们如何体验这个世界的。这本身就很有意义。</p>
-
-<h2 id="二-贡献什么">二、贡献什么</h2>
-
-<p>如果你是一个新手贡献者，这个过程看上去有点吓人。 </br>
-怎么找到合适的项目？如果不会敲代码怎么办？如果出了错怎么办？ </br>
-别担心，有各种参与开源项目的方式！
-为了能让你充分利用自身经验，下面有一些提示。</p>
-
-<h3 id="你不必贡献代码">你不必贡献代码</h3>
-
-<p>对于贡献开源的一个常见误解就是你一定要贡献代码。事实上，<a href="https://github.com/blog/2195-the-shape-of-open-source">这是一个项目里最被忽视的一个部分。</a></p>
-
-<h3 id="你喜欢活动策划吗">你喜欢活动策划吗？</h3>
-
-<ul>
-<li>组织项目的研讨会或者聚会，像<a href="https://github.com/nodeschool/organizers/issues/406">@fzamperin 为 NodeSchool 做的那样</a></li>
-<li>组织项目会议</li>
-<li>帮助社区成员找到合适的会议室和写会议提案</li>
-</ul>
-
-<h3 id="你喜欢设计吗">你喜欢设计吗？</h3>
-
-<ul>
-<li>重组布局，帮助项目可读性</li>
-<li>进行用户研究，改进项目的导航条和目录，<a href="https://www.drupal.org/community-initiatives/drupal-core/usability">像 Drupal 建议的那样</a></li>
-<li>整理设计风格指南，帮助项目拥有一个一致的视觉效果</li>
-<li>设计 T 恤或者新 logo，<a href="https://github.com/hapijs/contrib/issues/68">像 hapi.js 的贡献者做的那样</a></li>
-</ul>
-
-<h3 id="你喜欢写作吗">你喜欢写作吗？</h3>
-
-<ul>
-<li>写项目文档或者改进项目文档</li>
-<li>建立一个示例文件夹，展示项目的使用方式</li>
-<li>为项目启动简报，或从邮件列表里挑出一些精彩的集锦</li>
-<li>写项目教程，<a href="https://github.com/pypa/python-packaging-user-guide/issues/194">像 PyPA 的贡献者做的那样</a></li>
-<li>翻译项目文档</li>
-</ul>
-
-<h3 id="你喜欢整理东西吗">你喜欢整理东西吗？</h3>
-
-<ul>
-<li>对于重复的 issues 的链接，建议增加一个新的 issue 标签，保持事情的调整性</li>
-<li>浏览公开 issues，建议关闭旧的 issues</li>
-<li>在最近的公开 issues 里问具体的问题，使讨论向前推进</li>
-</ul>
-
-<h3 id="你喜欢敲代码吗">你喜欢敲代码吗？</h3>
-
-<ul>
-<li>找到一个待解决的公开 issue，<a href="https://github.com/Leaflet/Leaflet/issues/4528#issuecomment-216520560">像 @dianjin 为 Leaflet 做的那样</a></li>
-<li>询问你是否可以帮助写一些新功能</li>
-<li>使项目启动自动化</li>
-<li>改进工具和测试</li>
-</ul>
-
-<h3 id="你喜欢帮助别人吗">你喜欢帮助别人吗？</h3>
-
-<ul>
-<li>在像 Stack Overflow 或 Reddit 的网站上解答有关项目的问题，<a href="https://stackoverflow.com/questions/18664074/getting-error-peer-authentication-failed-for-user-postgres-when-trying-to-ge">像这个 Postgres 例子一样</a></li>
-<li>在公开 issues 为人解答疑问</li>
-<li>帮助调节项目与外界的沟通渠道</li>
-</ul>
-
-<h3 id="你喜欢帮助别人有关代码的事吗">你喜欢帮助别人有关代码的事吗？</h3>
-
-<ul>
-<li>审核别人提交的代码</li>
-<li>写项目使用教程</li>
-<li>为贡献者提供指导，<a href="https://github.com/rust-lang/book/issues/123#issuecomment-238049666">像 @ereichert 为 @bronzdoc 在 Rust 上做的那样</a></li>
-</ul>
-
-<h3 id="你不一定要做软件项目">你不一定要做软件项目！</h3>
-
-<p>虽然开源项目通常指软件，你也可以尝试别的东西。还有很多其它像书籍、食谱、列表或者类等形式的开源项目。</br>
-例子：</p>
-
-<ul>
-<li><a href="https://github.com/sindresorhus">@sindresorhus</a> 创建了一个 awesome 列表</li>
-<li><a href="https://github.com/h5bp">@h5bp</a> 给前端工程师们维护着一个面试常见问题列表</li>
-<li><a href="https://github.com/stuartlynn">@stuartlynn</a> 和 <a href="https://github.com/nicole-a-tesla">@nicole-a-tesla</a> 建立了<a href="https://github.com/stuartlynn/puffin_facts">一个系列介绍关于海雀的一些有趣的事实。</a></li>
-</ul>
-
-<p>就算你是一个软件工程师，从事文档项目可以让你快速开始开源项目。
-从与代码无关的工作开始，看起来就没那么可怕了，而且可以借助这个过程建立你的自信心和积累你的经验。</p>
-
-<h2 id="三-在新项目里定位你自己">三、在新项目里定位你自己</h2>
-
-<p>对于任何超过纠正错字的建议，贡献开源就像是在一个派对上走向一群陌生人。
-当他们在聊金鱼聊得起劲的时候，你过去说关于羊驼的事，他们大概会觉得你奇怪。
-所以，与其毫无来由地提出你的建议，不如先学会开始观察整个房间，这样做可以增加你的观点被注意和被聆听的机会。</p>
-
-<h3 id="剖析开源项目">剖析开源项目</h3>
-
-<p>每个开源社区都是不一样的。
-在一个开源项目花了很多年时间意味着你足够了解这个项目。
-当你去了另外一个项目，你可能会发现项目用的词汇、规范和沟通风格都不一样。
-也就是说，许多开源项目其实都遵循着一个类似的组织结构。了解不同的社区角色和整个流程会帮助你快速的定位到任何新项目。</p>
-
-<p>一个典型的开源项目有以下类型的人：</p>
-
-<ul>
-<li>作者： 创建项目的人或机构</li>
-<li>所有者：对组织或仓库拥有管理所有权的人，不一定是作者</li>
-<li>维护人员：负责推动项目愿景和管理项目组织方面的贡献者，可能同时是作者或所有者</li>
-<li>贡献者：为项目做出贡献的所有人</li>
-<li>社区成员：使用项目的人，他们可能会积极参与对话或者表达对于项目方向的意见</li>
-</ul>
-
-<p>大一点的项目可能还有小组委员会或针对不同任务的工作组，像工具、分类、社区调节和活动组织。
-在项目网站上找关于团队介绍的页面，或者在仓库里的管理文档里找到相关的信息。</p>
-
-<p>一个项目也有文档。这些文件通常被列在仓库的最高层级。</p>
-
-<ul>
-<li>LICENSE：从定义上理解，每个开源项目都必须拥有<a href="https://choosealicense.com/">开源许可证</a>。如果没有的，那就不是开源</li>
-<li>README：帮助新的社区成员加入项目的一个指导手册。通常描述了项目的目的和如何开始使用</li>
-<li>CONTRIBUTING：README 是教人们如何使用项目，而 CONTRIBUTING 文档则是教人们如何为这个项目做贡献。
-通常描述了所需要的贡献类型和整个流程的运作模式。不是所有项目都有这个文件，有这个文档表示这个项目欢迎更多的贡献者</li>
-<li>CODE_OF_CONDUCT：代码准则规范为参与者的行为设定了基本的规则，有助于营造一个友好的热情的环境。
-不是所有项目都有这个文件，有这个文档表示这个项目欢迎更多的贡献者</li>
-<li>Other documentation：可能是其它的比如教程、演示或管理方针之类的文档。大项目里比较常见</li>
-</ul>
-
-<p>最后，开源项目会有下面的工具来组织讨论。
-阅读档案会帮助你加深对社区的想法和运作方式的理解。</p>
-
-<ul>
-<li>Issue tracker：人们讨论关于项目的问题的地方</li>
-<li>Pull requests：人们讨论和审核正在进行修改的地方</li>
-<li>Discussion forums or mailing lists：有些项目会使用讨论论坛或邮箱列表这些渠道进行特定的对话主题，比如 &ldquo;我应如何&hellip;&rdquo; 或 &ldquo;你对&hellip;的看法是&rdquo; 等，而不是报告错误或请求新功能。某些项目也会选择用 Issue tracker 进行所有类型的对话</li>
-<li>Synchronous chat channel：一些项目会使用像 Slack 或 IRC 作为日常对话、协作和交换想法的沟通渠道</li>
-</ul>
-
+        <span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#000">right</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isalpha</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isalpha</span><span style="color:#000;font-weight:bold">():</span>
+                <span style="color:#000">S</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">]</span>
+                <span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#0000cf;font-weight:bold">1</span>
+                <span style="color:#000">right</span> <span style="color:#ce5c00;font-weight:bold">-=</span> <span style="color:#0000cf;font-weight:bold">1</span>
+            <span style="color:#204a87;font-weight:bold">elif</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">left</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isalpha</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#204a87;font-weight:bold">and</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">not</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">right</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">isalpha</span><span style="color:#000;font-weight:bold">()):</span>
+                <span style="color:#000">right</span> <span style="color:#ce5c00;font-weight:bold">-=</span> <span style="color:#0000cf;font-weight:bold">1</span>
+            <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+                <span style="color:#000">left</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#0000cf;font-weight:bold">1</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#4e9a06">&#34;&#34;</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">join</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">S</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
      
                         <hr>
                         
@@ -500,11 +366,7 @@
                                     </div>
                                     
                                     <div>
-                                        <a href="https://codenow.me/tags/contribute">contribute</a> 
-                                    </div>
-                                    
-                                    <div>
-                                        <a href="https://codenow.me/tags/opensource">OpenSource</a> 
+                                        <a href="https://codenow.me/tags/leetcode">leetcode</a> 
                                     </div>
                                     
                                 </div>
@@ -528,7 +390,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://codenow.me/articles/learning_the_shell_02/" title="Shell　入门 02">
+      <a href="https://codenow.me/translation/an_introduction_to_functional_programming_with_python/" title="Python的函数式编程">
         <span class="direction">
           Previous
         </span>
@@ -538,7 +400,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Shell　入门 02
+              Python的函数式编程
             </div>
           </div>
         </div>
@@ -548,14 +410,14 @@
 
   <div class="next">
   
-      <a href="https://codenow.me/articles/python-namedtuple/" title="Python Namedtuple 源码分析">
+      <a href="https://codenow.me/tips/jquery_noconflict/" title="jQuery NoConflict()">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Python Namedtuple 源码分析
+              jQuery NoConflict()
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

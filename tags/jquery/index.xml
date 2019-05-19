@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jquery on ATTS</title>
+    <link>https://codenow.me/tags/jquery/</link>
+    <description>Recent content in Jquery on ATTS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 19 May 2019 15:29:10 +0900</lastBuildDate>
+    
+	<atom:link href="https://codenow.me/tags/jquery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jQuery NoConflict()</title>
+      <link>https://codenow.me/tips/jquery_noconflict/</link>
+      <pubDate>Sun, 19 May 2019 15:29:10 +0900</pubDate>
+      
+      <guid>https://codenow.me/tips/jquery_noconflict/</guid>
+      <description> 描述：
+ 前段时间在调用 jQuery 表单验证的一个方法时发现怎么样都调不到。搜索了一下感觉是因为引进的其它第三方库里也用了其它版本的 jQuery。因为存在多个 jQuery 版本，无法识别。
+ 解决：
+ jQuery.noConflict()
+ 作用：
+  让渡 jQuery 控制权  也可以为 jQuery 变量规定新的名字   例子：
+ var j = jQuery.noConflict(); // 再用它来调用 jQuery 方法 j.validator.addMethod(); </description>
+    </item>
+    
+  </channel>
+</rss>

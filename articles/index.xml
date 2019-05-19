@@ -11,6 +11,25 @@
     
     
     <item>
+      <title>Shell　入门 03</title>
+      <link>https://codenow.me/articles/learning_the_shell_03/</link>
+      <pubDate>Mon, 20 May 2019 00:01:40 +0900</pubDate>
+      
+      <guid>https://codenow.me/articles/learning_the_shell_03/</guid>
+      <description>变量  变量包括
+  变量名 变量值   本地变量
+  在当前系统某个环境才生效的变量，作用范围小。 包括普通变量和命令变量。   普通变量定义方式
+  变量名=变量值（变量值必须是一个整体，中间无特殊字符，=两边无空格） 变量名=&amp;lsquo;变量值&amp;rsquo;（看到什么输出什么） 变量名=&amp;ldquo;变量值&amp;rdquo;（变量值范围内有可以解析的变量 A，将 A 的结果和其余内容组合成整体重新赋值给变量 B）  注意：数字一般不加引号，其它默认加双引号。
+ 命令变量定义方式
+  变量名=命令 变量名=$(命令)  执行流程：
+ 执行反引号或者 $() 里的命令 将命令执行后的结果赋值给新的变量   全局变量
+  当前 Shell 以及其派生出来的子 Shell 中都有效的变量。   全局变量定义方式
+  变量=值， export 变量 export 变量=值  查看全局变量
+env   查看变量
+  $变量名 &amp;rdquo;$变量名&amp;rdquo; ${变量名} &amp;rdquo;${变量名}&amp;rdquo;   取消变量</description>
+    </item>
+    
+    <item>
       <title>Django同时支持http/https</title>
       <link>https://codenow.me/articles/django_support_https/</link>
       <pubDate>Sun, 12 May 2019 22:11:42 +0800</pubDate>
